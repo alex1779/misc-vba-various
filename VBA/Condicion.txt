@@ -1,0 +1,3 @@
+    Dim Continuar As String
+    Continuar = MsgBox("Desea crear un nuevo modelo?", vbYesNo + vbExclamation, strTitulo)
+    If Continuar = vbNo Then Exit Sub

@@ -1,0 +1,33 @@
+Sub Example_DefaultPlotStyleForObjects()
+    ' This example reads and modifies the preference value that controls
+    ' the default plot style name for newly created objects.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesOutput
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the output preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Output
+    
+    ' Read and display the original value
+    originalValue = ACADPref.DefaultPlotStyleForObjects
+    MsgBox "The DefaultPlotStyleForObjects preference is: " & originalValue
+
+    ' Toggle and display the DefaultPlotStyleForObjects preference
+    If ACADPref.DefaultPlotStyleForObjects = "ByBlock" Then
+        ACADPref.DefaultPlotStyleForObjects = "Normal"
+    Else
+        ACADPref.DefaultPlotStyleForObjects = "ByBlock"
+    End If
+    
+    newValue = ACADPref.DefaultPlotStyleForObjects
+    MsgBox "The DefaultPlotStyleForObjects preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.DefaultPlotStyleForObjects = originalValue
+    MsgBox "The DefaultPlotStyleForObjects preference was reset back to: " & originalValue
+End Sub

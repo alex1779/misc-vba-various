@@ -1,0 +1,28 @@
+Sub Example_PickGroup()
+    ' This example reads and modifies the preference value that
+    ' determines if picking a single object in a group selects the entire group.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesSelection
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the user preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Selection
+    
+    ' Read and display the original value
+    originalValue = ACADPref.PickGroup
+    MsgBox "The PickGroup preference is set to: " & originalValue
+
+    ' Modify the PickGroup preference by toggling the value
+    ACADPref.PickGroup = Not (ACADPref.PickGroup)
+    newValue = ACADPref.PickGroup
+    MsgBox "The PickGroup preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.PickGroup = originalValue
+    MsgBox "The PickGroup preference was reset back to: " & originalValue
+End Sub

@@ -1,0 +1,7 @@
+Sub Example_Prompt()
+    ' This example will use the Utility object to display a prompt to the
+    ' AutoCAD command line.  To see the results after running the example,
+    ' switch to AutoCAD and look at the command line.
+    
+    ThisDrawing.Utility.prompt "Press any key..."
+End Sub

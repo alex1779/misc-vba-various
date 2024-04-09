@@ -1,0 +1,24 @@
+Sub Example_DefaultInternetURL()
+    ' This example returns the current setting of
+    ' DefaultInternetURL. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currDefaultInternetURL As String
+    Dim newDefaultInternetURL As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current DefaultInternetURL value
+    currDefaultInternetURL = preferences.Files.DefaultInternetURL
+    MsgBox "The current value for DefaultInternetURL is " & currDefaultInternetURL, vbInformation, "DefaultInternetURL Example"
+    
+    ' Change the value for DefaultInternetURL
+    newDefaultInternetURL = "TestDefaultInternetURL"
+    preferences.Files.DefaultInternetURL = newDefaultInternetURL
+    MsgBox "The new value for DefaultInternetURL is " & newDefaultInternetURL, vbInformation, "DefaultInternetURL Example"
+    
+    ' Reset DefaultInternetURL to its original value
+    preferences.Files.DefaultInternetURL = currDefaultInternetURL
+    MsgBox "The DefaultInternetURL value is reset to " & currDefaultInternetURL, vbInformation, "DefaultInternetURL Example"
+End Sub

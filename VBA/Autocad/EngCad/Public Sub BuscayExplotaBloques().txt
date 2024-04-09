@@ -1,0 +1,8 @@
+Public Sub BuscayExplotaBloques()
+For Each Entidad In Autocad.Application.ActiveDocument.modelspace
+If Entidad.ObjectName = "AcDbBlockReference" Then
+Set Block = Entidad
+Bloc.Explode
+End If
+Next Entidad
+End Sub

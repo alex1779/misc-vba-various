@@ -1,0 +1,27 @@
+Sub Example_GetGridSpacing()
+    ' This example turns on the grid for the current viewport.
+    ' It then finds the current grid spacing, and changes that spacing.
+    
+    ' Find the current active viewport
+    Dim viewportObj As AcadViewport
+    Set viewportObj = ThisDrawing.ActiveViewport
+    
+    ' Turn on the grid and reset the viewport to see it come on.
+    viewportObj.GridOn = True
+    ThisDrawing.ActiveViewport = viewportObj
+    
+    ' Find the current grid spacing
+    Dim XSpacing As Double
+    Dim YSpacing As Double
+    
+    viewportObj.GetGridSpacing XSpacing, YSpacing
+    MsgBox "X =" & XSpacing & ", Y =" & YSpacing, , "GetGridSpacing Example"
+    
+    ' Change the grid spacing
+    XSpacing = XSpacing * 0.5
+    YSpacing = YSpacing * 0.5
+    viewportObj.SetGridSpacing XSpacing, YSpacing
+    ThisDrawing.ActiveViewport = viewportObj
+    MsgBox "X =" & XSpacing & ", Y =" & YSpacing, , "GetGridSpacing Example"
+   
+End Sub

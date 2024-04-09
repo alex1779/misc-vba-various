@@ -1,0 +1,12 @@
+Private Sub AcadDocument_EndLisp()
+    ' This example intercepts a drawing BeginLisp event.
+    '
+    ' This event is triggered when a drawing finishes
+    ' a the evaluation of a LISP expression.
+    '
+    ' To trigger this example event: Start the evaluation of a LISP expression and
+    ' wait for it to finish being evaluated
+
+    MsgBox "A LISP expression has just finished being evaluated!"
+
+End Sub

@@ -1,0 +1,46 @@
+Public Sub GetTranslation()
+    
+
+    Dim Navegador As New InternetExplorer
+    Dim ws As Worksheet
+    Dim inputString As String, outputString As String, text_to_convert As String, translation As String
+    Dim NET As SHDocVw.InternetExplorer
+    Dim NETSAYFA As MSHTML.HTMLDocument
+    Dim NETGIRIS As MSHTML.HTMLInputElement
+    Dim ELEMENTLAR As MSHTML.IHTMLElementCollection
+    
+    
+    inputString = "en"
+    outputString = "es"
+    text_to_convert = Cells(1, 1)
+    
+    Set ws = ThisWorkbook.Worksheets("Hoja1")
+
+
+        Set NET = New SHDocVw.InternetExplorer
+
+        NET.navigate "https://translate.google.com/#" & inputString & "/" & outputString & "/" & text_to_convert
+        NET.Visible = 0
+
+        Do While NET.readyState <> 4: DoEvents: Loop
+        Application.Wait (Now + TimeValue("0:00:01"))
+        
+        Set NETSAYFA = NET.document
+        
+        Set ELEMENTLAR = NETSAYFA.getElementsByClassName("tlid-translation translation")
+        
+        
+        Do While NETSAYFA.readyState <> "complete": DoEvents: Loop
+        
+            For Each NETGIRIS In ELEMENTLAR
+            
+            If NETGIRIS.ID = "" Then
+            Cells(1, 2) = NETGIRIS.innerText
+             
+            Exit For
+        End If
+        
+        Next NETGIRIS
+        ''NET.Quit
+
+End Sub

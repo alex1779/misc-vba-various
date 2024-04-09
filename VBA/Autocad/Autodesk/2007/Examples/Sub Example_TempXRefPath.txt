@@ -1,0 +1,24 @@
+Sub Example_TempXRefPath()
+    ' This example returns the current setting of
+    ' TempXRefPath. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currTempXRefPath As String
+    Dim newTempXRefPath As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current TempXRefPath value
+    currTempXRefPath = preferences.Files.TempXrefPath
+    MsgBox "The current value for TempXRefPath is " & currTempXRefPath, vbInformation, "TempXRefPath Example"
+    
+    ' Change the value for TempXRefPath
+    newTempXRefPath = "TestTempXRefPath"
+    preferences.Files.TempXrefPath = newTempXRefPath
+    MsgBox "The new value for TempXRefPath is " & newTempXRefPath, vbInformation, "TempXRefPath Example"
+    
+    ' Reset TempXRefPath to its original value
+    preferences.Files.TempXrefPath = currTempXRefPath
+    MsgBox "The TempXRefPath value is reset to " & currTempXRefPath, vbInformation, "TempXRefPath Example"
+End Sub

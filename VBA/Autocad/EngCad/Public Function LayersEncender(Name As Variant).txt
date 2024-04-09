@@ -1,0 +1,5 @@
+Public Function LayersEncender(Name As Variant)
+Dim layerObj As AcadLayer
+Set layerObj = AutoCAD.Application.ActiveDocument.Layers.Item(nombre)
+layerObj.Freeze = False
+End Function

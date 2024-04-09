@@ -1,0 +1,21 @@
+Sub Example_ContourLinesPerSurface()
+    ' This example returns the current setting of
+    ' ContourLinesPerSurface. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim currContourLinesPerSurface As Integer
+    Dim newContourLinesPerSurface As Integer
+        
+    ' Retrieve the current ContourLinesPerSurface value
+    currContourLinesPerSurface = ThisDrawing.preferences.ContourLinesPerSurface
+    MsgBox "The current value for ContourLinesPerSurface is " & currContourLinesPerSurface, vbInformation, "ContourLinesPerSurface Example"
+    
+    ' Change the value for ContourLinesPerSurface
+    newContourLinesPerSurface = 2001
+    ThisDrawing.preferences.ContourLinesPerSurface = newContourLinesPerSurface
+    MsgBox "The new value for ContourLinesPerSurface is " & newContourLinesPerSurface, vbInformation, "ContourLinesPerSurface Example"
+    
+    ' Reset ContourLinesPerSurface to its original value
+    ThisDrawing.preferences.ContourLinesPerSurface = currContourLinesPerSurface
+    MsgBox "The ContourLinesPerSurface value is reset to " & currContourLinesPerSurface, vbInformation, "ContourLinesPerSurface Example"
+End Sub

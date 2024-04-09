@@ -1,0 +1,15 @@
+Sub Example_GetAllProfileNames()
+    ' This example gets all the profiles available for the system.
+    
+    Dim systemProfiles As Variant
+    Call AcadApplication.preferences.Profiles.GetAllProfileNames(systemProfiles)
+       
+    ' List all the profiles for the system
+    Dim x As Integer
+    Dim msg As String
+    msg = ""
+    For x = LBound(systemProfiles) To UBound(systemProfiles)
+        msg = msg & systemProfiles(x) & vbCrLf
+    Next
+    MsgBox msg, vbInformation, "Available Profiles"
+End Sub

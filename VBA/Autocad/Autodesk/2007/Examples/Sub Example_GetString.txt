@@ -1,0 +1,22 @@
+Sub Example_GetString()
+    ' This example demonstrates different ways of returning a string
+    ' entered by a user.
+    
+    Dim returnString As String
+    
+    ' Prompt & Input cannot contain blanks
+    returnString = ThisDrawing.Utility.GetString(False, "Enter text (a space or <enter> terminates input): ")
+    MsgBox "The string entered was '" & returnString & "'", , "GetString Example"
+    
+    ' Prompt & Input can contain blanks
+    returnString = ThisDrawing.Utility.GetString(True, "Enter text (<enter> terminates input):")
+    MsgBox "The string entered was '" & returnString & "'", , "GetString Example"
+    
+    ' Prompt & Input can contain blanks, but not an empty string
+    Dim NoNull As Integer
+    NoNull = 1    ' Disallow null
+    ThisDrawing.Utility.InitializeUserInput NoNull
+    returnString = ThisDrawing.Utility.GetString(True, "Enter text (<enter> terminates input): ")
+    MsgBox "The string entered was '" & returnString & "'", , "GetString Example"
+
+End Sub

@@ -1,0 +1,14 @@
+Sub Example_AcadApplication_Events()
+    ' This example intializes the public variable (ACADApp) which will be used
+    ' to intercept AcadApplication Events
+    '
+    ' The VBA WithEvents statement makes it possible to intercept an generic object
+    ' with the events associated with that object.
+    '
+    ' Before you will be able to trigger any of the AcadApplication events,
+    ' you will first need to run this procedure.
+    
+    ' We could get the application from the ThisDocument object, but that would
+    ' require having a drawing open, so we grab it from the system.
+    Set ACADApp = GetObject(, "AutoCAD.Application.16")
+End Sub

@@ -1,0 +1,8 @@
+Sub Example_PlotLogFilePath()
+' Note: Change the path to a valid folder on your system.
+
+    Dim MyPreference As IAcadPreferencesFiles2
+    Set MyPreference = AcadApplication.Preferences.Files
+    MyPreference.PlotLogFilePath = "C:\Plots"
+
+End Sub

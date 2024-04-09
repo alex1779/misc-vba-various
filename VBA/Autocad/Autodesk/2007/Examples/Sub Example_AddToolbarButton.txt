@@ -1,0 +1,27 @@
+Sub Example_AddToolbarButton()
+    ' This example creates a new toolbar called TestToolbar and inserts a
+    ' toolbar button into it. The toolbar is then displayed.
+    ' To remove the toolbar after execution of this macro, use the Customize Menu
+    ' option from the Tools menu.
+    
+    Dim currMenuGroup As acadMenuGroup
+    Set currMenuGroup = ThisDrawing.Application.MenuGroups.Item(0)
+    
+    ' Create the new toolbar
+    Dim newToolBar As AcadToolbar
+    Set newToolBar = currMenuGroup.Toolbars.Add("TestToolbar")
+    
+    ' Add a button to the new toolbar
+    Dim newButton As AcadToolbarItem
+    Dim openMacro As String
+    
+    ' Assign the macro string the VB equivalent of "ESC ESC _open "
+    openMacro = Chr(3) & Chr(3) & Chr(95) & "open" & Chr(32)
+    
+    Set newButton = newToolBar.AddToolbarButton("", "NewButton", "Open a file.", openMacro)
+    
+    
+    ' Display the toolbar
+    newToolBar.Visible = True
+    
+End Sub

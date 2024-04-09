@@ -1,0 +1,12 @@
+Sub Example_SelectOnScreen()
+    ' This example adds objects to a selection set by prompting the user
+    ' to select ones to add.
+    
+    ' Create the selection set
+    Dim ssetObj As AcadSelectionSet
+    Set ssetObj = ThisDrawing.SelectionSets.Add("TEST_SSET")
+    
+    ' Add objects to a selection set by prompting user to select on the screen
+    ssetObj.SelectOnScreen
+    
+End Sub

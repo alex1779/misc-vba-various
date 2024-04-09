@@ -1,0 +1,27 @@
+Sub Example_AutoSnapToolTip()
+    ' This example reads and modifies the preference value that controls
+    ' the AutoSnap tooltips.  When finished, this example resets the
+    ' preference value back to its original value.
+    
+    Dim ACADPref As AcadPreferencesDrafting
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the drafting preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Drafting
+    
+    ' Read and display the original value
+    originalValue = ACADPref.AutoSnapTooltip
+    MsgBox "The AutoSnapToolTip preference is set to: " & originalValue
+
+    ' Modify the AutoSnapToolTip preference by toggling the value
+    ACADPref.AutoSnapTooltip = Not (originalValue)
+    newValue = ACADPref.AutoSnapTooltip
+    MsgBox "The AutoSnapToolTip preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.AutoSnapTooltip = originalValue
+    MsgBox "The AutoSnapToolTip preference was reset back to: " & originalValue
+End Sub

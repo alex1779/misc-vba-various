@@ -1,0 +1,31 @@
+Sub Example_InsertionPoint()
+    ' This example creates a text object in model space.
+    ' It then changes the insertion point of the text object.
+
+    Dim textObj As AcadText
+    Dim textString As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim height As Double
+    
+    ' Define the text object
+    textString = "Hello, World."
+    insertionPoint(0) = 2: insertionPoint(1) = 2: insertionPoint(2) = 0
+    height = 0.5
+    
+    ' Create the text object in model space
+    Set textObj = ThisDrawing.ModelSpace.AddText(textString, insertionPoint, height)
+    ZoomAll
+    
+    ' Return the current value of the insertion point
+    Dim currInsertionPoint As Variant
+    currInsertionPoint = textObj.insertionPoint
+    MsgBox "The insertion point of the text is " & currInsertionPoint(0) & ", " & currInsertionPoint(1) & ", " & currInsertionPoint(2), vbInformation, "InsertionPoint Example"
+    
+    ' Change the insertion point of the text object and
+    ' update the display of the text object.
+    insertionPoint(0) = 3: insertionPoint(1) = 3: insertionPoint(2) = 0
+    textObj.insertionPoint = insertionPoint
+    textObj.Update
+    MsgBox "The new insertion point of the text is " & textObj.insertionPoint(0) & ", " & textObj.insertionPoint(1) & ", " & textObj.insertionPoint(2), vbInformation, "InsertionPoint Example"
+    
+End Sub

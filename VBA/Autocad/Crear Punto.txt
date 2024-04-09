@@ -1,0 +1,10 @@
+Sub Punto_Con_Rotation()
+    'Declaración de Variables
+    Dim Punto As AcadPoint
+    Dim BasePoint(0 To 2) As Double
+    BasePoint(0) = 100:     BasePoint(1) = 0:         BasePoint(2) = 0
+    'Creando nuevo punto
+    Set Punto = AutoCAD.Application.ActiveDocument.ModelSpace.AddPoint(BasePoint)
+End Sub
+
+

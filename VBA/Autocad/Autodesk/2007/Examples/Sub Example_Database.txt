@@ -1,0 +1,17 @@
+Sub Example_Database()
+    ' This example references the Database object obtained from model space.
+    ' Information from the Database object is then displayed
+    
+    Dim Database As AcadDatabase
+    
+    ' Attach to Database object
+    Set Database = ThisDrawing.ModelSpace.Database
+    MsgBox "We now have access to the properties and methods of the Database object!"
+    
+    ' Retrieve the number of Blocks in this database
+    MsgBox "The number of Blocks in this database is: " & Database.Blocks.count
+
+    ' Release object
+    Set Database = Nothing
+    MsgBox "The Database object has been released!"
+End Sub

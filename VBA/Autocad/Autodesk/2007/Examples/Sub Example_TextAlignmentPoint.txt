@@ -1,0 +1,33 @@
+Sub Example_TextAlignmentPoint()
+    ' This example creates a text object in model space.
+    ' It then changes the TextAlignmentPoint and HorizontalAlignment
+    ' properties of the text object.
+
+    Dim textObj As AcadText
+    Dim textString As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim height As Double
+    
+    ' Define the text object
+    textString = "Hello, World."
+    insertionPoint(0) = 3: insertionPoint(1) = 3: insertionPoint(2) = 0
+    height = 0.5
+    
+    ' Create the text object in model space
+    Set textObj = ThisDrawing.ModelSpace.AddText(textString, insertionPoint, height)
+    ZoomAll
+    MsgBox "The TextAlignmentPoint is set to the default " & textObj.TextAlignmentPoint(0) & ", " & textObj.TextAlignmentPoint(1) & ", " & textObj.TextAlignmentPoint(2), vbInformation, "TextAlignmentPoint Example"
+    
+    ' Change the value of the HorizontalAlignment and
+    ' TextAlignmentPoint properties.
+    ' Note that the HorizontalAlignment property must be changed first,
+    ' and to a value that requires the TextAlignmentPoint, before the
+    ' TextAlignmentPoint property will allow a value to be set.
+    Dim alignmentPoint(0 To 2) As Double
+    alignmentPoint(0) = 5: alignmentPoint(1) = 3: alignmentPoint(2) = 0
+    textObj.HorizontalAlignment = acHorizontalAlignmentFit
+    textObj.TextAlignmentPoint = alignmentPoint
+    ZoomAll
+    MsgBox "The TextAlignmentPoint is set to " & textObj.TextAlignmentPoint(0) & ", " & textObj.TextAlignmentPoint(1) & ", " & textObj.TextAlignmentPoint(2) & vbCrLf & "The HorizontalAlignment is set to acHorizontalAlignmentFit", vbInformation, "TextAlignmentPoint Example"
+    
+End Sub

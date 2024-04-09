@@ -1,0 +1,44 @@
+Sub Example_Import()
+    ' This example will create a new drawing. Be sure to save
+    ' your work and start a new drawing before running this example.
+    ' This example creates a circle. It then exports the drawing
+    ' to a file called DXFExprt.DXF. It then opens a new drawing
+    ' and imports the file.
+    
+    ' Create the circle for visual representation
+    Dim circleObj As AcadCircle
+    Dim centerPt(0 To 2) As Double
+    Dim radius As Double
+    centerPt(0) = 2: centerPt(1) = 2: centerPt(2) = 0
+    radius = 1
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(centerPt, radius)
+    ZoomAll
+    
+    ' Create an empty selection set
+    Dim sset As AcadSelectionSet
+    Set sset = ThisDrawing.SelectionSets.Add("TEST")
+    
+    ' Export the current drawing to the file specified above.
+    Dim exportFile As String
+    exportFile = "C:\my documents\DXFExprt"    ' Adjust path for your system
+    ThisDrawing.Export exportFile, "DXF", sset
+    
+    ' Open a new drawing
+    Dim Acad As AcadApplication
+    Dim newdoc As AcadDocument
+    Set Acad = ThisDrawing.Application
+    Set newdoc = Acad.Documents.Add("acad.dwt")
+    
+    ' Define the import
+    Dim importFile As String
+    Dim InsertPoint(0 To 2) As Double
+    Dim scalefactor As Double
+    importFile = "C:\my documents\DXFExprt.dxf"  ' Adjust path for your system
+    InsertPoint(0) = 0#: InsertPoint(1) = 0#: InsertPoint(2) = 0#
+    scalefactor = 2#
+    
+    ' Import the file
+    ThisDrawing.Import importFile, InsertPoint, scalefactor
+    ZoomAll
+    
+End Sub

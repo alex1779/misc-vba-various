@@ -1,0 +1,24 @@
+Sub Example_SetGridLineWeight()
+    'Turn on display of lineweights
+    Call ThisDrawing.SetVariable("LWDISPLAY", 1)
+    Dim MyModelSpace As IAcadModelSpace2
+    Set MyModelSpace = ThisDrawing.ModelSpace
+    Dim pt(2) As Double
+    Dim MyTable As AcadTable
+    Set MyTable = MyModelSpace.AddTable(pt, 5, 5, 10, 30)
+
+    'Set the lineweight for all grid lines of the table to 1.0
+    Call MyTable.SetGridLineWeight(AcGridLineType.acHorzTop + AcGridLineType.acHorzBottom + AcGridLineType.acHorzInside + _
+                            AcGridLineType.acVertLeft + AcGridLineType.acVertInside + AcGridLineType.acVertRight, _
+                            AcRowType.acDataRow + AcRowType.acHeaderRow + AcRowType.acTitleRow, _
+                            AcLineWeight.acLnWt050)
+
+    'Assign a lineweight of 2.0 to the top grid line of the Title row
+    Call MyTable.SetGridLineWeight(AcGridLineType.acHorzTop, AcRowType.acTitleRow, AcLineWeight.acLnWt200)
+
+    'Assign a lineweight of 2.0 to the bottom grid line of the data row
+    Call MyTable.SetGridLineWeight(AcGridLineType.acHorzBottom, AcRowType.acDataRow, AcLineWeight.acLnWt200)
+    ZoomExtents
+
+
+End Sub

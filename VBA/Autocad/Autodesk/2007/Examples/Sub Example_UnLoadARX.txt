@@ -1,0 +1,13 @@
+Sub Example_UnLoadARX()
+    ' This example unloads an ObjectARX application from the AutoCAD session.
+    
+    ' Note: The application listed here does not exist and
+    ' will cause an error when run. Change the application name
+    ' to the name of your ObjectARX application.
+    On Error GoTo ERRORHANDLER
+    ThisDrawing.Application.UnloadArx ("MyARXApp.dll")
+        
+ERRORHANDLER:
+    MsgBox Err.Description, , "UnloadARX"
+    
+End Sub

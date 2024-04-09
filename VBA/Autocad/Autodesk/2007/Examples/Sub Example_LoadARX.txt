@@ -1,0 +1,9 @@
+Sub Example_LoadARX()
+    ' This example loads an ObjectARX application.
+    
+    ' Note: The application listed here does not exist and
+    ' will cause an error when run. Change the application name
+    ' to the path and name of your ObjectARX application.
+    ThisDrawing.Application.LoadArx ("MyARXApp.arx")
+        
+End Sub

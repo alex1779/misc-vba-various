@@ -1,0 +1,14 @@
+Sub Example_ActivateMethod()
+    ' This example creates two new drawings and activates each drawing in turn.
+    
+    Dim NewDrawing1 As AcadDocument
+    Dim Newdrawing2 As AcadDocument
+    Set NewDrawing1 = ThisDrawing.Application.Documents.Add("")
+    Set Newdrawing2 = ThisDrawing.Application.Documents.Add("")
+    
+    Dim drawing As AcadDocument
+    For Each drawing In ThisDrawing.Application.Documents
+        drawing.Activate
+        MsgBox "Drawing " & drawing.name & " is active."
+    Next drawing
+End Sub

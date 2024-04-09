@@ -1,0 +1,29 @@
+Sub Example_PlotConfigurations()
+    ' This example will access the PlotConfigurations collection for the current drawing,
+    ' add a plot configuration, and list basic information about the
+    ' plot configurations in the drawing.
+
+    Dim PlotConfigurations As AcadPlotConfigurations
+    Dim PlotConfiguration As AcadPlotConfiguration
+    Dim msg As String
+    
+    ' Get PlotConfigurations collection from document object
+    Set PlotConfigurations = ThisDrawing.PlotConfigurations
+    
+    ' If there aren't any plot configurations, then add one
+    If PlotConfigurations.count = 0 Then
+        '*** Customize the new configuration to your satisfaction ***
+        PlotConfigurations.Add "NEW_CONFIGURATION"
+    End If
+    
+    msg = vbCrLf & vbCrLf   ' Start with a space
+    
+    ' Get the names of the plot configurations in this drawing
+    For Each PlotConfiguration In PlotConfigurations
+        msg = msg & PlotConfiguration.name & vbCrLf
+    Next
+    
+    ' Display a list of available plot configurations
+    MsgBox "There are " & PlotConfigurations.count & " plot configuration(s) in " & _
+            ThisDrawing.WindowTitle & ":" & msg
+End Sub

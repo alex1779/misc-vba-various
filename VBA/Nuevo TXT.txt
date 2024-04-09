@@ -1,0 +1,17 @@
+Sub WriteToTextFile_FirstWay()
+    Open "D:\Dropbox\EngCad\Programación\VBA\Temp1.txt" For Output As #1
+        Print #1, "Primera Linea"
+        Print #1, "Segunda Linea"
+        Print #1, "Tercera Linea"
+        
+        
+        
+    Close #1
+End Sub
+
+
+Sub WriteToTextFile_FirstWay()
+    Open "D:\Temp1.txt" For Output As #1
+        Print #1, "This text file was created using microsoft standard library."
+    Close #1
+End Sub

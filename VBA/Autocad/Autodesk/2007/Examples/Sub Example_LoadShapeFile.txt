@@ -1,0 +1,14 @@
+Sub Example_LoadShapeFile()
+    ' This example loads a shape file
+    
+    Dim shapeFileToLoad As String
+    shapeFileToLoad = "C:/AutoCAD/Support/ltypeshp.shx"
+    
+    ' Load the shape file
+    On Error GoTo ERRORHANDLE
+    ThisDrawing.LoadShapeFile shapeFileToLoad
+    Exit Sub
+ERRORHANDLE:
+    MsgBox Err.Description, Title:="LoadShapeFile"
+    
+End Sub

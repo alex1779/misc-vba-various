@@ -1,0 +1,5 @@
+Private Function Activalayer(Nombre As String)
+    Dim LayerName As AcadLayer
+    Set LayerName = AutoCAD.Application.ActiveDocument.Layers.item(Nombre)
+    AutoCAD.Application.ActiveDocument.ActiveLayer = LayerName
+End Function

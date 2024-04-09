@@ -1,0 +1,14 @@
+Sub Example_Toolbars()
+    ' This example finds the names of the all toolbars in the first menu group.
+    
+    Dim toolbarNames As String
+    Dim toolbarCollection As AcadToolbars
+    Dim toolbar As AcadToolbar
+    
+    Set toolbarCollection = ThisDrawing.Application.MenuGroups.Item(0).Toolbars
+    toolbarNames = ""
+    For Each toolbar In toolbarCollection
+        toolbarNames = toolbarNames & toolbar.name & vbCrLf
+    Next toolbar
+    MsgBox toolbarNames
+End Sub

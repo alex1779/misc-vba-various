@@ -1,0 +1,81 @@
+Sub Example_Get_Conected_Lines()
+    ' This example shows if two lines from selection are connected almost in one point.
+    
+    Dim QtyLines As Integer
+    Dim AreLines As Boolean
+    Dim S1, S2, E1, E2 As String
+    Dim LineObj As AcadLine
+    
+    ' First make the selection on screen.
+    Set ssetObj = AutoCAD.Application.ActiveDocument.SelectionSets.Add(Rnd)
+    ssetObj.SelectOnScreen
+    
+    ' Make sure only 2 entities are selected.
+    If ssetObj.Count = 0 Then
+        ssetObj.Delete
+    ElseIf ssetObj.Count = 2 Then
+    
+        ' so then make sure those objects are Lines.
+        For Each entidad In ssetObj
+        If entidad.ObjectName = "AcDbLine" Then
+        QtyLines = QtyLines + 1
+        Set LineObj = entidad
+        
+            If QtyLines = 1 Then
+                S1 = LineObj.StartPoint(0) & "," & LineObj.StartPoint(1) & "," & LineObj.StartPoint(2)
+                E1 = LineObj.EndPoint(0) & "," & LineObj.EndPoint(1) & "," & LineObj.EndPoint(2)
+            Else:
+            End If
+            
+            If QtyLines = 2 Then
+                S2 = LineObj.StartPoint(0) & "," & LineObj.StartPoint(1) & "," & LineObj.StartPoint(2)
+                E2 = LineObj.EndPoint(0) & "," & LineObj.EndPoint(1) & "," & LineObj.EndPoint(2)
+            Else:
+            End If
+            
+        Else:
+        End If
+        Next
+        
+
+        
+        ' turn on variable AreLines if are two lines types.
+        If QtyLines = 2 Then AreLines = True
+        
+        ' Make explicit the result.
+        If AreLines = True Then Debug.Print "You has selected two Lines."
+        
+        
+        Debug.Print "The value of S1 is " & S1
+        Debug.Print "The value of E1 is " & E1
+        Debug.Print "The value of S2 is " & S2
+        Debug.Print "The value of E2 is " & E2
+        
+        
+        ' Looking if lines are connected.
+        If S1 = S2 Or S1 = E2 Or E1 = S2 Or E1 = E2 Then
+            Debug.Print "The lines are connected"
+        Else:
+        Debug.Print "The lines are not connected"
+        End If
+        
+        ' if so, Looking where are connected.
+        If S1 = S2 Then Debug.Print "Are connected between S1 - S2 and the point is " & S1
+        If S1 = E2 Then Debug.Print "Are connected between S1 - E2 and the point is " & S1
+        If E1 = S2 Then Debug.Print "Are connected between E1 - S2 and the point is " & E1
+        If E1 = E2 Then Debug.Print "Are connected between E1 - E2 and the point is " & E1
+        
+        ' Delete selection Set.
+        ssetObj.Delete
+        
+    ElseIf ssetObj.Count < 2 Then
+        ssetObj.Delete
+        Debug.Print "Please select 2 entities!", vbCritical
+        
+    ElseIf ssetObj.Count > 2 Then
+        ssetObj.Delete
+        Debug.Print "Please select 2 entities!", vbCritical
+    Else:
+    End If
+
+End Sub

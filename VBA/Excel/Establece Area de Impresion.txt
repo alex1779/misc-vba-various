@@ -1,0 +1,3 @@
+Sub EstableceAreaImpresion()
+    ActiveSheet.PageSetup.PrintArea = "$A$1:$D$" & UltimaFila
+End Sub

@@ -1,0 +1,39 @@
+Sub Example_LargeButtons()
+    ' This example uses MenuGroups to obtain a reference to the AutoCAD main menu.
+    ' It then creates a new Toolbar (TestMenu) and inserts a ToolBarButton
+    ' into it.  It then sets the LargeButtons property to change the visible style
+    ' of all the system Toolbars
+    
+    Dim CurrSize As Boolean, ButtonSize As String
+    Dim Toolbars As AcadToolbars
+
+    ' Make the system Toolbar buttons bigger
+    Set Toolbars = ThisDrawing.Application.MenuGroups("ACAD").Toolbars
+   
+    ' Get current size
+    CurrSize = Toolbars.LargeButtons
+    
+    ' Display current Toolbar size
+    GoSub DISPLAY
+   
+    ' Toggle Toolbar size
+    Toolbars.LargeButtons = Not (Toolbars.LargeButtons)
+    
+    ' Display current Toolbar size
+    GoSub DISPLAY
+    
+    ' Reset to original value
+    Toolbars.LargeButtons = CurrSize
+    
+    ' Display current Toolbar size
+    GoSub DISPLAY
+
+    Exit Sub
+    
+DISPLAY:
+    ' Display button style
+    ButtonSize = IIf(Toolbars.LargeButtons, "Large", "Normal size")
+    MsgBox "We are displaying " & ButtonSize & " buttons.", vbInformation
+
+    Return
+End Sub

@@ -1,0 +1,9 @@
+    Dim excel
+    Set excel = CreateObject("excel.application")
+    excel.Visible = True
+    Dim workbook
+    Set workbook = excel.workbooks.Open("C:\Users\ENGCAD_NOTEBOOK\Desktop\Curso de Java\Conversor de Renglones.xlsm")
+    Dim worksheet
+    Set worksheet = excel.sheets(1)
+    excel.Range("A1").Select
+    excel.ActiveSheet.Paste

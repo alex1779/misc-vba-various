@@ -1,0 +1,22 @@
+Sub Example_ResetProfile()
+    ' This example resets a profile to the default values.
+    ' NOTE: A dummy profile name is used so that your existing
+    ' profiles are not changed.
+    
+    Dim preferences As AcadPreferences
+    Dim strProfileToReset As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Specify the profile to delete.
+    strProfileToReset = "TestProfile"
+    
+    ' Delete the profile
+    ' The call will fail if "TestProfile" does not exist
+    On Error GoTo Error
+    preferences.Profiles.ResetProfile strProfileToReset
+    Exit Sub
+Error:
+        MsgBox "ResetProfile of " & strProfileToReset & " failed. " & Err.Description, , "ResetProfile Example"
+        
+End Sub

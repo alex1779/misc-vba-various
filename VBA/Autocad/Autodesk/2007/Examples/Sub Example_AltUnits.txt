@@ -1,0 +1,38 @@
+Sub Example_AltUnits()
+   ' This example creates an aligned dimension in model space and
+   ' uses AltUnits to toggle the alternate dimension units on and off
+
+    Dim dimObj As AcadDimAligned
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    
+    ' Define the dimension
+    point1(0) = 0: point1(1) = 5: point1(2) = 0
+    point2(0) = 5: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    ThisDrawing.Application.ZoomAll
+    
+    ' Toggle alternate unit display
+Toggle:
+    Select Case MsgBox("Press OK to toggle the display of alternate dimensions", vbOKCancel)
+        Case vbOK
+            ' Toggle the alternate dimension display
+            dimObj.AltUnits = Not (dimObj.AltUnits)
+            ThisDrawing.Regen acAllViewports
+        Case vbCancel
+            Exit Sub
+    End Select
+    
+    ' Display status of alternate units display
+    If dimObj.AltUnits Then
+        MsgBox "Alternate units display is on."
+    Else
+        MsgBox "Alternate units display is off."
+    End If
+    
+    GoTo Toggle
+    
+End Sub

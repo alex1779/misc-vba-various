@@ -1,0 +1,18 @@
+Sub Example_SetDatabase()
+    ' The following code saves the color and linetype settings
+    ' of the current layer. It uses the SetDatabase method to
+    ' associate the current drawing database with the
+    ' LayerStateManager object. 
+
+    Dim oLSM As AcadLayerStateManager
+
+    ' Access the LayerStateManager object
+    Set oLSM = ThisDrawing.Application. _
+       GetInterfaceObject("AutoCAD.AcadLayerStateManager.16")
+
+    ' Associate the current drawing database with LayerStateManager
+    oLSM.SetDatabase ThisDrawing.Database
+
+    oLSM.Save "ColorLinetype", acLsColor + acLsLineType
+
+End Sub

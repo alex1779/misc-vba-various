@@ -1,0 +1,17 @@
+Sub Example_Profiles()
+    ' This example obtains a reference to the Profiles Preferences object
+    ' from the Application Preferences object, and reads one of the Profiles
+    ' preferences
+    
+    Dim ACADPref As AcadPreferencesProfiles
+    
+    ' Obtain a reference to the Profiles Preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Profiles
+    
+    MsgBox "You now have access to the properties and methods of the Profiles Preferences object!"
+    MsgBox "The Profiles preference ActiveProfile is set to: " & ACADPref.ActiveProfile
+    
+    ' Release Profiles Preferences object
+    Set ACADPref = Nothing
+    MsgBox "The Profiles Preferences object has been released!"
+End Sub

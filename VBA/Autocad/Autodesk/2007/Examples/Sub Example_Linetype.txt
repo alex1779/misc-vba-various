@@ -1,0 +1,30 @@
+Sub Example_Linetype()
+    ' This example searches for the linetype DashDot. If it is
+    ' not found, it is added from the acad.lin file. Then a
+    ' line is created and changed to the DashDot linetype.
+    
+    ' Search the linetypes collection for the DashDot linetype.
+    Dim entry As AcadLineType
+    Dim found As Boolean
+    found = False
+    For Each entry In ThisDrawing.Linetypes
+        If StrComp(entry.name, "DASHDOT", 1) = 0 Then
+            found = True
+            Exit For
+        End If
+    Next
+    If Not (found) Then ThisDrawing.Linetypes.Load "DASHDOT", "acad.lin"
+        
+    ' Create the line
+    Dim lineObj As AcadLine
+    Dim startPoint(0 To 2) As Double
+    Dim endPoint(0 To 2) As Double
+    startPoint(0) = 1#: startPoint(1) = 1#: startPoint(2) = 0#
+    endPoint(0) = 4#: endPoint(1) = 4#: endPoint(2) = 0#
+    Set lineObj = ThisDrawing.ModelSpace.AddLine(startPoint, endPoint)
+    
+    ' Change the linetype of the line
+    lineObj.Linetype = "DASHDOT"
+    ZoomAll
+    
+End Sub

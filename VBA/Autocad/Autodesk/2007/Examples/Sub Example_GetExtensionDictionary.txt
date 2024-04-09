@@ -1,0 +1,25 @@
+Sub Example_GetExtensionDictionary()
+    ' This example creates a Circle object in model space and
+    ' adds a new Extension Dictionary to the Circle object
+    
+    Dim EDictionary As AcadDictionary
+    Dim circleObj As AcadCircle
+    Dim centerPoint(0 To 2) As Double
+    Dim radius As Double
+    
+    ' Define the Circle object
+    centerPoint(0) = 0: centerPoint(1) = 0: centerPoint(2) = 0
+    radius = 5#
+    
+    ' Create the Circle object in model space
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(centerPoint, radius)
+
+    ThisDrawing.Application.ZoomAll
+    
+    MsgBox "Circle object Extension Dictionary state before: " & circleObj.HasExtensionDictionary
+    
+    ' Create an Extension Dictionary for the new Circle
+    Set EDictionary = circleObj.GetExtensionDictionary
+    
+    MsgBox "Circle object Extension Dictionary state after: " & circleObj.HasExtensionDictionary
+End Sub

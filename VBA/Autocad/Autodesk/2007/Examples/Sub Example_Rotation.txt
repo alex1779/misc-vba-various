@@ -1,0 +1,25 @@
+Sub Example_Rotation()
+    ' This example creates a text object in model space.
+    ' It then changes the Rotation of the text object.
+
+    Dim textObj As AcadText
+    Dim textString As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim height As Double
+    
+    ' Define the text object
+    textString = "Hello, World."
+    insertionPoint(0) = 3: insertionPoint(1) = 3: insertionPoint(2) = 0
+    height = 0.5
+    
+    ' Create the text object in model space
+    Set textObj = ThisDrawing.ModelSpace.AddText(textString, insertionPoint, height)
+    ZoomAll
+    MsgBox "The Rotation is " & textObj.rotation, vbInformation, "Rotation Example"
+    
+    ' Change the value of the Rotation to 45 degrees (.707 radians)
+    textObj.rotation = 0.707
+    ZoomAll
+    MsgBox "The Rotation is set to " & textObj.rotation, vbInformation, "Rotation Example"
+    
+End Sub

@@ -1,0 +1,32 @@
+Sub Example_ModelSpace()
+    ' This example adds a line and a circle to model space.
+    ' The line is added using a user-defined variable representing
+    ' the model space. The circle is added without using the
+    ' user-defined variable. Either use of the ModelSpace
+    ' property is valid.
+    
+    ' Define the line
+    Dim lineObj As AcadLine
+    Dim startPoint(0 To 2) As Double
+    Dim endPoint(0 To 2) As Double
+    startPoint(0) = 0: startPoint(1) = 0: startPoint(2) = 0
+    endPoint(0) = 4: endPoint(1) = 4: endPoint(2) = 0
+    
+    ' Add the line to model space using the mspace variable
+    Dim mspace As AcadModelSpace
+    Set mspace = ThisDrawing.ModelSpace
+    Set lineObj = mspace.AddLine(startPoint, endPoint)
+    
+    ' Define a circle
+    Dim circleObj As AcadCircle
+    Dim center(0 To 2) As Double
+    Dim radius As Double
+    center(0) = 4: center(1) = 4: center(2) = 0
+    radius = 1
+    
+    ' Add the circle to model space without using the mspace variable
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(center, radius)
+    
+    ZoomAll
+    
+End Sub

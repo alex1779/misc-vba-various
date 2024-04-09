@@ -1,0 +1,17 @@
+Sub Example_System()
+    ' This example obtains a reference to the System Preferences object
+    ' from the Application Preferences object, and reads one of the System
+    ' preferences
+    
+    Dim ACADPref As AcadPreferencesSystem
+    
+    ' Obtain a reference to the System Preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.System
+    
+    MsgBox "You now have access to the properties and methods of the System Preferences object!"
+    MsgBox "The System preference BeepOnError is set to: " & ACADPref.BeepOnError
+    
+    ' Release System Preferences object
+    Set ACADPref = Nothing
+    MsgBox "The System Preferences object has been released!"
+End Sub

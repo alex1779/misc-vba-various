@@ -1,0 +1,14 @@
+Sub Example_SendCommand()
+   ' This example sends a command for evaluation to the AutoCAD command line
+   ' of a particular drawing 
+   
+   ' Create a Circle in the active drawing and 
+   ' zoom to display the entire circle
+   ThisDrawing.SendCommand "_Circle" & vbCr & "2,2,0" & vbCr & "4" & vbCr
+   ThisDrawing.SendCommand "_zoom" & vbCr & "a" & vbCr
+   
+   ' Refresh view
+   ThisDrawing.Regen acAllViewports
+   
+   MsgBox "A circle command has been sent to the command line of the current drawing."
+End Sub

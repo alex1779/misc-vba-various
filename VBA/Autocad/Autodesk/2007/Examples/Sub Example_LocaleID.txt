@@ -1,0 +1,5 @@
+Sub Example_LocaleID()
+    ' This code retrieves the Locale ID and displays it in a message box
+    MsgBox "The locale ID is " & ThisDrawing.Application.LocaleId, , "LocaleID Example"
+    
+End Sub

@@ -1,0 +1,69 @@
+Sub Example_TabOrder()
+    ' This example creates two new Layouts, sets the TabOrder of the Layouts to be
+    ' in alphabetic order, and displays a list of Layouts in the order they appear
+    ' in the tabs.
+    
+    Dim Layout1 As ACADLayout, Layout2 As ACADLayout
+    Dim SortLayoutRight As ACADLayout, SortLayoutLeft As ACADLayout
+    Dim SortIt As New Collection
+    Dim TabCount As Long, SortCount As Long, TabOrder As Long
+    Dim TabName As String, SortText As String, msg As String
+    Dim tempLayout As ACADLayout
+    Dim AddedTab As Boolean
+        
+    ' Create new Layouts
+    On Error Resume Next
+    Set Layout1 = ThisDrawing.Layouts.Add("Z VIEW")
+    Set Layout2 = ThisDrawing.Layouts.Add("A VIEW")
+    On Error GoTo 0
+    
+    ' Alphabetize internally
+    For TabCount = 0 To (ThisDrawing.Layouts.count - 1)
+        AddedTab = False
+        
+        TabName = ThisDrawing.Layouts(TabCount).name
+        
+        If TabName = "Model" Then GoTo SKIP                 ' Skip modelspace
+        
+        If SortIt.count = 0 Then
+            SortIt.Add TabName                              ' Add to beginning of list
+        Else
+            For SortCount = 1 To SortIt.count               ' Add to list by string
+                SortText = SortIt(SortCount)
+                If StrComp(TabName, SortText, vbTextCompare) = -1 Then
+                    If SortCount = 1 Then
+                        SortIt.Add TabName                  ' Add as first item
+                    Else
+                        SortIt.Add TabName, , SortCount     ' Add as previous item
+                    End If
+                    AddedTab = True
+                    Exit For
+                End If
+            Next
+            
+            If Not (AddedTab) Then SortIt.Add TabName, , , SortIt.count  ' Add if we haven't yet
+        End If
+SKIP:
+    Next
+    
+    ' Write new ACAD tab order
+    For SortCount = 1 To SortIt.count
+        Set tempLayout = ThisDrawing.Layouts(SortIt(SortCount))
+        tempLayout.TabOrder = SortCount
+    Next
+    
+    '-------------------------------
+    ' Read and display New Tab Order
+    '-------------------------------
+    msg = "The tab order is now set to: " & vbCrLf & vbCrLf
+    For TabCount = 0 To (ThisDrawing.Layouts.count - 1)
+        TabName = ThisDrawing.Layouts(TabCount).name
+        If TabName = "Model" Then GoTo SKIP2                ' Don't show modelspace
+        TabOrder = ThisDrawing.Layouts(TabCount).TabOrder
+        msg = msg & "(" & TabOrder & ")" & vbTab & TabName & vbCrLf
+SKIP2:
+    Next
+    
+    MsgBox msg, vbInformation
+
+End Sub

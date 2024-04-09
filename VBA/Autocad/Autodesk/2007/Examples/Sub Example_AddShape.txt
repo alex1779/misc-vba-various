@@ -1,0 +1,30 @@
+Sub Example_AddShape()
+    ' This example creates a BAT shape from the ltypeshp.shx file.
+    
+    ' Load the shape file containing the shape you wish to create.
+    ' Note: Replace the ltypeshp.shx file name
+    ' with a valid shape file for your system.
+    On Error GoTo ERRORHANDLER
+    ThisDrawing.LoadShapeFile ("C:/Program Files/AutoCAD/Support/ltypeshp.shx")
+
+    
+    Dim shapeObj As AcadShape
+    Dim shapeName As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim scalefactor As Double
+    Dim rotation As Double
+    
+    ' "diode" is defined in es.shx file
+    shapeName = "BAT"
+    insertionPoint(0) = 2#: insertionPoint(1) = 2#: insertionPoint(2) = 0#
+    scalefactor = 1#
+    rotation = 0#       ' Radians
+    
+    ' Create the diode shape object in model space
+    Set shapeObj = ThisDrawing.ModelSpace.AddShape(shapeName, insertionPoint, scalefactor, rotation)
+    Exit Sub
+    
+ERRORHANDLER:
+    MsgBox "Cannot find the shape file.", , "AddShape Example"
+    
+End Sub

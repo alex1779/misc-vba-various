@@ -1,0 +1,19 @@
+Sub Example_TextFrameDisplay()
+    ' This example returns the current setting of
+    ' TextFrameDisplay. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim currTextFrameDisplay As Boolean
+    
+    ' Retrieve the current TextFrameDisplay value
+    currTextFrameDisplay = ThisDrawing.preferences.TextFrameDisplay
+    MsgBox "The current value for TextFrameDisplay is " & preferences.TextFrameDisplay, vbInformation, "TextFrameDisplay Example"
+    
+    ' Change the value for TextFrameDisplay
+    ThisDrawing.preferences.TextFrameDisplay = Not (currTextFrameDisplay)
+    MsgBox "The new value for TextFrameDisplay is " & preferences.TextFrameDisplay, vbInformation, "TextFrameDisplay Example"
+    
+    ' Reset TextFrameDisplay to its original value
+    ThisDrawing.preferences.TextFrameDisplay = currTextFrameDisplay
+    MsgBox "The TextFrameDisplay value is reset to " & preferences.TextFrameDisplay, vbInformation, "TextFrameDisplay Example"
+End Sub

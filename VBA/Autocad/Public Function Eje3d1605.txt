@@ -1,0 +1,33 @@
+Public Function Eje3d1605(largo As Integer)
+Dim linea1 As AcadLine
+
+Linea lineaA, 0, 0, 0, largo, 0, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 0, 4.5, 0, 0, 0, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 0, 4.5, 0, 0.5, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 15, 5, 0, 0.5, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 15, 5.5, 0, 15, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 54, 6, 0, 29, 6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 28.88, 6, 0, 15.5, 6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 29, 3.3282, 0, 28.88, 3.3282, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 29, 6, 0, 29, 3.3282, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 28.88, 6, 0, 28.88, 3.3282, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 15, 5.5, 0, 15.5, 6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 54, 7.5, 0, 54, 6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 54, 7.5, 0, 54.5, 8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 11.5, 8, 0, 54.5, 8, 0, acByLayer, ".GENERAL ARRANGEMENT" 'ESTAS SON LAS ROSCADAS
+Linea linea1, largo, 4.5, 0, largo - 0.5, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 0.5, 5, 0, largo - 1.85, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 1.85, 4.8, 0, largo - 3, 4.8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 3, 5, 0, largo - 11, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 11, 7.5, 0, largo - 11.5, 8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea36, largo - 11, 7.5, 0, largo - 11, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea37, largo - 3, 5, 0, largo - 3, 4.8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea38, largo - 1.85, 5, 0, largo - 1.85, 4.8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea40, largo, 4.5, 0, largo, 0, 0, acByLayer, ".GENERAL ARRANGEMENT"
+AutoCAD.Application.ActiveDocument.SendCommand "_ai_selall" & vbCr & "_j" & vbCr 'Ejecutando Comando Joint
+AutoCAD.Application.ActiveDocument.SendCommand "rev" & vbCr & "all" & vbCr & vbCr & "0,0,0" & vbCr & "10,0,0" & vbCr & vbCr 'Revolution
+ZoomExtents
+AutoCAD.Application.ActiveDocument.SendCommand "shademode" & vbCr & "_R" & vbCr 'Shademode Realistic
+AutoCAD.Application.ActiveDocument.SendCommand "_-view" & vbCr & "_swiso" & vbCr
+
+End Function

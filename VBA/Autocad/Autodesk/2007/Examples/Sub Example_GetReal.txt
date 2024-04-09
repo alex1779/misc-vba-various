@@ -1,0 +1,15 @@
+Sub Example_GetReal()
+    ' This example returns the Real entered by the user.
+    
+    Dim returnReal As Double
+    
+    ' Return the value entered by user. A prompt is provided.
+    returnReal = ThisDrawing.Utility.GetReal("Enter an Real: ")
+    MsgBox "The real entered was " & returnReal & vbCrLf & _
+            "(Enter the next value without prompting.)", , "GetReal Example"
+    
+    ' Return the value entered by user. No prompt is provided.
+    returnReal = ThisDrawing.Utility.GetReal
+    MsgBox "The real entered was " & returnReal, , "GetReal Example"
+    
+End Sub

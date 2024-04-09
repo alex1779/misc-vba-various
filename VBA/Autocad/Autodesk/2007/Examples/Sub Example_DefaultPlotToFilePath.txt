@@ -1,0 +1,9 @@
+Sub Example_DefaultPlotToFilePath()
+' Note: Change the path to a valid folder on your system.
+
+    Dim MyPreference As IAcadPreferencesOutput2
+    Set MyPreference = AcadApplication.Preferences.Output
+    MyPreference.DefaultPlotToFilePath = "C:\Plots"
+
+
+End Sub

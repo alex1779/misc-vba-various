@@ -1,0 +1,11 @@
+Sub Example_New()
+    ' This example creates a new drawing based on the template ansi-a.dwt.
+    ' Note: The path to the template file is included with its name. Adjust
+    ' this path for your installation location before running this example.
+    
+    Dim templateFileName As String
+    templateFileName = "c:\AutoCAD\template\ansi-a.dwt"
+    
+    ThisDrawing.New templateFileName
+    
+End Sub

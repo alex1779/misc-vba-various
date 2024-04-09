@@ -1,0 +1,19 @@
+Sub Example_Blocks()
+    ' This example first finds the Blocks collection
+    ' using the Blocks property. It then adds a new
+    ' block to the Blocks collection.
+    
+    Dim blkColl As AcadBlocks
+    Dim newBlock As AcadBlock
+    Dim insertionPnt(0 To 2) As Double
+    
+    ' Get the Blocks collection
+    Set blkColl = ThisDrawing.Blocks
+    
+    ' Define the insertion point for the new block
+    insertionPnt(0) = 0#: insertionPnt(1) = 0#: insertionPnt(2) = 0#
+    
+    ' Add the new block into the Blocks collection
+    Set newBlock = blkColl.Add(insertionPnt, "TEST")
+    MsgBox "A block called " & newBlock.name & " has been added to the blocks collection", vbInformation, "Blocks Example"
+End Sub

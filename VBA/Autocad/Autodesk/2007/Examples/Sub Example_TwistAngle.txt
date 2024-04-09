@@ -1,0 +1,30 @@
+Sub Example_TwistAngle()
+    ' This example creates a new paper space viewport.
+    ' It then displays the twist angle of the viewport.
+    
+    Dim pviewportObj As AcadPViewport
+    Dim center(0 To 2) As Double
+    Dim width As Double
+    Dim height As Double
+    
+    ' Define the pviewport
+    center(0) = 3: center(1) = 3: center(2) = 0
+    width = 40
+    height = 40
+    
+    ' Change from model space to paper space
+    ThisDrawing.ActiveSpace = acPaperSpace
+
+    ' Create the pviewport
+    Set pviewportObj = ThisDrawing.PaperSpace.AddPViewport(center, width, height)
+    pviewportObj.DISPLAY True
+    ThisDrawing.mspace = True
+    ThisDrawing.ActivePViewport = pviewportObj
+    ThisDrawing.Regen acAllViewports
+    
+    ' Find the twist angle for the viewport
+    Dim twistAngle As Double
+    twistAngle = pviewportObj.twistAngle
+    MsgBox "The twist angle of the paper space viewport is " & pviewportObj.twistAngle, , "TwistAngle Example"
+
+End Sub

@@ -1,0 +1,21 @@
+Sub Example_DeleteProfile()
+    ' This example deletes a profile.
+    
+    Dim preferences As AcadPreferences
+    Dim strProfileToDelete As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Specify the profile to delete.
+    strProfileToDelete = "TestProfile"
+    
+    ' Delete the profile
+    ' The call will fail if "TestProfile" does not exist or
+    ' if "TestProfile" is the current profile.
+    On Error GoTo Error
+    preferences.Profiles.DeleteProfile strProfileToDelete
+    Exit Sub
+Error:
+        MsgBox "DeleteProfile of " & strProfileToDelete & " failed. " & Err.Description, , "DeleteProfile Example"
+        
+End Sub

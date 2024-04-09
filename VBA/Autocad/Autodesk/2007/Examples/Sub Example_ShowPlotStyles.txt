@@ -1,0 +1,22 @@
+Sub Example_ShowPlotStyles()
+    ' This example reads and modifies the ShowPlotStyles
+    ' value, and then regenerates all viewports.
+    
+    Dim ACADLayout As ACADLayout
+    Dim originalValue As Boolean
+    
+    ' Get the layout object
+    Set ACADLayout = ThisDrawing.ActiveLayout
+    
+    ' Read and display the original value
+    originalValue = ACADLayout.ShowPlotStyles
+    MsgBox "The ShowPlotStyles value is set to: " & originalValue
+
+    ' Modify the ShowPlotStyles preference by changing the value
+    ACADLayout.ShowPlotStyles = Not ACADLayout.ShowPlotStyles
+    MsgBox "The ShowPlotStyles value has been set to: " & ACADLayout.ShowPlotStyles
+
+    'Regenerate viewports
+    ThisDrawing.Regen acAllViewports
+
+End Sub

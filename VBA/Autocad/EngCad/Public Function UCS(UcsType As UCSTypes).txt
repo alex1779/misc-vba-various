@@ -1,0 +1,11 @@
+Public Enum UCSTypes
+Previous
+View
+World
+End Enum
+Public Function UCS(UcsType As UCSTypes)
+If UcsType = 0 Then UcsT = "P"
+If UcsType = 1 Then UcsT = "V"
+If UcsType = 2 Then UcsT = "W"
+AutoCAD.Application.ActiveDocument.SendCommand "_UCS" & vbCr & UcsT & vbCr
+End Function

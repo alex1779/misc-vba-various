@@ -1,0 +1,24 @@
+Sub Example_ScaleLineweights()
+    ' This example reads and modifies the ScaleLineweights
+    ' Layout value.
+    ' When finished, this example resets the  value back to
+    ' its original value.
+    
+    Dim ACADLayout As ACADLayout
+    Dim originalValue As Boolean
+    
+    ' Get the layout object
+    Set ACADLayout = ThisDrawing.ActiveLayout
+    
+    ' Read and display the original value
+    originalValue = ACADLayout.ScaleLineweights
+    MsgBox "The ScaleLineweights value is set to: " & originalValue
+
+    ' Modify the ScaleLineweights preference by toggling the value
+    ACADLayout.ScaleLineweights = Not ACADLayout.ScaleLineweights
+    MsgBox "The ScaleLineweights preference has been set to: " & ACADLayout.ScaleLineweights
+
+    ' Reset the preference back to its original value
+    ACADLayout.ScaleLineweights = originalValue
+    MsgBox "The ScaleLineweights preference was reset back to: " & originalValue
+End Sub

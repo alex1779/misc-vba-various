@@ -1,0 +1,39 @@
+Sub Example_GetPlotDeviceNames()
+    ' This example gets the current plot device information
+    ' and then displays the list of plot device names,
+    ' media names, localized media names, and plot style
+    ' table entries.
+    Dim Layout As ACADLayout
+    Set Layout = ThisDrawing.ModelSpace.Layout
+    
+    ' Refresh the current plot information for
+    ' this session.
+    Layout.RefreshPlotDeviceInfo
+    
+    ' List all the valid device names for the system
+    Dim plotDevices As Variant
+    plotDevices = Layout.GetPlotDeviceNames
+    
+    Dim x As Integer
+    For x = LBound(plotDevices) To UBound(plotDevices)
+        MsgBox plotDevices(x)
+    Next
+    
+    ' List all the media names, and their localized version
+    Dim mediaNames As Variant
+    mediaNames = Layout.GetCanonicalMediaNames
+    
+    For x = LBound(mediaNames) To UBound(mediaNames)
+        MsgBox mediaNames(x)
+        MsgBox Layout.GetLocaleMediaName(mediaNames(x))
+    Next
+    
+    ' List all the entries in the plot style table
+    Dim styleNames As Variant
+    styleNames = Layout.GetPlotStyleTableNames
+    
+    For x = LBound(styleNames) To UBound(styleNames)
+        MsgBox styleNames(x)
+    Next
+    
+End Sub

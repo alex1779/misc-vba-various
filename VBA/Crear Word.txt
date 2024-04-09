@@ -1,0 +1,11 @@
+    Dim objWord
+    Dim objDoc
+    Dim objSelection
+    Set objWord = CreateObject("Word.Application")
+    Set objDoc = objWord.Documents.Add
+    objWord.Visible = True
+    Set objSelection = objWord.Selection
+    objSelection.TypeText ("Saving this file after this text")
+    objDoc.SaveAs ("C:\Users\ENGCAD_NOTEBOOK\Desktop\Curso de Java\Subs Excel\Video1.docx")
+    objDoc.Close
+    objWord.Visible = False

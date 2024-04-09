@@ -1,0 +1,25 @@
+Sub Example_DeleteConfiguration()
+    ' This example creates a new viewport and splits
+    ' the viewport into 4 windows.
+    ' It then deletes the viewport configuration
+    Dim oldViewport As AcadViewport
+    Set oldViewport = ThisDrawing.ActiveViewport
+       
+    ' Create a new viewport and make it active
+    Dim newViewport As AcadViewport
+    Set newViewport = ThisDrawing.Viewports.Add("TESTVIEWPORT")
+    ThisDrawing.ActiveViewport = newViewport
+    
+    ' Split the viewport in 4 windows
+    newViewport.Split acViewport4
+    
+    ' Make the newly split viewport active
+    ThisDrawing.ActiveViewport = newViewport
+    MsgBox "The viewport configuration split into 4 windows."
+
+    ' Delete the viewport configuration
+    ThisDrawing.ActiveViewport = oldViewport
+    ThisDrawing.Viewports.DeleteConfiguration ("TESTVIEWPORT")
+    ThisDrawing.Regen acAllViewports
+    MsgBox "The viewport configuration has been deleted."
+End Sub

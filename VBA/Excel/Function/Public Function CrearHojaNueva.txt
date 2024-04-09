@@ -1,0 +1,12 @@
+Public Function NuevaHoja(nombre As String)
+    Application.DisplayAlerts = False
+    For Each Worksheet In Worksheets
+    If Worksheet.Name = nombre Then
+    Worksheet.Delete
+    Else:
+    End If
+    Next
+    Sheets.Add After:=ActiveSheet
+    ActiveSheet.Name = nombre
+    Application.DisplayAlerts = True
+End Function

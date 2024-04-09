@@ -1,0 +1,19 @@
+Private Sub MidePesoAutomaticamente()
+
+'   esta macro encuentra objeto 3d y extrae el peso
+    Dim objeto3d As AcadEntity
+    Dim solido As Object
+    Dim Object As Object
+    Dim Volume As Double
+    Dim Peso As Integer
+    For Each objeto3d In AutoCAD.Application.ActiveDocument.ModelSpace
+        If objeto3d.ObjectName = "AcDb3dSolid" Then
+        Set Object = objeto3d
+        Volume = Object.Volume
+        Peso = ((Volume / 1000000000) * densidad) * 1000
+        Cells(4, 5).value = Peso & " Grs."
+        End If
+    Next objeto3d
+
+
+End Sub

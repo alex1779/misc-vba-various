@@ -1,0 +1,19 @@
+Sub Example_OwnerID()
+    ' This example creates an MText object in model space
+    ' and then finds the OwnerID for the object.
+    
+    Dim MTextObj As AcadMText
+    Dim corner(0 To 2) As Double
+    Dim width As Double
+    Dim text As String
+    corner(0) = 0#: corner(1) = 10#: corner(2) = 0#
+    width = 10
+    text = "This is the text string for the MText object"
+
+    ' Creates the MText object
+    Set MTextObj = ThisDrawing.ModelSpace.AddMText(corner, width, text)
+    ZoomAll
+    
+    MsgBox "The OwnerID for the MText object is: " & MTextObj.OwnerID
+    
+End Sub

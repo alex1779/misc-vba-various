@@ -1,0 +1,21 @@
+Sub Example_Layouts()
+    ' This example will access the Layouts collection for the current drawing
+    ' and list basic information about the Layouts in the drawing.
+
+    Dim Layouts As AcadLayouts, Layout As ACADLayout
+    Dim msg As String
+    
+    ' Get layouts collection from document object
+    Set Layouts = ThisDrawing.Layouts
+    
+    msg = vbCrLf & vbCrLf   ' Start with a space
+    
+    ' Get the names of every layout in this drawing
+    For Each Layout In Layouts
+        msg = msg & Layout.name & vbCrLf
+    Next
+    
+    ' Display a list of available layouts
+    MsgBox "There are " & Layouts.count & " layouts in " & _
+            ThisDrawing.WindowTitle & ":" & msg
+End Sub

@@ -1,0 +1,3 @@
+Public Sub SelectAll()
+AutoCAD.Application.ActiveDocument.SendCommand "_ai_selall" & vbCr
+End Sub

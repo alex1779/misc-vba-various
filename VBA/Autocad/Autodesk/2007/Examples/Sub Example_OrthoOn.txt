@@ -1,0 +1,20 @@
+Sub Example_OrthoOn()
+    ' This example toggles the setting of OrthoOn.
+
+    Dim viewportObj As AcadViewport
+    
+    ' Set the viewportObj variable to the activeviewport
+    Set viewportObj = ThisDrawing.ActiveViewport
+    
+    ' Display the current setting of OrthoOn
+    MsgBox "Isometric snap mode is: " & IIf(viewportObj.OrthoOn, "On", "Off"), , "OrthoOn Example"
+
+    ' Toggle the setting of OrthoOn
+    viewportObj.OrthoOn = Not (viewportObj.OrthoOn)
+    
+    ' Reset the active viewport to see the change on the AutoCAD status bar
+    ThisDrawing.ActiveViewport = viewportObj
+    
+    MsgBox "Isometric snap mode is now: " & IIf(viewportObj.OrthoOn, "On", "Off"), , "OrthoOn Example"
+    
+End Sub

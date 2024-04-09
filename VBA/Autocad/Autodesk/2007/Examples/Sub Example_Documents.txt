@@ -1,0 +1,21 @@
+Sub Example_Documents()
+    ' This example obtains a reference to the Documents collection
+    ' and displays information about the loaded documents.
+
+    Dim Document As AcadDocument
+    Dim msg As String
+    msg = vbCrLf
+    
+    ' Cycle through the Documents collection and retrieve the names
+    ' of the loaded documents
+    For Each Document In Documents
+        msg = msg & Document.name & vbCrLf
+    Next
+    
+    ' Display loaded document information
+    If Documents.count > 0 Then
+        MsgBox "The loaded documents are: " & msg
+    Else
+        MsgBox "There are no loaded documents!"
+    End If
+End Sub

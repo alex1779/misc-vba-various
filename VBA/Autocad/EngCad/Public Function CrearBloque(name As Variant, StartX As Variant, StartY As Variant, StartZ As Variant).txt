@@ -1,0 +1,5 @@
+Public Function CrearBloque(name As Variant, StartX As Variant, StartY As Variant, StartZ As Variant)
+Dim blockObj As AcadBlock: Dim PuntoA(0 To 2) As Double
+PuntoA(0) = StartX: PuntoA(1) = StartY: PuntoA(2) = StartZ
+Set blockObj = Autocad.ActiveDocument.Blocks.Add(PuntoA, name)
+End Function

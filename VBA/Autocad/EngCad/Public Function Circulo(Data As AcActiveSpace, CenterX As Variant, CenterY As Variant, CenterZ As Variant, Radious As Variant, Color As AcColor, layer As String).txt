@@ -1,0 +1,9 @@
+Public Function Circulo(Data As AcActiveSpace, CenterX As Variant, CenterY As Variant, CenterZ As Variant, Radious As Variant, Color As AcColor, layer As String)
+ActivarSpace Data
+Dim nombre As AcadCircle
+Dim Center(0 To 2) As Double
+Center(0) = CenterX: Center(1) = CenterY: Center(2) = CenterZ
+Set nombre = AutoCAD.Application.ActiveDocument.modelspace.AddCircle(Center, Radious)
+nombre.Color = Color
+nombre.layer = layer
+End Function

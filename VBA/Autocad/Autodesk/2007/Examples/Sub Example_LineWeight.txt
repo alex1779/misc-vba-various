@@ -1,0 +1,25 @@
+Sub Example_LineWeight()
+    ' This example creates a circle in model space and then
+    ' finds the current lineweight for the circle. The lineweight
+    ' is then changed to a new value.
+   
+    Dim circleObj As AcadCircle
+    Dim centerPoint(0 To 2) As Double
+    Dim radius As Double
+    
+    ' Define the circle
+    centerPoint(0) = 0#: centerPoint(1) = 0#: centerPoint(2) = 0#
+    radius = 5#
+    
+    ' Create the Circle object in model space
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(centerPoint, radius)
+    ZoomAll
+    
+    ' Find the lineweight for the circle
+    MsgBox "The current lineweight for the circle is " & circleObj.Lineweight
+    
+    ' Change the lineweight for the circle
+    circleObj.Lineweight = acLnWt211
+    circleObj.Update
+    MsgBox "The current lineweight for the circle is " & circleObj.Lineweight
+End Sub

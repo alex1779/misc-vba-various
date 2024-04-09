@@ -1,0 +1,16 @@
+Public Function Cilindro3d(Space As AcActiveSpace, CenterX As Variant, CenterY As Variant, CenterZ As Variant, Radious As Variant, Altura As Double, Direccion As Double, Optional Color As AcColor, Optional layer As String)
+Dim Cilindro3dObj As Acad3DSolid: Dim Centro(0 To 2) As Double: Dim regionObj As Variant: Dim Circulo(0) As AcadCircle
+Centro(0) = CenterX: Centro(1) = CenterY: Centro(2) = CenterZ
+If Space = 0 Then Set Circulo(0) = Autocad.Application.ActiveDocument.PaperSpace.AddCircle(Centro, Radious)
+If Space = 1 Then Set Circulo(0) = Autocad.Application.ActiveDocument.modelspace.AddCircle(Centro, Radious)
+If Space = 0 Then regionObj = Autocad.Application.ActiveDocument.PaperSpace.AddRegion(Circulo)
+If Space = 1 Then regionObj = Autocad.Application.ActiveDocument.modelspace.AddRegion(Circulo)
+If Space = 0 Then Set Cilindro3dObj = Autocad.Application.ActiveDocument.PaperSpace.AddExtrudedSolid(regionObj(0), Altura, Direccion)
+If Space = 1 Then Set Cilindro3dObj = Autocad.Application.ActiveDocument.modelspace.AddExtrudedSolid(regionObj(0), Altura, Direccion)
+Circulo(0).Delete
+regionObj(0).Delete
+On Error Resume Next
+Cilindro3dObj.Color = Color
+Cilindro3dObj.layer = layer
+Autocad.Application.ActiveDocument.SendCommand "regen" & vbCr
+End Function

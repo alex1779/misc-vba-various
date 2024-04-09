@@ -1,0 +1,16 @@
+Sub Example_ConfigFile()
+    ' This example returns the current setting of ConfigFile.
+    
+    Dim preferences As AcadPreferences
+    Dim currConfigFile As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current ConfigFile value
+    currConfigFile = preferences.Files.ConfigFile
+    If currConfigFile = "" Then
+        MsgBox "ConfigFile is not currently set.", vbInformation, "ConfigFile Example"
+    Else
+        MsgBox "The current value for ConfigFile is " & currConfigFile, vbInformation, "ConfigFile Example"
+    End If
+End Sub

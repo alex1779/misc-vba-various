@@ -1,0 +1,21 @@
+Sub Example_AddMLine()
+   ' This example adds an Mline in model space
+
+    Dim mLineObj As AcadMLine
+    Dim vertexList(0 To 17) As Double
+   
+    ' Define data for new object
+    vertexList(0) = 4: vertexList(1) = 7: vertexList(2) = 0
+    vertexList(3) = 5: vertexList(4) = 7: vertexList(5) = 0
+    vertexList(6) = 6: vertexList(7) = 7: vertexList(8) = 0
+    vertexList(9) = 4: vertexList(10) = 6: vertexList(11) = 0
+    vertexList(12) = 5: vertexList(13) = 6: vertexList(14) = 0
+    vertexList(15) = 6: vertexList(16) = 6: vertexList(17) = 6
+
+    ' Create the line in model space
+    Set mLineObj = ThisDrawing.ModelSpace.AddMLine(vertexList)
+
+    ThisDrawing.Application.ZoomAll
+    
+    MsgBox "A new MLine has been added to the drawing."
+End Sub

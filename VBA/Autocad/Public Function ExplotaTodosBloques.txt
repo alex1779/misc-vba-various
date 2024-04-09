@@ -1,0 +1,26 @@
+Private Function ExplotaTodosBloques()
+    Dim Entidad As AcadEntity
+    Dim bloques As AcadBlockReference
+    i = 1
+    Do While i > 0
+    For Each Entidad In AutoCAD.Application.ActiveDocument.ModelSpace
+    If Entidad.ObjectName = "AcDbBlockReference" Then
+    Set bloques = Entidad
+    bloques.Explode
+    Entidad.Delete
+    End If
+    Next Entidad
+    i = 0
+    For Each Entidad In AutoCAD.Application.ActiveDocument.ModelSpace
+    If Entidad.ObjectName = "AcDbBlockReference" Then
+    i = 1
+    End If
+    Next Entidad
+    For Each Entidad In AutoCAD.Application.ActiveDocument.ModelSpace
+    If Entidad.ObjectName = "AcDbBlockReference" Then
+    i = i + 1
+    End If
+    Next Entidad
+    Loop
+    AutoCAD.Application.ActiveDocument.PurgeAll 'Purgando
+End Function

@@ -1,0 +1,17 @@
+Sub Example_AddDimRadial()
+    ' This example creates a radial dimension in model space.
+    
+    Dim dimObj As AcadDimRadial
+    Dim center(0 To 2) As Double
+    Dim chordPoint(0 To 2) As Double
+    Dim leaderLen As Integer
+    
+    ' Define the dimension
+    center(0) = 0#: center(1) = 0#: center(2) = 0#
+    chordPoint(0) = 5#: chordPoint(1) = 5#: chordPoint(2) = 0#
+    leaderLen = 5
+    
+    ' Create the radial dimension in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimRadial(center, chordPoint, leaderLen)
+    ZoomAll
+End Sub

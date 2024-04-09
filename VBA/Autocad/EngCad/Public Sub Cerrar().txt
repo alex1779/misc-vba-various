@@ -1,0 +1,3 @@
+Public Sub Cerrar()
+AutoCAD.Application.ActiveDocument.Close
+End Sub

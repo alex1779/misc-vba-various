@@ -1,0 +1,2 @@
+    'Guardar Archivo PDF
+    Crear = AutoCAD.Application.ActiveDocument.Plot.PlotToFile("C:\ruta del archivo\" & nombrearchivo & ".pdf")

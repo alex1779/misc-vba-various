@@ -1,0 +1,22 @@
+Sub Example_TextFontSize()
+    ' This example returns the current setting of
+    ' TextFontSize. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currTextFontSize As Integer
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current TextFontSize value
+    currTextFontSize = preferences.DISPLAY.TextFontSize
+    MsgBox "The current value for TextFontSize is " & preferences.DISPLAY.TextFontSize, vbInformation, "TextFontSize Example"
+    
+    ' Change the value for TextFontSize
+    preferences.DISPLAY.TextFontSize = 12
+    MsgBox "The new value for TextFontSize is " & preferences.DISPLAY.TextFontSize, vbInformation, "TextFontSize Example"
+    
+    ' Reset TextFontSize to its original value
+    preferences.DISPLAY.TextFontSize = currTextFontSize
+    MsgBox "The TextFontSize value is reset to " & preferences.DISPLAY.TextFontSize, vbInformation, "TextFontSize Example"
+End Sub

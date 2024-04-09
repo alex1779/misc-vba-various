@@ -1,0 +1,21 @@
+Sub Example_ShortcutMenu()
+    ' This example iterates through the menus collection and
+    ' determines if each menu is the shortcut menu.
+    
+    ' Note that depending on how many menus are currently loaded, the
+    ' menuStatus string may not be displayed in full.
+    
+    Dim currMenu As AcadPopupMenu
+    Dim menuStatus As String
+    
+    menuStatus = ""
+    For Each currMenu In ThisDrawing.Application.MenuGroups.Item(0).Menus
+    If currMenu.shortcutMenu Then
+        menuStatus = menuStatus & currMenu.name & " is the shortcut menu." & vbCrLf
+    Else
+        menuStatus = menuStatus & currMenu.name & " is not the shortcut menu." & vbCrLf
+    End If
+    Next currMenu
+    MsgBox menuStatus
+    
+End Sub

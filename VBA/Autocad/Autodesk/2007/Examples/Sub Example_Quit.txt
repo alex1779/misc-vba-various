@@ -1,0 +1,6 @@
+Sub Example_Quit()
+    ' Warning: This example will quit AutoCAD and VBA.
+    
+    ThisDrawing.Application.Quit
+    
+End Sub

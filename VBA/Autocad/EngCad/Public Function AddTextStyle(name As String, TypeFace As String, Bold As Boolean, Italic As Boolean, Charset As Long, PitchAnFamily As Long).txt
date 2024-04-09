@@ -1,0 +1,6 @@
+Public Function AddTextStyle(name As String, TypeFace As String, Bold As Boolean, Italic As Boolean, Charset As Long, PitchAnFamily As Long)
+Dim style  As AcadTextStyle
+Set style = AutoCAD.Application.ActiveDocument.TextStyles.Add(name)
+AutoCAD.Application.ActiveDocument.ActiveTextStyle = style
+AutoCAD.Application.ActiveDocument.ActiveTextStyle.SetFont TypeFace, Bold, Italic, Charset, PitchandFamily
+End Function

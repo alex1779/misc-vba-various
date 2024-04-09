@@ -1,0 +1,10 @@
+Sub Example_ReadOnly()
+    ' This example shows if current drawing file is read only or not
+    
+    If ThisDrawing.ReadOnly Then
+        MsgBox "The current drawing file is read only.", , "ReadOnly Example"
+    Else
+        MsgBox "The current drawing file is read-write.", , "ReadOnly Example"
+    End If
+    
+End Sub

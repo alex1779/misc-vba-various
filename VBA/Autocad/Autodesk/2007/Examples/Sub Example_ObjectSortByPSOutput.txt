@@ -1,0 +1,28 @@
+Sub Example_ObjectSortByPSOutput()
+    ' This example reads and modifies the preference value which controls
+    ' the sorting of drawing objects by PostScript output order.
+    ' When finished, this example resets the preference value back to
+    ' it's original value.
+    
+    Dim ACADPref As AcadDatabasePreferences
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the user preferences object
+    Set ACADPref = ThisDrawing.preferences
+    
+    ' Read and display the original value
+    originalValue = ACADPref.ObjectSortByPSOutput
+    MsgBox "The ObjectSortByPSOutput preference is set to: " & originalValue
+
+    ' Modify the ObjectSortByPSOutput preference by toggling the value
+    ACADPref.ObjectSortByPSOutput = Not (ACADPref.ObjectSortByPSOutput)
+    newValue = ACADPref.ObjectSortByPSOutput
+    MsgBox "The ObjectSortByPSOutput preference has been set to: " & newValue
+
+    ' Reset the preference back to it's original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.ObjectSortByPSOutput = originalValue
+    MsgBox "The ObjectSortByPSOutput preference was reset back to: " & originalValue
+End Sub

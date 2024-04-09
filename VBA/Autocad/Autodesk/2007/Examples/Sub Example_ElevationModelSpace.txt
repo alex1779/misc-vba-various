@@ -1,0 +1,18 @@
+Sub Example_ElevationModelSpace()
+    ' This example changes the model space elevation of the current drawing
+    ' and then resets it to the original value again.
+    
+    Dim currElevation As Double
+    
+    currElevation = ThisDrawing.ElevationModelSpace
+    MsgBox "The current model space elevation is " & ThisDrawing.ElevationModelSpace, vbInformation, "ElevationModelSpace Example"
+    
+    ' Change the elevation
+    ThisDrawing.ElevationModelSpace = currElevation + 2
+    MsgBox "The new model space elevation is " & ThisDrawing.ElevationModelSpace, vbInformation, "ElevationModelSpace Example"
+    
+    ' Reset the elevation to its original value
+    ThisDrawing.ElevationModelSpace = currElevation
+    MsgBox "The model space elevation is reset to " & ThisDrawing.ElevationModelSpace, vbInformation, "ElevationModelSpace Example"
+
+End Sub

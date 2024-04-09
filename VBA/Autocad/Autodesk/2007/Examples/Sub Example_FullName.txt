@@ -1,0 +1,17 @@
+Sub Example_FullName()
+    ' This example uses the FullName property to find
+    ' the full name of the current drawing, and of
+    ' the application.
+    
+    ' Find the full name of current drawing file including path.
+    ' (If the drawing has not been saved, this name will be blank.)
+    Dim docName As String
+    docName = ThisDrawing.FullName
+    MsgBox "The full name of the current drawing is " & docName, , "FullName Example"
+    
+    ' Find the full name of application
+    Dim appName As String
+    appName = ThisDrawing.Application.FullName
+    MsgBox "The full name of the current application is " & appName, , "FullName Example"
+    
+End Sub

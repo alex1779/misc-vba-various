@@ -1,0 +1,14 @@
+Private Sub AcadDocument_WindowMovedOrResized(ByVal HWNDFrame As Long, ByVal bMoved As Boolean)()
+    ' This example intercepts a drawing WindowMovedOrResized event.
+    '
+    ' This event is triggered when the drawing window is moved or resized
+    '
+    ' To trigger this example event: Move or resize the drawing window
+
+    Dim CurrentState As String
+
+    ' Use the "bmoved" variable to determine if we moved or sized the drawing window
+    CurrentState = IIf(bMoved, "Moving", "Sizing")
+
+    MsgBox "The drawing window appearance was changed by: " & CurrentState
+End Sub

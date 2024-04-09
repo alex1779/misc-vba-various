@@ -1,0 +1,6 @@
+Sub Example_ActiveDocument()
+    Dim activeDoc As AcadDocument
+    ' Returns current document in AutoCAD
+    Set activeDoc = ThisDrawing.Application.ActiveDocument
+    MsgBox "The active document is: " & activeDoc.name, vbInformation, "ActiveDocument Example"
+End Sub

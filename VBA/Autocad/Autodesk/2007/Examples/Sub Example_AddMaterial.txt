@@ -1,0 +1,13 @@
+Sub Example_AddMaterial()
+    Dim oMaterial As AcadMaterial
+    Dim oMaterials As AcadMaterials
+    Set oMaterial = ThisDrawing.Materials.Add("TestMaterial")
+    oMaterial.Description = "This material demonstrates how to add a material to a database."
+    ThisDrawing.ActiveMaterial = oMaterial
+        ' Display the status of the new layer
+    MsgBox oMaterial.Name & " has been added." & vbCrLf & _
+            "Name: " & oMaterial.Name & vbCrLf & vbCrLf & _
+            "Description: " & vbCrLf & vbCrLf & _
+            oMaterial.Description
+
+End Sub

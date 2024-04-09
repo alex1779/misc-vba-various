@@ -1,0 +1,19 @@
+Sub Example_GetFont()
+    ' This example find the font information for the active text style.
+    
+    Dim typeFace As String
+    Dim Bold As Boolean
+    Dim Italic As Boolean
+    Dim charSet As Long
+    Dim PitchandFamily As Long
+    
+    ThisDrawing.ActiveTextStyle.GetFont typeFace, Bold, Italic, charSet, PitchandFamily
+    
+    MsgBox "The current text style has the following font properties:" & vbCrLf _
+            & "Typeface: " & typeFace & vbCrLf _
+            & "Bold: " & Bold & vbCrLf _
+            & "Italic: " & Italic & vbCrLf _
+            & "Character set: " & charSet & vbCrLf _
+            & "Pitch and Family: " & PitchandFamily
+    
+End Sub

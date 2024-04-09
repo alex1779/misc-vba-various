@@ -1,0 +1,14 @@
+Public Function MText(Space As AcActiveSpace, StartX As Variant, StartY As Variant, StartZ As Variant, Width As Variant, CadenaTexto As Variant, Optional Color As AcColor, Optional layer As String)
+Dim MTextObj As AcadMText: Dim PuntoA(0 To 2) As Double
+PuntoA(0) = StartX: PuntoA(1) = StartY: PuntoA(2) = StartZ
+If Space = 0 Then Set MTextObj = Autocad.Application.ActiveDocument.PaperSpace.AddMText(PuntoA, Width, CadenaTexto)
+If Space = 1 Then Set MTextObj = Autocad.Application.ActiveDocument.modelspace.AddMText(PuntoA, Width, CadenaTexto)
+On Error Resume Next
+With MTextObj
+.AttachmentPoint = acAttachmentPointMiddleLeft
+.Color = Color
+.insertionPoint = PuntoA
+End With
+MTextObj.Color = Color
+MTextObj.layer = layer
+End Function

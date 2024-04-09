@@ -1,0 +1,29 @@
+Sub Example_SetView()
+    ' This example creates a new view.
+    ' It then changes the active viewport to
+    ' the newly created view.
+    
+    ' First, open a sample drawing.
+    ThisDrawing.Application.Documents.Open "C:\AutoCAD\Sample\campus.dwg"
+    
+    ' Create a new view
+    Dim viewObj As AcadView
+    Set viewObj = ThisDrawing.Views.Add("TESTVIEW")
+    
+    ' Set the view characteristics
+    viewObj.center(0) = 374: viewObj.center(1) = 313
+    viewObj.width = 450
+    viewObj.height = 354
+    
+    ' Get the current active viewport
+    Dim viewportObj As AcadViewport
+    Set viewportObj = ThisDrawing.ActiveViewport
+    MsgBox "Change to the saved view.", , "SetView Example"
+       
+    ' Set the view in the viewport
+    viewportObj.SetView viewObj
+    ThisDrawing.ActiveViewport = viewportObj
+        
+    ThisDrawing.Regen True
+    
+End Sub

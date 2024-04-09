@@ -1,0 +1,10 @@
+Sub Example_StatusID()
+    ' This example displays the setting of StatusID.
+
+    Dim currStatusID As Boolean
+    
+    ' Display the current setting of statusID
+    currStatusID = ThisDrawing.Application.statusID(ThisDrawing.ActiveViewport)
+    MsgBox "The statusID of the active viewort is: " & currStatusID, , "StatusID Example"
+    
+End Sub

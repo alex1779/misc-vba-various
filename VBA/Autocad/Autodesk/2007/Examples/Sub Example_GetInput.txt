@@ -1,0 +1,34 @@
+Sub Example_GetInput()
+    ' This example prompts for user input of a point. By using the
+    ' InitializeUserInput method to define a keyword list, the example can also
+    ' return keywords entered by the user.
+    
+    On Error Resume Next
+    
+    ' Define the valid keywords
+    Dim keywordList As String
+    keywordList = "Keyword1 Keyword2"
+    
+    ' Call InitializeUserInput to set up the keywords
+    ThisDrawing.Utility.InitializeUserInput 128, keywordList
+    
+    ' Get the user input
+    Dim returnPnt As Variant
+    returnPnt = ThisDrawing.Utility.GetPoint(, "Enter a point(Keyword1, Keyword2): ")
+    If Err Then
+         If StrComp(Err.Description, "User input is a keyword", 1) = 0 Then
+         ' One of the keywords was entered
+             Dim inputString As String
+             Err.Clear
+             inputString = ThisDrawing.Utility.GetInput
+             MsgBox "You entered the keyword: " & inputString
+         Else
+             MsgBox "Error selecting the point: " & Err.Description
+             Err.Clear
+         End If
+    Else
+        ' Display point coordinates
+        MsgBox "The WCS of the point is: " & returnPnt(0) & ", " & returnPnt(1) & ", " & returnPnt(2), , "GetInput Example"
+    End If
+    
+End Sub

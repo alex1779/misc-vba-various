@@ -1,0 +1,31 @@
+Sub Example_AddMInsertBlock()
+    ' This example creates a new Block in the current drawing, adds a
+    ' Circle object to the new block, and uses the newly created block
+    ' to create a rectangular array of block references using AddMInsertBlock
+    
+    Dim circleObj As AcadCircle
+    Dim centerPoint(0 To 2) As Double, InsertPoint(0 To 2) As Double
+    Dim radius As Double
+    Dim newMBlock As AcadMInsertBlock
+    Dim newBlock As AcadBlock
+    
+    ' Define the Circle object that will be inserted into the block
+    centerPoint(0) = 0: centerPoint(1) = 0: centerPoint(2) = 0
+    InsertPoint(0) = 1: InsertPoint(1) = 1: InsertPoint(2) = 0
+    radius = 0.5
+    
+    ' Create a new block to hold the Circle object
+    Set newBlock = ThisDrawing.Blocks.Add(centerPoint, "CBlock")
+    
+    ' Add the Circle object to the new block object
+    Set circleObj = ThisDrawing.Blocks("CBlock").AddCircle(centerPoint, radius)
+    
+    ' Create a rectangular array of Circles using the new block containing the Circle
+    ' and the AddMInsertBlock method
+    Set newMBlock = ThisDrawing.ModelSpace.AddMInsertBlock(InsertPoint, "CBlock", 1, 1, 1, 1, 2, 2, 1, 1)
+        
+    ThisDrawing.Application.ZoomAll
+    
+    MsgBox "A rectangular array has been created from the original block."
+
+End Sub

@@ -1,0 +1,27 @@
+Sub Example_Reload()
+    On Error GoTo ERRORHANDLER
+                          
+    ' Define external reference to be inserted
+    Dim xrefHome As AcadBlock
+    Dim xrefInserted As AcadExternalReference
+    Dim insertionPnt(0 To 2) As Double
+    Dim PathName As String
+    insertionPnt(0) = 1
+    insertionPnt(1) = 1
+    insertionPnt(2) = 0
+    PathName = "c:/AutoCAD/sample/City map.dwg"
+    
+    ' Add the external reference to the block
+    Set xrefInserted = ThisDrawing.ModelSpace. _
+            AttachExternalReference(PathName, "XREF_IMAGE", _
+            insertionPnt, 1, 1, 1, 0, False)
+    ZoomAll
+    MsgBox "The external reference is attached."
+    
+    ' Reload the external reference definition
+    ThisDrawing.Blocks.Item(xrefInserted.name).Reload
+    MsgBox "The external reference is reloaded."
+    Exit Sub
+ERRORHANDLER:
+    MsgBox Err.Description
+End Sub

@@ -1,0 +1,34 @@
+Sub Example_ImageHeight()
+    ' This example adds a raster image in model space and then finds
+    ' the height and width of the image.
+    
+    ' This example uses the "downtown.jpg" found in the Sample
+    ' directory. If you do not have this image, or if it is located
+    ' in a different directory, insert a valid path and file name
+    ' for the imageName variable below.
+    
+    Dim insertionPoint(0 To 2) As Double
+    Dim scalefactor As Double
+    Dim rotationAngle As Double
+    Dim imageName As String
+    Dim rasterObj As AcadRasterImage
+    imageName = "C:/AutoCAD/sample/downtown.jpg"
+    insertionPoint(0) = 5#: insertionPoint(1) = 5#: insertionPoint(2) = 0#
+    scalefactor = 1#
+    rotationAngle = 0
+    
+    ' Creates a raster image in model space
+    Set rasterObj = ThisDrawing.ModelSpace.AddRaster(imageName, insertionPoint, scalefactor, rotationAngle)
+    
+    ' Find the height and width of the raster image
+    Dim height As Variant
+    Dim width As Variant
+    
+    height = rasterObj.ImageHeight
+    width = rasterObj.ImageWidth
+    
+    MsgBox "Raster image: " & rasterObj.ImageFile & vbCrLf & _
+            "ImageHeight: " & str(height) & vbCrLf & _
+            "ImageWidth: " & str(width)
+            
+End Sub

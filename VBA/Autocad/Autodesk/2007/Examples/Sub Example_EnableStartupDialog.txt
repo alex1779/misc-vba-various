@@ -1,0 +1,22 @@
+Sub Example_EnableStartupDialog()
+    ' This example returns the current setting of
+    ' EnableStartupDialog. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currEnableStartupDialog As Boolean
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current EnableStartupDialog value
+    currEnableStartupDialog = preferences.System.EnableStartupDialog
+    MsgBox "The current value for EnableStartupDialog is " & preferences.System.EnableStartupDialog, vbInformation, "EnableStartupDialog Example"
+    
+    ' Change the value for EnableStartupDialog
+    preferences.System.EnableStartupDialog = Not (currEnableStartupDialog)
+    MsgBox "The new value for EnableStartupDialog is " & preferences.System.EnableStartupDialog, vbInformation, "EnableStartupDialog Example"
+    
+    ' Reset EnableStartupDialog to its original value
+    preferences.System.EnableStartupDialog = currEnableStartupDialog
+    MsgBox "The EnableStartupDialog value is reset to " & preferences.System.EnableStartupDialog, vbInformation, "EnableStartupDialog Example"
+End Sub

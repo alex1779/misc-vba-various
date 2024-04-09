@@ -1,0 +1,22 @@
+Sub Example_Update()
+    ' This example creates a line in model space. It displays a
+    ' Msgbox immediately before the call to update the line and
+    ' again after the call.
+    Dim lineObj As AcadLine
+    Dim startPoint(0 To 2) As Double
+    Dim endPoint(0 To 2) As Double
+
+    ' Create a Line object in model space
+    startPoint(0) = 2#: startPoint(1) = 2#: startPoint(2) = 0#
+    endPoint(0) = 4#: endPoint(1) = 4#: endPoint(2) = 0#
+    Set lineObj = ThisDrawing.ModelSpace.AddLine(startPoint, endPoint)
+    
+    MsgBox "Before the update.", , "Update Example"
+    ' The following code draws an object in AutoCAD window
+    lineObj.Update
+    MsgBox "After the update.", , "Update Example"
+    
+    ' The following call updates the entire drawing
+    ThisDrawing.Application.Update
+    
+End Sub

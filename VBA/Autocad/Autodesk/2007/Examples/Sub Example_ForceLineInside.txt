@@ -1,0 +1,33 @@
+Sub Example_ForceLineInside()
+    ' This example creates an aligned dimension in model space
+    ' and toggles dimension lines to be drawn between extension lines
+    
+    Dim dimObj As AcadDimAligned
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim CurrentValue As String
+    
+    ' Define the dimension
+    point1(0) = 5: point1(1) = 5: point1(2) = 0
+    point2(0) = 5.5: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    ThisDrawing.Application.ZoomAll
+
+    ' Read and display current line suppression information
+    CurrentValue = IIf(dimObj.ForceLineInside, "are", "are not")
+    MsgBox "Dimension lines " & CurrentValue & " forced between the extension lines"
+
+    ' Force the display of dimension lines between the extension lines
+    dimObj.ForceLineInside = True
+    ThisDrawing.Regen acAllViewports
+    MsgBox "Dimension lines are forced between the extension lines"
+   
+    ' Do not force the display of dimension lines between the extension lines (default)
+    dimObj.ForceLineInside = False
+    ThisDrawing.Regen acAllViewports
+    MsgBox "Dimension lines are not forced between the extension lines"
+
+End Sub

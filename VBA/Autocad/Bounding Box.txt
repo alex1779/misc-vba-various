@@ -1,0 +1,4 @@
+    Dim objeto3d As AcadEntity
+    Dim MinPoint As Variant
+    Dim MaxPoint As Variant
+    objeto3d.GetBoundingBox MinPoint, MaxPoint

@@ -1,0 +1,41 @@
+Sub Example_ArrowHeadType()
+    ' This example creates a Leader object in model space with an associated Annotation
+    ' and then alters the visible appearance (shape) of its arrowhead
+    ' using the ArrowHeadType property
+
+    Dim leaderObj As AcadLeader, MTextObj As AcadMText
+    Dim points(0 To 8) As Double, insertionPoint(0 To 2) As Double, iTextWidth As Double
+    Dim leaderType As Integer
+    Dim annotationObject As Object
+    Dim textString As String
+    
+    ' Define the new MText object
+    textString = "Hello, World."
+    insertionPoint(0) = 5: insertionPoint(1) = 5: insertionPoint(2) = 0
+    iTextWidth = 2
+    
+    ' Create the MText object in model space
+    Set MTextObj = ThisDrawing.ModelSpace.AddMText(insertionPoint, iTextWidth, textString)
+    
+    ' Data for Leader
+    points(0) = 0: points(1) = 0: points(2) = 0
+    points(3) = 4: points(4) = 4: points(5) = 0
+    points(6) = 4: points(7) = 5: points(8) = 0
+    leaderType = acLineWithArrow
+       
+    ' Create the Leader object in model space and Associate new MText object
+    ' with new Leader by making the MText object the annotation for the Leader
+    Set annotationObject = MTextObj
+    Set leaderObj = ThisDrawing.ModelSpace.AddLeader(points, annotationObject, leaderType)
+    ThisDrawing.Application.ZoomAll
+
+    ' Read and display current arrowhead type
+    MsgBox "The arrowhead type for this object is: " & leaderObj.ArrowheadType
+
+    ' Alter the arrowhead type property for this object
+    leaderObj.ArrowheadType = acArrowBoxBlank
+    ThisDrawing.Application.ZoomAll
+    
+    ' Read and display current arrowhead type
+    MsgBox "The arrowhead type for this object is now set to: " & leaderObj.ArrowheadType
+End Sub

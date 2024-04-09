@@ -1,0 +1,9 @@
+Public Function EliminarHojasEnBlanco()
+Application.DisplayAlerts = False
+For Each Worksheet In Worksheets
+If IsEmpty(Worksheet.UsedRange) Then
+Worksheet.Delete
+End If
+Next
+Application.DisplayAlerts = True
+End Function

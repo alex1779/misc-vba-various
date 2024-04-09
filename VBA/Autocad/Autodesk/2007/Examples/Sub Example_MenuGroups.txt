@@ -1,0 +1,35 @@
+Sub Example_MenuGroups()
+    ' This example uses MenuGroups to obtain a reference to the AutoCAD main menu.
+    ' It then creates a new menu called TestMenu and inserts a menu item
+    ' into it. The menu is then displayed on the menu bar.
+    '
+    ' The menu item will be automatically removed when AutoCAD is restarted
+        
+    Dim currMenuGroup As acadMenuGroup
+    Dim newMenu As AcadPopupMenu, newMenuItem As AcadPopupMenuItem
+    Dim openMacro As String
+    
+    On Error GoTo ERRORTRAP
+    
+    ' Use MenuGroups property to obtain reference to main AutoCAD menu
+    Set currMenuGroup = ThisDrawing.Application.MenuGroups.Item("ACAD")
+    
+    ' Create the new menu in this group
+    Set newMenu = currMenuGroup.Menus.Add("TestMenu")
+    
+    ' Add a menu item to the new menu and
+    ' assign an Open macro (VBA equivalent of: "ESC ESC _open ")
+    openMacro = Chr(3) & Chr(3) & Chr(95) & "open" & Chr(32)
+    
+    Set newMenuItem = newMenu.AddMenuItem(newMenu.count + 1, "Open", openMacro)
+   
+    ' Display the menu on the menu bar
+    newMenu.InsertInMenuBar (ThisDrawing.Application.MenuBar.count + 1)
+    
+    MsgBox "A new menu has been added to the ACAD menu system!"
+    
+    Exit Sub
+    
+ERRORTRAP:
+    MsgBox "The following error has occurred: " & Err.Description
+End Sub

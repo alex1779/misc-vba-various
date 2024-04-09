@@ -1,0 +1,33 @@
+Sub Example_Freeze()
+    ' This example creates a new layer called "Freeze".
+    ' It then displays the status of the Freeze property
+    ' for the new layer, toggles the status of the
+    ' Freeze property, and again displays its status.
+    ' After running this example, you can check the layer
+    ' control on the Object Properties tool bar. It will
+    ' show the new layer and the latest Freeze status.
+    
+    Dim layerObj As AcadLayer
+    
+    ' Create the new layer
+    Set layerObj = ThisDrawing.Layers.Add("Freeze")
+    
+    ' Display the Freeze status of the new layer
+    GoSub DISPLAYSTATUS
+    
+    ' Toggle the status of the Freeze property for the layer
+    layerObj.Freeze = Not (layerObj.Freeze)
+    
+    ' Display the Freeze status of the new layer
+    GoSub DISPLAYSTATUS
+    Exit Sub
+    
+DISPLAYSTATUS:
+    If layerObj.Freeze Then
+        MsgBox "Layer " & layerObj.name & " is frozen.", , "Freeze Example"
+    Else
+        MsgBox "Layer " & layerObj.name & " is thawed.", , "Freeze Example"
+    End If
+    Return
+        
+End Sub

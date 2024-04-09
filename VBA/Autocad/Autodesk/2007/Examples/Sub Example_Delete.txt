@@ -1,0 +1,35 @@
+Sub Example_Delete()
+    ' This example creates a Layer named "TEST".
+    ' It then iterates the Layers collection and displays
+    ' the names of the available layers.
+    ' It then deletes the layer "TEST", and again iterates
+    ' the layers collection and displays the names of
+    ' available layers.
+    
+    Dim layerObj As AcadLayer
+    
+    ' Create the new layer
+    Set layerObj = ThisDrawing.Layers.Add("TEST")
+    
+    ' Display the names of the layers in the drawing
+    GoSub DISPLAYLAYERS
+    
+    ' Delete the layer "TEST"
+    layerObj.Delete
+    
+    ' Display the names of the layers remaining in the drawing
+    GoSub DISPLAYLAYERS
+    
+    Exit Sub
+    
+DISPLAYLAYERS:
+    Dim entry As AcadLayer
+    Dim layerNames As String
+    layerNames = ""
+    For Each entry In ThisDrawing.Layers
+       layerNames = layerNames & entry.name & ", "
+    Next
+    MsgBox "The drawing consists of the following layers:" & vbCr & layerNames, , "Delete Example"
+    Return
+    
+End Sub

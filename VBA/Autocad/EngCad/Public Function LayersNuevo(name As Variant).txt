@@ -1,0 +1,4 @@
+Public Function LayersNuevo(name As Variant)
+Dim NewLayer As AcadLayer
+Set NewLayer = AutoCAD.Application.ActiveDocument.Layers.Add(name)
+End Function

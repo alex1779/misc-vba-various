@@ -1,0 +1,15 @@
+Private Function Texto(nombre As Variant, StartX As Variant, StartY As Variant, StartZ As Variant, Width As Variant, CadenaTexto As String, Color As Variant, layer As String)
+     'Declaración de Variables
+    Dim PuntoA(0 To 2) As Double: Dim mtextObj As AcadMText
+    PuntoA(0) = StartX:     PuntoA(1) = StartY:         PuntoA(2) = StartZ
+    Set mtextObj = AutoCAD.Application.ActiveDocument.ModelSpace.AddMText(PuntoA, Width, CadenaTexto)    'Creando Nuevo Texto
+    With mtextObj
+        .AttachmentPoint = acAttachmentPointMiddleLeft
+        .Color = acRed
+        .InsertionPoint = PuntoA
+    End With
+    mtextObj.Color = Color
+    mtextObj.layer = layer
+    AutoCAD.Application.ActiveDocument.SendCommand "regen" & vbCr 'Regen
+
+End Function

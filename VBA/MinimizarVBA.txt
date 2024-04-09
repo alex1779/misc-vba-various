@@ -1,0 +1,4 @@
+Sub Minimizar_VBA()
+SetCursorPos 3127, 20 'Minimizar_VBA
+LeftClick
+End Sub

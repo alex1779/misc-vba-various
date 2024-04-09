@@ -1,0 +1,10 @@
+Public Function XLine(Space As AcActiveSpace, StartX As Variant, StartY As Variant, StartZ As Variant, EndX As Variant, EndY As Variant, EndZ As Double, Optional Color As AcColor, Optional Layer As String)
+Dim XLineObj As AcadXline: Dim StartPoint(0 To 2) As Double: Dim EndPoint(0 To 2) As Double
+StartPoint(0) = StartX: StartPoint(1) = StartY: StartPoint(2) = StartZ
+EndPoint(0) = EndX: EndPoint(1) = EndY: EndPoint(2) = EndZ
+If Space = 0 Then Set XLineObj = Autocad.Application.ActiveDocument.PaperSpace.AddXline(StartPoint, EndPoint)
+If Space = 1 Then Set XLineObj = Autocad.Application.ActiveDocument.modelspace.AddXline(StartPoint, EndPoint)
+On Error Resume Next
+XLineObj.Color = Color
+XLineObj.Layer = Layer
+End Function

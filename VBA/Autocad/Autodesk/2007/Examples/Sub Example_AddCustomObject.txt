@@ -1,0 +1,15 @@
+Sub Example_AddCustomObject()
+    ' This example adds a custom object to model space.
+    
+    ' Load the ObjectARX application that defines the custom object.
+    ' Note: The application listed here does not exist and
+    ' will cause an error when run. Change the application name
+    ' to the path and name of your ObjectARX Application.
+    ThisDrawing.Application.LoadArx ("MyARXApp.dll")
+    
+    ' Once the application has been loaded successfully,
+    ' add the custom object to model space.
+    Dim customObj As AcadObject
+    Set customObj = ThisDrawing.ModelSpace.AddCustomObject("MyNewObject")
+    
+End Sub

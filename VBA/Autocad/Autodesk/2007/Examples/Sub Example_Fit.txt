@@ -1,0 +1,39 @@
+Sub Example_Fit()
+    ' This example creates an aligned dimension in model space
+    ' and cycles the text fit of the dimension to a couple of common values
+    
+    Dim dimObj As AcadDimAligned
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim CurrentFit As String
+    
+    ' Define the dimension
+    point1(0) = 5: point1(1) = 5: point1(2) = 0
+    point2(0) = 6: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    ThisDrawing.Application.ZoomAll
+    
+    ' Read and display current dimension line fit information
+    Select Case dimObj.Fit
+        Case acTextAndArrows:   CurrentFit = "Text and Arrows"
+        Case acArrowsOnly:      CurrentFit = "Arrows Only"
+        Case acTextOnly:        CurrentFit = "Text Only"
+        Case acBestFit:         CurrentFit = "Best Fit"
+    End Select
+    
+    MsgBox "The current dimension fit is set to: " & CurrentFit
+
+    ' Change the fit to arrows only
+    dimObj.Fit = acArrowsOnly
+    ThisDrawing.Regen acAllViewports
+    MsgBox "The dimension fit has been changed to arrows only"
+    
+    ' Change the fit to text only
+    dimObj.Fit = acTextOnly
+    ThisDrawing.Regen acAllViewports
+    MsgBox "The dimension fit has been changed to text only"
+    
+End Sub

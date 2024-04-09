@@ -1,0 +1,14 @@
+Sub Example_Index()
+    ' This example iterates through the first menu in the menu bar
+    ' and displays the index for each menu item.
+    
+    Dim menuItem As AcadPopupMenuItem
+    Dim menuIndex As String
+    menuIndex = ""
+    
+    For Each menuItem In ThisDrawing.Application.MenuBar.Item(0)
+        menuIndex = menuIndex & menuItem.TagString & " has the index: " & menuItem.index & vbCrLf
+    Next menuItem
+    MsgBox menuIndex
+    
+End Sub

@@ -1,0 +1,21 @@
+Sub Example_ColorIndex()
+    'This example draws a circle and
+    'returns the closest color index.
+
+    Dim col As New AcadAcCmColor
+    Call col.SetRGB(125, 175, 235)
+    
+    Dim cir As AcadCircle
+    Dim pt(0 To 2) As Double
+    Set cir = ThisDrawing.ModelSpace.AddCircle(pt, 2)
+    cir.TrueColor = col
+    ZoomAll
+    
+    Dim retCol As AcadAcCmColor
+    Set retCol = cir.TrueColor
+    
+    If col.ColorMethod = AutoCAD.acColorMethodByRGB Then
+    MsgBox "Closest ColorIndex=" & col.ColorIndex
+    End If
+
+End Sub

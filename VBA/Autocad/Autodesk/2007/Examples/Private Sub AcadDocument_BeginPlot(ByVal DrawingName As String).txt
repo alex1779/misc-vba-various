@@ -1,0 +1,11 @@
+Private Sub AcadDocument_BeginPlot(ByVal DrawingName As String)()
+    ' This example intercepts a drawing BeginPlot event.
+    '
+    ' This event is triggered when a drawing receives a plot request.
+    '
+    ' To trigger this example event: Plot an open drawing
+
+    ' Use the "DrawingName" variable to determine which drawing is about to plot
+    MsgBox "A drawing has just received a request to plot for: " & DrawingName
+
+End Sub

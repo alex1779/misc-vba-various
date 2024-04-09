@@ -1,0 +1,27 @@
+Sub Example_DisplayLayoutTabs()
+    ' This example reads and modifies the preference value that controls
+    ' the display of the Model and layout tabs. When finished, this example
+    ' resets the preference value back to its original value.
+    
+    Dim ACADPref As AcadPreferencesDisplay
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the display preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.DISPLAY
+    
+    ' Read and display the original value
+    originalValue = ACADPref.DisplayLayoutTabs
+    MsgBox "The DisplayLayoutTabs preference is set to: " & originalValue
+
+    ' Modify the DisplayLayoutTabs preference by toggling the value
+    ACADPref.DisplayLayoutTabs = Not (originalValue)
+    newValue = ACADPref.DisplayLayoutTabs
+    MsgBox "The DisplayLayoutTabs preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.DisplayLayoutTabs = originalValue
+    MsgBox "The DisplayLayoutTabs preference was reset back to: " & originalValue
+End Sub

@@ -1,0 +1,37 @@
+Public Enum vistas
+top
+Bottom
+Left
+Right
+Front
+Back
+SW_Isometric
+SE_Isometric
+NE_Isometric
+NW_Isometric
+End Enum
+Public Function VistaNuevo(vista As vistas)
+Select Case vista
+Case vistas.top
+view = "_Top"
+Case vistas.Bottom
+view = "_Bottom"
+Case vistas.Left
+view = "_Left"
+Case vistas.Right
+view = "_Right"
+Case vistas.Front
+view = "_Front"
+Case vistas.Back
+view = "_Back"
+Case vistas.SW_Isometric
+view = "_swiso"
+Case vistas.SE_Isometric
+view = "_seiso"
+Case vistas.NE_Isometric
+view = "_neiso"
+Case vistas.NW_Isometric
+view = "_nwiso"
+End Select
+AutoCAD.Application.ActiveDocument.SendCommand "_-view" & vbCr & view & vbCr
+End Function

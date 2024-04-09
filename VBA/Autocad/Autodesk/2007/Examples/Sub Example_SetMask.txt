@@ -1,0 +1,24 @@
+Sub Example_SetMask()
+    ' The following code updates the Mask property of layer
+    ' settings saved under the name "ColorLineType, so that
+    ' Color, LineType, and LineWeight layer properties will
+    ' be restored by a Restore operation.
+    
+    Dim oLSM As AcadLayerStateManager
+    Dim settings As AcLayerStateMask
+    
+    Set oLSM = ThisDrawing.Application. _
+       GetInterfaceObject("AutoCAD.AcadLayerStateManager.16")
+    oLSM.SetDatabase ThisDrawing.Database
+       
+    ' Retrieve the current mask setting from ColorLinetype
+    settings = oLSM.Mask("ColorLinetype")
+       
+    ' Set mask so that Color, LineType, and LineWeight
+    ' properties will be restored by a Restore operation
+     settings = acLsColor + acLsLineType + acLsLineWeight
+         
+    ' Commit the new settings mask to ColorLinetype
+     oLSM.Mask("ColorLinetype") = settings
+
+End Sub

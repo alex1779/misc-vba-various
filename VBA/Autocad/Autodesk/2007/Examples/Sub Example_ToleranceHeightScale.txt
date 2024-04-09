@@ -1,0 +1,39 @@
+Sub Example_ToleranceHeightScale()
+   ' This example creates an aligned dimension in model space and
+   ' turns on the tolerance display for the new dimension.  The height
+   ' of the tolerance text can then be adjusted by the user
+
+    Dim dimObj As AcadDimAligned
+    Dim newText As AcadTextStyle
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim CurrentScale As Integer
+    
+    ' Define the dimension
+    point1(0) = 5: point1(1) = 5: point1(2) = 0
+    point2(0) = 5.5: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    
+    ' Turn on the tolerance display
+    dimObj.ToleranceDisplay = acTolSymmetrical
+    
+    ThisDrawing.Application.ZoomAll
+    
+Increase:
+    ' Read and display the current tolerance height scale for this dimension
+    If MsgBox("The tolerance height scale is currently set to: " & dimObj.ToleranceHeightScale & vbCrLf & _
+               "Press OK to increase, or cancel to finish", vbOKCancel) = vbCancel Then
+        
+        Exit Sub
+    End If
+    
+    ' Increase the tolerance height scale for this dimension
+    dimObj.ToleranceHeightScale = dimObj.ToleranceHeightScale + 1
+    
+    ThisDrawing.Regen acAllViewports
+    
+    GoTo Increase
+End Sub

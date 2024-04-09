@@ -1,0 +1,18 @@
+Sub Example_AddDimOrdinate()
+    ' This example creates an ordinate dimension in model space.
+    
+    Dim dimObj As AcadDimOrdinate
+    Dim definingPoint(0 To 2) As Double
+    Dim leaderEndPoint(0 To 2) As Double
+    Dim useXAxis As Long
+    
+    ' Define the dimension
+    definingPoint(0) = 5#: definingPoint(1) = 5#: definingPoint(2) = 0#
+    leaderEndPoint(0) = 10#: leaderEndPoint(1) = 5#: leaderEndPoint(2) = 0#
+    useXAxis = 5#
+    
+    ' Create an ordinate dimension in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimOrdinate(definingPoint, leaderEndPoint, useXAxis)
+    ZoomAll
+    
+End Sub

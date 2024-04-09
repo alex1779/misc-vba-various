@@ -1,0 +1,33 @@
+Sub Example_LayerOn()
+    ' This example creates a new layer called "LayerOn".
+    ' It then displays the status of the LayerOn property
+    ' for the new layer, toggles the status of the
+    ' LayerOn property, and again displays its status.
+    ' After running this example, you can check the layer
+    ' control on the Object Properties tool bar. It will
+    ' show the new layer and the latest LayerOn status.
+    
+    Dim layerObj As AcadLayer
+    
+    ' Create the new layer
+    Set layerObj = ThisDrawing.Layers.Add("LayerOn")
+    
+    ' Display the LayerOn status of the new layer
+    GoSub DISPLAYSTATUS
+    
+    ' Toggle the status of the LayerOn property for the layer
+    layerObj.LayerOn = Not (layerObj.LayerOn)
+    
+    ' Display the LayerOn status of the new layer
+    GoSub DISPLAYSTATUS
+    Exit Sub
+    
+DISPLAYSTATUS:
+    If layerObj.LayerOn Then
+        MsgBox "Layer " & layerObj.name & " is turned on.", , "LayerOn Example"
+    Else
+        MsgBox "Layer " & layerObj.name & " is turned off.", , "LayerOn Example"
+    End If
+    Return
+        
+End Sub

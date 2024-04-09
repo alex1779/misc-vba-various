@@ -1,0 +1,10 @@
+Private Sub AcadDocument_EndSave(ByVal FileName As String)()
+    ' This example intercepts a drawing EndSave event.
+    '
+    ' This event is triggered when a drawing finishes a save request.
+    '
+    ' To trigger this example event: Save an open drawing and wait for the save to complete
+
+    ' Use the "FileName" variable to determine where the drawing file was saved
+    MsgBox "A drawing has just been saved to: " & FileName
+End Sub

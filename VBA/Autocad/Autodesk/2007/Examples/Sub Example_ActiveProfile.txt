@@ -1,0 +1,13 @@
+Sub Example_ActiveProfile()
+    ' This example returns the current setting of
+    ' ActiveProfile.
+    
+    Dim preferences As AcadPreferences
+    Dim currActiveProfile As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current ActiveProfile value
+    currActiveProfile = preferences.Profiles.ActiveProfile
+    MsgBox "The current value for ActiveProfile is " & currActiveProfile, vbInformation, "ActiveProfile Example"
+End Sub

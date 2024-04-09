@@ -1,0 +1,20 @@
+Sub Example_DisplaySilhouette()
+    ' This example returns the current setting of
+    ' DisplaySilhouette. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim currDisplaySilhouette As Boolean
+    
+    
+    ' Retrieve the current DisplaySilhouette value
+    currDisplaySilhouette = ThisDrawing.preferences.DisplaySilhouette
+    MsgBox "The current value for DisplaySilhouette is " & preferences.DisplaySilhouette, vbInformation, "DisplaySilhouette Example"
+    
+    ' Change the value for DisplaySilhouette
+    ThisDrawing.preferences.DisplaySilhouette = Not (currDisplaySilhouette)
+    MsgBox "The new value for DisplaySilhouette is " & preferences.DisplaySilhouette, vbInformation, "DisplaySilhouette Example"
+    
+    ' Reset DisplaySilhouette to its original value
+    ThisDrawing.preferences.DisplaySilhouette = currDisplaySilhouette
+    MsgBox "The DisplaySilhouette value is reset to " & preferences.DisplaySilhouette, vbInformation, "DisplaySilhouette Example"
+End Sub

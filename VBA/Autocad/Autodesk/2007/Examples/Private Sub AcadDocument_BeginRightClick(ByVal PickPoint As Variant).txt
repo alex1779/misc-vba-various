@@ -1,0 +1,16 @@
+Private Sub AcadDocument_BeginRightClick(ByVal PickPoint As Variant)()
+    ' This example intercepts a drawing BeginRightClick event.
+    '
+    ' This event is triggered when a drawing receives
+    ' a right mouse click in its working area.
+    '
+    ' To trigger this example event: Position the cursor over the working area of
+    ' a drawing window and click the right mouse button.
+
+    ' Use the "PickPoint" variable to determine where on the drawing the user clicked
+    MsgBox "A drawing has just been right-clicked at:" & vbCrLf & _
+            PickPoint(0) & vbCrLf & _
+            PickPoint(1) & vbCrLf & _
+            PickPoint(2)
+
+End Sub

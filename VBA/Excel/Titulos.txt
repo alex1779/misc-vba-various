@@ -1,0 +1,8 @@
+Sub Titulos()
+
+    Range("A1") = "Name"
+    Range("B1") = "X"
+    Range("C1") = "Y"
+    Range("D1") = "Distance from P(0)"
+
+End Sub

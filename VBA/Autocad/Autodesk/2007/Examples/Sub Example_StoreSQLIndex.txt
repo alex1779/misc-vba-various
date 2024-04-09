@@ -1,0 +1,28 @@
+Sub Example_StoreSQLIndex()
+    ' This example reads and modifies the preference value that controls
+    ' whether the SQL index is stored in the drawing.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesSystem
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the system preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.System
+    
+    ' Read and display the original value
+    originalValue = ACADPref.StoreSQLIndex
+    MsgBox "The StoreSQLIndex preference is set to: " & originalValue
+
+    ' Modify the StoreSQLIndex preference by toggling the value
+    ACADPref.StoreSQLIndex = Not (ACADPref.StoreSQLIndex)
+    newValue = ACADPref.StoreSQLIndex
+    MsgBox "The StoreSQLIndex preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.StoreSQLIndex = originalValue
+    MsgBox "The StoreSQLIndex preference was reset back to: " & originalValue
+End Sub

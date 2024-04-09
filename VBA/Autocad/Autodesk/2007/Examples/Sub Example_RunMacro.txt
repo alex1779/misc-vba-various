@@ -1,0 +1,26 @@
+Sub Example_RunMacro()
+    ' This example loads a DVB file and runs a macro
+    ' contained in the file using the RunMacro method.
+    '
+    ' This example uses a DVB file named drawline.dvb.
+    ' You should change the example to use a file on your computer.
+    '
+    ' * Note: If you open a DVB file and then run the example to load it, there will be an error
+    ' when the DVB file is unloaded.
+
+    Dim FileName As String
+    
+    FileName = "c:\drawline.dvb"
+    
+    ' Load a sample VBA project DVB file
+    LoadDVB FileName
+    
+    ' Run the drawline sample macro
+    RunMacro "Module1.Drawline"
+    
+    ' Unload the drawline VBA project DVB file now that we are done
+    UnloadDVB FileName
+    
+    MsgBox "The DVB file has been run!"
+
+End Sub

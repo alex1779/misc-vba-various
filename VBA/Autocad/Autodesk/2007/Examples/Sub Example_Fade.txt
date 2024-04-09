@@ -1,0 +1,39 @@
+Sub Example_Fade()
+    ' This example inserts a raster image and finds the current
+    ' Fade value of the image. It then changes the Fade value
+    ' of the image.
+    
+    ' This example uses the "downtown.jpg" found in the Sample
+    ' directory. If you do not have the image, or if it is located
+    ' in a different directory, insert a valid path and name for the
+    ' imageName variable below.
+    Dim insertionPoint(0 To 2) As Double
+    Dim scalefactor As Double
+    Dim rotAngleInDegree As Double
+    Dim rotAngle As Double
+    Dim imageName As String
+    Dim raster As AcadRasterImage
+    imageName = "C:\AutoCAD\sample\downtown.jpg"
+    insertionPoint(0) = 2#: insertionPoint(1) = 2#: insertionPoint(2) = 0#
+    scalefactor = 1#
+    rotAngleInDegree = 0#
+    rotAngle = rotAngleInDegree * 3.141592 / 180#
+    
+    On Error Resume Next
+    
+    ' Creates a raster image in model space
+    Set raster = ThisDrawing.ModelSpace.AddRaster(imageName, insertionPoint, scalefactor, rotAngle)
+    If Err.Description = "Filer error" Then
+        MsgBox imageName & " could not be found."
+        Exit Sub
+    End If
+
+    ' Find the current Fade
+    ThisDrawing.Regen True
+    MsgBox "The Fade is currently set to: " & raster.Fade, vbInformation
+    
+    ' Change the Fade to 5
+    raster.Fade = 50
+    ThisDrawing.Regen True
+    MsgBox "The Fade is now set to: " & raster.Fade, vbInformation
+End Sub

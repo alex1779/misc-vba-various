@@ -1,0 +1,27 @@
+Sub Example_AutoSnapApertureSize()
+    ' This example reads and modifies the preference value that controls
+    ' the size of the AutoSnap aperture. When finished, this example resets
+    ' the preference value back to its original value.
+    
+    Dim ACADPref As AcadPreferencesDrafting
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the drafting preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Drafting
+    
+    ' Read and display the original value
+    originalValue = ACADPref.AutoSnapApertureSize
+    MsgBox "The AutoSnapApertureSize preference is: " & originalValue
+
+    ' Modify the AutoSnapApertureSize preference by setting it to 25
+    ACADPref.AutoSnapApertureSize = 25
+    newValue = ACADPref.AutoSnapApertureSize
+    MsgBox "The AutoSnapApertureSize preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.AutoSnapApertureSize = originalValue
+    MsgBox "The AutoSnapApertureSize preference was reset back to: " & originalValue
+End Sub

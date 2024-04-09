@@ -1,0 +1,8 @@
+Sub layer(nombre As Variant, Name As String, Color As Variant, LineType As String, LineWeight As Variant, Plottable As Boolean)
+    Set nombre = AutoCAD.Application.ActiveDocument.Layers.Add(Name)
+    nombre.Color = Color
+    nombre.LineType = LineType
+    nombre.LineWeight = LineWeight
+    nombre.Plottable = Plottable
+    nombre = nombre.Name
+End Sub

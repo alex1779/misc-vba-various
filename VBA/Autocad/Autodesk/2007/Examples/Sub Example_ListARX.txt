@@ -1,0 +1,18 @@
+Sub Example_ListARX()
+    ' This example gets all the loaded ObjectARX applications
+    
+    ' Get the list of applications
+    Dim appList As Variant
+    appList = ThisDrawing.Application.ListArx
+    
+    ' Iterate through the list, and display the names, if any.
+    If VarType(appList) <> vbEmpty Then
+        Dim I As Integer
+        For I = LBound(appList) To UBound(appList)
+            MsgBox "ObjectARX application name: " & appList(I)
+        Next
+    Else
+        MsgBox "No ObjectARX applications present."
+    End If
+    
+End Sub

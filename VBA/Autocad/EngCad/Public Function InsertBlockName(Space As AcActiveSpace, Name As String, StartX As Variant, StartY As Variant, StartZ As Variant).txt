@@ -1,0 +1,6 @@
+Public Function InsertBlockName(Space As AcActiveSpace, Name As String, StartX As Variant, StartY As Variant, StartZ As Variant)
+Dim blockRefObj As AcadBlockReference: Dim PuntoA(0 To 2) As Double
+PuntoA(0) = StartX: PuntoA(1) = StartY: PuntoA(2) = StartZ
+If Space = 0 Then Set blockRefObj = Autocad.Application.ActiveDocument.PaperSpace.InsertBlock(PuntoA, Name, 1#, 1#, 1#, 0)
+If Space = 1 Then Set blockRefObj = Autocad.Application.ActiveDocument.modelspace.InsertBlock(PuntoA, Name, 1#, 1#, 1#, 0)
+End Function

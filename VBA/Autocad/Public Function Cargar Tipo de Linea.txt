@@ -1,0 +1,10 @@
+Function LoadLinetype(linetypeName As String)
+  On Error GoTo ERRORHANDLER
+  linetypeName = linetypeName
+
+  AutoCAD.Application.ActiveDocument.Linetypes.Load linetypeName, "acad.lin"
+  Exit Function
+
+ERRORHANDLER:
+  MsgBox Err.Description
+End Function

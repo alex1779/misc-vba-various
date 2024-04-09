@@ -1,0 +1,6 @@
+    'Declaración de Variables
+    Dim newlayer As AcadLayer
+    'Creando Nuevo Layer
+    Set newlayer = AutoCAD.Application.ActiveDocument.Layers.Add(".OUTLINE 1")
+    'Activando Nuevo Layer
+    AutoCAD.Application.ActiveDocument.ActiveLayer = newlayer

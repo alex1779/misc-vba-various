@@ -1,0 +1,9 @@
+Public Function Punto(nombre As Variant, CenterX As Variant, CenterY As Variant, CenterZ As Variant, Color As Variant, layer As String)
+    'Declaración de Variables
+    Dim Center(0 To 2) As Double
+    Center(0) = CenterX:     Center(1) = CenterY:         Center(2) = CenterZ
+    'Creando nuevo punto
+    Set nombre = AutoCAD.Application.ActiveDocument.ModelSpace.AddPoint(Center)
+    nombre.Color = Color
+    nombre.layer = layer
+End Sub

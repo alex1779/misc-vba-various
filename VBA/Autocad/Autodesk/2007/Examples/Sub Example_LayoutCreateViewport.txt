@@ -1,0 +1,27 @@
+Sub Example_LayoutCreateViewport()
+    ' This example reads and modifies the preference value that controls
+    ' the automatic creation of a viewport for new layouts. When finished, this example
+    ' resets the preference value back to its original value.
+    
+    Dim ACADPref As AcadPreferencesDisplay
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the display preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.DISPLAY
+    
+    ' Read and display the original value
+    originalValue = ACADPref.LayoutCreateViewport
+    MsgBox "The LayoutCreateViewport preference is set to: " & originalValue
+
+    ' Modify the LayoutCreateViewport preference by toggling the value
+    ACADPref.LayoutCreateViewport = Not (originalValue)
+    newValue = ACADPref.LayoutCreateViewport
+    MsgBox "The LayoutCreateViewport preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.LayoutCreateViewport = originalValue
+    MsgBox "The LayoutCreateViewport preference was reset back to: " & originalValue
+End Sub

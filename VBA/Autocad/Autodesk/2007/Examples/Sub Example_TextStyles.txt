@@ -1,0 +1,12 @@
+Sub Example_TextStyles()
+    ' This example finds the current Textstyles collection and
+    ' adds a new Text style to that collection.
+    
+    Dim TextColl As AcadTextStyles
+    Set TextColl = ThisDrawing.TextStyles
+    
+    ' Create a Text style named "TEST" in the current drawing
+    Dim textStyle As AcadTextStyle
+    Set textStyle = TextColl.Add("TEST")
+    MsgBox "A new Text style called " & textStyle.name & " has been added to the Textstyles collection.", vbInformation, "Textstyles Example"
+End Sub

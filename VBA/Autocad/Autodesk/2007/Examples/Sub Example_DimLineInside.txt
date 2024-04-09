@@ -1,0 +1,34 @@
+Sub Example_DimLineInside()
+    ' This example creates a DimAligned object in model space
+    ' and toggles the dimension lines to be both allowed and disallowed
+    ' outside the extension lines
+    
+    Dim dimObj As AcadDimAligned
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim CurrentValue As String
+    
+    ' Define the dimension
+    point1(0) = 5: point1(1) = 5: point1(2) = 0
+    point2(0) = 6: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    ThisDrawing.Application.ZoomAll
+
+    ' Read and display current line suppression information
+    CurrentValue = IIf(dimObj.DimLineInside, "are not", "are")
+    MsgBox "Dimension lines " & CurrentValue & " allowed outside the extension lines"
+
+    ' Suppress the display of dimension lines outside the extension lines
+    dimObj.DimLineInside = True
+    ThisDrawing.Regen acAllViewports
+    MsgBox "Dimension lines are not allowed outside the extension lines"
+   
+    ' Allow the display of dimension lines outside the extension lines (default)
+    dimObj.DimLineInside = False
+    ThisDrawing.Regen acAllViewports
+    MsgBox "Dimension lines are allowed outside the extension lines"
+   
+End Sub

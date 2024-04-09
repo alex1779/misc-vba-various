@@ -1,0 +1,27 @@
+Sub Example_AppendVertex()
+    ' This example creates a polyline in model space.
+    ' It then appends a vertex to the polyline.
+    
+    Dim plineObj As AcadPolyline
+    Dim points(0 To 14) As Double
+    
+    
+    ' Define the 2D polyline points
+    points(0) = 1: points(1) = 1: points(2) = 0
+    points(3) = 1: points(4) = 2: points(5) = 0
+    points(6) = 2: points(7) = 2: points(8) = 0
+    points(9) = 3: points(10) = 2: points(11) = 0
+    points(12) = 4: points(13) = 4: points(14) = 0
+        
+    ' Create a lightweight Polyline object in model space
+    Set plineObj = ThisDrawing.ModelSpace.AddPolyline(points)
+    ZoomAll
+    MsgBox "Append the vertex 4, 1, 0.", , "AppendVertex Example"
+    
+    Dim newVertex(0 To 2) As Double
+    newVertex(0) = 4: newVertex(1) = 1: newVertex(2) = 0
+    plineObj.AppendVertex newVertex
+    ZoomAll
+    MsgBox "The vertex 4, 1, 0 as been appended.", , "AppendVertex Example"
+
+End Sub

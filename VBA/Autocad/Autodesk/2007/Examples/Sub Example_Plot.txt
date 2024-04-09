@@ -1,0 +1,17 @@
+Sub Example_Plot()
+    ' This example sends a plot of the current drawing
+    ' to a file.
+    
+    ' Define the plot variable
+    Dim currentPlot As ACADPlot
+    Set currentPlot = ThisDrawing.Plot
+    
+    ' Define the output file name.
+    ' Use "" to use the drawing name as the file name.
+    ' Note: if the file name exists an error will be generated.
+    Dim plotFileName As String
+    plotFileName = "MyPlot"
+    
+    currentPlot.PlotToFile (plotFileName)
+    
+End Sub

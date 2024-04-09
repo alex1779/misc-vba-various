@@ -1,0 +1,7 @@
+Sub Example_PaperSpace()
+    ' This example sets the variable pspace to the paper space object collection.
+    
+    Dim pspace As AcadPaperSpace
+    Set pspace = ThisDrawing.PaperSpace
+    
+End Sub

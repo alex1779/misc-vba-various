@@ -1,0 +1,10 @@
+Private Sub AcadDocument_EndPlot(ByVal DrawingName As String)()
+    ' This example intercepts a drawing EndPlot event.
+    '
+    ' This event is triggered when a drawing finishes a plot request.
+    '
+    ' To trigger this example event: Plot an open drawing and wait for the plot to finish
+
+    ' Use the "DrawingName" variable to determine which drawing just finished plotting
+    MsgBox "A drawing has just finished a plot request!"
+End Sub

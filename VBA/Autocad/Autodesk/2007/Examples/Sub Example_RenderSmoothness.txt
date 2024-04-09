@@ -1,0 +1,21 @@
+Sub Example_RenderSmoothness()
+    ' This example returns the current setting of
+    ' RenderSmoothness. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim currRenderSmoothness As Double
+    Dim newRenderSmoothness As Double
+    
+    ' Retrieve the current RenderSmoothness value
+    currRenderSmoothness = ThisDrawing.preferences.RenderSmoothness
+    MsgBox "The current value for RenderSmoothness is " & currRenderSmoothness, vbInformation, "RenderSmoothness Example"
+    
+    ' Change the value for RenderSmoothness
+    newRenderSmoothness = 2.5
+    ThisDrawing.preferences.RenderSmoothness = newRenderSmoothness
+    MsgBox "The new value for RenderSmoothness is " & newRenderSmoothness, vbInformation, "RenderSmoothness Example"
+    
+    ' Reset RenderSmoothness to its original value
+    ThisDrawing.preferences.RenderSmoothness = currRenderSmoothness
+    MsgBox "The RenderSmoothness value is reset to " & currRenderSmoothness, vbInformation, "RenderSmoothness Example"
+End Sub

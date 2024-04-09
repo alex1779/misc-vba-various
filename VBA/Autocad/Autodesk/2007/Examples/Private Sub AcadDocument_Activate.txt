@@ -1,0 +1,10 @@
+Private Sub AcadDocument_Activate()
+    ' This example intercepts a drawing Activate event.
+    '
+    ' This event is triggered when a drawing window becomes active.
+    '
+    ' To trigger this example event: Either open a new drawing or switch from
+    ' one drawing window to another
+
+    MsgBox "You have just activated a drawing!"
+End Sub

@@ -1,0 +1,50 @@
+Sub Example_ColorMethod()
+    ' This example shows how to change the
+    ' ColorMethod property
+        Dim col As New AcadAcCmColor
+        col.ColorMethod = AutoCAD.acColorMethodForeground
+            
+        'Circle number one
+        Dim cir1 As AcadCircle
+        Dim pt(0 To 2) As Double
+        Set cir1 = ThisDrawing.ModelSpace.AddCircle(pt, 2)
+        cir1.TrueColor = col
+        ZoomAll
+        
+        Dim retCol As AcadAcCmColor
+        Set retCol = cir1.TrueColor
+        
+        'Message box with method and index
+        Dim MethodText As String
+        MethodText = col.ColorMethod
+        MsgBox "ColorMethod=" & MethodText & vbCrLf & "Index=" & col.ColorIndex
+        
+        'Circle number two
+        Dim cir2 As AcadCircle
+        Set cir2 = ThisDrawing.ModelSpace.AddCircle(pt, 6)
+        ZoomAll
+       
+        col.ColorMethod = AutoCAD.acColorMethodByBlock
+       
+        'Message box with method and index
+        MethodText = col.ColorMethod
+        MsgBox "ColorMethod=" & MethodText & vbCrLf & "Index=" & col.ColorIndex
+        
+        'Circle number three
+        Dim cir3 As AcadCircle
+        Set cir3 = ThisDrawing.ModelSpace.AddCircle(pt, 10)
+        ZoomAll
+    
+        Dim layColor As AcadAcCmColor
+        Set layColor = AcadApplication.GetInterfaceObject("AutoCAD.AcCmColor.16")
+        Call layColor.SetRGB(122, 199, 25)
+        ThisDrawing.ActiveLayer.TrueColor = layColor
+        
+        col.ColorMethod = AutoCAD.acColorMethodByLayer
+      
+        Set retCol = cir3.TrueColor
+                
+        'Message box with method and index
+        MethodText = col.ColorMethod
+        MsgBox "ColorMethod=" & MethodText & vbCrLf & "Index=" & col.ColorIndex
+End Sub

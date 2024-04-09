@@ -1,0 +1,6 @@
+    'Aplicar Color Yellow
+    Objeto.Color = acYellow
+    'Aplicar Color Cyan
+    Objeto.Color = acCyan
+    'Aplicar Color Red
+    Objeto.Color = acRed

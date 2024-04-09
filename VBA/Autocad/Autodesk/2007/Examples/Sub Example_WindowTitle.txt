@@ -1,0 +1,23 @@
+Sub Example_WindowTitle()
+    ' This example cycles through the documents collection
+    ' and uses the WindowTitle property to create a list of all open documents.
+
+    Dim DOC As AcadDocument
+    Dim msg As String
+    
+    ' If there are no open documents, then exit
+    If Documents.count = 0 Then
+        MsgBox "There are no open documents!"
+        Exit Sub
+    End If
+    
+    msg = vbCrLf & vbCrLf   ' Start with a space
+    
+    ' Cycle through all open drawings and get the window title of each drawing
+    For Each DOC In Documents
+        msg = msg & DOC.WindowTitle
+    Next
+    
+    ' Display a list of open drawings
+    MsgBox "The open drawing titles are: " & msg
+End Sub

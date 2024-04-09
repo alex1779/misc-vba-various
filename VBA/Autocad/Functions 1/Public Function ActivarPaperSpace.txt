@@ -1,0 +1,3 @@
+Public Function ActivarPaperSpace()    'Activando: Paper Space
+    AutoCAD.Application.ActiveDocument.ActiveSpace = acPaperSpace
+End Function

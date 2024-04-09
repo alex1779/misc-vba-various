@@ -1,0 +1,6 @@
+Public Function PegarPunto0()   'Pega Todo desde el punto 0,0,0
+    AutoCAD.Application.ActiveDocument.SendCommand "_pasteclip " & vbCr & "0,0,0 " & vbCr
+End Function
+Public Function Pegar(punto As String)   'Pega Todo desde el punto 0,0,0
+    AutoCAD.Application.ActiveDocument.SendCommand "_pasteclip " & vbCr & punto & vbCr
+End Function

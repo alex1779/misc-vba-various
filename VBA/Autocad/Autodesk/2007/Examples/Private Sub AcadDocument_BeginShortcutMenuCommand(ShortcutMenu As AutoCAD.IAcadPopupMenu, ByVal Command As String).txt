@@ -1,0 +1,6 @@
+Private Sub AcadDocument_BeginShortcutMenuCommand(ShortcutMenu As AutoCAD.IAcadPopupMenu, ByVal Command As String)()
+    ' This example intercepts a shortcut menu start while you are in the command mode.
+    '
+    MsgBox "You have just initiated a shortcut menu in command mode!"
+
+End Sub

@@ -1,0 +1,4 @@
+
+    Mayor = 85
+    Menor = 80
+    PromedioX = ((Mayor - Menor + 1) * Rnd + Menor)

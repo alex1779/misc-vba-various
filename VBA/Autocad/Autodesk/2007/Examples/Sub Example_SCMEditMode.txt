@@ -1,0 +1,26 @@
+Sub Example_SCMEditMode()
+    ' This example reads and modifies the SCMEditMode
+    ' preference value.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesUser
+    Dim originalValue As Integer, newValue As Integer
+    
+    ' Get the user preferences object
+
+    Set ACADPref = ThisDrawing.Application.preferences.User
+    
+    ' Read and display the original value
+    originalValue = ACADPref.SCMEditMode
+    MsgBox "The SCMEditMode preference is set to: " & originalValue
+
+    ' Modify the SCMEditMode preference by toggling the value
+    ACADPref.SCMEditMode = acEdRepeatLastCommand
+
+    MsgBox "The SCMEditMode preference has been set to: " & ACADPref.SCMEditMode
+
+    ' Reset the preference back to its original value
+    ACADPref.SCMEditMode = originalValue
+    MsgBox "The SCMEditMode preference was reset back to: " & originalValue
+End Sub

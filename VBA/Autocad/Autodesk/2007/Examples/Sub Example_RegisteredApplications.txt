@@ -1,0 +1,12 @@
+Sub Example_RegisteredApplications()
+    ' This example finds the current RegisteredApplications collection and
+    ' adds a new RegisteredApplication to that collection.
+    
+    Dim RegAppColl As AcadRegisteredApplications
+    Set RegAppColl = ThisDrawing.RegisteredApplications
+    
+    ' Create a RegisteredApp named "TEST" in the current drawing
+    Dim RegAppObj As AcadRegisteredApplication
+    Set RegAppObj = RegAppColl.Add("TEST")
+    MsgBox "A new registered application called " & RegAppObj.name & " has been added to the Registered Applications collection.", vbInformation, "RegisteredApplications Example"
+End Sub

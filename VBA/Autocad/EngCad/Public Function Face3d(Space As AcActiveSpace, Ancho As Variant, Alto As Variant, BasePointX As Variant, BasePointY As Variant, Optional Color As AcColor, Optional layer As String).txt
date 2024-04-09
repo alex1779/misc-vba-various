@@ -1,0 +1,13 @@
+Public Function Face3d(Space As AcActiveSpace, Ancho As Variant, Alto As Variant, BasePointX As Variant, BasePointY As Variant, Optional Color As AcColor, Optional layer As String)
+Dim Face3dObj As Acad3DFace: Dim PuntoA(0 To 2) As Double: Dim PuntoB(0 To 2) As Double: Dim PuntoC(0 To 2) As Double: Dim PuntoD(0 To 2) As Double
+PuntoA(0) = BasePointX:             PuntoA(1) = BasePointY:             PuntoA(2) = 0
+PuntoB(0) = BasePointX:             PuntoB(1) = BasePointY + Alto:      PuntoB(2) = 0
+PuntoC(0) = BasePointX + Ancho:     PuntoC(1) = BasePointY + Alto:      PuntoC(2) = 0
+PuntoD(0) = BasePointX + Ancho:     PuntoD(1) = BasePointY:             PuntoD(2) = 0
+If Space = 0 Then Set Face3dObj = Autocad.Application.ActiveDocument.PaperSpace.Add3DFace(PuntoA, PuntoB, PuntoC, PuntoD)
+If Space = 1 Then Set Face3dObj = Autocad.Application.ActiveDocument.modelspace.Add3DFace(PuntoA, PuntoB, PuntoC, PuntoD)
+On Error Resume Next
+Face3dObj.Color = Color
+Face3dObj.layer = layer
+Autocad.Application.ActiveDocument.SendCommand "regen" & vbCr
+End Function

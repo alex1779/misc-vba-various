@@ -1,0 +1,29 @@
+Sub Example_RemoveEntry()
+    'This example adds an entry to the File Dependency List, returns its Index, updates
+    'the entry, and then removes the entry.
+        
+    ThisDrawing.Application.Documents.Open ("c:\program files\autocad\sample\city map.dwg")
+    ThisDrawing.Application.ZoomAll
+    
+    Dim objFDLCol As AutoCAD.AcadFileDependencies
+    Dim objFDL As AutoCAD.AcadFileDependency
+    
+    Set objFDLCol = ThisDrawing.FileDependencies
+    MsgBox ("The number of entries in the File Dependency List is " & objFDLCol.Count & ".")
+    
+    Dim FDLIndex As Long
+    FDLIndex = objFDLCol.CreateEntry("acad:xref", "c:\referenced.dwg", True, True)
+    MsgBox ("The number of entries in the File Dependency List is " & objFDLCol.Count & ".")
+    
+    Dim IndexNumber As Long
+    IndexNumber = objFDLCol.IndexOf("acad:xref", "c:\referenced.dwg")
+    Dim IndexString As String
+    IndexString = CStr(IndexNumber)
+    MsgBox ("The index of the new entry is " & IndexString & ".")
+    
+    objFDLCol.UpdateEntry (FDLIndex)
+    
+    objFDLCol.RemoveEntry FDLIndex, True
+    MsgBox ("The number of entries in the File Dependency List is " & objFDLCol.Count & ".")
+    
+End Sub

@@ -1,0 +1,27 @@
+Sub Example_CreateTypedArray()
+    ' This example creates a spline from variant arrays created
+    ' from doubles using the CreateTypedArray method.
+    ' Note that this method must be late bound. This is done
+    ' by declaring the utility object (utilObj) as Object,
+    ' not as AcadUtility.
+        
+    Dim splineObj As AcadSpline
+    
+    ' Even though these are arrays, they are declared as variants
+    Dim startTan As Variant
+    Dim endTan As Variant
+    Dim fitPoints As Variant
+    
+    Dim utilObj As Object   ' Late bound object
+    Set utilObj = ThisDrawing.Utility
+    
+    ' Define the spline.
+    utilObj.CreateTypedArray startTan, vbDouble, 0.5, 0.5, 0
+    utilObj.CreateTypedArray endTan, vbDouble, 0.5, 0.5, 0
+    utilObj.CreateTypedArray fitPoints, vbDouble, 0, 0, 0, 5, 5, 0, 10, 0, 0
+    
+    ' Create the spline
+    Set splineObj = ThisDrawing.ModelSpace.AddSpline(fitPoints, startTan, endTan)
+    ZoomAll
+    
+End Sub

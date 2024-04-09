@@ -1,0 +1,27 @@
+Sub Example_PlotOrigin()
+    ' This example reads and modifies the PlotOrigin
+    ' Layout value.
+    ' When finished, this example resets the  value back to
+    ' its original value.
+    
+    Dim ACADLayout As ACADLayout
+    Dim originalValue As Variant
+    Dim newValue(0 To 1) As Double
+    
+    ' Get the layout object
+    Set ACADLayout = ThisDrawing.ActiveLayout
+    
+    ' Read and display the original value
+    originalValue = ACADLayout.PlotOrigin
+    MsgBox "The PlotOrigin value is set to: " & originalValue(0) & " ," & originalValue(1)
+
+    ' Modify the PlotOrigin preference by toggling the value
+    newValue(0) = originalValue(0) + 20
+    newValue(1) = originalValue(1) - 20
+    ACADLayout.PlotOrigin = newValue
+    MsgBox "The PlotOrigin value is set to: " & newValue(0) & " ," & newValue(1)
+
+    ' Reset the preference back to its original value
+    ACADLayout.PlotOrigin = originalValue
+    MsgBox "The PlotOrigin value is set to: " & originalValue(0) & " ," & originalValue(1)
+End Sub

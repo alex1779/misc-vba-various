@@ -1,0 +1,4 @@
+    i = 1: Do While i <= 100
+    Max = 100: Random = 0: Do While Random = 0: Random = Max * Rnd: Loop 'Non Zero
+    Cells(i, 1).Value = Random
+    i = i + 1: Loop

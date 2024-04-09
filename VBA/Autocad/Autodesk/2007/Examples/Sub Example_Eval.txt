@@ -1,0 +1,12 @@
+Sub Example_Eval()
+    ' This example shows how to can use Eval to run a VBA code fragment
+    ' without having to create a Module or procedure.
+
+    Dim VBACode As String
+    
+    ' Create VBA code fragment
+    VBACode = "MsgBox ""Simple code fragment"""
+    
+    ' Use Eval method to evaluate the small VBA script
+    Eval (VBACode)
+End Sub

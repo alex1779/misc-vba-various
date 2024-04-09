@@ -1,0 +1,15 @@
+Private Sub AcadDocument_BeginDoubleClick(ByVal PickPoint As Variant)()
+    ' This example intercepts a drawing BeginDoubleClick event.
+    '
+    ' This event is triggered when a drawing receives
+    ' a double mouse click in its working area.
+    '
+    ' To trigger this example event: Position the mouse over the working area of
+    ' a drawing window and double-click the left mouse button
+
+    ' Use the "PickPoint" variable to determine where on the drawing the user clicked
+    MsgBox "A drawing has just been double-clicked at:" & vbCrLf & _
+            PickPoint(0) & vbCrLf & _
+            PickPoint(1) & vbCrLf & _
+            PickPoint(2)
+End Sub

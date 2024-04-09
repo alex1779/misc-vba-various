@@ -1,0 +1,32 @@
+Sub Example_AlignmentPointAcquisition()
+    ' This example reads and modifies the preference value that controls
+    ' how AutoAlignment points are acquired. When finished, this example resets
+    ' the preference value back to its original value.
+    
+    Dim ACADPref As AcadPreferencesDrafting
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the drafting preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Drafting
+    
+    ' Read and display the original value
+    originalValue = ACADPref.AlignmentPointAcquisition
+    MsgBox "The AlignmentPointAcquisition preference is: " & originalValue
+
+    ' Toggle and display the AlignmentPointAcquisition preference
+    If ACADPref.AlignmentPointAcquisition = acAlignPntAcquisitionAutomatic Then
+        ACADPref.AlignmentPointAcquisition = acAlignPntAcquisitionShiftToAcquire
+    Else
+        ACADPref.AlignmentPointAcquisition = acAlignPntAcquisitionAutomatic
+    End If
+    
+    newValue = ACADPref.AlignmentPointAcquisition
+    MsgBox "The AlignmentPointAcquisition preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.AlignmentPointAcquisition = originalValue
+    MsgBox "The AlignmentPointAcquisition preference was reset back to: " & originalValue
+End Sub

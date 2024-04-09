@@ -1,0 +1,3 @@
+Public Function ActivarSpace(Space As AcActiveSpace)
+AutoCAD.Application.ActiveDocument.ActiveSpace = Space
+End Function

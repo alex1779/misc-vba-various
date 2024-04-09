@@ -1,0 +1,11 @@
+    'Declaración de Variables
+    Dim Polilinea(0 To 11) As Double
+    'Iniciación de Variables
+    Polilinea(0) = 0:       Polilinea(1) = 0:       Polilinea(2) = 0
+    Polilinea(3) = 100:     Polilinea(4) = 0:       Polilinea(5) = 0
+    Polilinea(6) = 100:     Polilinea(7) = 100:     Polilinea(8) = 0
+    Polilinea(9) = 0:       Polilinea(10) = 100:    Polilinea(11) = 0
+    'Creando Polilinea
+    Set poly = AutoCAD.Application.ActiveDocument.ModelSpace.AddPolyline(Polilinea)
+    'Cerrando Polilinea
+    poly.Closed = True

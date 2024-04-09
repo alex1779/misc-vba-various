@@ -1,0 +1,31 @@
+Sub Example_Color()
+    ' This example creates a polyline and colors it red.
+    ' It then displays the current color setting for the polyline.
+    Dim plineObj As AcadPolyline
+    Dim currentcolor As Variant
+
+    ' Create Polyline
+    Dim points(8) As Double
+    points(0) = 3: points(1) = 7: points(2) = 0
+    points(3) = 9: points(4) = 2: points(5) = 0
+    points(6) = 3: points(7) = 5: points(8) = 0
+
+    Set plineObj = ThisDrawing.ModelSpace.AddPolyline(points)
+    
+    ' First set the color of the object to Red
+    plineObj.Color = acRed
+    ThisDrawing.Regen (True)
+    
+    ' Now retrieve and display the Color property
+    currentcolor = plineObj.Color
+
+    ' Translate the color from a number into text
+    If currentcolor = 256 Then
+        currentcolor = "By Layer"
+    Else
+        currentcolor = Choose(currentcolor + 1, "By Block", "Red", "Yellow", "Green", "Cyan", "Blue", "Magenta", "White")
+    End If
+        
+    ' Display
+    MsgBox "The Polyline color is: " & currentcolor, vbInformation, "Color Example"
+End Sub

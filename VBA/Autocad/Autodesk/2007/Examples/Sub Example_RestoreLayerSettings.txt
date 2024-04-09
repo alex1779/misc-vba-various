@@ -1,0 +1,12 @@
+Sub Example_RestoreLayerSettings()
+    ' The following code restores color and linetype settings
+    ' that were saved as "ColorLineType."
+
+    Dim oLSM As AcadLayerStateManager
+
+    Set oLSM = ThisDrawing.Application. _
+       GetInterfaceObject("AutoCAD.AcadLayerStateManager.16")
+    oLSM.SetDatabase ThisDrawing.Database
+    oLSM.Restore "ColorLinetype"
+
+End Sub

@@ -1,0 +1,1 @@
+    AutoCAD.Application.ActiveDocument.PurgeAll 'Purgando

@@ -1,0 +1,10 @@
+Sub Example_Saved()
+    ' This example checks to see if the current drawing has been modified.
+    
+    If Not ThisDrawing.Saved Then
+        MsgBox "Drawing has been modified! Use the Save or SaveAs method to save the drawing.", , "Saved Example"
+    Else
+        MsgBox "Drawing has not been modified since the last save.", , "Saved Example"
+    End If
+    
+End Sub

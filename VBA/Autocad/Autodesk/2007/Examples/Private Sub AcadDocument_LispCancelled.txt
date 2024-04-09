@@ -1,0 +1,10 @@
+Private Sub AcadDocument_LispCancelled()
+    ' This example intercepts a drawing LispCancelled event.
+    '
+    ' This event is triggered when the evaluation of a LISP expression is cancelled.
+    '
+    ' To trigger this example event: Run a LISP expression and
+    ' cancel the LISP evaluation before it finishes
+
+    MsgBox "A LISP evaluation was just cancelled."
+End Sub

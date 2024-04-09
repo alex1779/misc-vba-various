@@ -1,0 +1,27 @@
+Sub Example_Center()
+    
+    Dim circObj As AcadCircle
+    Dim currCenterPt(0 To 2) As Double
+    Dim newCenterPt(0 To 2) As Double
+    Dim radius As Double
+    
+    ' Define the initial center point and radius for the circle
+    currCenterPt(0) = 20: currCenterPt(1) = 30: currCenterPt(2) = 0
+    radius = 3
+    
+    ' Create the circle in model space
+    Set circObj = ThisDrawing.ModelSpace.AddCircle(currCenterPt, radius)
+    ZoomAll
+    MsgBox "The center point of the circle is " & currCenterPt(0) & ", " & currCenterPt(1) & ", " & currCenterPt(2), vbInformation, "Center Example"
+
+    ' Change the center point of the circle
+    newCenterPt(0) = 25: newCenterPt(1) = 25: newCenterPt(2) = 0
+    circObj.center = newCenterPt
+    circObj.Update
+    
+    ' Query the results of the new center position
+    ' Notice the output from the center property is a variant
+    Dim centerPoint As Variant
+    centerPoint = circObj.center
+    MsgBox "The center point of the circle is " & centerPoint(0) & ", " & centerPoint(1) & ", " & centerPoint(2), vbInformation, "Center Example"
+End Sub

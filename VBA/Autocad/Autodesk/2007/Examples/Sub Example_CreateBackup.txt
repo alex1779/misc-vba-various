@@ -1,0 +1,22 @@
+Sub Example_CreateBackup()
+    ' This example returns the current setting of
+    ' CreateBackup. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currCreateBackup As Boolean
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current CreateBackup value
+    currCreateBackup = preferences.OpenSave.CreateBackup
+    MsgBox "The current value for CreateBackup is " & preferences.OpenSave.CreateBackup, vbInformation, "CreateBackup Example"
+    
+    ' Change the value for CreateBackup
+    preferences.OpenSave.CreateBackup = Not (currCreateBackup)
+    MsgBox "The new value for CreateBackup is " & preferences.OpenSave.CreateBackup, vbInformation, "CreateBackup Example"
+    
+    ' Reset CreateBackup to its original value
+    preferences.OpenSave.CreateBackup = currCreateBackup
+    MsgBox "The CreateBackup value is reset to " & preferences.OpenSave.CreateBackup, vbInformation, "CreateBackup Example"
+End Sub

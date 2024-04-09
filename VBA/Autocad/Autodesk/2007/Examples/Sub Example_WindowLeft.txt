@@ -1,0 +1,20 @@
+Sub Example_WindowLeft()
+    ' This example finds the WindowLeft (X coordinate) of the top of the
+    ' AutoCAD window. It then changes that position to be 100 more
+    ' than it currently is. Finally, it resets the window to the
+    ' original value.
+    
+    ' Find the current value of the WindowLeft property
+    Dim currWindowLeft As Integer
+    currWindowLeft = ThisDrawing.Application.WindowLeft
+    MsgBox "The current value of WindowLeft is " & ThisDrawing.Application.WindowLeft, , "WindowLeft Example"
+    
+    ' Change the value of WindowLeft
+    ThisDrawing.Application.WindowLeft = currWindowLeft + 100
+    MsgBox "The new value of WindowLeft is " & ThisDrawing.Application.WindowLeft, , "WindowLeft Example"
+    
+    ' Reset the value of WindowLeft
+    ThisDrawing.Application.WindowLeft = currWindowLeft
+    MsgBox "The value of WindowLeft has been reset to " & ThisDrawing.Application.WindowLeft, , "WindowLeft Example"
+    
+End Sub

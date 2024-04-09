@@ -1,0 +1,20 @@
+‘Crea un círculo y genera un array rectangular a partir de él
+Dim Circulo As AcadCircle
+
+Dim CentroCirculo (0 To 2) As Double 
+
+Dim CantFilas As Long, DistFilas As Double 
+
+Dim CantCols As Long, DistCols As Double 
+
+Dim CantCapas As Long, DistCapas As Double 
+
+CantFilas = 6: DistFilas = 30 
+
+CantCols = 3: DistCols = 60 CantCapas = 1: DistCapas = 0 
+
+CentroCirculo (0) = 100: CentroCirculo (1) = 100 
+
+Set Circulo = ThisDrawing.ModelSpace.AddCircle( _ CentroCirculo, 10)
+ 
+Circulo.ArrayRectangular CantFilas, CantCols, _ CantCapas, DistFilas, DistCols, DistCapas

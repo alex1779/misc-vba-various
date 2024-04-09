@@ -1,0 +1,17 @@
+Sub Example_User()
+    ' This example obtains a reference to the User Preferences object
+    ' from the Application Preferences object, and reads one of the User
+    ' preferences
+    
+    Dim ACADPref As AcadPreferencesUser
+    
+    ' Obtain a reference to the User Preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.User
+    
+    MsgBox "You now have access to the properties and methods of the User Preferences object!"
+    MsgBox "The User preference KeyboardAccelerator is set to: " & ACADPref.KeyboardAccelerator
+    
+    ' Release User Preferences object
+    Set ACADPref = Nothing
+    MsgBox "The User Preferences object has been released!"
+End Sub

@@ -1,0 +1,20 @@
+Sub Example_ActiveTextStyle()
+    ' This example returns the current text style
+    ' and then sets a new style.
+    ' Finally, it returns the style to the previous setting.
+    Dim newTextStyle As AcadTextStyle
+    Dim currTextStyle As AcadTextStyle
+    
+    ' Return current text style of active document
+    Set currTextStyle = ThisDrawing.ActiveTextStyle
+    MsgBox "The current text style is " & currTextStyle.name, vbInformation, "ActiveTextStyle Example"
+    
+    ' Create a text style and make it current
+    Set newTextStyle = ThisDrawing.TextStyles.Add("TestTextStyle")
+    ThisDrawing.ActiveTextStyle = newTextStyle
+    MsgBox "The new text style is " & newTextStyle.name, vbInformation, "ActiveTextStyle Example"
+    
+    ' Reset the text style to its previous setting
+    ThisDrawing.ActiveTextStyle = currTextStyle
+    MsgBox "The text style is reset to " & currTextStyle.name, vbInformation, "ActiveTextStyle Example"
+End Sub

@@ -1,0 +1,28 @@
+Sub Example_ObjectSortByRegens()
+    ' This example reads and modifies the preference value that controls
+    ' the sorting of drawing objects by regeneration order.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadDatabasePreferences
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the user preferences object
+    Set ACADPref = ThisDrawing.preferences
+    
+    ' Read and display the original value
+    originalValue = ACADPref.ObjectSortByRegens
+    MsgBox "The ObjectSortByRegens preference is set to: " & originalValue
+
+    ' Modify the ObjectSortByRegens preference by toggling the value
+    ACADPref.ObjectSortByRegens = Not (ACADPref.ObjectSortByRegens)
+    newValue = ACADPref.ObjectSortByRegens
+    MsgBox "The ObjectSortByRegens preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.ObjectSortByRegens = originalValue
+    MsgBox "The ObjectSortByRegens preference was reset back to: " & originalValue
+End Sub

@@ -1,0 +1,19 @@
+Sub RecortayPega()
+    Dim ultimafila As Integer
+    Dim FirstPos As Integer
+    Dim EachCell As Integer
+    ultimafila = Application.InputBox(Prompt:="ULTIMA FILA", Type:=2)
+    FirstPos = Application.InputBox(Prompt:="PRIMERA POSICION", Type:=2)
+    EachCell = Application.InputBox(Prompt:="REPETICION", Type:=2)
+    a = 1
+    Do While FirstPos <= ultimafila
+        Cells(FirstPos, 1).Select
+        Selection.Cut
+        Cells(a, 1).Select
+        ActiveSheet.Paste
+    FirstPos = FirstPos + EachCell
+    a = a + 1
+    Loop
+    
+    MsgBox FirstPos
+End Sub

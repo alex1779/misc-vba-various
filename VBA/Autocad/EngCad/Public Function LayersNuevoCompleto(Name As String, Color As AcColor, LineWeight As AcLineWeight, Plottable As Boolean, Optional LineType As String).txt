@@ -1,0 +1,14 @@
+Public Function LayersNuevoCompleto(Name As String, Color As AcColor, LineWeight As AcLineWeight, Plottable As Boolean, Optional LineType As String)
+Dim NewLayer As AcadLayer
+Set NewLayer = AutoCAD.Application.ActiveDocument.Layers.Add(Name)
+NewLayer.Color = Color
+NewLayer.LineWeight = LineWeight
+NewLayer.Plottable = Plottable
+NewLayer.Name = Name
+On Error Resume Next
+NewLayer.LineType = LineType
+'LineType:
+'Continuous
+'ByLayer
+'ByBlock
+End Function

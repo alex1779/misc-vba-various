@@ -1,0 +1,32 @@
+Sub Example_DrawingDirection()
+    ' This example changes the drawing direction for an MText object
+    ' in model space.
+    
+    Dim MTextObj As AcadMText
+    Dim corner1(0 To 2) As Double
+    Dim width As Double
+    Dim text As String
+    
+    ' Define the MText object
+    corner1(0) = 0#: corner1(1) = 6#: corner1(2) = 0#
+    width = 7
+    text = "This is a text String."
+
+    ' Create the MText object in model space
+    Set MTextObj = ThisDrawing.ModelSpace.AddMText(corner1, width, text)
+    ZoomAll
+    
+    'Change the drawing direction of the MText object
+    MTextObj.DrawingDirection = acLeftToRight
+    ZoomAll
+    MsgBox "The DrawingDirection of the text is left to right.", vbInformation, "DrawingDirection Example"
+        
+    MTextObj.DrawingDirection = acTopToBottom
+    ZoomAll
+    MsgBox "The DrawingDirection of the text is top to bottom.", vbInformation, "DrawingDirection Example"
+        
+    ' Return the drawing direction
+    Dim retDirection As Integer
+    retDirection = MTextObj.DrawingDirection
+    
+End Sub

@@ -1,0 +1,30 @@
+Sub Example_XRefEdit()
+    ' This example reads and modifies the preference value that controls
+    ' whether the current drawing can be edited in place when being
+    ' referenced by another user.
+    '
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadDatabasePreferences
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the user preferences object
+    Set ACADPref = ThisDrawing.preferences
+    
+    ' Read and display the original value
+    originalValue = ACADPref.XRefEdit
+    MsgBox "The XRefEdit preference is set to: " & originalValue
+
+    ' Modify the XRefEdit preference by toggling the value
+    ACADPref.XRefEdit = Not (ACADPref.XRefEdit)
+    newValue = ACADPref.XRefEdit
+    MsgBox "The XRefEdit preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.XRefEdit = originalValue
+    MsgBox "The XRefEdit preference was reset back to: " & originalValue
+End Sub

@@ -1,0 +1,9 @@
+Private Sub AcadDocument_SelectionChanged()
+    ' This example intercepts a drawing SelectionChanged event.
+    '
+    ' This event is triggered when the current selection set in a drawing is modified.
+    '
+    ' To trigger this example event: Select or deselect objects in any open drawing
+
+    MsgBox "The selection set in a drawing was just changed!"
+End Sub

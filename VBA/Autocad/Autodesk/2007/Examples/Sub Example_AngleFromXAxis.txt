@@ -1,0 +1,23 @@
+Sub Example_AngleFromXAxis()
+    ' This example finds the angle, in radians, between the X axis
+    ' and a line defined by two points.
+    
+    Dim pt1(0 To 2) As Double
+    Dim pt2(0 To 2) As Double
+    Dim retAngle As Double
+    
+    pt1(0) = 2: pt1(1) = 5: pt1(2) = 0
+    pt2(0) = 5: pt2(1) = 2: pt2(2) = 0
+    
+    ' Return the angle
+    retAngle = ThisDrawing.Utility.AngleFromXAxis(pt1, pt2)
+    
+    ' Create the line for a visual reference
+    Dim lineObj As AcadLine
+    Set lineObj = ThisDrawing.ModelSpace.AddLine(pt1, pt2)
+    ZoomAll
+    
+    ' Display the angle found
+    MsgBox "The angle in radians between the X axis and the line is " & retAngle, , "AngleFromXAxis Example"
+    
+End Sub

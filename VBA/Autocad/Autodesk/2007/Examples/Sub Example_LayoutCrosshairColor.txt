@@ -1,0 +1,35 @@
+Sub Example_LayoutCrosshairColor()
+    ' This example reads and modifies the preference value that controls
+    ' the color of the crosshairs and text for paper space layouts.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesDisplay
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the display preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.DISPLAY
+    
+    ' Switch to paper space to view this change
+    ThisDrawing.ActiveSpace = acPaperSpace
+   
+    ' Read and display the original value
+    originalValue = ACADPref.LayoutCrosshairColor
+    MsgBox "The LayoutCrosshairColor preference is: " & originalValue
+
+    ' Modify the LayoutCrosshairColor preference by making it red
+    ACADPref.LayoutCrosshairColor = vbRed
+    newValue = ACADPref.LayoutCrosshairColor
+    ThisDrawing.Regen acAllViewports
+    
+    MsgBox "The LayoutCrosshairColor preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.LayoutCrosshairColor = originalValue
+    ThisDrawing.Regen acAllViewports
+    
+    MsgBox "The LayoutCrosshairColor preference was reset back to: " & originalValue
+End Sub

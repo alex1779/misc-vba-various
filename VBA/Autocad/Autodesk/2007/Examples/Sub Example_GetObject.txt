@@ -1,0 +1,33 @@
+Sub Example_GetObject()
+    ' This example creates a dictionary and adds
+    ' a custom object to that dictionary. It then
+    ' returns the object using GetObject.
+    
+    Dim dictObj As AcadDictionary
+    Set dictObj = ThisDrawing.Dictionaries.Add("TEST_DICTIONARY")
+    
+    ' Load the ARX application that defines the custom object.
+    ' Note: The application listed here does not exist and
+    ' will cause an error when run. Change the application name
+    ' to the path and name of your ARX Application.
+    On Error GoTo ERRORHANDLER
+    ThisDrawing.Application.LoadArx ("MyARXApp.dll")
+    
+    ' Create the custom object in the dictionary
+    Dim keyName As String
+    Dim className As String
+    Dim customObj As AcadObject
+    
+    keyName = "OBJ1"
+    className = "CAsdkDictObject"
+    
+    Set customObj = dictObj.AddObject(keyName, className)
+    
+    ' Find the object
+    Dim tempObj As Object
+    Set tempObj = dictObj.GetObject(keyName)
+    
+ERRORHANDLER:
+    MsgBox Err.Description, , "GetObject Example"
+    
+End Sub

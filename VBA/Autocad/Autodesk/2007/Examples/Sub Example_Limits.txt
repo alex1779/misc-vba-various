@@ -1,0 +1,32 @@
+Sub Example_Limits()
+    ' This example finds the current limits for the drawing.
+    ' It then changes the limits for the drawing. The grid
+    ' is turned on to show the limits.
+    
+    ' Turn on the grid for the active viewport
+    ThisDrawing.ActiveViewport.GridOn = True
+    ThisDrawing.ActiveViewport = ThisDrawing.ActiveViewport
+    
+    ' Find the current limits
+    Dim currLimits As Variant
+    currLimits = ThisDrawing.Limits
+    MsgBox "The current drawing limits are " & vbCrLf _
+           & "Lower-left corner " & ThisDrawing.Limits(0) & ", " & ThisDrawing.Limits(1) & vbCrLf _
+           & "Upper-right corner " & ThisDrawing.Limits(2) & ", " & ThisDrawing.Limits(3), , "Limits Example"
+           
+    ' Change the limits
+    Dim newLimits(0 To 3) As Double
+    newLimits(0) = 2#: newLimits(1) = 2#: newLimits(2) = 4#: newLimits(3) = 4#
+    ThisDrawing.Limits = newLimits
+    ThisDrawing.Regen acActiveViewport
+    MsgBox "The new drawing limits are " & vbCrLf _
+           & "Lower-left corner " & ThisDrawing.Limits(0) & ", " & ThisDrawing.Limits(1) & vbCrLf _
+           & "Upper-right corner " & ThisDrawing.Limits(2) & ", " & ThisDrawing.Limits(3), , "Limits Example"
+    
+    ' Reset the drawing limits
+    ThisDrawing.Limits = currLimits
+    ThisDrawing.Regen acActiveViewport
+    MsgBox "The drawing limits have been reset to " & vbCrLf _
+           & "Lower-left corner " & ThisDrawing.Limits(0) & ", " & ThisDrawing.Limits(1) & vbCrLf _
+           & "Upper-right corner " & ThisDrawing.Limits(2) & ", " & ThisDrawing.Limits(3), , "Limits Example"
+End Sub

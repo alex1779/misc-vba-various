@@ -1,0 +1,23 @@
+Sub Example_HelpFilePath()
+    ' This example returns the current setting of
+    ' HelpFilePath. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currHelpFilePath As String
+    Dim newHelpFilePath As String
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current HelpFilePath value
+    currHelpFilePath = preferences.Files.HelpFilePath
+    MsgBox "The current value for HelpFilePath is " & currHelpFilePath, vbInformation, "HelpFilePath Example"
+    
+    ' Change the value for HelpFilePath
+    newHelpFilePath = "C:/AutoCAD/Help"
+    preferences.Files.HelpFilePath = newHelpFilePath
+    MsgBox "The new value for HelpFilePath is " & newHelpFilePath, vbInformation, "HelpFilePath Example"
+    
+    ' Reset HelpFilePath to its original value
+    preferences.Files.HelpFilePath = currHelpFilePath
+    MsgBox "The HelpFilePath value is reset to " & currHelpFilePath, vbInformation, "HelpFilePath Example"
+End Sub

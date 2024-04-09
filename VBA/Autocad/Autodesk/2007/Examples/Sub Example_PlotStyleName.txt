@@ -1,0 +1,20 @@
+Sub Example_PlotStyleName()
+    ' This example creates a circle in model space and then
+    ' finds the current PlotStyleName for the circle.
+   
+    Dim circleObj As AcadCircle
+    Dim centerPoint(0 To 2) As Double
+    Dim radius As Double
+    
+    ' Define the circle
+    centerPoint(0) = 0#: centerPoint(1) = 0#: centerPoint(2) = 0#
+    radius = 5#
+    
+    ' Create the Circle object in model space
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(centerPoint, radius)
+    ZoomAll
+    
+    ' Find the PlotStyleName for the circle
+    MsgBox "The current PlotStyleName for the circle is " & circleObj.PlotStyleName
+        
+End Sub

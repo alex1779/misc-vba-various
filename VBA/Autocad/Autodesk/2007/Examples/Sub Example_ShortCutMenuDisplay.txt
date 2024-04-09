@@ -1,0 +1,23 @@
+Sub Example_ShortCutMenuDisplay()
+    ' This example reads and toggles the preference value which controls
+    ' whether right-clicking in the drawing area displays a shortcut menu
+    ' or issues ENTER.
+    
+    Dim ACADPref As AcadPreferencesUser
+    Dim originalValue As Variant, newValue As Variant
+    Dim newAction As String
+    
+    ' Get the drafting preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.User
+    
+    ' Read and display the original value
+    originalValue = ACADPref.ShortCutMenuDisplay
+    newAction = IIf(originalValue, "displays the shortcut menu", "sends an ENTER keystroke to ACAD")
+    MsgBox "Right-clicking the mouse CURRENTLY " & newAction, vbInformation
+
+    ' Modify the AutoSnapMarker preference by toggling the value
+    ACADPref.ShortCutMenuDisplay = Not (originalValue)
+    newValue = ACADPref.ShortCutMenuDisplay
+    newAction = IIf(newValue, "display the shortcut menu", "send an ENTER keystroke to ACAD")
+    MsgBox "Right-clicking the mouse over the drawing WILL NOW " & newAction, vbInformation
+End Sub

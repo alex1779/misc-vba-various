@@ -1,0 +1,27 @@
+Sub Example_GetBoundingBox()
+    ' This example creates a line in model space. It then finds the
+    ' bounding box for the line and displays the corners of the box.
+    
+    Dim startPoint(0 To 2) As Double
+    Dim endPoint(0 To 2) As Double
+    Dim lineObj As AcadLine
+
+    ' Create the Line object in model space
+    startPoint(0) = 2#: startPoint(1) = 2#: startPoint(2) = 0#
+    endPoint(0) = 4#: endPoint(1) = 4#: endPoint(2) = 0#
+    Set lineObj = ThisDrawing.ModelSpace.AddLine(startPoint, endPoint)
+    ZoomAll
+    
+    Dim minExt As Variant
+    Dim maxExt As Variant
+    
+    ' Return the bounding box for the line and return the minimum
+    ' and maximum extents of the box in the minExt and maxExt variables.
+    lineObj.GetBoundingBox minExt, maxExt
+    
+    ' Print the min and max extents
+    MsgBox "The extents of the bounding box for the line are:" & vbCrLf _
+         & "Min Extent: " & minExt(0) & "," & minExt(1) & "," & minExt(2) _
+         & vbCrLf & "Max Extent: " & maxExt(0) & "," & maxExt(1) & "," & maxExt(2), vbInformation, "GetBoundingBox Example"
+         
+End Sub

@@ -1,0 +1,15 @@
+Sub Example_GetInteger()
+    ' This example returns the integer entered by the user.
+    
+    Dim returnInt As Integer
+    
+    ' Return the value entered by user. A prompt is provided.
+    returnInt = ThisDrawing.Utility.GetInteger("Enter an integer: ")
+    MsgBox "The integer entered was " & returnInt & vbCrLf & _
+            "(Enter the next value without prompting.)", , "GetInteger Example"
+    
+    ' Return the value entered by user. No prompt is provided.
+    returnInt = ThisDrawing.Utility.GetInteger
+    MsgBox "The integer entered was " & returnInt, , "GetInteger Example"
+    
+End Sub

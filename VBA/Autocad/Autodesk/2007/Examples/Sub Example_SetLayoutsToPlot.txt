@@ -1,0 +1,20 @@
+Sub Example_SetLayoutsToPlot()
+    ' This example plots the layouts of a drawing.
+
+    Dim oPlot As AcadPlot
+    Dim AddedLayouts As String
+    Dim LayoutList As Variant
+    Dim oLayout As AcadLayout
+    Dim ArraySize As Integer, BatchCount As Integer
+    
+    For Each oLayout In ThisDrawing.Layouts
+        ArraySize = ArraySize + 1
+        ReDim Preserve AddedLayouts(1 To ArraySize)
+        AddedLayouts(ArraySize) = oLayout.Name
+    Next
+
+    LayoutList = AddedLayouts
+    Set oPlot = ThisDrawing.Plot
+    oPlot.SetLayoutsToPlot LayoutList
+    oPlot.PlotToDevice  "dwf6 eplot.pc3"
+End Sub

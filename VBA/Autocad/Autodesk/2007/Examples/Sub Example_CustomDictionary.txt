@@ -1,0 +1,24 @@
+Sub Example_CustomDictionary()
+    ' This example returns the current setting of
+    ' CustomDictionary. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currCustomDictionary As String
+    Dim newCustomDictionary As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current CustomDictionary value
+    currCustomDictionary = preferences.Files.CustomDictionary
+    MsgBox "The current value for CustomDictionary is " & currCustomDictionary, vbInformation, "CustomDictionary Example"
+    
+    ' Change the value for CustomDictionary
+    newCustomDictionary = "TestCustomDictionary.cus"
+    preferences.Files.CustomDictionary = newCustomDictionary
+    MsgBox "The new value for CustomDictionary is " & newCustomDictionary, vbInformation, "CustomDictionary Example"
+    
+    ' Reset CustomDictionary to its original value
+    preferences.Files.CustomDictionary = currCustomDictionary
+    MsgBox "The CustomDictionary value is reset to " & currCustomDictionary, vbInformation, "CustomDictionary Example"
+End Sub

@@ -1,0 +1,13 @@
+Private Sub AcadDocument_LayoutSwitched(ByVal LayoutName As String)()
+    ' This example intercepts a drawing LayoutSwitched event.
+    '
+    ' This event is triggered when the user switches to a different
+    ' drawing layout view.
+    '
+    ' To trigger this example event: Open a drawing and change its layout view
+    '
+    ' For example: Switch the drawing from Model view to Layout1 view
+
+    ' Use the "LayoutName" variable to determine the which layout view we changed to
+    MsgBox "The drawing layout was just changed to: " & LayoutName
+End Sub

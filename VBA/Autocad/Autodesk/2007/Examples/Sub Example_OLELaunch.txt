@@ -1,0 +1,28 @@
+Sub Example_OLELaunch()
+    ' This example reads and modifies the preference value that controls
+    ' whether to launch the parent application when plotting OLE objects.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadDatabasePreferences
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the user preferences object
+    Set ACADPref = ThisDrawing.preferences
+    
+    ' Read and display the original value
+    originalValue = ACADPref.OLELaunch
+    MsgBox "The OLELaunch preference is set to: " & originalValue
+
+    ' Modify the OLELaunch preference by toggling the value
+    ACADPref.OLELaunch = Not (ACADPref.OLELaunch)
+    newValue = ACADPref.OLELaunch
+    MsgBox "The OLELaunch preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.OLELaunch = originalValue
+    MsgBox "The OLELaunch preference was reset back to: " & originalValue
+End Sub

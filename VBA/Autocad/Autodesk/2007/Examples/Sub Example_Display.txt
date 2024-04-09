@@ -1,0 +1,17 @@
+Sub Example_Display()
+    ' This example obtains a reference to the Display Preferences object
+    ' from the Application Preferences object, and reads one of the Display
+    ' preferences
+    
+    Dim ACADPref As AcadPreferencesDisplay
+    
+    ' Obtain a reference to the Display Preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.DISPLAY
+    
+    MsgBox "We now have access to the properties and methods of the Display Preferences object!"
+    MsgBox "The Display preference CursorSize is set to: " & ACADPref.CursorSize
+    
+    ' Release Display Preferences object
+    Set ACADPref = Nothing
+    MsgBox "We have now released the Display Preferences object!"
+End Sub

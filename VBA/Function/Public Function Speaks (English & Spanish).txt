@@ -1,0 +1,11 @@
+Public Function SpeaksSpanish(texto As Variant)
+Dim speech As New SpVoice
+Set speech.Voice = speech.GetVoices.item(0)
+speech.Speak texto, SVSFPurgeBeforeSpeak = 1
+End Function
+
+Public Function SpeaksEnglish(texto As Variant)
+Dim speech As New SpVoice
+Set speech.Voice = speech.GetVoices.item(1)
+speech.Speak texto, SVSFPurgeBeforeSpeak = 1
+End Function

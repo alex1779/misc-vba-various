@@ -1,0 +1,34 @@
+Sub Example_StyleName()
+    ' This example creates an aligned dimension and then changes the
+    ' StyleName property for that dimension.
+
+    Dim dimObj As AcadDimAligned
+    Dim point1(0 To 2) As Double
+    Dim point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim currStyleName As String
+    
+    ' Define the dimension
+    point1(0) = 5#: point1(1) = 3#: point1(2) = 0#
+    point2(0) = 10#: point2(1) = 3#: point2(2) = 0#
+    location(0) = 7.5: location(1) = 5#: location(2) = 0#
+
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    ZoomAll
+    currStyleName = dimObj.styleName
+    MsgBox "The initial StyleName for the dimension is " & dimObj.styleName, vbInformation, "TextString Example"
+    
+    ' Create a new dimension style
+    ThisDrawing.DimStyles.Add ("NewDimensionStyle")
+    
+    ' Change the text string for the dimension
+    dimObj.styleName = "NewDimensionStyle"
+    dimObj.Update
+    MsgBox "The new StyleName for the dimension is " & dimObj.styleName, vbInformation, "TextString Example"
+    
+    ' Reset the text string for the dimension
+    dimObj.styleName = currStyleName
+    dimObj.Update
+    MsgBox "The StyleName for the dimension has been reset to " & dimObj.styleName, vbInformation, "TextString Example"
+End Sub

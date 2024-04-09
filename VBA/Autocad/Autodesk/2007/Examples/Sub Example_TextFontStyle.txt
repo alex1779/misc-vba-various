@@ -1,0 +1,26 @@
+Sub Example_TextFontStyle()
+    ' This example returns the current setting of
+    ' TextFontStyle. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currTextFontStyle As Integer
+    Dim constant As String
+    Dim newConstant As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current TextFontStyle value
+    currTextFontStyle = preferences.DISPLAY.TextFontStyle
+    constant = Choose(currTextFontStyle + 1, "acFontRegular", "acFontItalic", "acFontBold", "acFontBoldItalic")
+    MsgBox "The current value for TextFontStyle is " & constant, vbInformation, "TextFontStyle Example"
+    
+    ' Change the value for TextFontStyle
+    newConstant = "acFontBoldItalic"
+    preferences.DISPLAY.TextFontStyle = acFontBoldItalic
+    MsgBox "The new value for TextFontStyle is " & newConstant, vbInformation, "TextFontStyle Example"
+    
+    ' Reset TextFontStyle to its original value
+    preferences.DISPLAY.TextFontStyle = currTextFontStyle
+    MsgBox "The TextFontStyle value is reset to " & constant, vbInformation, "TextFontStyle Example"
+End Sub

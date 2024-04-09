@@ -1,0 +1,12 @@
+Sub Example_Groups()
+    ' This example finds the current Groups collection and
+    ' adds a new group to that collection.
+    
+    Dim groupColl As AcadGroups
+    Set groupColl = ThisDrawing.Groups
+    
+    ' Create a dimension style named "TEST" in current drawing
+    Dim testGroup As AcadGroup
+    Set testGroup = groupColl.Add("TEST")
+    MsgBox "A new group called " & testGroup.name & " has been added to the Groups collection.", vbInformation, "Groups Example"
+End Sub

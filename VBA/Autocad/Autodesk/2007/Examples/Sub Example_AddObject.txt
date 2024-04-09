@@ -1,0 +1,24 @@
+Sub Example_AddObject()
+    ' This example creates a dictionary and adds
+    ' a custom object to that dictionary.
+    
+    Dim dictObj As AcadDictionary
+    Set dictObj = ThisDrawing.Dictionaries.Add("TEST_DICTIONARY")
+    
+    ' Load the ObjectARX application that defines the custom object.
+    ' Note: The application listed here does not exist and
+    ' will cause an error when run. Change the application name
+    ' to the path and name of your ObjectARX application.
+    ThisDrawing.Application.LoadArx ("MyARXApp.dll")
+    
+    ' Create the custom object in the dictionary
+    Dim keyName As String
+    Dim className As String
+    Dim customObj As AcadObject
+    
+    keyName = "OBJ1"
+    className = "CAsdkDictObject"
+    
+    Set customObj = dictObj.AddObject(keyName, className)
+    
+End Sub

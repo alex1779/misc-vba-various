@@ -1,0 +1,13 @@
+Sub Ch4_LoadLinetype()
+  On Error GoTo ERRORHANDLER
+
+  Dim linetypeName As String
+  linetypeName = "CENTER"
+
+  ' Load "CENTER" line type from acad.lin file
+  ThisDrawing.Linetypes.Load linetypeName, "acad.lin"
+  Exit Sub
+
+ERRORHANDLER:
+  MsgBox Err.Description
+End Sub

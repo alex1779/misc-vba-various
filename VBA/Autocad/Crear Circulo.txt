@@ -1,0 +1,11 @@
+Sub Circulo()
+Dim Circulo As AcadCircle
+Dim Center(0 To 2) As Double
+Center(0) = 0: Center(1) = 0: Center(2) = 0
+Radious = 100
+Set Circulo = AutoCAD.Application.ActiveDocument.ModelSpace.AddCircle(Center, Radious)
+End Sub
+
+
+
+

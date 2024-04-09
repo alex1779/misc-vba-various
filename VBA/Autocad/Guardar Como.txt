@@ -1,0 +1,2 @@
+    'Guardar Archivo DWG
+    AutoCAD.Application.ActiveDocument.SaveAs ("C:\ruta del archivo\" & nombrearchivo & ".dwg")

@@ -1,0 +1,28 @@
+Sub Example_DefaultOutputDevice()
+    ' This example reads and modifies the preference value that controls
+    ' the default output device for new layouts and model space.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesOutput
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the output preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Output
+    
+    ' Read and display the original value
+    originalValue = ACADPref.DefaultOutputDevice
+    MsgBox "The DefaultOutputDevice preference is: " & originalValue
+
+    ' Modify the DefaultOutputDevice preference by changing it to "LOCALOUTPUT"
+    ACADPref.DefaultOutputDevice = "LOCALOUTPUT"
+    newValue = ACADPref.DefaultOutputDevice
+    MsgBox "The DefaultOutputDevice preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.DefaultOutputDevice = originalValue
+    MsgBox "The DefaultOutputDevice preference was reset back to: " & originalValue
+End Sub

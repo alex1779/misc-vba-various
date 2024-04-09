@@ -1,0 +1,41 @@
+Public Function Regla(origenx As Double, origeny As Double, ancho As Integer, alto As Integer)
+    On Error Resume Next
+    Dim linea1 As Variant
+    Dim i As Integer
+    Dim PuntoA(0 To 2) As Double: Dim mtextObj As AcadMText: Dim Width As Double: Dim CadenaTexto As String 'Declaración de Variables
+    Linea linea1, origenx, origeny, 0, origenx + ancho, origeny, 0, 114, "0"
+    Linea linea1, origenx, origeny, 0, origenx, origeny + alto, 0, 114, "0"
+    For i = 0 To ancho / 10
+    Linea linea1, origenx + i * 10, origeny + 0, 0, origenx + i * 10, origeny + -5, 0, 114, "0"
+    PuntoA(0) = origenx + i * 10: PuntoA(1) = origeny + -7: PuntoA(2) = 0     'Iniciación de Variables
+    Width = 4
+    CadenaTexto = i
+    Set mtextObj = AutoCAD.Application.ActiveDocument.ModelSpace.AddMText(PuntoA, Width, CadenaTexto)    'Creando Nuevo Texto
+    With mtextObj
+        .AttachmentPoint = acAttachmentPointMiddleCenter
+        .Color = 100
+        .InsertionPoint = PuntoA
+    End With
+    Next i
+    For i = 0 To alto / 10
+    Linea linea1, origenx + 0, origeny + i * 10, 0, origenx + -5, origeny + i * 10, 0, 114, "0"
+    PuntoA(0) = origenx + -7: PuntoA(1) = origeny + i * 10: PuntoA(2) = 0     'Iniciación de Variables
+    Width = 4
+    CadenaTexto = i
+    Set mtextObj = AutoCAD.Application.ActiveDocument.ModelSpace.AddMText(PuntoA, Width, CadenaTexto)    'Creando Nuevo Texto
+    With mtextObj
+        .AttachmentPoint = acAttachmentPointMiddleCenter
+        .Color = 100
+        .InsertionPoint = PuntoA
+    End With
+    Next i
+    For i = 0 To ancho
+    Linea linea1, origenx + i, origeny + 0, 0, origenx + i, origeny + -2, 0, 250, "0"
+    Next i
+    For i = 0 To alto
+    Linea linea1, origenx + 0, origeny + i, 0, origenx + -2, origeny + i, 0, 250, "0"
+    Next i
+    AutoCAD.Application.ActiveDocument.PurgeAll 'Purge
+    AutoCAD.Application.ActiveDocument.SendCommand "regen" & vbCr 'Regen
+
+End Function

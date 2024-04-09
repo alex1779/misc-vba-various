@@ -1,0 +1,929 @@
+<?xml version="1.0"?>
+<!--
+Warning! Do not edit the contents of this file.
+If you attempt to edit this file using an XML editor, you could lose customization and migration functionality.
+If you need to change information in the customization file, use the Customize User Interface dialog box in the product.
+To access the Customize User Interface dialog box, click the Tools menu > Customize > Interface, or enter CUI on the command line. 
+-->
+<CustSection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FileVersion MajorVersion="0" MinorVersion="3" IncrementalVersion="2" UserVersion="1" />
+  <Header>
+    <CommonConfiguration>
+      <CommonItems>
+        <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+        <PartialMenuFile>acad.cui</PartialMenuFile>
+      </CommonItems>
+    </CommonConfiguration>
+    <WorkspaceRoot>
+      <WorkspaceConfigRoot>
+        <WorkspaceConfig Display="true" myWorkspace="false" UID="WSCU_0001">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0026">EngCad</Name>
+        </WorkspaceConfig>
+      </WorkspaceConfigRoot>
+      <Workspace StartOn="ignore" ScrollBars="ignore" ScreenMenus="ignore" LayoutModelTabs="ignore" UID="WSU_0001">
+        <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+        <Name xlate="true" UID="XLS_0025">EngCad</Name>
+        <WSPopRoot>
+          <WSPop MenuGroup="ACAD" pUID="ID_MnFile" Display="1" UID="WSPU_0001">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+          <WSPop MenuGroup="ACAD" pUID="ID_MnEdit" Display="1" UID="WSPU_0002">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+          <WSPop MenuGroup="ACAD" pUID="ID_MnView" Display="1" UID="WSPU_0003">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+          <WSPop MenuGroup="ACAD" pUID="ID_MnInsert" Display="1" UID="WSPU_0004">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+          <WSPop MenuGroup="ACAD" pUID="ID_MnFormat" Display="1" UID="WSPU_0005">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+          <WSPop MenuGroup="ACAD" pUID="ID_MnTools" Display="1" UID="WSPU_0006">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+          <WSPop MenuGroup="ACAD" pUID="ID_MnDraw" Display="1" UID="WSPU_0007">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+          <WSPop MenuGroup="ACAD" pUID="ID_MnDimensi" Display="1" UID="WSPU_0008">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+          <WSPop MenuGroup="ACAD" pUID="ID_MnModify" Display="1" UID="WSPU_0009">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+          <WSPop MenuGroup="ACAD" pUID="ID_MnWindow" Display="1" UID="WSPU_0010">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+          <WSPop MenuGroup="ACAD" pUID="ID_MnHelp" Display="1" UID="WSPU_0011">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+          <WSPop MenuGroup="ENGCAD" pUID="PMU_0003" Display="1" UID="WSPU_0012">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSPop>
+        </WSPopRoot>
+        <WSToolbarRoot>
+          <WSToolbar MenuGroup="ACAD" pUID="ID_TbDraw" Display="1" ToolbarOrient="left" xval="0" yval="0" rows="1" dockrow="1" dockcolumn="1" UID="WSTU_0001">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSToolbar>
+          <WSToolbar MenuGroup="ACAD" pUID="ID_TbDrawOrd" Display="1" ToolbarOrient="right" xval="0" yval="1" rows="1" dockrow="1" dockcolumn="1" UID="WSTU_0002">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSToolbar>
+          <WSToolbar MenuGroup="ACAD" pUID="ID_TbModify" Display="1" ToolbarOrient="right" xval="0" yval="0" rows="1" dockrow="1" dockcolumn="1" UID="WSTU_0003">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSToolbar>
+          <WSToolbar MenuGroup="ACAD" pUID="ID_TbObjectP" Display="1" ToolbarOrient="top" xval="2" yval="1" rows="1" dockrow="1" dockcolumn="1" UID="WSTU_0004">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSToolbar>
+          <WSToolbar MenuGroup="ACAD" pUID="ID_TbLayer" Display="1" ToolbarOrient="top" xval="1" yval="1" rows="1" dockrow="1" dockcolumn="1" UID="WSTU_0005">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSToolbar>
+          <WSToolbar MenuGroup="ACAD" pUID="ID_TbStyles" Display="1" ToolbarOrient="top" xval="1" yval="0" rows="1" dockrow="1" dockcolumn="1" UID="WSTU_0006">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSToolbar>
+          <WSToolbar MenuGroup="ACAD" pUID="ID_TbStandar" Display="1" ToolbarOrient="top" xval="0" yval="0" rows="1" dockrow="1" dockcolumn="1" UID="WSTU_0007">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </WSToolbar>
+        </WSToolbarRoot>
+        <WSESWRoot>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{0939E07C-FCEF-4C0D-8349-662031189B8A}" CommandName="LIGHTLIST" CommandPosition="0" UID="WSEU_0001">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0009">Lights in Model</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{12F4DCC5-8FDB-4937-8387-E628D5C2ABBF}" CommandName="DASHBOARD" CommandPosition="0" UID="WSEU_0002">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0010">Dashboard</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{1A11B0B9-1AA0-4E71-95D1-C77737444340}" CommandName="EXTERNALREFERENCES" CommandPosition="0" UID="WSEU_0003">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0011">External References</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{26C7CFE0-7187-4736-9B70-EF21C803A601}" CommandName="SUNPROPERTIES" CommandPosition="0" UID="WSEU_0004">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0012">Sun Properties</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{3DE1200A-089D-4CDF-9B39-EC44F585FE73}" CommandName="MATERIALS" CommandPosition="0" UID="WSEU_0005">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0013">Materials</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{60284BE8-5CB0-474B-BD85-9D3335F5E471}" CommandName="VISUALSTYLES" CommandPosition="0" UID="WSEU_0006">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0014">Visual Styles Manager</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{6D32A2D9-832E-11D2-A83C-0060B0872C0B}" CommandName="PROPERTIES" CommandPosition="0" UID="WSEU_0007">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0015">Properties</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{888F0E83-D9B4-48A5-AEA9-3867A6121478}" CommandName="RPREF" CommandPosition="0" UID="WSEU_0008">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0016">Advanced Settings Dialog</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{9403002C-2B99-4281-B9DD-F708E0858542}" CommandName="MARKUP" CommandPosition="0" UID="WSEU_0009">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0017">Markup Set Manager</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{941D0ACA-4F95-45E6-AA36-EEA7773D4924}" CommandName="ASSIST" CommandPosition="0" UID="WSEU_0010">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0018">Info Palette</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{ACA19CF8-C061-4301-8E75-49DACFF072AD}" CommandName="QuickCalc" CommandPosition="0" UID="WSEU_0011">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0019">Quick Calc</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{B17B40A6-2761-4BCC-BC48-2B8A465AA5EB}" CommandName="TOOLPALETTES" CommandPosition="0" UID="WSEU_0012">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0020">Tool Palette</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{B371F8AA-7FF7-11D2-BA58-0060B0B5E151}" CommandName="ADCENTER" CommandPosition="0" UID="WSEU_0013">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0021">Design Center</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{B6BCB9F4-84B2-11D2-A127-0060B0CE2DA0}" CommandName="DBCONNECT" CommandPosition="0" UID="WSEU_0014">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0022">dbConnect Manager</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{BEBBB318-2898-4C03-ADA2-360DC6B7AA69}" CommandName="SHEETSET" CommandPosition="0" UID="WSEU_0015">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0023">SheetSet Manager</Name>
+          </WSESW>
+          <WSESW Display="ignore" DockFloat="ignore" Orientation="ignore" AllowDock="ignore" AutoHide="ignore" UseTransparency="ignore" xval="-2147483648" yval="-2147483648" Height="0" Width="0" dockxval="-2147483648" dockyval="-2147483648" dockwidth="0" dockheight="0" DefaultGroup="" ClassName="{D5CF410D-3E11-4D0C-AE69-A75C9B788C47}" CommandName="COMMANDLINE" CommandPosition="0" UID="WSEU_0016">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <Name xlate="true" UID="XLS_0024">Command Line</Name>
+          </WSESW>
+        </WSESWRoot>
+        <WSPanelRoot />
+      </Workspace>
+    </WorkspaceRoot>
+  </Header>
+  <MenuGroup Name="ENGCAD">
+    <MacroGroup Name="NEWGROUP">
+      <MenuMacro UID="MMU_0001">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0004">Nombre de entidad</Name>
+          <Command>^C^C-vbarun DameNombreEntidad</Command>
+          <HelpString xlate="true" UID="XLS_0028">Mediante una selección muestra el nombre de una entidad en un Msgbox.</HelpString>
+          <SmallImage Name="RCDATA_16_LIGHT_LIST" />
+          <LargeImage Name="RCDATA_16_LIGHT_LIST" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0002">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0006">Contar Entidades</Name>
+          <Command>'^C^C-vbarun ContarEntidades</Command>
+          <HelpString xlate="true" UID="XLS_0027">Cuentas las entidades en el Espacio Modelo</HelpString>
+          <SmallImage Name="RCDATA_16_SUBAWARE3" />
+          <LargeImage Name="RCDATA_16_SUBAWARE3" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_VBAIDE">
+        <Macro type="Tools">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_1891">Visual Basic Editor</Name>
+          <Command>^C^C_vbaide </Command>
+          <HelpString xlate="true" UID="ACAD_1895">Displays the Visual Basic Editor:  VBAIDE</HelpString>
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_Menuload">
+        <Macro type="Tools">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_2332">Interface...</Name>
+          <Command>^C^C_cui</Command>
+          <HelpString xlate="true" UID="ACAD_1532">Edit customization interface:  CUI</HelpString>
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_Enter">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_1758">Enter</Name>
+          <Command>; </Command>
+          <HelpString xlate="true" UID="ACAD_1768">Completes a command, accepts command values, and cycles grip modes</HelpString>
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_GripMove">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_18">Move</Name>
+          <Command>_move </Command>
+          <HelpString xlate="true" UID="ACAD_1499">Displaces objects a specified distance in a specified direction:  MOVE</HelpString>
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_GripMirro">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_19">Mirror</Name>
+          <Command>_mirror </Command>
+          <HelpString xlate="true" UID="ACAD_1498">Creates a mirror image copy of objects:  MIRROR</HelpString>
+          <SmallImage Name="RCDATA_16_MIRROR" />
+          <LargeImage Name="RCDATA_16_MIRROR" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_GripRotat">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_20">Rotate</Name>
+          <Command>_rotate </Command>
+          <HelpString xlate="true" UID="ACAD_1501">Moves objects about a base point:  ROTATE</HelpString>
+          <SmallImage Name="RCDATA_16_ROTATE" />
+          <LargeImage Name="RCDATA_16_ROTATE" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_GripScale">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_21">Scale</Name>
+          <Command>_scale </Command>
+          <HelpString xlate="true" UID="ACAD_1502">Enlarges or reduces objects proportionally in the X, Y, and Z directions:  SCALE</HelpString>
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_GripStret">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_22">Stretch</Name>
+          <Command>_stretch </Command>
+          <HelpString xlate="true" UID="ACAD_1503">Moves or stretches objects:  STRETCH</HelpString>
+          <SmallImage Name="RCDATA_16_STRETC" />
+          <LargeImage Name="RCDATA_16_STRETC" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_GripBase">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_23">Base Point</Name>
+          <Command>_base </Command>
+          <HelpString xlate="true" UID="ACAD_1495">Sets the insertion base point for the current drawing:  BASE</HelpString>
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_GripCopy">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_24">Copy</Name>
+          <Command>_copy </Command>
+          <HelpString xlate="true" UID="ACAD_1496">Duplicates objects:  COPY</HelpString>
+          <SmallImage Name="RCDATA_16_COPYOB" />
+          <LargeImage Name="RCDATA_16_COPYOB" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_GripRefer">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_25">Reference</Name>
+          <Command>_reference </Command>
+          <HelpString xlate="true" UID="ACAD_1500">Sets the reference point:  REFERENCE</HelpString>
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_U">
+        <Macro type="Edit">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_53">Undo</Name>
+          <Command>_u </Command>
+          <HelpString xlate="true" UID="ACAD_1680">Reverses the most recent action:  U</HelpString>
+          <SmallImage Name="RCDATA_16_UNDO" />
+          <LargeImage Name="RCDATA_16_UNDO" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_Ai_propch">
+        <Macro type="Modify">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_334">Properties</Name>
+          <Command>^C^C_properties </Command>
+          <HelpString xlate="true" UID="ACAD_1440">Controls properties of existing objects:  PROPERTIES</HelpString>
+          <SmallImage Name="RCDATA_16_MODIFY" />
+          <LargeImage Name="RCDATA_16_MODIFY" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_GripExit">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_27">Exit</Name>
+          <Command>_exit </Command>
+          <HelpString xlate="true" UID="ACAD_1497">Cancels grip edit mode and returns to the command line:  EXIT</HelpString>
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="ID_Modify">
+        <Macro type="Tools">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="0" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="ACAD_2058">Properties</Name>
+          <Command>$M=$(if,$(and,$(&gt;,$(getvar,opmstate),0)),^C^C_propertiesclose,^C^C_properties) </Command>
+          <HelpString xlate="true" UID="ACAD_1440">Controls properties of existing objects:  PROPERTIES</HelpString>
+          <SmallImage Name="RCDATA_16_MODIFY" />
+          <LargeImage Name="RCDATA_16_MODIFY" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0004">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0032">Change to None</Name>
+          <Command>^C^C-vbarun SetAll_Poly2d_None</Command>
+          <SmallImage Name="RCDATA_16_PEDIT" />
+          <LargeImage Name="RCDATA_16_PEDIT" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0005">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0037">Change to Curve Fit</Name>
+          <Command>^C^C-vbarun SetAll_Poly2d_Curve_Fit</Command>
+          <SmallImage Name="RCDATA_16_PEDIT" />
+          <LargeImage Name="RCDATA_16_PEDIT" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0006">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0042">Change to Cubic</Name>
+          <Command>^C^C-vbarun SetAll_Poly2d_Cubic</Command>
+          <SmallImage Name="RCDATA_16_PEDIT" />
+          <LargeImage Name="RCDATA_16_PEDIT" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0007">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0043">Change to Quadratic</Name>
+          <Command>^C^C-vbarun SetAll_Poly2d_Quadratic</Command>
+          <SmallImage Name="RCDATA_16_PEDIT" />
+          <LargeImage Name="RCDATA_16_PEDIT" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0008">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0044">Convert_Poly2d_to_Poly_Select</Name>
+          <Command>^C^C-vbarun Convert_Poly2d_to_Poly_Select</Command>
+          <HelpString xlate="true" UID="XLS_0074">Convert_Poly2d_to_Poly_Select</HelpString>
+          <SmallImage Name="RCDATA_16_PEDIT" />
+          <LargeImage Name="RCDATA_16_PEDIT" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0009">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0045">Convert_Poly2d_to_Poly_ALL</Name>
+          <Command>^C^C-vbarun Convert_Poly2d_to_Poly_ALL</Command>
+          <HelpString xlate="true" UID="XLS_0071">Convert_Poly2d_to_Poly_All</HelpString>
+          <SmallImage Name="RCDATA_16_PEDIT" />
+          <LargeImage Name="RCDATA_16_PEDIT" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0010">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0046">Cargar Layers Entidades 2d</Name>
+          <Command>^C^C-vbarun Load_Entities_Layers_2D</Command>
+          <SmallImage Name="RCDATA_16_LAYERS" />
+          <LargeImage Name="RCDATA_16_LAYERS" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0011">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0049">Cargar Layers Entidades 3d</Name>
+          <Command>^C^C-vbarun Load_Entities_Layers_3D</Command>
+          <SmallImage Name="RCDATA_16_LAYERS" />
+          <LargeImage Name="RCDATA_16_LAYERS" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0012">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0050">Cargar Layers Entidades Misc</Name>
+          <Command>^C^C-vbarun Load_Entities_Layers_Misc</Command>
+          <SmallImage Name="RCDATA_16_LAYERS" />
+          <LargeImage Name="RCDATA_16_LAYERS" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0013">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0051">Cargar Layers Todas Entidades</Name>
+          <Command>^C^C-vbarun Load_Entities_Layers_All</Command>
+          <SmallImage Name="RCDATA_16_LAYERS" />
+          <LargeImage Name="RCDATA_16_LAYERS" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0014">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0052">Aislar Entidades en Capa..</Name>
+          <Command>C^C-vbarun AislarEntidadesPorLayers</Command>
+          <SmallImage Name="RCDATA_16_SUBAWARE2" />
+          <LargeImage Name="RCDATA_16_SUBAWARE2" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0015">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0053">Overkill Entity..</Name>
+          <Command>^C^C-vbarun Overkill_Ent_Select</Command>
+          <HelpString xlate="true" UID="XLS_0059">Overkill A Entity By Selection</HelpString>
+          <SmallImage Name="RCDATA_16_PURGE" />
+          <LargeImage Name="RCDATA_16_PURGE" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0016">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0056">Overkill All Entities By Type Selection</Name>
+          <Command>^C^C-vbarun Overkill_All_Ent_by_Select</Command>
+          <HelpString xlate="true" UID="XLS_0058">Overkill All Entities By Type Selection</HelpString>
+          <SmallImage Name="RCDATA_16_PURGE" />
+          <LargeImage Name="RCDATA_16_PURGE" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0017">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0060">Convert_Poly_to_Poly2d_Select</Name>
+          <Command>^C^C-vbarun Convert_Poly_to_Poly2d_Select</Command>
+          <HelpString xlate="true" UID="XLS_0062">Convert_Poly_to_Poly2d_Select</HelpString>
+          <SmallImage Name="RCDATA_16_PLINE" />
+          <LargeImage Name="RCDATA_16_PLINE" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0018">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0061">Convert_Poly_to_Poly2d_All</Name>
+          <Command>^C^C-vbarun Convert_Poly_to_Poly2d_All</Command>
+          <HelpString xlate="true" UID="XLS_0063">Convert_Poly_to_Poly2d_All</HelpString>
+          <SmallImage Name="RCDATA_16_PLINE" />
+          <LargeImage Name="RCDATA_16_PLINE" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0019">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0065">Overkill_All_Ent</Name>
+          <Command>^C^C-vbarun Overkill_All_Ent</Command>
+          <SmallImage Name="RCDATA_16_PURGE" />
+          <LargeImage Name="RCDATA_16_PURGE" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0020">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0066">Joint_All_Entities</Name>
+          <Command>^C^C-vbarun Joint_All_Entities</Command>
+          <HelpString xlate="true" UID="XLS_0067">Joint_All_Entities</HelpString>
+          <SmallImage Name="RCDATA_16_MATCH" />
+          <LargeImage Name="RCDATA_16_MATCH" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0021">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0068">Cargar Layers Allied</Name>
+          <Command>^C^C-vbarun Load_Allied_Layers</Command>
+          <HelpString xlate="true" UID="XLS_0069">Cargar Layers Allied</HelpString>
+          <SmallImage Name="RCDATA_16_LAYERS" />
+          <LargeImage Name="RCDATA_16_LAYERS" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0022">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0075">Convert_Poly2d_to_Spline_Select</Name>
+          <Command>^C^C-vbarun Convert_Poly2d_to_Spline_Select</Command>
+          <HelpString xlate="true" UID="XLS_0076">Convert_Poly2d_to_Spline_Select</HelpString>
+          <SmallImage Name="RCDATA_16_PEDIT" />
+          <LargeImage Name="RCDATA_16_PEDIT" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0023">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0079">Convert_Poly2d_to_Spline_All</Name>
+          <Command>^C^C-vbarun Convert_Poly2d_to_Spline_All</Command>
+          <HelpString xlate="true" UID="XLS_0080">Convert_Poly2d_to_Spline_All</HelpString>
+          <SmallImage Name="RCDATA_16_PEDIT" />
+          <LargeImage Name="RCDATA_16_PEDIT" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0024">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0081">Spiral</Name>
+          <Command>^C^C-vbarun Espiral</Command>
+          <HelpString xlate="true" UID="XLS_0082">Draw Spiral</HelpString>
+          <SmallImage Name="RCDATA_16_SPLEDI" />
+          <LargeImage Name="RCDATA_16_SPLEDI" />
+        </Macro>
+      </MenuMacro>
+      <MenuMacro UID="MMU_0025">
+        <Macro type="Any">
+          <Revision MajorVersion="16" MinorVersion="2" UserVersion="1" />
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0084">ProcesoPorLotes</Name>
+          <Command>^C^C-vbarun ProcesoPorLotes</Command>
+          <SmallImage Name="RCDATA_16_WSSETTINGS" />
+          <LargeImage Name="RCDATA_16_WSSETTINGS" />
+        </Macro>
+      </MenuMacro>
+    </MacroGroup>
+    <MenuRoot>
+      <AcceleratorRoot>
+        <MenuAccelerator UID="MAU_0001">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Accelerator>
+            <KeyCombo accKeys="CTRL" AccelChar="1" bUseVirtual="false" />
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_Modify" />
+            </MenuItem>
+          </Accelerator>
+        </MenuAccelerator>
+      </AcceleratorRoot>
+      <OverrideRoot />
+      <MouseButtonRoot />
+      <DigitizerButtonRoot />
+      <PopMenuRoot>
+        <PopMenu hasDiesel="false" UID="PMU_0001">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Alias>POP1</Alias>
+          <Name xlate="true" UID="XLS_0007">EngCad</Name>
+          <PopMenuRef pUID="PMU_0002" UID="PMRU_0001">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuRef>
+          <PopMenuRef pUID="PMU_0007" UID="PMRU_0005">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuRef>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0002">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0027" xlate="true">Visual &amp;Basic Editor</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_VBAIDE" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0003">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0028" xlate="true">&amp;Interface...</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_Menuload" />
+            </MenuItem>
+          </PopMenuItem>
+        </PopMenu>
+        <PopMenu hasDiesel="false" UID="PMU_0002">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0008">Entidades</Name>
+          <PopMenuRef pUID="PMU_0004" UID="PMRU_0002">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuRef>
+          <PopMenuRef pUID="PMU_0009" UID="PMRU_0007">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuRef>
+          <PopMenuRef pUID="PMU_0008" UID="PMRU_0006">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuRef>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0034">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0053" xlate="true">Aislar Entidades en Capa..</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0014" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0001">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0009" xlate="true">Contar Entidades</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0002" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0004">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0027" xlate="true">Nombre de entidad</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0001" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0040">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0068" xlate="true">Joint_All_Entities</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0020" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuRef pUID="PMU_0012" UID="PMRU_0010">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuRef>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0047">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0085" xlate="true">ProcesoPorLotes</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0025" />
+            </MenuItem>
+          </PopMenuItem>
+        </PopMenu>
+        <PopMenu hasDiesel="false" UID="PM_0005">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Alias>POP500</Alias>
+          <Alias>GRIPS</Alias>
+          <Name xlate="true" UID="XLS_0030">&amp;Grips Cursor Menu</Name>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0006">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0031" xlate="true">&amp;Enter</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_Enter" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="true" hasDiesel="false" UID="PMIU_0007">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0008">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0032" xlate="true">&amp;Move</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_GripMove" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0009">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0033" xlate="true">M&amp;irror</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_GripMirro" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0010">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0034" xlate="true">&amp;Rotate</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_GripRotat" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0011">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0035" xlate="true">Sca&amp;le</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_GripScale" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0012">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0036" xlate="true">&amp;Stretch</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_GripStret" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="true" hasDiesel="false" UID="PMIU_0013">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0014">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0037" xlate="true">&amp;Base Point</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_GripBase" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0015">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0038" xlate="true">&amp;Copy</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_GripCopy" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="true" UID="PMIU_0016">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0039" xlate="true">$(if,$(or,$(eq,$(getvar,cmdnames),GRIP_SCALE),$(eq,$(getvar,cmdnames),GRIP_ROTATE)),,~)Re&amp;ference</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_GripRefer" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0005">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0030" xlate="true">Nombre de entidad</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0001" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="true" hasDiesel="false" UID="PMIU_0020">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0021">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0042" xlate="true">E&amp;xit</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="ID_GripExit" />
+            </MenuItem>
+          </PopMenuItem>
+        </PopMenu>
+        <PopMenu hasDiesel="false" UID="PMU_0004">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0039">Polilineas2d</Name>
+          <PopMenuRef pUID="PMU_0005" UID="PMRU_0003">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuRef>
+          <PopMenuRef pUID="PMU_0010" UID="PMRU_0008">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuRef>
+          <PopMenuRef pUID="PMU_0011" UID="PMRU_0009">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          </PopMenuRef>
+        </PopMenu>
+        <PopMenu hasDiesel="false" UID="PMU_0005">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0040">Change Fit/Smooth</Name>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0024">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0042" xlate="true">Change to None</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0004" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0025">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0043" xlate="true">Change to Curve Fit</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0005" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0027">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0045" xlate="true">Change to Cubic</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0006" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0026">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0044" xlate="true">Change to Quadratic</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0007" />
+            </MenuItem>
+          </PopMenuItem>
+        </PopMenu>
+        <PopMenu hasDiesel="false" UID="PMU_0007">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0047">Layers</Name>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0030">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0048" xlate="true">Cargar Layers Entidades 2d</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0010" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0031">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0052" xlate="true">Cargar Layers Entidades 3d</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0011" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0032">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0053" xlate="true">Cargar Layers Entidades Misc</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0012" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0033">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0054" xlate="true">Cargar Layers Todas Entidades Posibles</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0013" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0041">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0070" xlate="true">Cargar Layers Allied</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0021" />
+            </MenuItem>
+          </PopMenuItem>
+        </PopMenu>
+        <PopMenu hasDiesel="false" UID="PMU_0008">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0054">Overkill</Name>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0035">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0055" xlate="true">Overkill Entity..</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0015" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0036">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0057" xlate="true">Overkill Entities By Type</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0016" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0039">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0066" xlate="true">Overkill_All_Ent</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0019" />
+            </MenuItem>
+          </PopMenuItem>
+        </PopMenu>
+        <PopMenu hasDiesel="false" UID="PMU_0009">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0064">Polilineas</Name>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0037">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0065" xlate="true">Convert_Poly_to_Poly2d_All</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0018" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0038">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0066" xlate="true">Convert_Poly_to_Poly2d_Select</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0017" />
+            </MenuItem>
+          </PopMenuItem>
+        </PopMenu>
+        <PopMenu hasDiesel="false" UID="PMU_0010">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0070">Convertir a Polilinea</Name>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0042">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0072" xlate="true">All</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0009" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0043">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0073" xlate="true">Select</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0008" />
+            </MenuItem>
+          </PopMenuItem>
+        </PopMenu>
+        <PopMenu hasDiesel="false" UID="PMU_0011">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0077">Convertir a Spline</Name>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0044">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0078" xlate="true">Convert_Poly2d_to_Spline_Select</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0022" />
+            </MenuItem>
+          </PopMenuItem>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0045">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0081" xlate="true">Convert_Poly2d_to_Spline_All</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0023" />
+            </MenuItem>
+          </PopMenuItem>
+        </PopMenu>
+        <PopMenu hasDiesel="false" UID="PMU_0012">
+          <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+          <Name xlate="true" UID="XLS_0083">Shapes</Name>
+          <PopMenuItem IsSeparator="false" hasDiesel="false" UID="PMIU_0046">
+            <ModifiedRev MajorVersion="17" MinorVersion="0" UserVersion="1" />
+            <NameRef UID="XLS_0084" xlate="true">Spiral</NameRef>
+            <MenuItem>
+              <MacroRef MenuMacroID="MMU_0024" />
+            </MenuItem>
+          </PopMenuItem>
+        </PopMenu>
+      </PopMenuRoot>
+      <ToolbarRoot />
+      <ScreenMenuRoot />
+      <ImageMenuRoot />
+      <TabletMenuRoot />
+      <DoubleClickRoot />
+    </MenuRoot>
+  </MenuGroup>
+</CustSection>

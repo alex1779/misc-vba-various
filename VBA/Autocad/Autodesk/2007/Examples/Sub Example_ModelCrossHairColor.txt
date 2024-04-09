@@ -1,0 +1,23 @@
+Sub Example_ModelCrossHairColor()
+    ' This example returns the current setting of
+    ' Model space CrossHairColor. It then changes the value, and
+    ' finally resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currCrossHairColor As OLE_COLOR
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current CrossHairColor value
+    currCrossHairColor = preferences.DISPLAY.ModelCrosshairColor
+    MsgBox "The current value for the model space CrossHairColor is " & preferences.DISPLAY.ModelCrosshairColor, vbInformation, "CrossHairColor Example"
+    
+    ' Change the value for CrossHairColor
+    preferences.DISPLAY.ModelCrosshairColor = vbGreen
+    MsgBox "The new value for CrossHairColor is " & preferences.DISPLAY.ModelCrosshairColor, vbInformation, "CrossHairColor Example"
+    
+    ' Reset CrossHairColor to its original value
+    preferences.DISPLAY.ModelCrosshairColor = currCrossHairColor
+    MsgBox "The CrossHairColor value is reset to " & preferences.DISPLAY.ModelCrosshairColor, vbInformation, "CrossHairColor Example"
+        
+End Sub

@@ -1,0 +1,6 @@
+Private Sub AcadDocument_BeginDocClose(Cancel As Boolean)()
+    ' This example prevents a drawing from closing.
+    Cancel = True
+    MsgBox "Please do not close this drawing."
+
+End Sub

@@ -1,0 +1,8 @@
+Sub Example_Regen()
+    ' The following example regenerates the complete drawing
+    ThisDrawing.Regen acAllViewports
+    
+    ' The following example regenerates the active viewport in the current drawing
+    ThisDrawing.Regen acActiveViewport
+    
+End Sub

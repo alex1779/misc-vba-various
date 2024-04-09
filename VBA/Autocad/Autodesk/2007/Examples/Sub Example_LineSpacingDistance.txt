@@ -1,0 +1,30 @@
+Sub Example_LineSpacingDistance()
+    ' This example creates an MText object, displays the value of the LineSpacingDistance property,
+    ' changes the value of the property, and then resets the value to the original value.
+    
+    Dim MTextObj As AcadMText
+    Dim width As Double
+    Dim text As String
+    Dim CurrentDistance As Double
+    Dim corner(0 To 2) As Double
+    corner(0) = 0
+    corner(1) = 10
+    corner(2) = 0
+    width = 10
+    text = "This is the text for the MText object"
+    ' Creates the MText Object
+    Set MTextObj = ThisDrawing.ModelSpace.AddMText(corner, width, text)
+    ZoomAll
+    
+    ' Find the current LineSpacingDistance
+    CurrentDistance = MTextObj.LineSpacingDistance
+    MsgBox "The LineSpacingDistance for the MText object is: " & CurrentDistance
+    
+    ' Change the LineSpacingDistance
+    MTextObj.LineSpacingDistance = 0.7
+    MsgBox "The LineSpacingDistance for the MText object is: " & MTextObj.LineSpacingDistance
+    
+    ' Reset the LineSpacingDistance
+    MTextObj.LineSpacingDistance = CurrentDistance
+    MsgBox "The LineSpacingDistance for the MText object is: " & MTextObj.LineSpacingDistance
+End Sub

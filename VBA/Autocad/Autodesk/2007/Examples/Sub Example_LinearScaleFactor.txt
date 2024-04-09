@@ -1,0 +1,35 @@
+Sub Example_LinearScaleFactor()
+   ' This example creates an aligned dimension in model space and
+   ' turns on the tolerance display for the new dimension.  The LinearScaleFactor
+   ' of the tolerance is then read and modified.
+   '
+   ' * Note the change in the text of the dimension after the modification.
+
+    Dim dimObj As AcadDimAligned
+    Dim newText As AcadTextStyle
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim CurrentScale As Integer
+    
+    ' Define the dimension
+    point1(0) = 1: point1(1) = 10: point1(2) = 0
+    point2(0) = 10: point2(1) = 10: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    
+    ' Turn on the tolerance display
+    dimObj.ToleranceDisplay = acTolSymmetrical
+    ThisDrawing.Application.ZoomAll
+    
+    ' Display current scale factor
+    MsgBox dimObj.LinearScaleFactor
+
+    ' Change current scale factor
+    dimObj.LinearScaleFactor = 10#      ' Multiply by ten
+    ThisDrawing.Regen acAllViewports
+
+    ' Display new scale factor
+    MsgBox dimObj.LinearScaleFactor
+End Sub

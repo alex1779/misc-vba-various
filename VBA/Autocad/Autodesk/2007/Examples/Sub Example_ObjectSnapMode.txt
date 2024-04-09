@@ -1,0 +1,14 @@
+Sub Example_ObjectSnapMode()
+    ' This example toggles the setting of the Object Snap Mode.
+    
+    Dim currObjSnapMode As Boolean
+    
+    ' Get the current ObjectSnapMode value
+    currObjSnapMode = ThisDrawing.ObjectSnapMode
+    MsgBox "The object snap mode is currently " & IIf(ThisDrawing.ObjectSnapMode, "on.", "off."), , "ObjectSnapMode Example"
+    
+    ' Change the default ObjectSnapMode value
+    ThisDrawing.ObjectSnapMode = Not (currObjSnapMode)
+    MsgBox "The object snap mode is now " & IIf(ThisDrawing.ObjectSnapMode, "on.", "off."), , "ObjectSnapMode Example"
+
+End Sub

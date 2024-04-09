@@ -1,0 +1,24 @@
+Sub Example_TempFilePath()
+    ' This example returns the current setting of
+    ' TempFilePath. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currTempFilePath As String
+    Dim newTempFilePath As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current TempFilePath value
+    currTempFilePath = preferences.Files.TempFilePath
+    MsgBox "The current value for TempFilePath is " & currTempFilePath, vbInformation, "TempFilePath Example"
+    
+    ' Change the value for TempFilePath
+    newTempFilePath = "C:\AutoCAD\"
+    preferences.Files.TempFilePath = newTempFilePath
+    MsgBox "The new value for TempFilePath is " & newTempFilePath, vbInformation, "TempFilePath Example"
+    
+    ' Reset TempFilePath to its original value
+    preferences.Files.TempFilePath = currTempFilePath
+    MsgBox "The TempFilePath value is reset to " & currTempFilePath, vbInformation, "TempFilePath Example"
+End Sub

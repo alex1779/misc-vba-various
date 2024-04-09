@@ -1,0 +1,22 @@
+Dim Entidad As AcadEntity
+Dim Linea As AcadLine
+Dim Arco As AcadArc
+Dim Spline As AcadSpline
+Dim Poly As AcadLWPolyline
+Dim Poly2d As AcadPolyline
+Dim Ellipse As AcadEllipse
+Dim sset As AcadSelectionSet
+Dim Punto As AcadPoint
+Dim n As Integer
+Dim modelspace As AcadModelSpace
+Dim PaperSpace As AcadPaperSpace
+Dim ssetObj As AcadSelectionSet
+Dim layerObj As AcadLayer
+Dim LayerCol As AcadLayers
+
+
+acBlockReference
+
+
+Set modelspace = AutoCAD.Application.ActiveDocument.modelspace
+Set paperspace = AutoCAD.Application.ActiveDocument.paperspace

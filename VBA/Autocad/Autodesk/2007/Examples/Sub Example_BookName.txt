@@ -1,0 +1,19 @@
+Sub Example_BookName()
+    'This example draws a circle and
+    'returns the color name and color book name of the color.
+
+    Dim col As New AcadAcCmColor
+    Call col.SetRGB(125, 175, 235)
+    Call col.SetNames("MyColor", "MyColorBook")
+    
+    Dim cir As AcadCircle
+    Dim pt(0 To 2) As Double
+    Set cir = ThisDrawing.ModelSpace.AddCircle(pt, 2)
+    cir.TrueColor = col
+    ZoomAll
+    
+    Dim retCol As AcadAcCmColor
+    Set retCol = cir.TrueColor
+    MsgBox "BookName=" & col.BookName
+    MsgBox "ColorName=" & col.ColorName
+End Sub

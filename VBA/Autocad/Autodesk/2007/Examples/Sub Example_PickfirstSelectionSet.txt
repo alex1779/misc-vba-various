@@ -1,0 +1,18 @@
+Sub Example_PickfirstSelectionSet()
+    ' This example lists all the objects in the pickfirst selection set.
+    ' Before running this example, create some objects in the active
+    ' drawing and select those objects. The objects currently selected
+    ' in the active drawing will be returned in the pickfirst selection set.
+            
+    Dim pfSS As AcadSelectionSet
+    Dim ssobject As AcadEntity
+    Dim msg As String
+    msg = vbCrLf
+    
+    Set pfSS = ThisDrawing.PickfirstSelectionSet
+    For Each ssobject In pfSS
+        msg = msg & vbCrLf & ssobject.ObjectName
+    Next ssobject
+    MsgBox "The Pickfirst selection set contains: " & msg
+    
+End Sub

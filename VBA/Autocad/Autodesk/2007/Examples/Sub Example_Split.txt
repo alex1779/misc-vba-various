@@ -1,0 +1,36 @@
+Sub Example_Split()
+    ' This example creates a new viewport and makes it active.
+    ' Then it splits the viewport into four windows.
+    ' It then takes one of the four windows, and splits that
+    ' window horizontally in half.
+    Dim newViewport As AcadViewport
+       
+    ' Create a new viewport and make it active
+    Set newViewport = ThisDrawing.Viewports.Add("TESTVIEWPORT")
+    ThisDrawing.ActiveViewport = newViewport
+    
+    ' Split the viewport in four windows
+    newViewport.Split acViewport4
+    
+    ' Make the newly split viewport active
+    ThisDrawing.ActiveViewport = newViewport
+    
+    ' Note that current drawing layout will show four windows.
+    ' However, only one of the windows will be active.
+    ' The following code sets the lower-left corner window
+    ' to be the active window and then splits that
+    ' window into two horizontal windows.
+    Dim entry
+    For Each entry In ThisDrawing.Viewports
+        If entry.name = "TESTVIEWPORT" Then
+            Dim lowerLeft
+            lowerLeft = entry.LowerLeftCorner
+            If lowerLeft(0) = 0 And lowerLeft(1) = 0 Then
+                Set newViewport = entry
+                Exit For
+            End If
+        End If
+    Next
+    newViewport.Split acViewport2Horizontal
+    ThisDrawing.ActiveViewport = newViewport
+End Sub

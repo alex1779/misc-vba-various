@@ -1,0 +1,17 @@
+Sub Example_Action()
+    ' This example encrypts and saves a file.
+
+    Dim acad As New AcadApplication
+    Dim sp As New AcadSecurityParams
+    
+    acad.Visible = True
+    sp.Action = AcadSecurityParamsType.ACADSECURITYPARAMS_ENCRYPT_DATA
+    sp.Algorithm = AcadSecurityParamsConstants.ACADSECURITYPARAMS_ALGID_RC4
+    sp.KeyLength = 40
+    sp.Password = UCase("mypassword") 'AutoCAD converts all passwords to uppercase before applying them
+    sp.ProviderName = "Microsoft Base Cryptographic Provider v1.0"
+    sp.ProviderType = 1
+    
+    acad.ActiveDocument.SaveAs "C:\MyDrawing.dwg", , sp
+    
+End Sub

@@ -1,0 +1,35 @@
+Sub Example_Coordinate()
+    ' This example creates a polyline in model space and
+    ' queries and changes the coordinate in the first index position.
+        
+    Dim plineObj As AcadPolyline
+    Dim points(0 To 14) As Double
+    
+    ' Define the 2D polyline points
+    points(0) = 1: points(1) = 1: points(2) = 0
+    points(3) = 1: points(4) = 2: points(5) = 0
+    points(6) = 2: points(7) = 2: points(8) = 0
+    points(9) = 3: points(10) = 2: points(11) = 0
+    points(12) = 4: points(13) = 4: points(14) = 0
+        
+    ' Create a lightweight Polyline object in model space
+    Set plineObj = ThisDrawing.ModelSpace.AddPolyline(points)
+    ZoomAll
+    
+    ' Find the coordinate in the first index position
+    Dim coord As Variant
+    coord = plineObj.Coordinate(0)
+    MsgBox "The coordinate in the first index position of the polyline is: " & coord(0) & ", " _
+        & coord(1) & ", " & coord(2)
+    
+    ' Change the coordinate
+    coord(0) = coord(0) + 1
+    plineObj.Coordinate(0) = coord
+    plineObj.Update
+    
+    ' Query the new coordinate
+    coord = plineObj.Coordinate(0)
+    MsgBox "The coordinate in the first index position of the polyline is now: " & coord(0) & ", " _
+        & coord(1) & ", " & coord(2)
+    
+End Sub

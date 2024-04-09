@@ -1,0 +1,11 @@
+Sub Example_GetInterfaceObject()
+    ' This example returns top level object of another application.
+    On Error GoTo ERRORHANDLER
+    
+    Dim poly As Object
+    Set poly = ThisDrawing.Application.GetInterfaceObject("Polycad.Application")
+
+ERRORHANDLER:
+    MsgBox Err.Description, , "GetInterfaceObject Example"
+    
+End Sub

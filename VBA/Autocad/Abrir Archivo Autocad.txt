@@ -1,0 +1,2 @@
+	'Open File
+	AutoCAD.Application.Documents.Open ("C:\ruta del archivo")

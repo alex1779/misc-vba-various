@@ -1,0 +1,3 @@
+Public Sub ZoomAll()
+AutoCAD.Application.ZoomAll
+End Sub

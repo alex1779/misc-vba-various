@@ -1,0 +1,16 @@
+Sub Example_AddXLine()
+    ' This example creates an XLine in model space.
+    
+    Dim xlineObj As AcadXline
+    Dim basePoint(0 To 2) As Double
+    Dim directionVec(0 To 2) As Double
+    
+    ' Define the xline
+    basePoint(0) = 2#: basePoint(1) = 2#: basePoint(2) = 0#
+    directionVec(0) = 1#: directionVec(1) = 1#: directionVec(2) = 0#
+    
+    ' Create the xline in model space
+    Set xlineObj = ThisDrawing.ModelSpace.AddXline(basePoint, directionVec)
+    ZoomAll
+    
+End Sub

@@ -1,0 +1,24 @@
+Sub Example_SupportPath()
+    ' This example returns the current setting of
+    ' SupportPath. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currSupportPath As String
+    Dim newSupportPath As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current SupportPath value
+    currSupportPath = preferences.Files.SupportPath
+    MsgBox "The current value for SupportPath is " & currSupportPath, vbInformation, "SupportPath Example"
+    
+    ' Change the value for SupportPath
+    newSupportPath = "TestSupportPath"
+    preferences.Files.SupportPath = newSupportPath
+    MsgBox "The new value for SupportPath is " & newSupportPath, vbInformation, "SupportPath Example"
+    
+    ' Reset SupportPath to its original value
+    preferences.Files.SupportPath = currSupportPath
+    MsgBox "The SupportPath value is reset to " & currSupportPath, vbInformation, "SupportPath Example"
+End Sub

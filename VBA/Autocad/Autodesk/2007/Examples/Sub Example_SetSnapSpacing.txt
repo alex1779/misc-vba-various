@@ -1,0 +1,26 @@
+Sub Example_SetSnapSpacing()
+    ' This example finds the current Snap spacing and changes it.
+    
+    ' Find the current active viewport
+    Dim viewportObj As AcadViewport
+    Set viewportObj = ThisDrawing.ActiveViewport
+    
+    ' Turn on Snap mode and reset the viewport.
+    viewportObj.SnapOn = True
+    ThisDrawing.ActiveViewport = viewportObj
+    
+    ' Find the current Snap spacing
+    Dim XSpacing As Double
+    Dim YSpacing As Double
+    
+    viewportObj.GetSnapSpacing XSpacing, YSpacing
+    MsgBox "X =" & XSpacing & ", Y =" & YSpacing, Title:="SetSnapSpacing Example"
+    
+    ' Change the Snap spacing
+    XSpacing = XSpacing * 0.5
+    YSpacing = YSpacing * 0.5
+    viewportObj.SetSnapSpacing XSpacing, YSpacing
+    ThisDrawing.ActiveViewport = viewportObj
+    MsgBox "X =" & XSpacing & ", Y =" & YSpacing, Title:="SetSnapSpacing Example"
+   
+End Sub

@@ -1,0 +1,26 @@
+Sub Example_RegenerateTableSuppressed()
+    Dim MyModelSpace As IAcadModelSpace2
+    Dim MyTable As IAcadTable2
+    Dim pt(2) As Double
+    Set MyModelSpace = ThisDrawing.ModelSpace
+    Set MyTable = MyModelSpace.AddTable(pt, 100, 5, 5, 10)
+
+    'Temporarily disable the recomputing of table block
+    MyTable.RegenerateTableSuppressed = True
+
+    Dim i As Integer, j As Integer
+    For i = 0 To 99
+        For j = 0 To 4
+            Call MyTable.SetText(i, j, "my string " & i & ", " & j)
+        Next j
+    Next i
+
+    'Now force the recomputing of table block
+    'so that we can see the update table results
+    MyTable.RegenerateTableSuppressed = False
+
+    'You can also call RecomputeTableBlock(true) instead
+    'to force the regeneration of table
+    'MyTable.RecomputeTableBlock(True)
+    
+End Sub

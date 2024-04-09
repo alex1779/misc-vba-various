@@ -1,0 +1,41 @@
+Sub Example_LayoutID()
+    ' This example demonstrates the
+    ' CategoryName, LayoutID, LayerState,
+    ' and HasVpAssociation properties of the View object
+    
+    Dim oLSM As AcadLayerStateManager
+
+    ' Access the LayerStateManager object
+    Set oLSM = ThisDrawing.Application. _
+       GetInterfaceObject("AutoCAD.AcadLayerStateManager.16")
+
+    ' Associate the current drawing database with LayerStateManager
+    oLSM.SetDatabase ThisDrawing.Database
+
+    oLSM.Save "ColorLinetype", acLsColor + acLsLineType
+    
+    ' Create a view named "New_View" in current drawing
+    Dim viewObj As IAcadView2
+   
+    ' Add the view to the views collection
+    Set viewObj = ThisDrawing.Views.Add("New_View")
+    MsgBox viewObj.Name & " has been added." & vbCrLf & _
+           "Height: " & viewObj.Height & vbCrLf & _
+           "Width: " & viewObj.Width, , "Example"
+    
+    viewObj.CategoryName = "My View Category"
+    viewObj.LayerState = "My Layer State"
+    
+    viewObj.LayoutId = ThisDrawing.Layouts(1).ObjectID
+        
+    MsgBox viewObj.CategoryName & " is the Category name." & vbCrLf & _
+            viewObj.LayoutId & " is the Layout ID." & vbCrLf & _
+            viewObj.LayerState & " is the Layer state."
+   
+    If viewObj.HasVpAssociation = True Then
+        MsgBox "The view is associated with a paper space viewport."
+    Else
+        MsgBox "The view is not associated with a paper space viewport."
+    
+   End If
+End Sub

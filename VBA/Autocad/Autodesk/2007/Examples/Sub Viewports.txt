@@ -1,0 +1,12 @@
+Sub Viewports()
+    ' This example finds the current Viewports collection and
+    ' adds a new viewport to that collection.
+    
+    Dim viewportColl As AcadViewports
+    Set viewportColl = ThisDrawing.Viewports
+    
+    ' Create a viewport named "TEST" in the current drawing
+    Dim viewportObj As AcadViewport
+    Set viewportObj = viewportColl.Add("TEST")
+    MsgBox "A new viewport called " & viewportObj.name & " has been added to the Viewports collection.", vbInformation, "Viewports Example"
+End Sub

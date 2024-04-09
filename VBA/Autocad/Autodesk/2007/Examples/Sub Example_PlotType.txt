@@ -1,0 +1,24 @@
+Sub Example_PlotType()
+    ' This example reads and modifies the PlotType
+    ' Layout value.
+    ' When finished, this example resets the  value back to
+    ' its original value.
+    
+    Dim ACADLayout As ACADLayout
+    Dim originalValue As Integer
+    
+    ' Get the layout object
+    Set ACADLayout = ThisDrawing.ActiveLayout
+    
+    ' Read and display the original value
+    originalValue = ACADLayout.PlotType
+    MsgBox "The PlotType value is set to: " & originalValue
+
+    ' Modify the PlotType preference by toggling the value
+    ACADLayout.PlotType = acExtents
+    MsgBox "The PlotType preference has been set to: " & ACADLayout.PlotType
+
+    ' Reset the preference back to its original value
+    ACADLayout.PlotType = originalValue
+    MsgBox "The PlotType preference was reset back to: " & originalValue
+End Sub

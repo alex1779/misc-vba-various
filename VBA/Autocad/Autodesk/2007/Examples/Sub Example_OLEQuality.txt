@@ -1,0 +1,47 @@
+Sub Example_OLEQuality()
+    ' This example reads and modifies the preference value that controls
+    ' the plot quality of OLE objects. When finished, this example resets
+    ' the preference value back to its original value.
+    
+    Dim ACADPref As AcadPreferencesOutput
+    Dim originalValue As Variant, DisplayValue As String
+    
+    ' Get the output preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Output
+    
+    ' Store original value
+    originalValue = ACADPref.OLEQuality
+    
+    ' Read and display the original value
+    GoSub GETVALUE
+    MsgBox "The OLEQuality preference is currently set to: " & DisplayValue
+
+    ' Modify the OLEQuality preference by changing it to High Quality Photographic
+    ACADPref.OLEQuality = acOQHighPhoto
+    GoSub GETVALUE
+    MsgBox "The OLEQuality preference has been set to: " & DisplayValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.OLEQuality = originalValue
+    GoSub GETVALUE
+    MsgBox "The OLEQuality preference was reset back to: " & DisplayValue
+
+    Exit Sub
+    
+GETVALUE:
+    ' Convert the value of this setting to a meaningful text string
+    DisplayValue = ACADPref.OLEQuality
+    Select Case DisplayValue
+        Case acOQLineArt: DisplayValue = "Line Art"
+        Case acOQText: DisplayValue = "Text"
+        Case acOQGraphics: DisplayValue = "Graphics"
+        Case acOQPhoto: DisplayValue = "Photo"
+        Case acOQHighPhoto: DisplayValue = "High Photo"
+    End Select
+    
+    Return
+
+End Sub

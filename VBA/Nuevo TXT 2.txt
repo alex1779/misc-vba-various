@@ -1,0 +1,6 @@
+Sub WriteToTextFile_SecondWay()
+    Dim FSO As New FileSystemObject
+    Set txtstream = FSO.CreateTextFile("D:\Temp2.txt", True, True)
+    txtstream.Write "This text file was created using Microsoft Scripting Runtime."
+    txtstream.Close
+End Sub

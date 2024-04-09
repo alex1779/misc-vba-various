@@ -1,0 +1,24 @@
+Sub Example_PlotViewportBorders()
+    ' This example reads and modifies the PlotViewportBorders
+    ' Layout value.
+    ' When finished, this example resets the  value back to
+    ' its original value.
+    
+    Dim ACADLayout As ACADLayout
+    Dim originalValue As Boolean
+    
+    ' Get the layout object
+    Set ACADLayout = ThisDrawing.ActiveLayout
+    
+    ' Read and display the original value
+    originalValue = ACADLayout.PlotViewportBorders
+    MsgBox "The PlotViewportBorders value is set to: " & originalValue
+
+    ' Modify the PlotViewportBorders preference by toggling the value
+    ACADLayout.PlotViewportBorders = Not ACADLayout.PlotViewportBorders
+    MsgBox "The PlotViewportBorders preference has been set to: " & ACADLayout.PlotViewportBorders
+
+    ' Reset the preference back to its original value
+    ACADLayout.PlotViewportBorders = originalValue
+    MsgBox "The PlotViewportBorders preference was reset back to: " & originalValue
+End Sub

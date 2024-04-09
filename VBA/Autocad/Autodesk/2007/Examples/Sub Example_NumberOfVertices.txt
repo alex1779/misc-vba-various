@@ -1,0 +1,34 @@
+Sub Example_NumberOfVertices()
+    ' This example creates a PolyFaceMesh and displays the number of vertices it contains
+    
+    Dim vertexList(0 To 17) As Double
+    Dim FaceList(0 To 7) As Integer
+    Dim NewPolyFaceMeshObj As AcadPolyfaceMesh
+    Dim direction(0 To 2) As Double
+    
+    'Data for new PolyFaceMesh object
+    vertexList(0) = 4: vertexList(1) = 7: vertexList(2) = 0
+    vertexList(3) = 5: vertexList(4) = 7: vertexList(5) = 0
+    vertexList(6) = 6: vertexList(7) = 7: vertexList(8) = 0
+    vertexList(9) = 4: vertexList(10) = 6: vertexList(11) = 0
+    vertexList(12) = 5: vertexList(13) = 6: vertexList(14) = 0
+    vertexList(15) = 6: vertexList(16) = 6: vertexList(17) = 6
+    
+    FaceList(0) = 1:    FaceList(1) = 2:    FaceList(2) = 5
+    FaceList(3) = 4:    FaceList(4) = 2:    FaceList(5) = 3
+    FaceList(6) = 6:    FaceList(7) = 5
+
+    ' Create new PolyFaceMesh object
+    Set NewPolyFaceMeshObj = ModelSpace.AddPolyfaceMesh(vertexList, FaceList)
+    NewPolyFaceMeshObj.Update
+
+    ' Change the viewing direction of the viewport to
+    ' better see the polyface mesh
+    direction(0) = -1: direction(1) = -1: direction(2) = 1
+    ThisDrawing.ActiveViewport.direction = direction
+    ThisDrawing.ActiveViewport = ThisDrawing.ActiveViewport
+    ThisDrawing.Application.ZoomAll
+    
+    ' Display number of vertices in this PolyFaceMesh
+    MsgBox "The new PolyFaceMesh contains " & NewPolyFaceMeshObj.NumberOfVertices & " vertices."
+End Sub

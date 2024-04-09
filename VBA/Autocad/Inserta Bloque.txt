@@ -1,0 +1,4 @@
+' Insert block
+Dim blockRefObj As AcadBlockReference
+insertionPnt(0) = 0: insertionPnt(1) = 0: insertionPnt(2) = 0
+Set blockRefObj = AutoCAD.Application.ActiveDocument.ModelSpace.InsertBlock(insertionPnt, "BB100220", 1#, 1#, 1#, 0)

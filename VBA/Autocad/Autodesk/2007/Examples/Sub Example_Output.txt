@@ -1,0 +1,17 @@
+Sub Example_Output()
+    ' This example obtains a reference to the Output Preferences object
+    ' from the Application Preferences object, and reads one of the Output
+    ' preferences
+    
+    Dim ACADPref As AcadPreferencesOutput
+    
+    ' Obtain a reference to the Output Preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Output
+    
+    MsgBox "You now have access to the properties and methods of the Output Preferences object!"
+    MsgBox "The Output preference DefaultOutputDevice is set to: " & ACADPref.DefaultOutputDevice
+    
+    ' Release Output Preferences object
+    Set ACADPref = Nothing
+    MsgBox "The Output Preferences object has been released!"
+End Sub

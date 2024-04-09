@@ -1,0 +1,3 @@
+Public Sub Overkill()
+AutoCAD.Application.ActiveDocument.SendCommand "-overkill" & vbCr & "all" & vbCr & vbCr & vbCr
+End Sub

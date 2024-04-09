@@ -1,0 +1,33 @@
+Sub Example_GetWindowToPlot()
+    ' This example allows the user to define an area in the current layout to plot
+    ' and displays a plot preview of the defined area.
+    '
+    ' * Note: You will have to exit the plot preview
+    '  before the VBA example will stop and control will be returned
+    
+    Dim point1 As Variant, point2 As Variant
+    
+    ' Get first point in window
+    point1 = ThisDrawing.Utility.GetPoint(, "Click the lower-left of the window to plot.")
+    ReDim Preserve point1(0 To 1)   ' Change this to a 2D array by removing the Z position
+    
+    ' Get second point in window
+    point2 = ThisDrawing.Utility.GetPoint(, "Click the upper-right of the window to plot.")
+    ReDim Preserve point2(0 To 1)   ' Change this to a 2D array by removing the Z position
+    
+    ' Send information about window to current layout
+    ThisDrawing.ActiveLayout.SetWindowToPlot point1, point2
+    
+    ' Read back window information
+    ThisDrawing.ActiveLayout.GetWindowToPlot point1, point2
+    
+    MsgBox "Press any key to plot the following window:" & vbCrLf & vbCrLf & _
+           "Lower Left: " & point1(0) & ", " & point1(1) & vbCrLf & _
+           "Upper Right: " & point2(0) & ", " & point2(1)
+    
+    ' Make sure the instruction is to plot a view, not some other plot style
+    ThisDrawing.ActiveLayout.PlotType = acWindow
+    
+    ' Send Plot To Window
+    ThisDrawing.Plot.DisplayPlotPreview acFullPreview
+End Sub

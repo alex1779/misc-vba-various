@@ -1,0 +1,40 @@
+Sub Example_CopyFrom()
+    ' This example will create two new plot configurations, NewPC1 and NewPC2, and will use
+    ' the CopyFrom method to duplicate the settings in the first plot configuration
+    ' to the second plot configuration.
+
+    Dim PlotConfigurations As AcadPlotConfigurations
+    Dim PlotConfiguration As AcadPlotConfiguration
+    Dim NewPC1 As AcadPlotConfiguration, NewPC2 As AcadPlotConfiguration
+    
+    ' Get PlotConfigurations collection from document object
+    Set PlotConfigurations = ThisDrawing.PlotConfigurations
+    
+    ' Add NewPC1 and customize some of the properties
+    Set NewPC1 = PlotConfigurations.Add("NEW_CONFIGURATION1")
+        NewPC1.PlotRotation = ac270degrees
+        NewPC1.PlotHidden = True
+        NewPC1.PaperUnits = acMillimeters
+    
+    ' Add NewPC2 and leave default values intact
+    Set NewPC2 = PlotConfigurations.Add("NEW_CONFIGURATION2")
+    
+    ' Show NewPC2 settings before we copy information from NewPC1
+    GoSub VIEWPC2SETTINGS
+    
+    ' Copy setting information from NewPC1 to NewPC2
+    NewPC2.CopyFrom NewPC1
+    
+    ' Show NewPC2 settings after we copy information from NewPC1
+    GoSub VIEWPC2SETTINGS
+    
+    Exit Sub
+    
+VIEWPC2SETTINGS:
+    MsgBox "The settings for NEW_CONFIGURATION2 are: " & vbCrLf & _
+            "Plot Rotation: " & NewPC2.PlotRotation & vbCrLf & _
+            "Plot Hidden: " & NewPC2.PlotHidden & vbCrLf & _
+            "Paper Units: " & NewPC2.PaperUnits
+
+    Return
+End Sub

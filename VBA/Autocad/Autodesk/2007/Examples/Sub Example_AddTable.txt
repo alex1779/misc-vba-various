@@ -1,0 +1,11 @@
+Sub Example_AddTable()
+    ' This example adds a table in model space
+
+
+
+
+
+
+
+
+End Sub

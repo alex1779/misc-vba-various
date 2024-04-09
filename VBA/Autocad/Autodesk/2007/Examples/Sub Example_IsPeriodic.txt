@@ -1,0 +1,25 @@
+Sub Example_IsPeriodic()
+   ' This example creates a Spline object in model space and
+   ' determines if the Spline is periodic
+
+    Dim splineObj As AcadSpline
+    Dim startTan(0 To 2) As Double, endTan(0 To 2) As Double
+    Dim fitPoints(0 To 8) As Double
+    Dim UserMessage As String
+    
+    ' Define the Spline object
+    startTan(0) = 0.5: startTan(1) = 0.5: startTan(2) = 0
+    endTan(0) = 0.5: endTan(1) = 0.5: endTan(2) = 0
+    fitPoints(0) = 0: fitPoints(1) = 0: fitPoints(2) = 0: fitPoints(3) = 5
+    fitPoints(4) = 5: fitPoints(5) = 0: fitPoints(6) = 10: fitPoints(7) = 0: fitPoints(8) = 0
+    
+    ' Create new Spline object
+    Set splineObj = ThisDrawing.ModelSpace.AddSpline(fitPoints, startTan, endTan)
+    ThisDrawing.Application.ZoomAll
+    
+    ' Display whether or not new Spline is periodic
+    UserMessage = IIf(splineObj.IsPeriodic, "is periodic", "is not periodic")
+    
+    MsgBox "The new Spline " & UserMessage
+    
+End Sub

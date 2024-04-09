@@ -1,0 +1,39 @@
+Sub Medir_Peso()
+
+    On Error Resume Next
+'    AppActivate AutoCAD.Application.ActiveDocument.Application.Caption
+    'Activando: Model Space
+    AutoCAD.Application.ActiveDocument.ActiveSpace = acModelSpace
+
+    Dim boxObj As Variant
+    Dim Object As Object
+
+    'Get information about selected object
+    AutoCAD.Application.ActiveDocument.Utility.GetSubEntity Object, PickedPoint, TransMatrix, ContextData
+
+    ' Return the Volume for the box
+    Dim Volume As Double
+    Dim Peso As Integer
+    Volume = Object.Volume
+    Peso = ((Volume / 1000000000) * densidad) * 1000
+    
+
+    Cells(4, 5).Select
+    Selection.NumberFormat = "0.00"
+    ActiveCell.FormulaR1C1 = Peso & " Grs."
+
+    'Activando: Paper Space
+    AutoCAD.Application.ActiveDocument.ActiveSpace = acPaperSpace
+
+
+End Sub
+
+Function densidad()
+
+If Cells(2, 5).value = "ALUMINIO" Then densidad = 2700
+If Cells(2, 5).value = "SAE 1010" Then densidad = 7850
+If Cells(2, 5).value = "AISI 316" Then densidad = 7960
+If Cells(2, 5).value = "MADERA" Then densidad = 700
+
+End Function
+

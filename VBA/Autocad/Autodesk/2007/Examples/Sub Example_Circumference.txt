@@ -1,0 +1,20 @@
+Sub Example_Circumference()
+    ' This example creates a Circle object in model space and
+    ' returns the circumference of the Circle
+    
+    Dim circleObj As AcadCircle
+    Dim centerPoint(0 To 2) As Double
+    Dim radius As Double
+    
+    ' Define the new Circle object
+    centerPoint(0) = 0: centerPoint(1) = 0: centerPoint(2) = 0
+    radius = 5#
+    
+    ' Create the Circle object in model space
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(centerPoint, radius)
+
+    ThisDrawing.Application.ZoomAll
+    
+    MsgBox "The circumference of the new Circle is: " & circleObj.Circumference
+    
+End Sub

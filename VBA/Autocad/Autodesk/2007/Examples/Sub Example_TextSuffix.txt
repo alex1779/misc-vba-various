@@ -1,0 +1,34 @@
+Sub Example_TextSuffix()
+   ' This example creates an aligned dimension in model space and
+   ' uses TextSuffix to allow the user to change the text suffix for the
+   ' dimension
+
+    Dim dimObj As AcadDimAligned
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim suffix As String
+    
+    ' Define the dimension
+    point1(0) = 0: point1(1) = 5: point1(2) = 0
+    point2(0) = 5: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    
+    ThisDrawing.Application.ZoomAll
+
+    ' Allow the user to change the text suffix for the dimension
+    suffix = InputBox("Enter a new text suffix for the dimension", "Set Dimension Suffix", ":SUFFIX")
+    dimObj.TextSuffix = suffix   ' Commit changes to suffix
+    
+    ThisDrawing.Regen acAllViewports
+    
+    ' Read back and display the dimension text suffix
+    suffix = dimObj.TextSuffix
+    If suffix <> "" Then
+        MsgBox "The suffix of the dimension has been changed to: " & suffix
+    Else
+        MsgBox "The suffix of the dimension has been removed"
+    End If
+End Sub

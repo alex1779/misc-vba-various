@@ -1,0 +1,10 @@
+
+    Dim i As Integer
+
+    For i = 1 To 10
+    
+        fila = i
+        
+        Cells(fila, 1) = i
+        
+    Next

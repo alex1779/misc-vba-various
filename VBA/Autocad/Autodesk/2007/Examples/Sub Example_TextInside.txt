@@ -1,0 +1,37 @@
+Sub Example_TextInside()
+   ' This example creates an aligned dimension in model space and
+   ' allows the user to toggle, forcing the dimension text between the extension lines
+   ' using the TextInside property
+
+    Dim dimObj As AcadDimAligned
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim CurrentValue As String
+    
+    ' Define the dimension
+    point1(0) = 5: point1(1) = 5: point1(2) = 0
+    point2(0) = 5.5: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    ThisDrawing.Application.ZoomAll
+
+Toggle:
+    Select Case MsgBox("Press OK to toggle forcing the dimension text inside the extension lines", vbOKCancel)
+        Case vbOK
+            ' Toggle forcing the dimension text inside the extension lines
+            dimObj.TextInside = Not (dimObj.TextInside)
+            ThisDrawing.Regen acAllViewports
+            
+            ' Read and display the new dimension TextInside value
+            CurrentValue = IIf(dimObj.TextInside, "is now", "is not")
+            MsgBox "The dimension text " & CurrentValue & " forced inside the extension lines"
+        
+        Case vbCancel
+            Exit Sub
+    End Select
+    
+    GoTo Toggle
+    
+End Sub

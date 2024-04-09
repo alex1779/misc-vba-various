@@ -1,0 +1,21 @@
+Sub Example_Helix_BaseRadius()
+    Dim ssetObj As AcadSelectionSet
+    Set ssetObj = ThisDrawing.SelectionSets.Add("TEST_HELIX")
+    Dim mode As Integer
+    
+    ssetObj.SelectOnScreen
+    
+    Dim obj As AcadEntity
+    Dim helix As AcadHelix
+    Dim helixBaseRadius As Double
+    Dim objName As String
+    For Each obj In ssetObj
+        objName = obj.ObjectName
+            If TypeOf obj Is AcadHelix Then
+            Set helix = obj
+            helix.BaseRadius = helix.BaseRadius * 2
+            MsgBox "Baseradius of helix is doubled to " & helix.BaseRadius * 2
+            End If
+    Next
+    ssetObj.Delete
+End Sub

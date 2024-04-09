@@ -1,0 +1,1 @@
+    abrirtxt = Shell("notepad.exe " & RutaArchivo, vbNormalFocus)

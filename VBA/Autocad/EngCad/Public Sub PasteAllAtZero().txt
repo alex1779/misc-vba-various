@@ -1,0 +1,3 @@
+Public Sub PasteAllAtZero()
+Autocad.Application.ActiveDocument.SendCommand "_pasteclip " & vbCr & "0,0,0 " & vbCr
+End Sub

@@ -1,0 +1,9 @@
+For Each Entidad In modelspace
+If Entidad.ObjectName = "AcDbLine" Then 
+If Entidad.ObjectName = "AcDbArc" Then Entidad.layer = ".Arc"
+If Entidad.ObjectName = "AcDbCircle" Then Entidad.layer = ".Circle"
+If Entidad.ObjectName = "AcDbPolyline" Then Entidad.layer = ".Polyline"
+If Entidad.ObjectName = "AcDb2dPolyline" Then Entidad.layer = ".Polyline2d"
+If Entidad.ObjectName = "AcDbSpline" Then Entidad.layer = ".Spline"
+If Entidad.ObjectName = "AcDbEllipse" Then Entidad.layer = ".Ellipse"
+Next

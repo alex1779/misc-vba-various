@@ -1,0 +1,25 @@
+Sub Example_HatchObjectType()
+    ' This example changes the value of the HatchObjectType property.
+    ' The example requires that the active drawing contain an existing hatch.
+    
+    Dim ent As AcadHatch ' AcadEntity
+    Dim util As AcadUtility
+    Set util = ThisDrawing.Utility
+    Dim pt As Variant
+    Call util.GetEntity(ent, pt, "Select hatch :")
+    With ent
+        MsgBox "Initial value of HatchObjectType = " & .HatchObjectType
+        .HatchObjectType = acGradientObject
+        .GradientAngle = 3.1415 / 4
+        .GradientCentered = False
+        .GradientName = "SPHERICAL"
+        Dim col1 As AcadAcCmColor, col2 As AcadAcCmColor
+        Set col1 = AcadApplication.GetInterfaceObject("AutoCAD.AcCmColor.16")
+        Set col2 = AcadApplication.GetInterfaceObject("AutoCAD.AcCmColor.16")
+        Call col1.SetRGB(255, 0, 0)
+        Call col2.SetRGB(0, 255, 0)
+        .GradientColor1 = col1
+        .GradientColor2 = col2
+        MsgBox "New value of HatchObjectType = " & .HatchObjectType
+    End With
+End Sub

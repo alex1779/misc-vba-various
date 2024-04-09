@@ -1,0 +1,19 @@
+Sub Example_Diameter()
+    ' This example creates a Circle object in model space and
+    ' returns the diameter of the new Circle
+    
+    Dim circleObj As AcadCircle
+    Dim centerPoint(0 To 2) As Double
+    Dim radius As Double
+    
+    ' Define the new Circle object
+    centerPoint(0) = 0: centerPoint(1) = 0: centerPoint(2) = 0
+    radius = 5#
+    
+    ' Create the Circle object in model space
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(centerPoint, radius)
+
+    ThisDrawing.Application.ZoomAll
+    
+    MsgBox "The diameter of the new Circle is: " & circleObj.Diameter
+End Sub

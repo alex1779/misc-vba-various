@@ -1,0 +1,10 @@
+Private Sub AcadDocument_Deactivate()
+    ' This example intercepts a drawing DeActivate event.
+    '
+    ' This event is triggered when a drawing window looses focus.
+    '
+    ' To trigger this example event: Open two drawings and switch from
+    ' one drawing window to another
+
+    MsgBox "You have just deactivated a drawing!"
+End Sub

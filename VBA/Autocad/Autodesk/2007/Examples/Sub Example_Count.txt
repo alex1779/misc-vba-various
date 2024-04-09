@@ -1,0 +1,18 @@
+Sub Example_Count()
+    ' Use count to retrieve the number of objects in a collection
+    ' You might use this value in a loop structure to iterate through the collection
+    
+    MsgBox "There are " & ThisDrawing.Layers.count & " layer(s) in the drawing."
+    MsgBox "There are " & ThisDrawing.ModelSpace.count & " object(s) in ModelSpace."
+
+    Dim objCount As Integer
+    Dim I As Integer
+    objCount = ThisDrawing.ModelSpace.count
+    
+    Dim mspaceObj As AcadObject
+    For I = 0 To objCount - 1
+     Set mspaceObj = ThisDrawing.ModelSpace.Item(I)
+    MsgBox "The objects in ModelSpace include: " & mspaceObj.ObjectName, vbInformation, "Count Example"
+    Next
+    
+End Sub

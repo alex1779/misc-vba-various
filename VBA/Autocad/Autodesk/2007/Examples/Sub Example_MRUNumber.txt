@@ -1,0 +1,15 @@
+Sub Example_MRUNumber()
+    ' This example reads the preference value containing
+    ' the number of most recently used files that are shown in the File menu.
+    
+    Dim ACADPref As AcadPreferencesOpenSave
+    Dim originalValue As Variant
+    
+    ' Get the OpenSave preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.OpenSave
+    
+    ' Read and display the preference value
+    originalValue = ACADPref.MRUNumber
+    MsgBox "The number of most recently used files that are shown is: " & originalValue
+
+End Sub

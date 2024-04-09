@@ -1,0 +1,20 @@
+Sub Punto_Con_Rotation()
+    'Declaración de Variables
+    Dim Punto As AcadPoint
+    
+    Dim BasePoint(0 To 2) As Double
+    BasePoint(0) = 100:     BasePoint(1) = 0:         BasePoint(2) = 0
+    
+    Dim RotationPoint(0 To 2) As Double
+    RotationPoint(0) = 0:     RotationPoint(1) = 0:         RotationPoint(2) = 0
+    
+    'Creando nuevo punto
+    Set Punto = AutoCAD.Application.ActiveDocument.ModelSpace.AddPoint(BasePoint)
+    
+    'Número pi, que representa 180°
+    Pi = 3.14159265358979
+    
+    Punto.Rotate RotationPoint, Pi
+End Sub
+
+

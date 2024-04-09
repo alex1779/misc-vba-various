@@ -1,0 +1,18 @@
+Sub Example_ElevationPaperSpace()
+    ' This example changes the paper space elevation of the current drawing
+    ' and then resets it to the original value.
+    
+    Dim currElevation As Double
+    
+    currElevation = ThisDrawing.ElevationPaperSpace
+    MsgBox "The current paper space elevation is " & ThisDrawing.ElevationPaperSpace, vbInformation, "ElevationpaperSpace Example"
+    
+    ' Change the elevation
+    ThisDrawing.ElevationPaperSpace = currElevation + 2
+    MsgBox "The new paper space elevation is " & ThisDrawing.ElevationPaperSpace, vbInformation, "ElevationpaperSpace Example"
+    
+    ' Reset the elevation to its original value
+    ThisDrawing.ElevationPaperSpace = currElevation
+    MsgBox "The paper space elevation is reset to " & ThisDrawing.ElevationPaperSpace, vbInformation, "ElevationPaperSpace Example"
+
+End Sub

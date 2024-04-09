@@ -1,0 +1,54 @@
+Sub Example_ControlPoints()
+   ' This example creates a Spline object in model space, reads the control points
+   ' of the Spline and then modifies the control points of the Spline.
+
+    Dim splineObj As AcadSpline
+    Dim startTan(0 To 2) As Double, endTan(0 To 2) As Double
+    Dim fitPoints(0 To 8) As Double
+    Dim UserMessage As String
+    Dim ControlPoints As Variant
+    Dim iCount As Long, iPoint As Integer
+    
+    ' Define the Spline object
+    startTan(0) = 0.5: startTan(1) = 0.5: startTan(2) = 0
+    endTan(0) = 0.5: endTan(1) = 0.5: endTan(2) = 0
+    fitPoints(0) = 0: fitPoints(1) = 0: fitPoints(2) = 0
+    fitPoints(3) = 5:   fitPoints(4) = 5: fitPoints(5) = 0
+    fitPoints(6) = 10: fitPoints(7) = 0: fitPoints(8) = 0
+    
+    ' Create new Spline object
+    Set splineObj = ThisDrawing.ModelSpace.AddSpline(fitPoints, startTan, endTan)
+    ThisDrawing.Application.ZoomAll
+    
+    ' Display control points for this Spline
+    GoSub DISPLAYPOINTS
+    
+    ' Modify control points for this Spline
+    ControlPoints(0) = 3
+    splineObj.ControlPoints = ControlPoints
+    ThisDrawing.Application.ZoomAll
+        
+    ' Display new control points for this Spline
+    GoSub DISPLAYPOINTS
+        
+    Exit Sub
+    
+DISPLAYPOINTS:
+    ControlPoints = splineObj.ControlPoints
+    
+    ' Display in groups of three
+    UserMessage = ""
+    iPoint = 0
+    For iCount = 0 To UBound(ControlPoints) Step 3
+        iPoint = iPoint + 1
+        UserMessage = UserMessage & iPoint & ")" & vbTab
+        UserMessage = UserMessage & ControlPoints(iCount)
+        UserMessage = UserMessage & ", " & ControlPoints(iCount + 1)
+        UserMessage = UserMessage & ", " & ControlPoints(iCount + 2)
+        UserMessage = UserMessage & vbCrLf
+    Next
+    
+    MsgBox "The " & splineObj.NumberOfControlPoints & " Spline control points are: " & vbCrLf & vbCrLf & UserMessage
+    
+    Return
+End Sub

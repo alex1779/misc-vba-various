@@ -1,0 +1,7 @@
+Sub Open_Paint()
+Dim path_Paint As String
+Dim paintID As Variant
+path_Paint = "C:\Windows\System32\mspaint.exe"
+paintID = Shell(path_Paint, vbMaximizedFocus)
+Sleep 1000
+End Sub

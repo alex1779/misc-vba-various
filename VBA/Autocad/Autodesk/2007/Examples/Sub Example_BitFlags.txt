@@ -1,0 +1,48 @@
+Sub Example_BitFlags()
+    ' This example creates a TableStyle object and sets values for 
+    ' the style name and other attributes.
+    
+      Dim dictionaries As AcadDictionaries
+      Set dictionaries = ThisDrawing.Database.dictionaries
+  
+      Dim dictObj As AcadDictionary
+      Set dictObj = dictionaries.Item("acad_tablestyle")
+  
+      ' Create the custom TableStyle object in the dictionary
+      Dim keyName As String
+      Dim className As String
+      Dim customObj As AcadTableStyle
+      keyName = "NewStyle"
+      className = "AcDbTableStyle"
+      Set customObj = dictObj.AddObject(keyName, className)
+      
+      customObj.Name = "NewStyle"
+      customObj.Description = "New Style for My Tables"
+  
+      customObj.FlowDirection = acTableBottomToTop
+      customObj.HorzCellMargin = 0.22
+      customObj.BitFlags = 1
+      customObj.SetTextHeight AcRowType.acDataRow+AcRowType.acTitleRow, 1.3
+  
+      Dim col As New AcadAcCmColor
+      col.SetRGB 12, 23, 45
+      customObj.SetBackgroundColor AcRowType.acDataRow + AcRowType.acTitleRow, col
+      customObj.SetBackgroundColorNone AcRowType.acDataRow + AcRowType.acTitleRow, False
+      customObj.SetGridVisibility AcGridLineType.acHorzInside + AcGridLineType.acHorzTop _
+            ,AcRowType.acDataRow + AcRowType.acTitleRow, True
+  
+      customObj.SetAlignment AcRowType.acDataRow + AcRowType.acTitleRow, acBottomRight
+      col.SetRGB 244, 0, 0
+      customObj.SetGridColor 3, 1, col
+      
+      MsgBox "Table Style Name = " & customObj.Name & vbCrLf & _
+        "Style Description = " & customObj.Description & vbCrLf & _
+        "Flow Direction = " & customObj.FlowDirection & vbCrLf & _
+        "Horzontal Cell Margin = " & customObj.HorzCellMargin & vbCrLf & _
+        "Bit Flags = " & customObj.BitFlags & vbCrLf & _
+        "Title Row Text Height = " & customObj.GetTextHeight(acTitleRow) & vbCrLf & _
+        "Grid Visibility for HorizontalBottom TitleRow  = " & customObj.GetGridVisibility(acHorzBottom, acTitleRow) & vbCrLf & _
+        "Title Row Alignment = " & customObj.GetAlignment(acTitleRow) & vbCrLf & _
+
+
+End Sub

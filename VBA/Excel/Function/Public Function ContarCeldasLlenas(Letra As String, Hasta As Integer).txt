@@ -1,0 +1,4 @@
+Public Function ContarCeldasLlenas(Letra As String, Hasta As Integer)
+n = Application.WorksheetFunction.CountA(Range(Letra & "1:" & Letra & Hasta))
+ContarCeldasLlenas = n
+End Function

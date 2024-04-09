@@ -1,0 +1,8 @@
+Sub Bloque(nombre As Variant, name As String, PuntoX As Double, PuntoY As Double, PuntoZ As Double, Rotation As Double)
+    'Declaración de Variables
+    Dim Bloque As AcadBlockReference:       Dim insertionPoint(0 To 2) As Double
+    insertionPoint(0) = PuntoX: insertionPoint(1) = PuntoY: insertionPoint(2) = PuntoZ
+    'Colocando Bloque
+    Set nombre = AutoCAD.Application.ActiveDocument.ModelSpace.InsertBlock(insertionPoint, name, 1, 1, 1, 0)
+
+End Sub

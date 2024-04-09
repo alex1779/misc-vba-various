@@ -1,0 +1,21 @@
+Sub Example_MaxActiveViewports()
+    ' This example returns the current setting of
+    ' MaxActiveViewports. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim currMaxActiveViewports As Integer
+    Dim newMaxActiveViewports As Integer
+    
+    ' Retrieve the current MaxActiveViewports value
+    currMaxActiveViewports = ThisDrawing.preferences.MaxActiveViewports
+    MsgBox "The current value for MaxActiveViewports is " & currMaxActiveViewports, vbInformation, "MaxActiveViewports Example"
+    
+    ' Change the value for MaxActiveViewports
+    newMaxActiveViewports = 20
+    ThisDrawing.preferences.MaxActiveViewports = newMaxActiveViewports
+    MsgBox "The new value for MaxActiveViewports is " & newMaxActiveViewports, vbInformation, "MaxActiveViewports Example"
+    
+    ' Reset MaxActiveViewports to its original value
+    ThisDrawing.preferences.MaxActiveViewports = currMaxActiveViewports
+    MsgBox "The MaxActiveViewports value is reset to " & currMaxActiveViewports, vbInformation, "MaxActiveViewports Example"
+End Sub

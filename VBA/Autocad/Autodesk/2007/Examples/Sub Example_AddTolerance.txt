@@ -1,0 +1,20 @@
+Sub Example_AddTolerance()
+    ' This example creates a tolerance object in model space.
+    
+    Dim toleranceObj As AcadTolerance
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+End Sub

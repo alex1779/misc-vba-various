@@ -1,0 +1,1 @@
+    AutoCAD.Application.ActiveDocument.ActiveSpace = acPaperSpace   'Set the active space to paper space

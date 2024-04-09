@@ -1,0 +1,3 @@
+Public Function GuardarComo(Path As Variant, Filename As Variant, SaveType As AcSaveAsType)
+AutoCAD.Application.ActiveDocument.SaveAs (Path & Filename), SaveType
+End Function

@@ -1,0 +1,23 @@
+Sub Example_ShadePlot()
+    ' This example creates a paper space viewport,
+    ' makes it active, and then sets it to plot as displayed.
+    
+    Dim newPViewport As AcadPViewport
+    Dim centerPoint(0 To 2) As Double
+    Dim height As Double
+    Dim width As Double
+    height = 30#
+    width = 40#
+    centerPoint(0) = 30#: centerPoint(1) = 30#: centerPoint(2) = 0#
+    
+    ' Create a paper space Viewport object
+    ThisDrawing.ActiveSpace = acPaperSpace
+    Set newPViewport = ThisDrawing.PaperSpace.AddPViewport(centerPoint, width, height)
+    ZoomAll
+    newPViewport.Display True
+    ThisDrawing.MSpace = True
+
+    ' Set the viewport to plot as displayed
+    ThisDrawing.ActivePViewport = newPViewport
+    newPViewport.ShadePlot = acShadePlotAsDisplayed
+End Sub

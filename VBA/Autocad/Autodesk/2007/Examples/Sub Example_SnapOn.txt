@@ -1,0 +1,20 @@
+Sub Example_SnapOn()
+    ' This example toggles the setting of SnapOn.
+
+    Dim viewportObj As AcadViewport
+    
+    ' Set the viewportObj variable to the activeviewport
+    Set viewportObj = ThisDrawing.ActiveViewport
+    
+    ' Display the current setting of SnapOn
+    MsgBox "Snap mode is: " & IIf(viewportObj.SnapOn, "On", "Off"), , "SnapOn Example"
+
+    ' Toggle the setting of SnapOn
+    viewportObj.SnapOn = Not (viewportObj.SnapOn)
+    
+    ' Reset the active viewport to see the change on the AutoCAD status bar
+    ThisDrawing.ActiveViewport = viewportObj
+    
+    MsgBox "Snap mode is now: " & IIf(viewportObj.SnapOn, "On", "Off"), , "SnapOn Example"
+    
+End Sub

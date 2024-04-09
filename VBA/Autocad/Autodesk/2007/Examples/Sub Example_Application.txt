@@ -1,0 +1,21 @@
+Sub Example_Application()
+    ' This example creates a line and then uses the
+    ' Application property of the line to return the
+    ' application name.
+    Dim lineObj As AcadLine
+    Dim startPoint(0 To 2) As Double
+    Dim endPoint(0 To 2) As Double
+    Dim myApp As AcadApplication
+    
+    ' Create a new line reference
+    startPoint(0) = 0: startPoint(1) = 0: startPoint(2) = 0
+    endPoint(0) = 2: endPoint(1) = 2: endPoint(2) = 0
+    Set lineObj = ThisDrawing.ModelSpace.AddLine(startPoint, endPoint)
+    lineObj.Update
+
+    ' Return the application for the object
+    Set myApp = lineObj.Application
+    
+    ' Display the name of the application
+    MsgBox "The application name is: " & myApp.name, vbInformation, "Application Example"
+End Sub

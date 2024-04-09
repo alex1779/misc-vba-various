@@ -1,0 +1,20 @@
+Public Function BorrarExepto(opcion As String)
+    If opcion = "lineas" Then var = "AcDbLine"
+    If opcion = "solidos" Then var = "AcDb3dSolid"
+    If opcion = "puntos" Then var = "AcDbPoint"
+    If opcion = "arcos" Then var = "AcDbArc"
+    If opcion = "polilineas" Then var = "AcDbPolyline"
+    If opcion = "bloques" Then var = "AcDbBlockReference"
+    If opcion = "viewports" Then var = "AcDbViewport"
+    If opcion = "circulos" Then var = "AcDbCircle"
+    If opcion = "elipse" Then var = "AcDbEllipse"
+    If opcion = "spline" Then var = "AcDbSpline"
+    Dim Objeto As AcadEntity
+    For Each Objeto In AutoCAD.Application.ActiveDocument.ModelSpace
+        If Objeto.ObjectName = var Then
+        Else
+        Objeto.Delete
+        End If
+    Next Objeto
+        AutoCAD.Application.ActiveDocument.SendCommand "regen" & vbCr
+End Function

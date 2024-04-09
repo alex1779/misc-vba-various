@@ -1,0 +1,25 @@
+Sub Example_GraphicsWinLayoutBackgrndColor()
+    ' This example returns the current setting of
+    ' GraphicsWinLayoutBackgrndColor. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currGraphicsWinLayoutBackgrndColor As OLE_COLOR
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current GraphicsWinLayoutBackgrndColor value
+    currGraphicsWinLayoutBackgrndColor = preferences.DISPLAY.GraphicsWinLayoutBackgrndColor
+    MsgBox "The current value for GraphicsWinLayoutBackgrndColor is " _
+            & preferences.DISPLAY.GraphicsWinLayoutBackgrndColor, vbInformation, "GraphicsWinLayoutBackgrndColor Example"
+    
+    ' Change the value for GraphicsWinLayoutBackgrndColor
+    preferences.DISPLAY.GraphicsWinLayoutBackgrndColor = 16
+    MsgBox "The new value for GraphicsWinLayoutBackgrndColor is " _
+            & preferences.DISPLAY.GraphicsWinLayoutBackgrndColor, vbInformation, "GraphicsWinLayoutBackgrndColor Example"
+    
+    ' Reset GraphicsWinLayoutBackgrndColor to its original value
+    preferences.DISPLAY.GraphicsWinLayoutBackgrndColor = currGraphicsWinLayoutBackgrndColor
+    MsgBox "The GraphicsWinLayoutBackgrndColor value is reset to " _
+            & preferences.DISPLAY.GraphicsWinLayoutBackgrndColor, vbInformation, "GraphicsWinLayoutBackgrndColor Example"
+End Sub

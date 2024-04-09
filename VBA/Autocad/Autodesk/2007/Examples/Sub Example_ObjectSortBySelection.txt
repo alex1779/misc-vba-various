@@ -1,0 +1,28 @@
+Sub Example_ObjectSortBySelection()
+    ' This example reads and modifies the preference value that controls
+    ' the sorting of drawing objects by object selection.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadDatabasePreferences
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the user preferences object
+    Set ACADPref = ThisDrawing.preferences
+    
+    ' Read and display the original value
+    originalValue = ACADPref.ObjectSortBySelection
+    MsgBox "The ObjectSortBySelection preference is set to: " & originalValue
+
+    ' Modify the ObjectSortBySelection preference by toggling the value
+    ACADPref.ObjectSortBySelection = Not (ACADPref.ObjectSortBySelection)
+    newValue = ACADPref.ObjectSortBySelection
+    MsgBox "The ObjectSortBySelection preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.ObjectSortBySelection = originalValue
+    MsgBox "The ObjectSortBySelection preference was reset back to: " & originalValue
+End Sub

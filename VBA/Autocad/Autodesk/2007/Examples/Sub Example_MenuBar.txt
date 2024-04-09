@@ -1,0 +1,32 @@
+Sub Example_MenuBar()
+    ' This example uses MenuBar to obtain a reference to the AutoCAD File menu.
+    ' It then creates a new menu item and inserts it at the bottom of the File menu.
+    '
+    ' The menu item will be automatically removed when AutoCAD is restarted
+    
+    Dim menu As AcadPopupMenu, newMenuItem As AcadPopupMenuItem
+    Dim openMacro As String
+    
+    On Error GoTo ERRORTRAP
+        
+    ' Use MenuBar property to obtain reference to the AutoCAD File menu
+    Set menu = ThisDrawing.Application.MenuBar.Item("&File")
+    
+    ' Add a menu item to the new menu and
+    ' assign an Open macro (VBA equivalent of: "ESC ESC _open ")
+    openMacro = Chr(3) & Chr(3) & Chr(95) & "open" & Chr(32)
+    
+    ' Add a menu separator
+    menu.AddSeparator (menu.count + 1)
+    
+    ' Add new menu item to File menu
+    Set newMenuItem = menu.AddMenuItem(menu.count + 1, "NEW MENU ITEM", openMacro)
+   
+    MsgBox "A new menu item has been added to the File menu!"
+   
+    Exit Sub
+    
+ERRORTRAP:
+    MsgBox "The following error has occurred: " & Err.Description
+   
+End Sub

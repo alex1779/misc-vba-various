@@ -1,0 +1,27 @@
+Sub Example_Area()
+    ' This example creates a polyline object and
+    ' then uses the area property to find the
+    ' area of that polyline.
+    
+    Dim plineObj As AcadLWPolyline
+    Dim points(0 To 5) As Double
+    Dim plineArea As Double
+
+    ' Establish the points for the Polyline
+    points(0) = 3: points(1) = 7
+    points(2) = 9: points(3) = 2
+    points(4) = 3: points(5) = 5
+    
+    ' Create the polyline in model space
+    Set plineObj = ThisDrawing.ModelSpace.AddLightWeightPolyline(points)
+    
+    ' Close the polyline and update display of it
+    plineObj.Closed = True
+    plineObj.Update
+    ZoomAll
+    
+    ' Get the area of the polyline
+    plineArea = plineObj.Area
+    
+    MsgBox "The area of the new Polyline is: " & plineArea, vbInformation, "Area Example"
+End Sub

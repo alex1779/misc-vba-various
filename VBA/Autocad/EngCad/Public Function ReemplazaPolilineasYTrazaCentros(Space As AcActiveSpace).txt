@@ -1,0 +1,23 @@
+Public Function ReemplazaPolilineasYTrazaCentros(Space As AcActiveSpace)
+'esta macro reemplaza las polilineas por circulos, ademas traza lineas de eje
+Dim Entidad As AcadEntity
+Dim Perimeter As Double
+Dim Length As Variant
+For Each Entidad In Autocad.Application.ActiveDocument.modelspace
+If Entidad.ObjectName = "AcDbPolyline" Then
+Length = Round(Entidad.Length, 4)
+End If
+Entidad.GetBoundingBox MinPoint, MaxPoint
+radio = ((MaxPoint(0) - MinPoint(0)) / 2)
+Pi = 3.14159265358979
+PerimetroPosible = Round(radio * 2 * Pi, 4)
+If PerimetroPosible = Length Then
+d = radio
+Linea Space, MinPoint(0) - d, MinPoint(1) + d, MinPoint(2), MaxPoint(0) + d, MaxPoint(1) - d, MaxPoint(2), acByLayer, "0"
+Linea Space, MinPoint(0) + d, MinPoint(1) - d, MinPoint(2), MaxPoint(0) - d, MaxPoint(1) + d, MaxPoint(2), acByLayer, "0"
+Circulo Space, MinPoint(0) + d, MinPoint(1) + d, MinPoint(2), d, acByLayer, ".GENERAL ARRANGEMENT"
+Entidad.Delete
+End If
+Next Entidad
+ZoomExtents
+End Function

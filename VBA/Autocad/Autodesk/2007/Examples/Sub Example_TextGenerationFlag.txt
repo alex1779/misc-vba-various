@@ -1,0 +1,33 @@
+Sub Example_TextGenerationFlag()
+    ' This example creates a text object in model space.
+    ' It then changes the TextGenerationFlag of the text object.
+
+    Dim textObj As AcadText
+    Dim textString As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim height As Double
+    
+    ' Define the text object
+    textString = "Hello, World."
+    insertionPoint(0) = 3: insertionPoint(1) = 3: insertionPoint(2) = 0
+    height = 0.5
+    
+    ' Create the text object in model space
+    Set textObj = ThisDrawing.ModelSpace.AddText(textString, insertionPoint, height)
+    ZoomAll
+    MsgBox "The TextGenerationFlag has not been set.", vbInformation, "TextGenerationFlag Example"
+    
+    ' Change the value of the TextGenerationFlag
+    textObj.TextGenerationFlag = acTextFlagBackward
+    ZoomAll
+    MsgBox "The TextGenerationFlag is set to acTextFlagBackward.", vbInformation, "TextGenerationFlag Example"
+    
+    textObj.TextGenerationFlag = acTextFlagUpsideDown
+    ZoomAll
+    MsgBox "The TextGenerationFlag is set to acTextFlagUpsideDown.", vbInformation, "TextGenerationFlag Example"
+    
+    textObj.TextGenerationFlag = acTextFlagBackward & acTextFlagUpsideDown
+    ZoomAll
+    MsgBox "The TextGenerationFlag is set to acTextFlagBackward & acTextFlagUpsideDown.", vbInformation, "TextGenerationFlag Example"
+    
+End Sub

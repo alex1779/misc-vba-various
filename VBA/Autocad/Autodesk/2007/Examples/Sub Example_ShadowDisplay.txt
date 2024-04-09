@@ -1,0 +1,29 @@
+Sub Example_ShadowDisplay()
+
+    ' This example creates a cone in model space and changes its shadow display setting.
+
+    Dim coneObj As Acad3DSolid
+    Dim centerPoint(0 To 2) As Double
+    Set coneObj = ThisDrawing.ModelSpace.AddCone(centerPoint, 5, 20)
+
+    Dim shadowObj As IAcadShadowDisplay
+    Dim EnableShadowDisplayStatus As Long
+    Dim ShadowDisplay As AcShadowDisplayType
+    Dim displaySettingDesc As String
+    Set shadowObj = coneObj
+
+    EnableShadowDisplayStatus = shadowObj.EnableShadowDisplay
+    ShadowDisplay = shadowObj.ShadowDisplay
+
+    displaySettingDesc = DescribeShadowDisplay(ShadowDisplay)
+    If EnableShadowDisplayStatus = 1 Then
+        MsgBox "Shadow display is currently enabled for this object." & vbCr & _
+            "Current shadow display setting is: " & displaySettingDesc
+    Else
+        MsgBox "Shadow display is disabled for this object."
+    End If
+
+    shadowObj.ShadowDisplay = acCastsShadows
+    displaySettingDesc = DescribeShadowDisplay(shadowObj.ShadowDisplay)
+    MsgBox "New shadow display setting is: " & displaySettingDesc
+End Sub

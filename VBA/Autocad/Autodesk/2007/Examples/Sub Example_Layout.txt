@@ -1,0 +1,17 @@
+Sub Example_Layout()
+    ' This example references the Layout object obtained from model space.
+    ' We then display information from the Layout object.
+    
+    Dim Layout As ACADLayout
+    
+    ' Attach to Layout object
+    Set Layout = ThisDrawing.ModelSpace.Layout
+    MsgBox "We now have access to the properties and methods of the model space Layout object!"
+    
+    ' Retrieve the name of the model space Layout
+    MsgBox "The name of the model space Layout is: " & Layout.name
+    
+    ' Release object
+    Set Layout = Nothing
+    MsgBox "The Layout object has been released!"
+End Sub

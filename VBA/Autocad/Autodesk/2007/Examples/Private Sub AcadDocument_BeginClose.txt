@@ -1,0 +1,9 @@
+Private Sub AcadDocument_BeginClose()
+    ' This example intercepts a drawing BeginClose event.
+    '
+    ' This event is triggered when a drawing receives a request to close.
+    '
+    ' To trigger this example event: Close an open drawing
+
+    MsgBox "A drawing has just been closed!"
+End Sub

@@ -1,0 +1,9 @@
+Public Sub NombreDeEntidad()
+Dim entidad As AcadEntity
+Set ssetObj = AutoCAD.Application.ActiveDocument.SelectionSets.Add(Rnd)
+ssetObj.SelectOnScreen
+For Each entidad In ssetObj
+MsgBox entidad.ObjectName
+Next
+ssetObj.Delete
+End Sub

@@ -1,0 +1,25 @@
+Sub Example_HasExtensionDictionary()
+    ' This example will iterate through each object in the current drawing and
+    ' determine whether that object has an associated Extension Dictionary
+    
+    Dim DrawingObject As AcadObject
+    Dim ExtensionDictionaryResults As String
+    
+    ' Make sure this drawing contains objects before continuing
+    If ThisDrawing.ModelSpace.count = 0 Then
+        MsgBox "There are no objects in the current drawing."
+        Exit Sub
+    End If
+    
+    For Each DrawingObject In ThisDrawing.ModelSpace
+        ' Determine whether object contains Extension Dictionary
+        Select Case DrawingObject.HasExtensionDictionary
+            Case True
+                ExtensionDictionaryResults = ExtensionDictionaryResults & DrawingObject.ObjectName & " has an associated Extension Dictionary" & vbCrLf
+            Case False
+                ExtensionDictionaryResults = ExtensionDictionaryResults & DrawingObject.ObjectName & " does not have an associated Extension Dictionary" & vbCrLf
+        End Select
+    Next
+    
+    MsgBox ExtensionDictionaryResults
+End Sub

@@ -1,0 +1,18 @@
+Sub Example_Load()
+    ' This example attempts to load the linetype "CENTER" from
+    ' the acad.lin file. If the linetype already exists, then
+    ' a message is displayed.
+    
+    Dim linetypeName As String
+    linetypeName = "CENTER"
+    
+    ' Load "CENTER" line type from acad.lin file
+    On Error Resume Next    ' trap any load errors
+    ThisDrawing.Linetypes.Load linetypeName, "acad.lin"
+    
+    ' If the name already exists, then notify user
+    If Err.Description = "Duplicate record name" Then
+        MsgBox "A line type named '" & linetypeName & "' already exists.", , "Load Example"
+    End If
+    
+End Sub

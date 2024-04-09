@@ -1,0 +1,7 @@
+Public Sub EliminarTodo()
+e = Autocad.Application.ActiveDocument.modelspace.Count
+If e > 0 Then
+Autocad.Application.ActiveDocument.SendCommand "_ai_selall" & vbCr & "_.erase" & vbCr
+Else:
+End If
+End Sub

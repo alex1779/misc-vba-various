@@ -1,0 +1,33 @@
+Sub Example_Columns()
+    ' This example creates a new MInsertBlock in the current drawing and
+    ' displays the column and row information for the new MInsertBlock
+    
+    Dim circleObj As AcadCircle
+    Dim centerPoint(0 To 2) As Double, InsertPoint(0 To 2) As Double
+    Dim radius As Double
+    Dim newMBlock As AcadMInsertBlock
+    Dim newBlock As AcadBlock
+        
+    ' Define the Circle object
+    centerPoint(0) = 0: centerPoint(1) = 0: centerPoint(2) = 0
+    InsertPoint(0) = 1: InsertPoint(1) = 1: InsertPoint(2) = 0
+    radius = 0.5
+    
+    ' Create a new block to hold the Circle
+    Set newBlock = ThisDrawing.Blocks.Add(centerPoint, "CBlock")
+    
+    ' Add the Circle object to the new block
+    Set circleObj = ThisDrawing.Blocks("CBlock").AddCircle(centerPoint, radius)
+    
+    ' Create a rectangular array of Circles using the new block containing the Circle
+    ' and the AddMInsertBlock method
+    Set newMBlock = ThisDrawing.ModelSpace.AddMInsertBlock(InsertPoint, "CBlock", 1, 1, 1, 1, 2, 2, 1, 1)
+        
+    ThisDrawing.Application.ZoomAll
+    
+    ' Display information about the Columns and Rows defined by the MInsertBlock
+    MsgBox "The new rectangular array comprises: " & vbCrLf & _
+            newMBlock.Columns & " columns with a spacing of " & newMBlock.ColumnSpacing & " and" & vbCrLf & _
+            newMBlock.Rows & " rows with a spacing of " & newMBlock.RowSpacing
+
+End Sub

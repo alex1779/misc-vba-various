@@ -1,0 +1,34 @@
+Sub Example_Enable()
+    ' This example creates a new menu called TestMenu and inserts two menu items
+    ' into it. The second menu item is then disabled.
+    ' The menu is displayed on the menu bar.
+    ' To remove the menu after execution of this macro, use the Customize Menu
+    ' option from the Tools menu.
+    
+    Dim currMenuGroup As acadMenuGroup
+    Set currMenuGroup = ThisDrawing.Application.MenuGroups.Item(0)
+    
+    ' Create the new menu
+    Dim newMenu As AcadPopupMenu
+    Set newMenu = currMenuGroup.Menus.Add("TestMenu")
+    
+    ' Add two menu items to the new menu
+    Dim MenuEnable As AcadPopupMenuItem
+    Dim MenuDisable As AcadPopupMenuItem
+    Dim MenuSeparator As AcadPopupMenuItem
+    Dim openMacro As String
+    
+    ' Assign the macro string the VB equivalent of "ESC ESC _open "
+    openMacro = Chr(3) & Chr(3) & Chr(95) & "open" & Chr(32)
+    
+    Set MenuEnable = newMenu.AddMenuItem(newMenu.count + 1, "OpenEnabled", openMacro)
+    Set MenuSeparator = newMenu.AddSeparator("")
+    Set MenuDisable = newMenu.AddMenuItem(newMenu.count + 1, "OpenDisabled", openMacro)
+    
+    ' Disable the new menu item
+    MenuDisable.Enable = False
+    
+    ' Display the menu on the menu bar
+    newMenu.InsertInMenuBar (ThisDrawing.Application.MenuBar.count + 1)
+    
+End Sub

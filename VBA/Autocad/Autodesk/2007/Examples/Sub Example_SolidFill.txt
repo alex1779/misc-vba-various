@@ -1,0 +1,30 @@
+Sub Example_SolidFill()
+    ' This example reads and modifies the preference value that controls
+    ' whether multilines, traces, solids, all hatches (including solid-fill)
+    ' and wide polylines are filled in.
+    '
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadDatabasePreferences
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the user preferences object
+    Set ACADPref = ThisDrawing.preferences
+    
+    ' Read and display the original value
+    originalValue = ACADPref.SolidFill
+    MsgBox "The SolidFill preference is set to: " & originalValue
+
+    ' Modify the SolidFill preference by toggling the value
+    ACADPref.SolidFill = Not (ACADPref.SolidFill)
+    newValue = ACADPref.SolidFill
+    MsgBox "The SolidFill preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.SolidFill = originalValue
+    MsgBox "The SolidFill preference was reset back to: " & originalValue
+End Sub

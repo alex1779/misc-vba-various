@@ -1,0 +1,35 @@
+Sub Example_TextStyle()
+   ' This example creates an aligned dimension in model space and
+   ' creates a new system text style.  The new text style is then assigned to
+   ' the new dimension
+
+    Dim dimObj As AcadDimAligned
+    Dim newText As AcadTextStyle
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    
+    ' Define the dimension
+    point1(0) = 5: point1(1) = 5: point1(2) = 0
+    point2(0) = 5.5: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    
+    ' Create new text style
+    Set newText = ThisDrawing.TextStyles.Add("MYSTYLE")
+    newText.height = 0.5    ' Just set the height of the new style so we can differentiate
+    
+    ThisDrawing.Application.ZoomAll
+    
+    ' Read and display the current text style for this dimension
+    MsgBox "The text style is currently set to: " & dimObj.textStyle
+    
+    ' Change the text style to use the new style we created
+    dimObj.textStyle = "MYSTYLE"
+    ThisDrawing.Regen acAllViewports
+    
+    ' Read and display the current text style for this dimension
+    MsgBox "The text style is now set to: " & dimObj.textStyle
+
+End Sub

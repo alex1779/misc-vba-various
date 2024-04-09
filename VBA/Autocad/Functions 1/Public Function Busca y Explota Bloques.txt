@@ -1,0 +1,12 @@
+Function BuscayExplotaBloques()
+    ' Detecta Bloques en ModelSpace y los explota.
+    Dim Object As Object
+    Dim Entidad As AcadEntity
+    Dim Bloc As AcadBlockReference
+    For Each Entidad In AutoCAD.Application.ActiveDocument.ModelSpace
+    If Entidad.ObjectName = "AcDbBlockReference" Then
+    Set Bloc = Entidad
+    Bloc.Explode
+    End If
+    Next Entidad
+End Function

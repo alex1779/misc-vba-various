@@ -1,0 +1,31 @@
+Sub Example_SetFitPoint()
+    ' This example creates a spline object in model space.
+    ' It then finds the coordinates of the first fit point
+    ' and changes that value.
+
+    ' Create the spline
+    Dim splineObj As AcadSpline
+    Dim startTan(0 To 2) As Double
+    Dim endTan(0 To 2) As Double
+    Dim fitPoints(0 To 8) As Double
+    
+    startTan(0) = 0.5: startTan(1) = 0.5: startTan(2) = 0
+    endTan(0) = 0.5: endTan(1) = 0.5: endTan(2) = 0
+    fitPoints(0) = 1: fitPoints(1) = 1: fitPoints(2) = 0
+    fitPoints(3) = 5: fitPoints(4) = 5: fitPoints(5) = 0
+    fitPoints(6) = 10: fitPoints(7) = 0: fitPoints(8) = 0
+    Set splineObj = ThisDrawing.ModelSpace.AddSpline(fitPoints, startTan, endTan)
+    ZoomAll
+    
+    ' Display the coordinates of the first fit point
+    Dim fitPoint As Variant
+    fitPoint = splineObj.GetFitPoint(0)
+    MsgBox "Fit point 1 is at " & fitPoint(0) & ", " & fitPoint(1) & ", " & fitPoint(2), , "SetFitPoint Example"
+    
+    ' Change the coordinates of the first fit point
+    fitPoint(0) = 0: fitPoint(1) = 3: fitPoint(2) = 0
+    splineObj.SetFitPoint 0, fitPoint
+    splineObj.Update
+    MsgBox "Fit point 1 is now at " & fitPoint(0) & ", " & fitPoint(1) & ", " & fitPoint(2), , "SetFitPoint Example"
+    
+End Sub

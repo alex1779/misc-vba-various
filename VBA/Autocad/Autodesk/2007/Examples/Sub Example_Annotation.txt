@@ -1,0 +1,35 @@
+Sub Example_Annotation()
+    ' This example creates a leader in model space with an associated
+    ' annotation and then checks for the existence of an
+    ' Annotation object for the new Leader
+   
+    Dim leaderObj As AcadLeader, MTextObj As AcadMText
+    Dim points(0 To 8) As Double, insertionPoint(0 To 2) As Double, width As Double
+    Dim leaderType As Integer
+    Dim annotationObject As Object
+    Dim textString As String, msg As String
+    
+    ' Define the new MText object
+    textString = "Hello, World."
+    insertionPoint(0) = 5: insertionPoint(1) = 5: insertionPoint(2) = 0
+    width = 2
+    
+    ' Create the MText object in model space
+    Set MTextObj = ThisDrawing.ModelSpace.AddMText(insertionPoint, width, textString)
+    
+    ' Data for Leader
+    points(0) = 0: points(1) = 0: points(2) = 0
+    points(3) = 4: points(4) = 4: points(5) = 0
+    points(6) = 4: points(7) = 5: points(8) = 0
+    leaderType = acLineWithArrow
+       
+    ' Create the Leader object in model space and Associate new MText object
+    ' with new Leader by making the MText object the annotation for the Leader
+    Set annotationObject = MTextObj
+    Set leaderObj = ThisDrawing.ModelSpace.AddLeader(points, annotationObject, leaderType)
+    ThisDrawing.Application.ZoomAll
+
+    ' Display whether or not this particular Leader has an associated Annotation
+    msg = IIf(leaderObj.Annotation Is Nothing, "does not have", "has")
+    MsgBox "The new Leader object " & msg & " an associated Annotation object."
+End Sub

@@ -1,0 +1,3 @@
+Public Function Escalar(number As String)   'scala
+    AutoCAD.Application.ActiveDocument.SendCommand "_scale" & vbCr & "0,0,0" & vbCr & number & vbCr
+End Function

@@ -1,0 +1,15 @@
+Public Function Sombreado(Ent As Sombras)
+If Ent = 0 Then ObjVBA = "2"
+If Ent = 1 Then ObjVBA = "W"
+If Ent = 2 Then ObjVBA = "H"
+If Ent = 3 Then ObjVBA = "_R"
+If Ent = 4 Then ObjVBA = "_C"
+If Ent = 5 Then ObjVBA = "S"
+If Ent = 6 Then ObjVBA = "G"
+If Ent = 7 Then ObjVBA = "SK"
+If Ent = 8 Then ObjVBA = "X"
+Autocad.Application.ActiveDocument.SendCommand "shademode" & vbCr & ObjVBA & vbCr
+End Function
+
+
+

@@ -1,0 +1,12 @@
+Public Function Arc(Space As AcActiveSpace, CenterX As Variant, CenterY As Variant, CenterZ As Variant, Radious As Variant, StartAngle As Variant, EndAngle As Variant, Optional Color As AcColor, Optional layer As String)
+Dim ArcObj As AcadArc
+Dim Center(0 To 2) As Double
+StartAngle = (StartAngle * 3.14159265358979) / 180
+EndAngle = (EndAngle * 3.14159265358979) / 180
+Center(0) = CenterX: Center(1) = CenterY: Center(2) = CenterZ
+If Space = 0 Then Set ArcObj = Autocad.Application.ActiveDocument.PaperSpace.AddArc(Center, Radious, StartAngle, EndAngle)
+If Space = 1 Then Set ArcObj = Autocad.Application.ActiveDocument.modelspace.AddArc(Center, Radious, StartAngle, EndAngle)
+On Error Resume Next
+ArcObj.Color = Color
+ArcObj.layer = layer
+End Function

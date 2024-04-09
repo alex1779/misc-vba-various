@@ -1,0 +1,44 @@
+Sub Example_Invisible()
+    ' This example creates an attribute definition in model space.
+    ' It then queries the visibility of the attribute, changes
+    ' the visibility, and queries the visibility again.
+    
+    Dim attributeObj As AcadAttribute
+    Dim height As Double
+    Dim mode As Long
+    Dim prompt As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim tag As String
+    Dim value As String
+    
+    ' Define the attribute definition
+    height = 1#
+    mode = acAttributeModeVerify
+    prompt = "New Prompt"
+    insertionPoint(0) = 5#: insertionPoint(1) = 5#: insertionPoint(2) = 0
+    tag = "New Tag"
+    value = "New Value"
+    
+    ' Create the attribute definition object in model space
+    Set attributeObj = ThisDrawing.ModelSpace.AddAttribute(height, mode, prompt, insertionPoint, tag, value)
+    ZoomAll
+    
+    ' Find the current visibility for the attribute
+    GoSub QUERYSTATUS
+        
+    ' Change the visibility of the attribute
+    attributeObj.Invisible = Not attributeObj.Invisible
+    ZoomAll
+    
+    GoSub QUERYSTATUS
+    
+    Exit Sub
+    
+QUERYSTATUS:
+    If attributeObj.Invisible Then
+        MsgBox "The attribute is invisible."
+    Else
+        MsgBox "The attribute is visible."
+    End If
+    Return
+End Sub

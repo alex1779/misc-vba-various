@@ -1,0 +1,8 @@
+Dim FSO As New FileSystemObject
+Filename = GetFile
+Filename = FSO.GetFileName(Filename)
+
+If InStr(Filename, ".") > 0 Then
+Filename = Left(Filename, InStr(Filename, ".") - 1)
+End If
+UserForm1.TextBox2.Value = Filename

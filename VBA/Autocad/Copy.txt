@@ -1,0 +1,1 @@
+    AutoCAD.Application.ActiveDocument.SendCommand "_copyclip " & vbCr  'Copy

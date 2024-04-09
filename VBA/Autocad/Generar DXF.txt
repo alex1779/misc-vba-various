@@ -1,0 +1,9 @@
+Sub GenerarDXF()
+Dim nombre As String
+Dim file As AcadDocument
+Set file = AutoCAD.Application.ActiveDocument
+Ruta = file.path & "\"
+nombre = file.name
+AutoCAD.Application.ActiveDocument.SaveAs Ruta & nombre, ac2000_dxf
+AutoCAD.Application.ActiveDocument.Close
+End Sub

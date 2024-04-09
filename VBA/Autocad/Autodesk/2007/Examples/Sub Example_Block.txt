@@ -1,0 +1,8 @@
+Sub Example_Block()
+    ' This example finds the name of the block associated with a layout.
+    
+    Dim xBlock As AcadBlock
+    Set xBlock = ThisDrawing.ActiveLayout.Block
+    
+    MsgBox "The active layout corresponds to block: " & xBlock.name
+End Sub

@@ -1,0 +1,25 @@
+Sub Example_ActiveLayout()
+    ' This example cycles through the documents collection
+    ' and uses the ActiveLayout object to list the active layout
+    ' for all open documents.
+
+    Dim DOC As AcadDocument
+    Dim msg As String
+    
+    ' If there are no open documents, then exit
+    If Documents.count = 0 Then
+        MsgBox "There are no open documents!"
+        Exit Sub
+    End If
+    
+    msg = vbCrLf & vbCrLf   ' Start with a space
+    
+    ' Cycle through documents and determine the active layout name using the
+    ' ActiveLayout property of the document object
+    For Each DOC In Documents
+        msg = msg & DOC.WindowTitle & ": " & DOC.ActiveLayout.name
+    Next
+    
+    ' Display results
+    MsgBox "The active layouts for the open drawings are: " & msg
+End Sub

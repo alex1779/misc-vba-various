@@ -1,0 +1,8 @@
+Public Enum Espacios
+ModelSpace
+PaperSpace
+End Enum
+Public Function ContarEntidades(Espacio As Espacios)
+If Espacio = 0 Then ContarEntidades = AutoCAD.Application.ActiveDocument.ModelSpace.Count
+If Espacio = 1 Then ContarEntidades = AutoCAD.Application.ActiveDocument.PaperSpace.Count
+End Function

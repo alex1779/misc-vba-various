@@ -1,0 +1,22 @@
+Sub Example_DisplayMethod()
+    ' This example creates a paper space viewport and makes it active.
+    
+    Dim newPViewport As AcadPViewport
+    Dim centerPoint(0 To 2) As Double
+    Dim height As Double
+    Dim width As Double
+    height = 30#
+    width = 40#
+    centerPoint(0) = 30#: centerPoint(1) = 30#: centerPoint(2) = 0#
+    
+    ' Create a paper space Viewport object
+    ThisDrawing.ActiveSpace = acPaperSpace
+    Set newPViewport = ThisDrawing.PaperSpace.AddPViewport(centerPoint, width, height)
+    ZoomAll
+    newPViewport.DISPLAY True
+    
+    ' Before making a pViewport active,
+    ' the mspace property needs to be True
+    ThisDrawing.mspace = True
+    ThisDrawing.ActivePViewport = newPViewport
+End Sub

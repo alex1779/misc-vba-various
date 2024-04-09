@@ -1,0 +1,18 @@
+Sub Example_AddDimArc()
+    Dim PI As Double: PI = 3.141592
+    Dim oMS As IAcadModelSpace3
+    Set oMS = ThisDrawing.ModelSpace
+
+    Dim ptCenter(2) As Double
+    Dim oA As AcadArc
+    Set oA = oMS.AddArc(ptCenter, 10, PI / 3, PI * 3 / 4)
+    
+    Dim ptArcPoint(2) As Double
+    ptArcPoint(0) = 0: ptArcPoint(1) = 15
+    
+    Dim oAcadDimArcLength As AcadDimArcLength
+    Set oAcadDimArcLength = oMS.AddDimArc(oA.Center, oA.startPoint, oA.endPoint, ptArcPoint)
+    
+    Update
+    ZoomExtents
+End Sub

@@ -1,0 +1,1 @@
+    AutoCAD.Application.ActiveDocument.SendCommand "_ai_selall" & vbCr & "_union" & vbCr & "all" & vbCr & vbCr 'Union from all solids

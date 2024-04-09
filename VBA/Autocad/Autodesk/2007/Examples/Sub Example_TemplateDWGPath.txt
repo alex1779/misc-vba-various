@@ -1,0 +1,24 @@
+Sub Example_TemplateDWGPath()
+    ' This example returns the current setting of
+    ' TemplateDWGPath. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currTemplateDWGPath As String
+    Dim newTemplateDWGPath As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current TemplateDWGPath value
+    currTemplateDWGPath = preferences.Files.TemplateDwgPath
+    MsgBox "The current value for TemplateDWGPath is " & currTemplateDWGPath, vbInformation, "TemplateDWGPath Example"
+    
+    ' Change the value for TemplateDWGPath
+    newTemplateDWGPath = "TestTemplateDWGPath"
+    preferences.Files.TemplateDwgPath = newTemplateDWGPath
+    MsgBox "The new value for TemplateDWGPath is " & newTemplateDWGPath, vbInformation, "TemplateDWGPath Example"
+    
+    ' Reset TemplateDWGPath to its original value
+    preferences.Files.TemplateDwgPath = currTemplateDWGPath
+    MsgBox "The TemplateDWGPath value is reset to " & currTemplateDWGPath, vbInformation, "TemplateDWGPath Example"
+End Sub

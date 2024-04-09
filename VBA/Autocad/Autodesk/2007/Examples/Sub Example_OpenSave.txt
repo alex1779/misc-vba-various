@@ -1,0 +1,17 @@
+Sub Example_OpenSave()
+    ' This example obtains a reference to the OpenSave Preferences object
+    ' from the Application Preferences object, and reads one of the OpenSave
+    ' preferences
+    
+    Dim ACADPref As AcadPreferencesOpenSave
+    
+    ' Obtain a reference to the OpenSave Preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.OpenSave
+    
+    MsgBox "You now have access to the properties and methods of the OpenSave Preferences object!"
+    MsgBox "The OpenSave preference TempFileExtension is set to: " & ACADPref.TempFileExtension
+    
+    ' Release OpenSave Preferences object
+    Set ACADPref = Nothing
+    MsgBox "The OpenSave Preferences object has been released!"
+End Sub

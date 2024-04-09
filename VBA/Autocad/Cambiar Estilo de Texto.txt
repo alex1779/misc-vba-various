@@ -1,0 +1,6 @@
+    'Declaración de Variables
+    Dim TextStyle1 As AcadTextStyle
+    'Creando Estilo de Texto
+    Set TextStyle1 = AutoCAD.Application.ActiveDocument.TextStyles.Add("ISOCP")
+    'Activando Estilo de Texto
+    AutoCAD.Application.ActiveDocument.ActiveTextStyle = TextStyle1

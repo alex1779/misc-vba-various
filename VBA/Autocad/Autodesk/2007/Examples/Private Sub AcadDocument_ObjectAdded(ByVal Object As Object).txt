@@ -1,0 +1,10 @@
+Private Sub AcadDocument_ObjectAdded(ByVal Object As Object)()
+    ' This example intercepts a drawing ObjectAdded event.
+    '
+    ' This event is triggered when an object is added to a drawing.
+    '
+    ' To trigger this example event: Add an object to an open drawing
+
+    ' Use the "Object" variable to determine the type of object added
+    MsgBox "A " & TypeName(Object) & " was just added to the drawing!"
+End Sub

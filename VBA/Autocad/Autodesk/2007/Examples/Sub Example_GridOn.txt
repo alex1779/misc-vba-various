@@ -1,0 +1,21 @@
+Sub Example_GridOn()
+    ' This example toggles the setting of GridOn.
+    
+    Dim viewportObj As AcadViewport
+    
+    ' Set the viewportObj variable to the activeviewport
+    Set viewportObj = ThisDrawing.ActiveViewport
+
+TOGGLEGRID:
+    If MsgBox("Toggle the grid?", vbOKCancel, "GridOn Example") = vbOK Then
+        viewportObj.GridOn = Not (viewportObj.GridOn)
+    Else
+        Exit Sub
+    End If
+    
+    ' Reset the active viewport to see the change
+    ThisDrawing.ActiveViewport = viewportObj
+    
+    GoTo TOGGLEGRID
+    
+End Sub

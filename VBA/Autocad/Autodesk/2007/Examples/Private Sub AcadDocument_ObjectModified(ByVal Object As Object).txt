@@ -1,0 +1,10 @@
+Private Sub AcadDocument_ObjectModified(ByVal Object As Object)()
+    ' This example intercepts a drawing ObjectModified event.
+    '
+    ' This event is triggered when an object in a drawing is modified.
+    '
+    ' To trigger this example event: Modify an object in any open drawing
+
+    ' Use the "Object" variable to determine the type of object modified
+    MsgBox "A " & TypeName(Object) & " was just modified!"
+End Sub

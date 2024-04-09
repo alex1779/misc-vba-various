@@ -1,0 +1,22 @@
+    'Declaración de Variables
+    Dim Centro(0 To 2) As Double
+    Dim Circulo(0) As AcadCircle
+    Dim Altura As Double
+    Dim regionObj As Variant
+    Dim solidObj As Acad3DSolid
+    Dim Direccion As Double
+    'Variables
+    Centro(0) = 0#: Centro(1) = 0#: Centro(2) = 0#
+    Radio = 100
+    altura = 100
+    direccion = 0
+    'Creando Nuevo Círculo
+    Set Circulo(0) = AutoCAD.Application.ActiveDocument.ModelSpace.AddCircle(Centro, Radio)
+    'Creando Nueva Región
+    regionObj = AutoCAD.Application.ActiveDocument.ModelSpace.AddRegion(Circulo)
+    'Creando Extrusión
+    Set solidObj = AutoCAD.Application.ActiveDocument.ModelSpace.AddExtrudedSolid(regionObj(0), altura, direccion)
+    'Eliminando Círculo
+    Circulo(0).Delete
+    'Eliminando región
+    regionObj(0).Delete

@@ -1,0 +1,3 @@
+Public Sub OcultarAplicacion()
+Application.Visible = False
+End Sub

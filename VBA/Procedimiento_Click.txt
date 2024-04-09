@@ -1,0 +1,39 @@
+Sub Minimizar_VBA()
+SetCursorPos 3127, 20 'Minimizar_VBA
+LeftClick
+End Sub
+Sub Copiar_TXT()
+SetCursorPos 144, 62 'boton_edicion
+LeftClick
+SetCursorPos 293, 509 'seleccionar_todo
+LeftClick
+SetCursorPos 144, 62 'boton_edicion
+LeftClick
+SetCursorPos 184, 191 'Copiar
+LeftClick
+SetCursorPos 3308, 23 'Cerrar_Txt
+LeftClick
+End Sub
+Sub Nuevo_Procedimiento_Click()
+Dim llCoord As POINTAPI
+' Get the cursor positions
+GetCursorPos llCoord
+' Display the cursor position coordinates
+'MsgBox "X Position: " & llCoord.Xcoord & vbNewLine & "Y Position: " & llCoord.Ycoord
+titulo = Application.InputBox("Titulo del Procedimiento")
+'dormir = Application.InputBox("Titulo del Procedimiento")
+Minimizar_VBA
+Dim FilePath As String
+Dim TextFile As Integer
+'File Path of Text File
+  RutaArchivo = "D:\Dropbox\EngCad\Programación\VBA\000.txt"
+    Open RutaArchivo For Output As #1
+        Print #1, "Sub " & titulo & "()"
+        Print #1, "SetCursorPos " & llCoord.Xcoord & ", " & llCoord.Ycoord & " '" & titulo
+        Print #1, "LeftClick"
+        Print #1, "'Sleep 2000"
+        Print #1, "End Sub"
+    Close #1
+abrirtxt = Shell("notepad.exe " & RutaArchivo, vbMaximizedFocus)
+Copiar_TXT
+End Sub

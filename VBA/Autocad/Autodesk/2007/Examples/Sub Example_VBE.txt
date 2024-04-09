@@ -1,0 +1,15 @@
+Sub Example_VBE()
+    ' This example uses the VBA IDE extensibility model to dynamically
+    ' create a VBA subroutine. After running this example, see the first line of code
+    ' in the VBA IDE code window to see a new subroutine. Then 
+    ' remove the new subroutine before continuing.
+
+    Dim VBEModel As Object
+    Dim newRoutine As String
+    
+    Set VBEModel = VBE  ' Get the VBE object
+    
+    ' Define new subroutine to be added. This could be created dynamically from user feedback.
+    newRoutine = "Sub Dynamic_Procedure" & vbCrLf
+    newRoutine = newRoutine & vbTab & "MsgBox ""New subroutine.""" & vbCrLf
+    newRoutine = newRoutine & "End Sub" & vbCrLf

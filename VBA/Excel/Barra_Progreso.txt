@@ -1,0 +1,15 @@
+    'Barra_Progreso (Antes del método Do While)
+    Barra_Progreso.Show
+    Barra_Progreso.Frame2.Width = 0
+    Entradas = Variable 'Cantidad total de operaciones.
+
+
+    'Barra_Progreso (Adentro del método Do While)
+    contador = (i / Entradas * 100)
+    Barra_Progreso.Frame2.Width = contador * 2
+    Barra_Progreso.Label2.Caption = "Paso 1 de 1: " & contador & "% completado"
+    DoEvents
+
+
+    'Barra_Progreso (Despues del método Do While)
+    Barra_Progreso.Hide

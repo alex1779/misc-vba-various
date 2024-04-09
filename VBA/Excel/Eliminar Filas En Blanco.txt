@@ -1,0 +1,9 @@
+Sub EliminarFilasEnBlanco()
+  Dim r As Range, rows As Long, i As Long
+  Set r = ActiveSheet.Range("A1:Z1000")
+  rows = r.rows.Count
+  For i = rows To 1 Step (-1)
+    If WorksheetFunction.CountA(r.rows(i)) = 0 Then r.rows(i).Delete
+  Next
+  Range("A1").Select
+End Sub

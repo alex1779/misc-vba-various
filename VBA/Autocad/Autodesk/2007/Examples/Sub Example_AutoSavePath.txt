@@ -1,0 +1,32 @@
+Sub Example_AutoSavePath()
+    ' This example returns the current setting of
+    ' AutoSavePath. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currAutoSavePath As String
+    Dim newAutoSavePath As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current AutoSavePath value
+    currAutoSavePath = preferences.Files.AutoSavePath
+    If currAutoSavePath = "" Then
+        MsgBox "AutoSavePath is not currently set.", vbInformation, "AutoSavePath Example"
+    Else
+        MsgBox "The current value for AutoSavePath is " & currAutoSavePath, vbInformation, "AutoSavePath Example"
+    End If
+    
+    ' Change the value for AutoSavePath
+    newAutoSavePath = "C:\AutoCAD\"
+    preferences.Files.AutoSavePath = newAutoSavePath
+    MsgBox "The new value for AutoSavePath is " & newAutoSavePath, vbInformation, "AutoSavePath Example"
+    
+    ' Reset AutoSavePath to its original value
+    preferences.Files.AutoSavePath = currAutoSavePath
+    If currAutoSavePath = "" Then
+        MsgBox "AutoSavePath is reset to Null.", vbInformation, "AutoSavePath Example"
+    Else
+        MsgBox "The AutoSavePath value is reset to " & currAutoSavePath, vbInformation, "AutoSavePath Example"
+    End If
+End Sub

@@ -1,0 +1,35 @@
+Sub Example_YScaleFactor()
+    ' This example creates a block containing a circle.
+    ' It then inserts the block and changes the YScaleFactor.
+    
+    ' Create the block
+    Dim blockObj As AcadBlock
+    Dim insertionPnt(0 To 2) As Double
+    insertionPnt(0) = 0#: insertionPnt(1) = 0#: insertionPnt(2) = 0#
+    Set blockObj = ThisDrawing.Blocks.Add(insertionPnt, "CircleBlock")
+    
+    ' Add a circle to the block
+    Dim circleObj As AcadCircle
+    Dim center(0 To 2) As Double
+    Dim radius As Double
+    center(0) = 0: center(1) = 0: center(2) = 0
+    radius = 1
+    Set circleObj = blockObj.AddCircle(center, radius)
+   
+    ' Insert the block
+    Dim blockRefObj As AcadBlockReference
+    insertionPnt(0) = 2#: insertionPnt(1) = 2#: insertionPnt(2) = 0
+    Set blockRefObj = ThisDrawing.ModelSpace.InsertBlock(insertionPnt, "CircleBlock", 1#, 1#, 1#, 0)
+    ZoomAll
+    
+    ' Find the current YScaleFactor for the block reference
+    Dim currYScaleFactor As Double
+    currYScaleFactor = blockRefObj.YScaleFactor
+    MsgBox "The current YScaleFactor for the block reference is " & blockRefObj.YScaleFactor, , "YScaleFactor Example"
+    
+    ' Change the YScaleFactor for the block reference
+    blockRefObj.YScaleFactor = currYScaleFactor + 2
+    ZoomAll
+    MsgBox "The new YScaleFactor for the block reference is " & blockRefObj.YScaleFactor, , "YScaleFactor Example"
+    
+End Sub

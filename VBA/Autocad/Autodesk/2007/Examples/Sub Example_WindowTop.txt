@@ -1,0 +1,20 @@
+Sub Example_WindowTop()
+    ' This example finds the WindowTop (X coordinate) of the WindowTop of the
+    ' AutoCAD window. It then changes that position to be 100 more
+    ' than it currently is. Finally, it resets the window to the
+    ' original value.
+    
+    ' Find the current value of the WindowTop property
+    Dim currWindowTop As Integer
+    currWindowTop = ThisDrawing.Application.WindowTop
+    MsgBox "The current value of WindowTop is " & ThisDrawing.Application.WindowTop, , "WindowTop Example"
+    
+    ' Change the value of WindowTop
+    ThisDrawing.Application.WindowTop = currWindowTop + 100
+    MsgBox "The new value of WindowTop is " & ThisDrawing.Application.WindowTop, , "WindowTop Example"
+    
+    ' Reset the value of WindowTop
+    ThisDrawing.Application.WindowTop = currWindowTop
+    MsgBox "The value of WindowTop has been reset to " & ThisDrawing.Application.WindowTop, , "WindowTop Example"
+    
+End Sub

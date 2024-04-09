@@ -1,0 +1,27 @@
+Private Function Caratula()
+Dim linea1 As Variant
+Dim n As Integer
+n = Application.WorksheetFunction.CountA(Range("A1:A2000"))
+Linea linea1, 0, 0, 0, 210, 0, 0, 2, "0"
+Linea linea1, 210, 0, 0, 210, 297, 0, 2, "0"
+Linea linea1, 210, 297, 0, 0, 297, 0, 2, "0"
+Linea linea1, 0, 297, 0, 0, 0, 0, 2, "0"
+ZoomExtents
+Linea linea1, 20, 5, 0, 200, 5, 0, 2, "0"
+Linea linea1, 20, 15, 0, 200, 15, 0, 2, "0"
+Linea linea1, 20, 265, 0, 200, 265, 0, 2, "0"
+Linea linea1, 20, 271, 0, 200, 271, 0, 2, "0"
+Linea linea1, 200, 277, 0, 20, 277, 0, 2, "0"
+Linea linea1, 200, 5, 0, 200, 277, 0, 2, "0"
+Linea linea1, 20, 277, 0, 20, 5, 0, 2, "0"
+Texto texto1, 25, 10, 0, 75, "Autor: Alejandro Maggioni", 84, "0"
+Texto texto1, 125, 10, 0, 75, "Contact to: Alex1779@hotmail.com", 84, "0"
+Texto texto1, 25, 274, 0, 100, "PROYECT: Traveling Salesman Problem", 84, "0"
+Texto texto1, 25, 268, 0, 100, "TITLE: ", 84, "0"
+Texto texto1, 160, 274, 0, 100, "DATE: " & Date, 84, "0"
+Texto texto1, 160, 268, 0, 100, "POINTS: " & n - 2, 84, "0"
+
+
+AutoCAD.Application.ActiveDocument.PurgeAll 'Purge
+AutoCAD.Application.ActiveDocument.SendCommand "regen" & vbCr 'Regen
+End Function

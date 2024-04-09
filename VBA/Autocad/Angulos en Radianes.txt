@@ -1,0 +1,1 @@
+        Ang0 = 0: Ang90 = 1.5708: Ang180 = 3.14159: Ang270 = 4.71239: Ang360 = 6.28318 'Conversión de Angulos

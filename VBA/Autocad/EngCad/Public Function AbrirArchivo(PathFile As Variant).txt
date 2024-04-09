@@ -1,0 +1,3 @@
+Public Function AbrirArchivo(PathFile As Variant)
+AutoCAD.Application.Documents.Open (PathFile)
+End Function

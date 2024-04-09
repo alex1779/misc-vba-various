@@ -1,0 +1,8 @@
+Public Function LayersApagarTodos()
+On Error Resume Next
+Dim layerObj As AcadLayer
+For Each layerObj In Autocad.Application.ActiveDocument.Layers
+layerObj.Freeze = True
+layerObj.LayerOn = False
+Next layerObj
+End Function

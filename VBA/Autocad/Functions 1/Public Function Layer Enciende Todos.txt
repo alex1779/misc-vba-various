@@ -1,0 +1,8 @@
+Public Function EnciendeTodosLosLayers()
+    On Error Resume Next
+    Dim layerObj As AcadLayer
+    For Each layerObj In AutoCAD.Application.ActiveDocument.Layers
+    layerObj.Freeze = False
+    layerObj.LayerOn = True
+    Next layerObj
+End Function

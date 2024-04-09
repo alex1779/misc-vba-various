@@ -1,0 +1,17 @@
+Sub Example_DisplayPlotPreview()
+    ' This example creates a circle and then performs
+    ' a plot preview.
+    
+    ' Create the circle
+    Dim circleObj As AcadCircle
+    Dim center(0 To 2) As Double
+    Dim radius As Double
+    center(0) = 2: center(1) = 2: center(2) = 0
+    radius = 1
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(center, radius)
+    ZoomAll
+    
+    ' Preview the plot of the circle
+    ThisDrawing.Plot.DisplayPlotPreview acFullPreview
+        
+End Sub

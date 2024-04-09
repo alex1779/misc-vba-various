@@ -1,0 +1,11 @@
+Sub Example_IsQuiescent()
+    ' This example gets the acadState object and checks to see whether
+    ' AutoCAD is in a quiescent state.
+    Dim State As AcadState
+    Set State = GetAcadState
+    If State.IsQuiescent Then
+        MsgBox "AutoCAD is quiescent."
+    Else
+        MsgBox "AutoCAD is not quiescent."
+    End If
+End Sub

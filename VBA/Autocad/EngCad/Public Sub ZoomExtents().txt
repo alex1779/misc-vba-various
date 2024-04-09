@@ -1,0 +1,3 @@
+Public Sub ZoomExtents()
+AutoCAD.Application.ZoomExtents
+End Sub

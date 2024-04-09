@@ -1,0 +1,153 @@
+
+Public Sub CargarLayersEntidades2d()
+' CARGA UN LAYER PARA CADA ENTIDAD 2D. ESTABLECE COLORES DEL 1 AL 20.
+On Error Resume Next
+'Entidades 2d
+layer LayerObj19, ".Line", 1, "Continuous", acLnWtByLwDefault, True
+layer LayerObj23, ".Polyline", 2, "Continuous", acLnWtByLwDefault, True
+layer LayerObj23, ".Polyline2d", 3, "Continuous", acLnWtByLwDefault, True
+layer LayerObj2, ".Polyline3d", 4, "Continuous", acLnWtByLwDefault, True
+layer LayerObj4, ".Arc", 5, "Continuous", acLnWtByLwDefault, True
+layer LayerObj8, ".Circle", 6, "Continuous", acLnWtByLwDefault, True
+layer LayerObj31, ".Spline", 8, "Continuous", acLnWtByLwDefault, True
+layer LayerObj16, ".Ellipse", 9, "Continuous", acLnWtByLwDefault, True
+layer LayerObj36, ".Xline", 10, "Continuous", acLnWtByLwDefault, True
+layer LayerObj28, ".Region", 11, "Continuous", acLnWtByLwDefault, True
+layer LayerObj22, ".Point", 12, "Continuous", acLnWtByLwDefault, True
+layer LayerObj17, ".Hatch", 13, "Continuous", acLnWtByLwDefault, True
+layer LayerObj21, ".Mtext", 14, "Continuous", acLnWtByLwDefault, True
+layer LayerObj32, ".Text", 15, "Continuous", acLnWtByLwDefault, True
+layer LayerObj18, ".Leader", 16, "Continuous", acLnWtByLwDefault, True
+layer LayerObj48, ".MLeader", 17, "Continuous", acLnWtByLwDefault, True
+layer LayerObj40, ".MLine", 18, "Continuous", acLnWtByLwDefault, True
+layer LayerObj26, ".Raster", 19, "Continuous", acLnWtByLwDefault, True
+layer LayerObj27, ".Ray", 20, "Continuous", acLnWtByLwDefault, True
+End Sub
+
+
+
+Public Sub CargarLayersEntidades3d()
+' CARGA UN LAYER PARA CADA ENTIDAD 3D EN COLORES DEL 21 AL 29.
+On Error Resume Next
+'Entidades 3d
+layer LayerObj1, ".3dFace", 21, "Continuous", acLnWtByLwDefault, True
+layer LayerObj3, ".3dSolid", 22, "Continuous", acLnWtByLwDefault, True
+layer LayerObj30, ".Solid", 23, "Continuous", acLnWtByLwDefault, True
+layer LayerObj29, ".Shape", 24, "Continuous", acLnWtByLwDefault, True
+layer LayerObj49, ".SubDMesh", 25, "Continuous", acLnWtByLwDefault, True
+layer LayerObj51, ".NurbSurface", 26, "Continuous", acLnWtByLwDefault, True
+layer LayerObj50, ".PdfUnderlay", 27, "Continuous", acLnWtByLwDefault, True
+layer LayerObj39, ".PolyfaceMesh", 28, "Continuous", acLnWtByLwDefault, True
+layer LayerObj25, ".Polymesh", 29, "Continuous", acLnWtByLwDefault, True
+End Sub
+
+Public Sub CargarLayersEntidadesMisc()
+' CARGA UN LAYER PARA ENTIDADES EN COLORES DEL 30 AL 50.
+On Error Resume Next
+'Entidades misc
+layer LayerObj5, ".Attribute", 30, "Continuous", acLnWtByLwDefault, True
+layer LayerObj6, ".AttributeReference", 32, "Continuous", acLnWtByLwDefault, True
+layer LayerObj7, ".BlockReference", 33, "Continuous", acLnWtByLwDefault, True
+layer LayerObj41, ".Dim3PointAngular", 34, "Continuous", acLnWtByLwDefault, True
+layer LayerObj9,  ".DimAligned", 35, "Continuous", acLnWtByLwDefault, True
+layer LayerObj10, ".DimAngular", 36, "Continuous", acLnWtByLwDefault, True
+layer LayerObj44, ".DimArcLength", 37, "Continuous", acLnWtByLwDefault, True
+layer LayerObj12, ".DimDiametric", 38, "Continuous", acLnWtByLwDefault, True
+layer LayerObj13, ".DimOrdinate", 39, "Continuous", acLnWtByLwDefault, True
+layer LayerObj14, ".DimRadial", 40, "Continuous", acLnWtByLwDefault, True
+layer LayerObj45, ".DimRadialLarge", 41, "Continuous", acLnWtByLwDefault, True
+layer LayerObj15, ".DimRotated", 42, "Continuous", acLnWtByLwDefault, True
+layer LayerObj46, ".DwfUnderlay", 43, "Continuous", acLnWtByLwDefault, True
+layer LayerObj42, ".ExternalReference", 44, "Continuous", acLnWtByLwDefault, True
+layer LayerObj43, ".Table", 45, "Continuous", acLnWtByLwDefault, True
+layer LayerObj33, ".Tolerance", 46, "Continuous", acLnWtByLwDefault, True
+layer LayerObj34, ".Trace", 47, "Continuous", acLnWtByLwDefault, True
+layer LayerObj47, ".DgnUnderlay", 48, "Continuous", acLnWtByLwDefault, True
+layer LayerObj35, ".PViewport", 49, "Continuous", acLnWtByLwDefault, True
+layer LayerObj38, ".MInsertBlock", 50, "Continuous", acLnWtByLwDefault, True
+End Sub
+
+Public Sub CargarLayersTodasEntidadesPosibles()
+' CARGA LAYERS PARA TODAS LAS ENTIDADES Y ESTABLECE COLORES DEL 1 AL 50.
+On Error Resume Next
+'Todas las Entidades
+layer LayerObj19, ".Line", 1, "Continuous", acLnWtByLwDefault, True
+layer LayerObj23, ".Polyline", 2, "Continuous", acLnWtByLwDefault, True
+layer LayerObj23, ".Polyline2d", 3, "Continuous", acLnWtByLwDefault, True
+layer LayerObj2, ".Polyline3d", 4, "Continuous", acLnWtByLwDefault, True
+layer LayerObj4, ".Arc", 5, "Continuous", acLnWtByLwDefault, True
+layer LayerObj8, ".Circle", 6, "Continuous", acLnWtByLwDefault, True
+layer LayerObj31, ".Spline", 8, "Continuous", acLnWtByLwDefault, True
+layer LayerObj16, ".Ellipse", 9, "Continuous", acLnWtByLwDefault, True
+layer LayerObj36, ".Xline", 10, "Continuous", acLnWtByLwDefault, True
+layer LayerObj28, ".Region", 11, "Continuous", acLnWtByLwDefault, True
+layer LayerObj22, ".Point", 12, "Continuous", acLnWtByLwDefault, True
+layer LayerObj17, ".Hatch", 13, "Continuous", acLnWtByLwDefault, True
+layer LayerObj21, ".Mtext", 14, "Continuous", acLnWtByLwDefault, True
+layer LayerObj32, ".Text", 15, "Continuous", acLnWtByLwDefault, True
+layer LayerObj18, ".Leader", 16, "Continuous", acLnWtByLwDefault, True
+layer LayerObj48, ".MLeader", 17, "Continuous", acLnWtByLwDefault, True
+layer LayerObj40, ".MLine", 18, "Continuous", acLnWtByLwDefault, True
+layer LayerObj26, ".Raster", 19, "Continuous", acLnWtByLwDefault, True
+layer LayerObj27, ".Ray", 20, "Continuous", acLnWtByLwDefault, True
+layer LayerObj1, ".3dFace", 21, "Continuous", acLnWtByLwDefault, True
+layer LayerObj3, ".3dSolid", 22, "Continuous", acLnWtByLwDefault, True
+layer LayerObj30, ".Solid", 23, "Continuous", acLnWtByLwDefault, True
+layer LayerObj29, ".Shape", 24, "Continuous", acLnWtByLwDefault, True
+layer LayerObj49, ".SubDMesh", 25, "Continuous", acLnWtByLwDefault, True
+layer LayerObj51, ".NurbSurface", 26, "Continuous", acLnWtByLwDefault, True
+layer LayerObj50, ".PdfUnderlay", 27, "Continuous", acLnWtByLwDefault, True
+layer LayerObj39, ".PolyfaceMesh", 28, "Continuous", acLnWtByLwDefault, True
+layer LayerObj25, ".Polymesh", 29, "Continuous", acLnWtByLwDefault, True
+layer LayerObj5, ".Attribute", 30, "Continuous", acLnWtByLwDefault, True
+layer LayerObj6, ".AttributeReference", 32, "Continuous", acLnWtByLwDefault, True
+layer LayerObj7, ".BlockReference", 33, "Continuous", acLnWtByLwDefault, True
+layer LayerObj41, ".Dim3PointAngular", 34, "Continuous", acLnWtByLwDefault, True
+layer LayerObj9, ".DimAligned", 35, "Continuous", acLnWtByLwDefault, True
+layer LayerObj10, ".DimAngular", 36, "Continuous", acLnWtByLwDefault, True
+layer LayerObj44, ".DimArcLength", 37, "Continuous", acLnWtByLwDefault, True
+layer LayerObj12, ".DimDiametric", 38, "Continuous", acLnWtByLwDefault, True
+layer LayerObj13, ".DimOrdinate", 39, "Continuous", acLnWtByLwDefault, True
+layer LayerObj14, ".DimRadial", 40, "Continuous", acLnWtByLwDefault, True
+layer LayerObj45, ".DimRadialLarge", 41, "Continuous", acLnWtByLwDefault, True
+layer LayerObj15, ".DimRotated", 42, "Continuous", acLnWtByLwDefault, True
+layer LayerObj46, ".DwfUnderlay", 43, "Continuous", acLnWtByLwDefault, True
+layer LayerObj42, ".ExternalReference", 44, "Continuous", acLnWtByLwDefault, True
+layer LayerObj43, ".Table", 45, "Continuous", acLnWtByLwDefault, True
+layer LayerObj33, ".Tolerance", 46, "Continuous", acLnWtByLwDefault, True
+layer LayerObj34, ".Trace", 47, "Continuous", acLnWtByLwDefault, True
+layer LayerObj47, ".DgnUnderlay", 48, "Continuous", acLnWtByLwDefault, True
+layer LayerObj35, ".PViewport", 49, "Continuous", acLnWtByLwDefault, True
+layer LayerObj38, ".MInsertBlock", 50, "Continuous", acLnWtByLwDefault, True
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

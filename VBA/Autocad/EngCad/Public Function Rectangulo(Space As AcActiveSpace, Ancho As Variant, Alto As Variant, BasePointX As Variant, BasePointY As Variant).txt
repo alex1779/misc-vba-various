@@ -1,0 +1,6 @@
+Public Function Rectangulo(Space As AcActiveSpace, Ancho As Variant, Alto As Variant, BasePointX As Variant, BasePointY As Variant)
+Linea Space, BasePointX, BasePointY, 0, BasePointX + Ancho, BasePointY, 0
+Linea Space, BasePointX, BasePointY + Alto, 0, BasePointX + Ancho, BasePointY + Alto, 0
+Linea Space, BasePointX, BasePointY, 0, BasePointX, BasePointY + Alto, 0
+Linea Space, BasePointX + Ancho, BasePointY, 0, BasePointX + Ancho, BasePointY + Alto, 0
+End Function

@@ -1,0 +1,5 @@
+Function EnciendeLayer(nombre As String)
+    Dim layerObj As AcadLayer
+    Set layerObj = AutoCAD.Application.ActiveDocument.Layers.item(nombre)
+    layerObj.Freeze = False
+End Function

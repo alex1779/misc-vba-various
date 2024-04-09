@@ -1,0 +1,30 @@
+Sub Example_ShowWarningMessages()
+    ' This example reads and modifies the preference value that
+    ' resets all dialog boxes that have the
+    ' "Don't Display This Warning Again" check box so they display again.
+    '
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesSystem
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the system preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.System
+    
+    ' Read and display the original value
+    originalValue = ACADPref.ShowWarningMessages
+    MsgBox "The ShowWarningMessages preference is set to: " & originalValue
+
+    ' Modify the ShowWarningMessages preference by toggling the value
+    ACADPref.ShowWarningMessages = Not (ACADPref.ShowWarningMessages)
+    newValue = ACADPref.ShowWarningMessages
+    MsgBox "The ShowWarningMessages preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.ShowWarningMessages = originalValue
+    MsgBox "The ShowWarningMessages preference was reset back to: " & originalValue
+End Sub

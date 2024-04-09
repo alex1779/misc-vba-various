@@ -1,0 +1,32 @@
+Sub Example_Rotate()
+    ' This example creates a lightweight polyline
+    ' and then rotates that polyline.
+    
+    ' Create the polyline
+    Dim plineObj As AcadLWPolyline
+    Dim points(0 To 11) As Double
+    points(0) = 1: points(1) = 2
+    points(2) = 1: points(3) = 3
+    points(4) = 2: points(5) = 3
+    points(6) = 3: points(7) = 3
+    points(8) = 4: points(9) = 4
+    points(10) = 4: points(11) = 2
+    Set plineObj = ThisDrawing.ModelSpace.AddLightWeightPolyline(points)
+    plineObj.Closed = True
+    ZoomAll
+            
+    MsgBox "Rotate the polyline by 45 degrees.", , "Rotate Example"
+    
+    ' Define the rotation
+    Dim basePoint(0 To 2) As Double
+    Dim rotationAngle As Double
+    basePoint(0) = 4: basePoint(1) = 4.25: basePoint(2) = 0
+    rotationAngle = 0.7853981   ' 45 degrees
+    
+    ' Rotate the polyline
+    plineObj.Rotate basePoint, rotationAngle
+    
+    ZoomAll
+    MsgBox "Rotation completed.", , "Rotate Example"
+    
+End Sub

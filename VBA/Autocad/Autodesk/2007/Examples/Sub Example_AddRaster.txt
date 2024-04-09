@@ -1,0 +1,27 @@
+Sub Example_AddRaster()
+    ' This example adds a raster image in model space.
+    
+    ' This example uses a file named "raster.jpg." 
+    ' You should change this example to use 
+    ' a raster file on your computer.
+    
+    Dim insertionPoint(0 To 2) As Double
+    Dim scalefactor As Double
+    Dim rotationAngle As Double
+    Dim imageName As String
+    Dim rasterObj As AcadRasterImage
+    imageName = "C:\raster.jpg"
+    insertionPoint(0) = 5#: insertionPoint(1) = 5#: insertionPoint(2) = 0#
+    scalefactor = 1#
+    rotationAngle = 0
+    
+    On Error Resume Next
+    ' Creates a raster image in model space
+    Set rasterObj = ThisDrawing.ModelSpace.AddRaster(imageName, insertionPoint, scalefactor, rotationAngle)
+    
+    If Err.Description = "File error" Then
+        MsgBox imageName & " could not be found."
+        Exit Sub
+    End If
+    ZoomExtents
+End Sub

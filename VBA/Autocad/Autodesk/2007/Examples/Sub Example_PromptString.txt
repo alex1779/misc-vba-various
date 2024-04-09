@@ -1,0 +1,53 @@
+Sub Example_PromptString()
+    ' This example creates an attribute definition in a block.
+    ' It then inserts the block. Then it changes the prompt string
+    ' of the attribute definition, and inserts the block again.
+    
+    ' Create the block
+    Dim blockObj As AcadBlock
+    Dim insertionPnt(0 To 2) As Double
+    insertionPnt(0) = 0#: insertionPnt(1) = 0#: insertionPnt(2) = 0#
+    Set blockObj = ThisDrawing.Blocks.Add(insertionPnt, "TEST")
+    
+    ' Add a circle to block
+    Dim circleObj As AcadCircle
+    Dim center(0 To 2) As Double
+    Dim radius As Double
+    center(0) = 0: center(1) = 0: center(2) = 0
+    radius = 1
+    Set circleObj = blockObj.AddCircle(center, radius)
+
+    ' Define the attribute definition
+    Dim attributeObj As AcadAttribute
+    Dim height As Double
+    Dim mode As Integer
+    Dim prompt As String
+    Dim tag As String
+    Dim value As String
+    
+    height = 1#
+    mode = acAttributeModeVerify
+    prompt = "Enter value:"
+    insertionPnt(0) = 0#: insertionPnt(1) = 0#: insertionPnt(2) = 0
+    tag = "Tag1"
+    value = "Circle1"
+    
+    ' Create the attribute definition on the block
+    Set attributeObj = blockObj.AddAttribute(height, mode, prompt, insertionPnt, tag, value)
+    
+    ' Insert the block
+    Dim blockRefObj1 As AcadBlockReference
+    insertionPnt(0) = 2#: insertionPnt(1) = 2#: insertionPnt(2) = 0
+    Set blockRefObj1 = ThisDrawing.ModelSpace.InsertBlock(insertionPnt, "TEST", 1#, 1#, 1#, 0)
+        
+    ' Change the prompt string and tag of the attribute definition
+    attributeObj.PromptString = "Verify value:"
+    
+    ' Insert the block again
+    Dim blockRefObj2 As AcadBlockReference
+    insertionPnt(0) = 4#: insertionPnt(1) = 4#: insertionPnt(2) = 0
+    Set blockRefObj2 = ThisDrawing.ModelSpace.InsertBlock(insertionPnt, "TEST", 1#, 1#, 1#, 0)
+    
+    ZoomAll
+
+End Sub

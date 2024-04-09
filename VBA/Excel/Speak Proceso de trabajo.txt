@@ -1,0 +1,2 @@
+    Dim n As Integer
+    n = Application.WorksheetFunction.CountA(Range("A1:A2000"))

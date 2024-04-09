@@ -1,0 +1,28 @@
+Sub Example_WorkspacePath()
+    ' This example reads and modifies the preference value that controls
+    ' the path for the database workspace file.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesFiles
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the files preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Files
+    
+    ' Read and display the original value
+    originalValue = ACADPref.WorkspacePath
+    MsgBox "The WorkspacePath preference is set to: " & originalValue
+
+    ' Modify the WorkspacePath preference by changing the path to "C:\"
+    ACADPref.WorkspacePath = "C:\"
+    newValue = ACADPref.WorkspacePath
+    MsgBox "The WorkspacePath preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.WorkspacePath = originalValue
+    MsgBox "The WorkspacePath preference was reset back to: " & originalValue
+End Sub

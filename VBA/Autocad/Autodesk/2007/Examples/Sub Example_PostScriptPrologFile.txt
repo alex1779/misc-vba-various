@@ -1,0 +1,32 @@
+Sub Example_PostScriptPrologFile()
+    ' This example returns the current setting of
+    ' PostScriptPrologFile. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currPostScriptPrologFile As String
+    Dim newPostScriptPrologFile As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current PostScriptPrologFile value
+    currPostScriptPrologFile = preferences.Files.PostScriptPrologFile
+    If currPostScriptPrologFile = "" Then
+        MsgBox "PostScriptPrologFile is not currently set.", vbInformation, "PostScriptPrologFile Example"
+    Else
+        MsgBox "The current value for PostScriptPrologFile is " & currPostScriptPrologFile, vbInformation, "PostScriptPrologFile Example"
+    End If
+    
+    ' Change the value for PostScriptPrologFile
+    newPostScriptPrologFile = "TestPostScriptPrologFile"
+    preferences.Files.PostScriptPrologFile = newPostScriptPrologFile
+    MsgBox "The new value for PostScriptPrologFile is " & newPostScriptPrologFile, vbInformation, "PostScriptPrologFile Example"
+    
+    ' Reset PostScriptPrologFile to its original value
+    preferences.Files.PostScriptPrologFile = currPostScriptPrologFile
+    If currPostScriptPrologFile = "" Then
+        MsgBox "PostScriptPrologFile is reset to NULL.", vbInformation, "PostScriptPrologFile Example"
+    Else
+        MsgBox "The PostScriptPrologFile value is reset to " & currPostScriptPrologFile, vbInformation, "PostScriptPrologFile Example"
+    End If
+End Sub

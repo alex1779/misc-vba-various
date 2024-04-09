@@ -1,0 +1,28 @@
+Sub Example_SingleDocumentMode()
+    ' This example reads and modifies the preference value that controls
+    ' whether AutoCAD runs in single- or multiple-document mode.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesSystem
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the system preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.System
+    
+    ' Read and display the original value
+    originalValue = ACADPref.SingleDocumentMode
+    MsgBox "The SingleDocumentMode preference is set to: " & originalValue
+
+    ' Modify the SingleDocumentMode preference by toggling the value
+    ACADPref.SingleDocumentMode = Not (ACADPref.SingleDocumentMode)
+    newValue = ACADPref.SingleDocumentMode
+    MsgBox "The SingleDocumentMode preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.SingleDocumentMode = originalValue
+    MsgBox "The SingleDocumentMode preference was reset back to: " & originalValue
+End Sub

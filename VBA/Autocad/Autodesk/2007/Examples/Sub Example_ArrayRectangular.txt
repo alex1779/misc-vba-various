@@ -1,0 +1,36 @@
+Sub Example_ArrayRectangular()
+    ' This example creates a circle and then performs
+    ' a rectangular array on that circle.
+    
+    ' Create the circle
+    Dim circleObj As AcadCircle
+    Dim center(0 To 2) As Double
+    Dim radius As Double
+    center(0) = 2#: center(1) = 2#: center(2) = 0#
+    radius = 0.5
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(center, radius)
+    ThisDrawing.Application.ZoomAll
+    MsgBox "Perform the rectangular array on the circle.", , "ArrayRectangular Example"
+    
+    ' Define the rectangular array
+    Dim numberOfRows As Long
+    Dim numberOfColumns As Long
+    Dim numberOfLevels As Long
+    Dim distanceBwtnRows As Double
+    Dim distanceBwtnColumns As Double
+    Dim distanceBwtnLevels As Double
+    numberOfRows = 5
+    numberOfColumns = 5
+    numberOfLevels = 2
+    distanceBwtnRows = 1
+    distanceBwtnColumns = 1
+    distanceBwtnLevels = 1
+    
+    ' Create the array of objects
+    Dim retObj As Variant
+    retObj = circleObj.ArrayRectangular(numberOfRows, numberOfColumns, numberOfLevels, distanceBwtnRows, distanceBwtnColumns, distanceBwtnLevels)
+    
+    ZoomAll
+    MsgBox "Rectangular array completed.", , "ArrayRectangular Example"
+    
+End Sub

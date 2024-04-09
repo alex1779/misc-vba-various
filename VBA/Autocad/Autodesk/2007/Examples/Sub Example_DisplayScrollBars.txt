@@ -1,0 +1,22 @@
+Sub Example_DisplayScrollBars()
+    ' This example returns the current setting of
+    ' DisplayScrollBars. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currDisplayScrollBars As Boolean
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current DisplayScrollBars value
+    currDisplayScrollBars = preferences.DISPLAY.DisplayScrollBars
+    MsgBox "The current value for DisplayScrollBars is " & preferences.DISPLAY.DisplayScrollBars, vbInformation, "DisplayScrollBars Example"
+    
+    ' Change the value for DisplayScrollBars
+    preferences.DISPLAY.DisplayScrollBars = Not (currDisplayScrollBars)
+    MsgBox "The new value for DisplayScrollBars is " & preferences.DISPLAY.DisplayScrollBars, vbInformation, "DisplayScrollBars Example"
+    
+    ' Reset DisplayScrollBars to its original value
+    preferences.DISPLAY.DisplayScrollBars = currDisplayScrollBars
+    MsgBox "The DisplayScrollBars value is reset to " & preferences.DISPLAY.DisplayScrollBars, vbInformation, "DisplayScrollBars Example"
+End Sub

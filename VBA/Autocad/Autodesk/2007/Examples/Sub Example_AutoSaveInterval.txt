@@ -1,0 +1,28 @@
+Sub Example_AutoSaveInterval()
+    ' This example returns the current setting of
+    ' AutoSaveInterval. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currAutoSaveInterval As Integer
+    Dim newAutoSaveInterval As Integer
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current AutoSaveInterval value
+    currAutoSaveInterval = preferences.OpenSave.AutoSaveInterval
+    MsgBox "The current value for AutoSaveInterval is " & currAutoSaveInterval, vbInformation, "AutoSaveInterval Example"
+    
+    ' Change the value for AutoSaveInterval
+    If currAutoSaveInterval = 0 Then
+        newAutoSaveInterval = 10
+    Else
+        newAutoSaveInterval = 0
+    End If
+    preferences.OpenSave.AutoSaveInterval = newAutoSaveInterval
+    MsgBox "The new value for AutoSaveInterval is " & newAutoSaveInterval, vbInformation, "AutoSaveInterval Example"
+    
+    ' Reset AutoSaveInterval to its original value
+    preferences.OpenSave.AutoSaveInterval = currAutoSaveInterval
+    MsgBox "The AutoSaveInterval value is reset to " & currAutoSaveInterval, vbInformation, "AutoSaveInterval Example"
+ End Sub

@@ -1,0 +1,22 @@
+Sub Example_BeepOnError()
+    ' This example returns the current setting of
+    ' BeepOnError. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currBeepOnError As Boolean
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current BeepOnError value
+    currBeepOnError = preferences.System.BeepOnError
+    MsgBox "The current value for BeepOnError is " & preferences.System.BeepOnError, vbInformation, "BeepOnError Example"
+    
+    ' Change the value for BeepOnError
+    preferences.System.BeepOnError = Not (currBeepOnError)
+    MsgBox "The new value for BeepOnError is " & preferences.System.BeepOnError, vbInformation, "BeepOnError Example"
+    
+    ' Reset BeepOnError to its original value
+    preferences.System.BeepOnError = currBeepOnError
+    MsgBox "The BeepOnError value is reset to " & preferences.System.BeepOnError, vbInformation, "BeepOnError Example"
+End Sub

@@ -1,0 +1,10 @@
+Sub Linea(nombre As Variant, StartX As Double, StartY As Double, StartZ As Double, EndX As Double, EndY As Double, EndZ As Double, Color As Variant, layer As String)
+    'Declaración de Variables
+    Dim Linea As AcadLine:    Dim PuntoA(0 To 2) As Double:    Dim PuntoB(0 To 2) As Double
+    PuntoA(0) = StartX:     PuntoA(1) = StartY:         PuntoA(2) = StartZ
+    PuntoB(0) = EndX:       PuntoB(1) = EndY:           PuntoB(2) = EndZ
+    'Creando nueva linea
+    Set nombre = AutoCAD.Application.ActiveDocument.PaperSpace.AddLine(PuntoA, PuntoB)
+    nombre.Color = Color
+    nombre.layer = layer
+End Sub

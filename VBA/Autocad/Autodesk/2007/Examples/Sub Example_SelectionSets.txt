@@ -1,0 +1,12 @@
+Sub Example_SelectionSets()
+    ' This example finds the current SelectionSets collection and
+    ' adds a new SelectionSet to that collection.
+    
+    Dim SSetColl As AcadSelectionSets
+    Set SSetColl = ThisDrawing.SelectionSets
+    
+    ' Create a SelectionSet named "TEST" in the current drawing
+    Dim ssetObj As AcadSelectionSet
+    Set ssetObj = SSetColl.Add("TEST")
+    MsgBox "A new SelectionSet called " & ssetObj.name & " has been added to the SelectionSets collection.", vbInformation, "SelectionSets Example"
+End Sub

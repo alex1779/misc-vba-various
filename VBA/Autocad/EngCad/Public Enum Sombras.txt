@@ -1,0 +1,12 @@
+Public Enum Sombras
+wireframe2d
+Wireframe
+Hidden
+Realistic
+Conceptual
+Shaded
+shaded_with_Edges
+shades_of_Gray
+SKetchy
+X_ray
+End Enum

@@ -1,0 +1,27 @@
+Sub Example_EntityColor()
+    Dim color As AcadAcCmColor
+    Set color = AcadApplication.GetInterfaceObject("AutoCAD.AcCmColor.16")
+    Dim y As Long
+    y = MakeLong(MakeWord(194, 122), MakeWord(133, 144))
+    color.EntityColor = y
+    Dim line As AcadLine
+    Set line = CreateLine
+    line.TrueColor = color
+    Dim retcolor As AcadAcCmColor
+    Set retcolor = line.TrueColor
+    
+    Dim x As Long
+    x = retcolor.EntityColor
+    
+    Dim BreakLong(3) As Byte
+    BreakLong(0) = x And &HFF&
+    BreakLong(1) = (x And &HFF00&) \ &H100&
+    BreakLong(2) = (x And &HFF0000) \ &H10000
+    BreakLong(3) = (x And &H7F000000) \ &H1000000
+    If x < 0 Then BreakLong(3) = BreakLong(3) Or &H80
+    
+    MsgBox "ColorMethod = " & BreakLong(3) & vbCrLf & _
+     "Red = " & BreakLong(2) & vbCrLf & _
+     "Green = " & BreakLong(1) & vbCrLf & _
+     "Blue = " & BreakLong(0)
+End Sub

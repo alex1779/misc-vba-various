@@ -1,0 +1,23 @@
+Sub Example_SCMTimeValue()
+    ' This example reads and modifies the SCMTimeValue property.
+    ' Then the property is reset to its original value.
+    
+    Dim ACADPref As AcadPreferencesUser
+    Dim originalValue As Integer, newValue As Integer
+    
+    ' Get the UserPreferences object and set the SCMTimeMode property to True
+    Set ACADPref = ThisDrawing.Application.Preferences.User
+    ACADPref.SCMTimeMode = True
+    
+    originalValue = ACADPref.SCMTimeValue
+    MsgBox "The SCMTimeValue property is currently: " & originalValue
+    
+    newValue = 1000
+    ACADPref.SCMTimeValue = newValue
+    
+    MsgBox "The SCMTimeValue property has been set to: " & ACADPref.SCMTimeValue
+
+    ' Reset the preference back to its original value
+    ACADPref.SCMTimeValue = originalValue
+    MsgBox "The SCMTimeValue property was reset back to: " & originalValue
+End Sub

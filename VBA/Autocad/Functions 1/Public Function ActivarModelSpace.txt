@@ -1,0 +1,3 @@
+Public Function ActivarModelSpace()    'Activando: Model Space
+    AutoCAD.Application.ActiveDocument.ActiveSpace = acModelSpace
+End Function

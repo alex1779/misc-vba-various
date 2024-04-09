@@ -1,0 +1,26 @@
+Sub Example_TotalAngle()
+    ' This example creates an Arc in model space and
+    ' returns the total angle of the new Arc
+    
+    Dim arcObj As AcadArc
+    Dim centerPoint(0 To 2) As Double
+    Dim radius As Double
+    Dim startAngleInDegree As Double, endAngleInDegree As Double
+    Dim startAngleInRadian As Double, endAngleInRadian As Double
+    
+    ' Define the Arc
+    centerPoint(0) = 0: centerPoint(1) = 0: centerPoint(2) = 0
+    radius = 5#
+    startAngleInDegree = 10#: endAngleInDegree = 230#
+
+    ' Convert the angles in degrees to angles in radians
+    startAngleInRadian = startAngleInDegree * 3.141592 / 180#
+    endAngleInRadian = endAngleInDegree * 3.141592 / 180#
+    
+    ' Create the arc object in model space
+    Set arcObj = ThisDrawing.ModelSpace.AddArc(centerPoint, radius, startAngleInRadian, endAngleInRadian)
+    ThisDrawing.Application.ZoomAll
+    
+    ' Return length of new arc
+    MsgBox "The total angle of the new Arc is: " & arcObj.TotalAngle
+End Sub

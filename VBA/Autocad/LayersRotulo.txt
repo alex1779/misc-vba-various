@@ -1,0 +1,31 @@
+Public Sub LayersRotulo()
+On Error Resume Next
+    AutoCAD.Application.ActiveDocument.Linetypes.Load "CENTER", "acad.lin"
+    AutoCAD.Application.ActiveDocument.Linetypes.Load "HIDDEN", "acad.lin"
+    layer LayerObj1, ".3D MODEL", acGreen, "Continuous", acLnWt060, True
+    layer LayerObj1, ".DIMENSION", acMagenta, "Continuous", acLnWt025, True
+    layer LayerObj2, ".GENERAL ARRANGEMENT", acYellow, "Continuous", acLnWt040, True
+    layer LayerObj3, ".HIDDEN", 8, "HIDDEN", acLnWt000, True
+    layer LayerObj4, ".OUTLINE 1", acCyan, "Continuous", acLnWt060, True
+    layer LayerObj5, ".OUTLINE 3", acRed, "Continuous", acLnWt050, True
+    layer LayerObj6, ".TEXT", 50, "Continuous", acLnWt030, True
+    layer LayerObj7, ".TITLE BLOCK ATTRIBUTES", acYellow, "Continuous", acLnWtByLwDefault, True
+    layer LayerObj8, ".TITLE BLOCK OUTLINE", 151, "Continuous", acLnWtByLwDefault, True
+    layer LayerObj9, ".TITLE BLOCK TEXT", acGreen, "Continuous", acLnWtByLwDefault, True
+    layer LayerObj10, ".TITLE PAGE OUTLINE", 252, "Continuous", acLnWtByLwDefault, False
+    layer LayerObj11, "0", acWhite, "Continuous", acLnWtByLwDefault, True
+    layer LayerObj12, ".CENTER LINE", 8, "CENTER", acLnWtByLwDefault, True
+    layer LayerObj13, "Defpoints", acWhite, "Continuous", acLnWtByLwDefault, False
+    '".3D MODEL"
+    '".CENTER LINE"
+    '".DIMENSION"
+    '".GENERAL ARRANGEMENT"
+    '".HIDDEN"
+    '".OUTLINE 1"
+    '".OUTLINE 3"
+    '".TEXT"
+    '".TITLE BLOCK ATTRIBUTES"
+    '".TITLE BLOCK OUTLINE"
+    '".TITLE BLOCK TEXT"
+    '".TITLE PAGE OUTLINE"
+End Sub

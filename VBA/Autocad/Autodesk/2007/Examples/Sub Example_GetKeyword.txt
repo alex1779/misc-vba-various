@@ -1,0 +1,16 @@
+Sub Example_GetKeyword()
+    ' This example uses Getkeyword to return a keyword entered by the user.
+    ' InitializeUserInput establishes the valid keywords.
+    
+    ' Define the list of valid keywords
+    Dim kwordList As String
+    kwordList = "Width Height Depth"
+    ThisDrawing.Utility.InitializeUserInput 1, kwordList
+            
+    ' Prompt the user to input any of the keywords. Return "Width", "Height" or "Depth" in
+    ' the returnString variable depending on whether the user input "W", "H" or "D".
+    Dim returnString As String
+    returnString = ThisDrawing.Utility.GetKeyword("Enter a keyword (Height)(Width)(Depth): ")
+    MsgBox "You entered " & returnString, , "GetKeyword Example"
+    
+End Sub

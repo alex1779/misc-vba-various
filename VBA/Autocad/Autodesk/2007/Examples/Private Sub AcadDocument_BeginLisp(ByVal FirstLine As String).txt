@@ -1,0 +1,12 @@
+Private Sub AcadDocument_BeginLisp(ByVal FirstLine As String)()
+    ' This example intercepts a drawing BeginLisp event.
+    '
+    ' This event is triggered when a drawing receives
+    ' a request to evaluate a LISP expression.
+    '
+    ' To trigger this example event: Start the evaluation of a LISP expression
+
+    ' Use the "FirstLine" variable to help the user determine which LISP expression is running
+    MsgBox "A LISP expression has just started to be evaluated.  The first line of the expression is: " & FirstLine
+
+End Sub

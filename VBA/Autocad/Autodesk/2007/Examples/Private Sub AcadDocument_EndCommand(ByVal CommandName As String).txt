@@ -1,0 +1,14 @@
+Private Sub AcadDocument_EndCommand(ByVal CommandName As String)()
+    ' This example intercepts a drawing EndCommand event.
+    '
+    ' This event is triggered when a drawing receives
+    ' any command compatible with this event.
+    '
+    ' To trigger this example event: Issue any command to an open drawing from
+    ' either the command line, VBA, the ACAD menus, the ACAD toolbars, or LISP.
+    ' When the command is finished, this event will be triggered.
+
+    ' Use the "CommandName" variable to determine which command just finished
+    MsgBox "A drawing has just finished a " & CommandName & " command."
+
+End Sub

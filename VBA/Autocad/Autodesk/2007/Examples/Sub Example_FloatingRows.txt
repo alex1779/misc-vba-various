@@ -1,0 +1,42 @@
+Sub Example_FloatingRows()
+    ' This example creates a new toolbar called "TestToolbar" and inserts three
+    ' buttons into it. The toolbar is then displayed as a floating
+    ' toolbar with 1 and then 3 rows.
+    ' To remove the toolbar after execution of this macro, use the Customize Menu
+    ' option from the Tools menu.
+    
+    Dim currMenuGroup As acadMenuGroup
+    Set currMenuGroup = ThisDrawing.Application.MenuGroups.Item(0)
+    
+    ' Create the new toolbar
+    Dim newToolBar As AcadToolbar
+    Set newToolBar = currMenuGroup.Toolbars.Add("TestToolbar")
+    
+    ' Add three buttons to the new toolbar.
+    ' All three buttons will have the same macro attached.
+    Dim newButton1 As AcadToolbarItem
+    Dim newButton2 As AcadToolbarItem
+    Dim newButton3 As AcadToolbarItem
+    Dim openMacro As String
+    
+    ' Assign the macro string the VB equivalent of "ESC ESC _open "
+    openMacro = Chr(3) & Chr(3) & Chr(95) & "open" & Chr(32)
+    
+    Set newButton1 = newToolBar.AddToolbarButton("", "NewButton1", "Open a file.", openMacro)
+    Set newButton2 = newToolBar.AddToolbarButton("", "NewButton2", "Open a file.", openMacro)
+    Set newButton3 = newToolBar.AddToolbarButton("", "NewButton3", "Open a file.", openMacro)
+    
+    
+    ' Display the toolbar
+    newToolBar.Visible = True
+    newToolBar.Float 200, 200, 1
+    
+    MsgBox "The toolbar has " & newToolBar.FloatingRows & " row."
+    
+    newToolBar.FloatingRows = 2
+    MsgBox "The toolbar has " & newToolBar.FloatingRows & " rows."
+    
+    newToolBar.FloatingRows = 3
+    MsgBox "The toolbar has " & newToolBar.FloatingRows & " rows."
+    
+End Sub

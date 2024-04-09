@@ -1,0 +1,4 @@
+    Filename = ActiveWorkbook.Name
+    If InStr(Filename, ".") > 0 Then
+    Filename = Left(Filename, InStr(Filename, ".") - 1)
+    End If

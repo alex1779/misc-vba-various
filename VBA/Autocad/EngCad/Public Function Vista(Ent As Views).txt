@@ -1,0 +1,13 @@
+Public Function Vista(Ent As Views)
+If Ent = 0 Then ObjVBA = "_Top"
+If Ent = 1 Then ObjVBA = "_Bottom"
+If Ent = 2 Then ObjVBA = "_Left"
+If Ent = 3 Then ObjVBA = "_Right"
+If Ent = 4 Then ObjVBA = "_Front"
+If Ent = 5 Then ObjVBA = "_Back"
+If Ent = 6 Then ObjVBA = "_swiso"
+If Ent = 7 Then ObjVBA = "_seiso"
+If Ent = 8 Then ObjVBA = "_neiso"
+If Ent = 9 Then ObjVBA = "_nwiso"
+Autocad.Application.ActiveDocument.SendCommand "_-view" & vbCr & ObjVBA & vbCr
+End Function

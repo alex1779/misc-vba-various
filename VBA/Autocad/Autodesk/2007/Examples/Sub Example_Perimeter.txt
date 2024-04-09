@@ -1,0 +1,32 @@
+Sub Example_Perimeter()
+    ' This example creates a region from an arc and a line.
+    ' It then returns the length of the perimeter of the region.
+    Dim curves(0 To 1) As AcadEntity
+    Dim arcObj As AcadArc
+    Dim lineObj As AcadLine
+    
+    ' Create the arc and line
+    Dim centerPoint(0 To 2) As Double
+    Dim radius As Double
+    Dim startAngle As Double
+    Dim endAngle As Double
+    centerPoint(0) = 5#: centerPoint(1) = 3#: centerPoint(2) = 0#
+    radius = 2#
+    startAngle = 0
+    endAngle = 3.141592
+    Set arcObj = ThisDrawing.ModelSpace.AddArc(centerPoint, radius, startAngle, endAngle)
+    Set lineObj = ThisDrawing.ModelSpace.AddLine(arcObj.startPoint, arcObj.endPoint)
+    Set curves(0) = arcObj
+    Set curves(1) = lineObj
+    
+    ' Create the region
+    Dim regionObj As Variant
+    regionObj = ThisDrawing.ModelSpace.AddRegion(curves)
+    ZoomAll
+    
+    ' Find the perimeter of the region.
+    Dim perimeter As Double
+    perimeter = regionObj(0).perimeter
+    MsgBox "The perimeter of the region is " & regionObj(0).perimeter, , "Perimeter Example"
+    
+End Sub

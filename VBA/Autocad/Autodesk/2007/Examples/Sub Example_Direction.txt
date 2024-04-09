@@ -1,0 +1,30 @@
+Sub Example_Direction()
+    ' This example creates a circle in model space
+    ' and changes the thickness of the circle. Once
+    ' the thickness has been changed, the direction
+    ' of the active viewport is changed so that the
+    ' new thickness setting is visible.
+   
+    Dim circleObj As AcadCircle
+    Dim centerPoint(0 To 2) As Double
+    Dim radius As Double
+    
+    ' Define the circle
+    centerPoint(0) = 0#: centerPoint(1) = 0#: centerPoint(2) = 0#
+    radius = 5#
+    
+    ' Create the Circle object in model space
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(centerPoint, radius)
+        
+    ' Change the thickness of the circle
+    circleObj.Thickness = 3
+    
+    ' Change the direction of the viewport so that you can
+    ' view the change made to the thickness. Once you change
+    ' the direction, you must reset the active viewport.
+    Dim NewDirection(0 To 2) As Double
+    NewDirection(0) = -1: NewDirection(1) = -1: NewDirection(2) = 1
+    ThisDrawing.ActiveViewport.direction = NewDirection
+    ThisDrawing.ActiveViewport = ThisDrawing.ActiveViewport
+    
+End Sub

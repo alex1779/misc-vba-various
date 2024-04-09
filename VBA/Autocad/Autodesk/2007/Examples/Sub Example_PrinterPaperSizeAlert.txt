@@ -1,0 +1,26 @@
+Sub Example_PrinterPaperSizeAlert()
+    ' This example reads and modifies the PrinterPaperSizeAlert
+    ' preference value.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesOutput
+    Dim originalValue As Boolean
+    
+    ' Get the user preferences object
+
+    Set ACADPref = ThisDrawing.Application.preferences.Output
+    
+    ' Read and display the original value
+    originalValue = ACADPref.PrinterPaperSizeAlert
+    MsgBox "The PrinterPaperSizeAlert preference is set to: " & originalValue
+
+    ' Modify the PrinterPaperSizeAlert preference by toggling the value
+    ACADPref.PrinterPaperSizeAlert = Not ACADPref.PrinterPaperSizeAlert
+
+    MsgBox "The PrinterPaperSizeAlert preference has been set to: " & ACADPref.PrinterPaperSizeAlert
+
+    ' Reset the preference back to its original value
+    ACADPref.PrinterPaperSizeAlert = originalValue
+    MsgBox "The PrinterPaperSizeAlert preference was reset back to: " & originalValue
+End Sub

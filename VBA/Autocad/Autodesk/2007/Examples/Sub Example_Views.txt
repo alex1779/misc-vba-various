@@ -1,0 +1,12 @@
+Sub Example_Views()
+    ' This example finds the current views collection and
+    ' adds a new view to that collection.
+    
+    Dim viewColl As AcadViews
+    Set viewColl = ThisDrawing.Views
+    
+    ' Create a view named "TEST" in the current drawing
+    Dim viewObj As AcadView
+    Set viewObj = viewColl.Add("TEST")
+    MsgBox "A new view called " & viewObj.name & " has been added to the views collection.", vbInformation, "Views Example"
+End Sub

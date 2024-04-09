@@ -1,0 +1,23 @@
+Sub Example_Document()
+    ' This example creates a circle in model space and then
+    ' finds the name of the document that the circle resides in.
+   
+    Dim circleObj As AcadCircle
+    Dim centerPoint(0 To 2) As Double
+    Dim radius As Double
+    
+    ' Define the circle
+    centerPoint(0) = 0#: centerPoint(1) = 0#: centerPoint(2) = 0#
+    radius = 5#
+    
+    ' Create the Circle object in model space
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(centerPoint, radius)
+    ZoomAll
+    
+    ' Find the document name for the circle
+    Dim currDoc As AcadDocument
+    Set currDoc = circleObj.Document
+    
+    MsgBox "The circle resides in: " & currDoc.name
+        
+End Sub

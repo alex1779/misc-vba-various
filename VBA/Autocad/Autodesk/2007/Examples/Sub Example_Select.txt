@@ -1,0 +1,34 @@
+Sub Example_Select()
+    ' This example adds members to a selection set, first by crossing and
+    ' then by filtering for circles.
+    
+    ' Create the selection set
+    Dim ssetObj As AcadSelectionSet
+    Set ssetObj = ThisDrawing.SelectionSets.Add("SSET")
+    
+    
+    ' Add all object to the selection set that lie within a crossing of (28,17,0) and
+    ' (-3.3, -3.6,0) 
+    Dim mode As Integer
+    Dim corner1(0 To 2) As Double
+    Dim corner2(0 To 2) As Double
+    
+    mode = acSelectionSetCrossing
+    corner1(0) = 28: corner1(1) = 17: corner1(2) = 0
+    corner2(0) = -3.3: corner2(1) = -3.6: corner2(2) = 0
+    ssetObj.Select mode, corner1, corner2
+    
+    ' Add all the Circles to the selection set that lie within the crossing of (28,17,0) and
+    ' (-3.3, -3.6,0) by filtering from the current drawing
+    Dim gpCode(0) As Integer
+    Dim dataValue(0) As Variant
+    gpCode(0) = 0
+    dataValue(0) = "Circle"
+    
+    Dim groupCode As Variant, dataCode As Variant
+    groupCode = gpCode
+    dataCode = dataValue
+    
+    ssetObj.Select mode, corner1, corner2, groupCode, dataCode
+    
+End Sub

@@ -1,0 +1,32 @@
+Sub Example_AltTabletMenuFile()
+    ' This example returns the current setting of
+    ' AltTabletMenuFile. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currAltTabletMenuFile As String
+    Dim newAltTabletMenuFile As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current AltTabletMenuFile value
+    currAltTabletMenuFile = preferences.Files.AltTabletMenuFile
+    If currAltTabletMenuFile = "" Then
+        MsgBox "AltTabletMenuFile is not currently set.", vbInformation, "AltTabletMenuFile Example"
+    Else
+        MsgBox "The current value for AltTabletMenuFile is " & currAltTabletMenuFile, vbInformation, "AltTabletMenuFile Example"
+    End If
+    
+    ' Change the value for AltTabletMenuFile
+    newAltTabletMenuFile = "d:\acad\support\acad"
+    preferences.Files.AltTabletMenuFile = newAltTabletMenuFile
+    MsgBox "The new value for AltTabletMenuFile is " & newAltTabletMenuFile, vbInformation, "AltTabletMenuFile Example"
+    
+    ' Reset AltTabletMenuFile to its original value
+    preferences.Files.AltTabletMenuFile = currAltTabletMenuFile
+    If currAltTabletMenuFile = "" Then
+        MsgBox "AltTabletMenuFile is reset to Null.", vbInformation, "AltTabletMenuFile Example"
+    Else
+        MsgBox "The AltTabletMenuFile value is reset to " & currAltTabletMenuFile, vbInformation, "AltTabletMenuFile Example"
+    End If
+ End Sub

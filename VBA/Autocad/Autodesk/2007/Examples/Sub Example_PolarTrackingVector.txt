@@ -1,0 +1,28 @@
+Sub Example_PolarTrackingVector()
+    ' This example reads and modifies the preference value that controls
+    ' the display of polar tracking vectors.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesDrafting
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the drafting preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Drafting
+    
+    ' Read and display the original value
+    originalValue = ACADPref.PolarTrackingVector
+    MsgBox "The PolarTrackingVector preference is set to: " & originalValue
+
+    ' Modify the PolarTrackingVector preference by toggling the value
+    ACADPref.PolarTrackingVector = Not (originalValue)
+    newValue = ACADPref.PolarTrackingVector
+    MsgBox "The PolarTrackingVector preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.PolarTrackingVector = originalValue
+    MsgBox "The PolarTrackingVector preference was reset back to: " & originalValue
+End Sub

@@ -1,0 +1,7 @@
+Public Sub BorrarSelectionSets()
+On Error Resume Next
+Dim ssetObj As AcadSelectionSet
+For Each ssetObj In AutoCAD.Application.ActiveDocument.SelectionSets
+ssetObj.Delete
+Next
+End Sub

@@ -1,0 +1,30 @@
+Sub Example_DefaultPlotStyleTable()
+    ' This example reads and modifies the preference value that
+    ' specifies the default plot style table to attach to new drawings.
+    '
+    ' Note: You may want to change the path of the new plot style table below.
+    
+    Dim ACADPref As AcadPreferencesOutput
+    Dim CurrentFile As String
+    
+    Const NewFile = "c:\monochrome.ctb"
+    
+    ' Get the drafting preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Output
+    
+    ' Read and display the current plot style table path
+    CurrentFile = ACADPref.DefaultPlotStyleTable
+    If CurrentFile = "" Then
+        MsgBox "There is no current plot style table being used", vbInformation
+    Else
+        MsgBox "The current plot style table is: " & CurrentFile
+    End If
+
+    ' Use a new plot style table
+    ACADPref.DefaultPlotStyleTable = NewFile
+    
+    ' Read and display the new plot style table path
+    CurrentFile = ACADPref.DefaultPlotStyleTable
+    MsgBox "The new plot style table is: " & CurrentFile, vbInformation
+
+End Sub

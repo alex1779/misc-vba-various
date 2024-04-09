@@ -1,0 +1,5 @@
+Sub Example_ActiveSelectionSet()
+    Dim sset As AcadSelectionSet
+    ' The following example returns current selection set from current drawing
+    Set sset = ThisDrawing.ActiveSelectionSet
+End Sub

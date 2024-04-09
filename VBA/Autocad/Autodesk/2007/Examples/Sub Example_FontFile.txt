@@ -1,0 +1,24 @@
+Sub Example_FontFile()
+    ' This example returns the current setting of
+    ' the FontFile property. It then changes the value, and
+    ' finally resets the value back to the original setting.
+    
+    Dim textStyle1 As AcadTextStyle
+    Dim currFontFile As String
+    Dim newFontFile As String
+    
+    Set textStyle1 = ThisDrawing.ActiveTextStyle
+    
+    ' Retrieve the current FontFile value
+    currFontFile = textStyle1.fontFile
+    MsgBox "The current value for FontFile is " & currFontFile, vbInformation, "FontFile Example"
+    
+    ' Change the value for FontFile
+    newFontFile = "C:/AutoCAD/Fonts/italic.shx"
+    textStyle1.fontFile = newFontFile
+    MsgBox "The new value for FontFile is " & textStyle1.fontFile, vbInformation, "FontFile Example"
+        
+    ' Reset font file
+    textStyle1.fontFile = currFontFile
+    MsgBox "The value for FontFile has been reset to " & textStyle1.fontFile, vbInformation, "FontFile Example"
+End Sub

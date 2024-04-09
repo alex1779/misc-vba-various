@@ -1,0 +1,34 @@
+Sub Example_LayoutDisplayMargins()
+    ' This example reads and modifies the preference value that controls
+    ' the display of margins in layouts. When finished, this example
+    ' resets the preference value back to its original value.
+    
+    Dim ACADPref As AcadPreferencesDisplay
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the display preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.DISPLAY
+    
+    ' Switch to paper space to view this change
+    ThisDrawing.ActiveSpace = acPaperSpace
+    
+    ' Read and display the original value
+    originalValue = ACADPref.LayoutDisplayMargins
+    MsgBox "The LayoutDisplayMargins preference is set to: " & originalValue
+
+    ' Modify the LayoutDisplayMargins preference by toggling the value
+    ACADPref.LayoutDisplayMargins = Not (originalValue)
+    newValue = ACADPref.LayoutDisplayMargins
+    ThisDrawing.Regen acAllViewports
+    
+    MsgBox "The LayoutDisplayMargins preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.LayoutDisplayMargins = originalValue
+    ThisDrawing.Regen acAllViewports
+    
+    MsgBox "The LayoutDisplayMargins preference was reset back to: " & originalValue
+End Sub

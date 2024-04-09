@@ -1,0 +1,11 @@
+Sub Example_Close()
+    Dim DOC As AcadDocument
+    ' If there are no open documents, then exit
+    If Documents.Count = 0 Then
+        MsgBox "There are no open documents!"
+        Exit Sub
+    End If
+    For Each DOC In Documents    ' Close all open documents
+    DOC.Close
+    Next
+End Sub

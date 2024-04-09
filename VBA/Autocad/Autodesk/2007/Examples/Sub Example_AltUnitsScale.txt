@@ -1,0 +1,36 @@
+Sub Example_AltUnitsScale()
+   ' This example creates an aligned dimension in model space and
+   ' uses AltUnitsScale to cycle through some common scales
+   ' for the alternate dimension
+
+    Dim dimObj As AcadDimAligned
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    
+    ' Define the dimension
+    point1(0) = 0: point1(1) = 5: point1(2) = 0
+    point2(0) = 5: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    ThisDrawing.Application.ZoomAll
+    
+    ' Enable display of alternate units
+    dimObj.AltUnits = True
+      
+    ' Cycle through some common dimension scales
+    
+    dimObj.AltUnitsScale = 1         ' Change scale to Inches
+    ThisDrawing.Regen acAllViewports
+    MsgBox "The alternate dimension units are now set to inches"
+    
+    dimObj.AltUnitsScale = 25.4     ' Change scale to Millimeters (default)
+    ThisDrawing.Regen acAllViewports
+    MsgBox "The alternate dimension units are now set to millimeters"
+    
+    dimObj.AltUnitsScale = 2.54      ' Change scale to Centimeters
+    ThisDrawing.Regen acAllViewports
+    MsgBox "The alternate dimension units are now set to centimeters"
+
+End Sub

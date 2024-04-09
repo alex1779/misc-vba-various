@@ -1,0 +1,18 @@
+Sub Example_AddText()
+    ' This example creates a text object in model space.
+
+    Dim textObj As AcadText
+    Dim textString As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim height As Double
+    
+    ' Define the text object
+    textString = "Hello, World."
+    insertionPoint(0) = 2: insertionPoint(1) = 2: insertionPoint(2) = 0
+    height = 0.5
+    
+    ' Create the text object in model space
+    Set textObj = ThisDrawing.ModelSpace.AddText(textString, insertionPoint, height)
+    ZoomAll
+    
+End Sub

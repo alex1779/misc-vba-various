@@ -1,0 +1,30 @@
+Sub Example_GetBulge()
+    ' This example creates a lightweight polyline in model space.
+    ' It then finds and changes the bulge for a given segment.
+    
+    Dim plineObj As AcadLWPolyline
+    Dim points(0 To 11) As Double
+    
+    ' Define the 2D polyline points
+    points(0) = 1: points(1) = 1
+    points(2) = 1: points(3) = 2
+    points(4) = 2: points(5) = 2
+    points(6) = 3: points(7) = 2
+    points(8) = 4: points(9) = 4
+    points(10) = 4: points(11) = 1
+        
+    ' Create a lightweight Polyline object in model space
+    Set plineObj = ThisDrawing.ModelSpace.AddLightWeightPolyline(points)
+    ZoomAll
+    
+    ' Find the bulge of the third segment
+    Dim currentBulge As Double
+    currentBulge = plineObj.GetBulge(3)
+    MsgBox "The bulge for the third segment is " & plineObj.GetBulge(3), , "GetBulge Example"
+    
+    ' Change the bulge of the third segment
+    plineObj.SetBulge 3, -0.5
+    plineObj.Update
+    MsgBox "The bulge for the third segment is now " & plineObj.GetBulge(3), , "GetBulge Example"
+    
+End Sub

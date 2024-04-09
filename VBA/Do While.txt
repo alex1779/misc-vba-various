@@ -1,0 +1,11 @@
+    Dim i as Integer
+    i = 1
+    Do While i <= TextBox1.Value
+        
+    
+    
+    
+    
+    
+    i = i + 1
+    Loop

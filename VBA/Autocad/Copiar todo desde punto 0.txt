@@ -1,0 +1,2 @@
+    'Comando Copiar todo desde el punto 0
+    AutoCAD.Application.ActiveDocument.SendCommand "_ai_selall" & vbCr & "_copybase" & vbCr & "0,0,0" & vbCr

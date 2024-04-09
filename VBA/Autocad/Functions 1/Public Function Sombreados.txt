@@ -1,0 +1,35 @@
+Public Enum Sombras
+wireframe2d
+Wireframe
+Hidden
+Realistic
+Conceptual
+shaded
+shaded_with_Edges
+shades_of_Gray
+SKetchy
+X_ray
+End Enum
+Public Function Sombreado(sombra As Sombras)
+Select Case sombra
+Case Sombras.wireframe2d
+view = "2"
+Case Sombras.Wireframe
+view = "W"
+Case Sombras.Hidden
+view = "H"
+Case Sombras.Realistic
+view = "_R"
+Case Sombras.Conceptual
+view = "_C"
+Case Sombras.shaded_with_Edges
+view = "S"
+Case Sombras.shades_of_Gray
+view = "G"
+Case Sombras.SKetchy
+view = "SK"
+Case Sombras.X_ray
+view = "X"
+End Select
+AutoCAD.Application.ActiveDocument.SendCommand "shademode" & vbCr & view & vbCr
+End Function

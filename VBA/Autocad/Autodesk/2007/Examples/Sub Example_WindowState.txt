@@ -1,0 +1,15 @@
+Sub Example_WindowState()
+    ' This example reads and displays the current window state of the AutoCAD application.
+
+    Dim CurrentState As String
+    
+    ' Use the "WindowState" variable to determine the window state of AutoCAD
+    Select Case WindowState
+        Case acMin: CurrentState = "Minimized"
+        Case acMax: CurrentState = "Maximized"
+        Case acNorm: CurrentState = "Normal Size"
+    End Select
+
+    ' Display window state
+    MsgBox "AutoCAD is now: " & CurrentState
+End Sub

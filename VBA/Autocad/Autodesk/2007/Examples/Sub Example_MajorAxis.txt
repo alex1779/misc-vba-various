@@ -1,0 +1,27 @@
+Sub Example_MajorAxis()
+    ' This example creates an ellipse and finds the major axis
+    ' for that ellipse. It then changes the major axis for the ellipse.
+    Dim ellObj As AcadEllipse
+    Dim majAxis(0 To 2) As Double
+    Dim center(0 To 2) As Double
+    Dim radRatio As Double
+    
+    ' Create an ellipse in model space
+    center(0) = 5#: center(1) = 5#: center(2) = 0#
+    majAxis(0) = 10: majAxis(1) = 20#: majAxis(2) = 0#
+    radRatio = 0.3
+    Set ellObj = ThisDrawing.ModelSpace.AddEllipse(center, majAxis, radRatio)
+    ellObj.Update
+    MsgBox "The ellipse has a major axis of " & majAxis(0) & ", " & majAxis(1) & ", " & majAxis(2), vbInformation, "MajorAxis Example"
+
+    
+    ' Change the major axis of the ellipse
+    majAxis(0) = 5: majAxis(1) = 5: majAxis(2) = 0
+    ellObj.MajorAxis = majAxis
+    ellObj.Update
+    
+    ' Query the major axis of an Ellipse
+    Dim retMajAxis As Variant
+    retMajAxis = ellObj.MajorAxis
+    MsgBox "The ellipse has been udpated with the major axis " & retMajAxis(0) & ", " & retMajAxis(1) & ", " & retMajAxis(2), vbInformation, "MajorAxis Example"
+End Sub

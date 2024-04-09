@@ -1,0 +1,12 @@
+Sub Example_GetVariable()
+    ' This example finds the current setting of the
+    ' system variable FILLMODE.
+    
+    Dim sysVarName As String
+    Dim varData As Variant
+    
+    sysVarName = "FILLMODE"
+    varData = ThisDrawing.GetVariable(sysVarName)
+    MsgBox sysVarName & " = " & varData, , "GetVariable Example"
+    
+End Sub

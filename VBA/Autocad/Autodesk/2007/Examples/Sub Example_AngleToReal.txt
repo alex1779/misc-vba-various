@@ -1,0 +1,27 @@
+Sub Example_AngleToReal()
+    ' This example passes several different strings representing
+    ' an angle in different units to be converted to radians.
+    
+    Dim angAsStr As String
+    Dim unit As Integer
+    Dim angAsReal As Double
+    
+    ' Convert the angle given in degrees unit to a real
+    angAsStr = "45"
+    unit = acDegrees
+    angAsReal = ThisDrawing.Utility.AngleToReal(angAsStr, unit)
+    MsgBox "45 degrees converts to " & angAsReal & " radians.", , "AngleAsReal Example"
+    
+    ' Convert the angle given in degrees/minutes/seconds unit to Radians
+    angAsStr = "45d0' 0"""
+    unit = acDegreeMinuteSeconds
+    angAsReal = ThisDrawing.Utility.AngleToReal(angAsStr, unit)
+    MsgBox "45 degrees, 0 minutes, 0 seconds converts to " & angAsReal & " radians.", , "AngleAsReal Example"
+    
+    ' Convert the angle given in grads unit to Radians
+    angAsStr = "50"
+    unit = acGrads
+    angAsReal = ThisDrawing.Utility.AngleToReal(angAsStr, unit)
+    MsgBox "50 grads converts to " & angAsReal & " radians.", , "AngleAsReal Example"
+    
+End Sub

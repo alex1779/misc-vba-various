@@ -1,0 +1,18 @@
+Sub Example_Description()
+    ' This example returns the description of the active linetype.
+    ' It then changes the description of the active linetype.
+    
+    Dim currDescription As String
+    
+    ' This example modifies the description of a linetype
+    currDescription = ThisDrawing.ActiveLinetype.Description
+    MsgBox "The description of the active LineType is: " & currDescription, vbInformation, "Description Example"
+
+    ' Change the description of the active linetype
+    ThisDrawing.ActiveLinetype.Description = "My favorite LineType"
+    MsgBox "The new description of the active LineType is: " & ThisDrawing.ActiveLinetype.Description, vbInformation, "Description Example"
+    
+    ' Reset the description of the active linetype
+    ThisDrawing.ActiveLinetype.Description = currDescription
+    MsgBox "The description of the active LineType is reset to: " & ThisDrawing.ActiveLinetype.Description, vbInformation, "Description Example"
+End Sub

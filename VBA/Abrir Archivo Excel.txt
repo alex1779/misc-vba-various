@@ -1,0 +1,7 @@
+    'Abriendo Archivo Template
+    Workbooks.Open ("C:\Users\ENGCAD_NOTEBOOK\......")
+    NombreArchivo = "nombre"
+    MyFile = Application.GetSaveAsFilename(NombreArchivo)
+    ActiveWorkbook.SaveAs (MyFile)
+    ActiveWorkbook.Close
+    'Windows("Inicio.xlsm").WindowState = xlMinimized

@@ -1,0 +1,30 @@
+Sub Example_AddSeparator()
+    ' This example creates a new menu called TestMenu and inserts a menu item
+    ' and a separator into it. The menu is then displayed on the menu bar.
+    ' To remove the menu after execution of this macro, use the Customize Menu
+    ' option from the Tools menu.
+    
+    Dim currMenuGroup As acadMenuGroup
+    Set currMenuGroup = ThisDrawing.Application.MenuGroups.Item(0)
+    
+    ' Create the new menu
+    Dim newMenu As AcadPopupMenu
+    Set newMenu = currMenuGroup.Menus.Add("TestMenu")
+    
+    ' Add a menu item to the new menu
+    Dim newMenuItem As AcadPopupMenuItem
+    Dim openMacro As String
+    
+    ' Assign the macro string the VB equivalent of "ESC ESC _open "
+    openMacro = Chr(3) & Chr(3) & Chr(95) & "open" & Chr(32)
+    
+    Set newMenuItem = newMenu.AddMenuItem(newMenu.count + 1, "Open", openMacro)
+    
+    ' Add a separator to the end of the menu
+    Dim newMenuSeparator As AcadPopupMenuItem
+    Set newMenuSeparator = newMenu.AddSeparator("")
+    
+    ' Display the menu on the menu bar
+    newMenu.InsertInMenuBar (ThisDrawing.Application.MenuBar.count + 1)
+    
+End Sub

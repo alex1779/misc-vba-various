@@ -1,0 +1,33 @@
+Sub Example_Copy()
+    ' This example creates a circle and then copies
+    ' that circle. The new circle is then moved.
+    
+    ' Create the circle
+    Dim circleObj As AcadCircle
+    Dim center(0 To 2) As Double
+    Dim radius As Double
+    center(0) = 2#: center(1) = 2#: center(2) = 0#
+    radius = 0.5
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(center, radius)
+    ZoomAll
+    MsgBox "Copy the circle.", , "Copy Example"
+    
+    ' Copy the circle
+    Dim copyCircleObj As AcadCircle
+    Set copyCircleObj = circleObj.Copy
+    
+    ' Define the points that make up the move vector
+    Dim point1(0 To 2) As Double
+    Dim point2(0 To 2) As Double
+    point1(0) = 0: point1(1) = 0: point1(2) = 0
+    point2(0) = 2: point2(1) = 0: point2(2) = 0
+        
+    MsgBox "Move the copied circle 2 units in the X direction.", , "Copy Example"
+    
+    ' Move the circle and color it
+    copyCircleObj.Move point1, point2
+    
+    ZoomAll
+    MsgBox "Move completed.", , "Copy Example"
+    
+End Sub

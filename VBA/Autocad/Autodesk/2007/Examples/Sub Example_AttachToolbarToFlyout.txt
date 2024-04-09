@@ -1,0 +1,37 @@
+Sub Example_AttachToolbarToFlyout()
+    ' This example uses MenuGroups to obtain a reference to the AutoCAD main menu.
+    ' It then creates a new Toolbar(TestMenu) with a Toolbar button that will act
+    ' as a flyout.  It then sets the Flyout menu to an existing Toolbar menu.
+    ' The Toolbar will automatically be displayed and will display the UCS menu
+    ' as a flyout.
+        
+    Dim currMenuGroup As acadMenuGroup
+    Dim newToolBar As AcadToolbar, newToolBarFlyoutButton As AcadToolbarItem
+    
+    On Error GoTo ERRORTRAP
+    
+    ' Use MenuGroups property to obtain reference to main AutoCAD menu
+    Set currMenuGroup = ThisDrawing.Application.MenuGroups.Item("ACAD")
+    
+    ' Create a new Toolbar in this group
+    Set newToolBar = currMenuGroup.Toolbars.Add("TestMenu")
+    
+    ' Add new button to TestMenu that will link to the Flyout menu
+    '
+    ' * NOTE: Set the macro name to the name of the flyout toolbar because
+    ' setting it to an empty string causes an error.  The paremeter
+    ' is actually ignored when the style is flyout, but must have any value other than "".
+    Set newToolBarFlyoutButton = newToolBar.AddToolbarButton(newToolBar.count + 1, "Flyout", "Flyout", "UCS", True)
+    
+    ' Link the existing toolbar "UCS" as the flyout for the new toolbar button
+    '
+    ' * NOTE: To change the flyout, simply change the MenuGroup and Toolbar name below
+    newToolBarFlyoutButton.AttachToolbarToFlyout "ACAD", "UCS"
+   
+    MsgBox "A new Toolbar with a flyout has been added to the AutoCAD menu system!"
+    
+    Exit Sub
+
+ERRORTRAP:
+    MsgBox "The following error has occurred: " & Err.Description
+End Sub

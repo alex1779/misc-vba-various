@@ -1,0 +1,8 @@
+Sub Example_Version()
+    ' This example returns AutoCAD version as a string
+    
+    Dim version As String
+    version = ThisDrawing.Application.version
+    MsgBox "This is AutoCAD Version " & version, , "Version Example"
+    
+End Sub

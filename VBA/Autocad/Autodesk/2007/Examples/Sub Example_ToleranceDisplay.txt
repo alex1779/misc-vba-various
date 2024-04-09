@@ -1,0 +1,39 @@
+Sub Example_ToleranceDisplay()
+   ' This example creates an aligned dimension in model space and
+   ' turns on the tolerance display for the new dimension
+
+    Dim dimObj As AcadDimAligned
+    Dim newText As AcadTextStyle
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim CurrentDisplay As String
+    
+    ' Define the dimension
+    point1(0) = 5: point1(1) = 5: point1(2) = 0
+    point2(0) = 5.5: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    
+    ThisDrawing.Application.ZoomAll
+    
+    ' Read and display the current tolerance display for this dimension
+    CurrentDisplay = IIf(dimObj.ToleranceDisplay = acTolNone, "Hidden", "Visible")
+    MsgBox "The tolerance display is currently: " & CurrentDisplay
+    
+    ' Toggle the tolerance display for this dimension
+    If dimObj.ToleranceDisplay = acTolNone Then
+        dimObj.ToleranceDisplay = acTolSymmetrical
+        CurrentDisplay = "Symmetrical"
+    Else
+        dimObj.ToleranceDisplay = acTolNone
+        CurrentDisplay = "None"
+    End If
+    
+    ThisDrawing.Regen acAllViewports
+    
+    ' Display the current tolerance display for this dimension
+    MsgBox "The tolerance display is now set to: " & CurrentDisplay
+
+End Sub

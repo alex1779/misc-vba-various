@@ -1,0 +1,54 @@
+Sub Example_SetCustomScale()
+    ' This example will access the Layouts collection for the current drawing
+    ' and list basic information about the custom scale for each Layout.
+    ' It will then change the custom scale information for model space and re-display
+    ' the scale information.
+
+    Dim Layouts As AcadLayouts, Layout As ACADLayout
+    Dim msg As String
+    Dim Numerator As Double, Denominator As Double
+    Dim Measurement As String
+    
+    ' Display current scale information
+    GoSub DISPLAY_SCALE_INFO
+    
+    ' Modify scale
+    Numerator = 1
+    Denominator = 1
+    
+    ThisDrawing.Layouts("Model").SetCustomScale Numerator, Denominator
+    ThisDrawing.Regen acAllViewports
+            
+    ' Display new scale information
+    GoSub DISPLAY_SCALE_INFO
+        
+    Exit Sub
+    
+DISPLAY_SCALE_INFO:
+    ' Get layouts collection from document object
+    Set Layouts = ThisDrawing.Layouts
+    
+    msg = vbCrLf & vbCrLf   ' Start with a space
+    
+    ' Get the scale information of every layout in this drawing
+    For Each Layout In Layouts
+        msg = msg & Layout.name & vbCrLf
+        
+        ' Get scale information
+        Layout.GetCustomScale Numerator, Denominator
+        
+        ' Identify whether inches or millimeters are being used.
+        Measurement = IIf(Layout.PaperUnits = acInches, " inch(es)", " millimeter(s)")
+        
+        ' Format for display
+        msg = msg & vbTab & "Contains " & Numerator & Measurement & vbCrLf
+        msg = msg & vbTab & "Contains " & Denominator & " drawing units" & vbCrLf
+        msg = msg & "_____________________" & vbCrLf
+        
+    Next
+    
+    ' Display custom scale information
+    MsgBox "Custom scale information for the current drawing is: " & msg
+    
+    Return
+End Sub

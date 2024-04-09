@@ -1,0 +1,12 @@
+Sub Example_CanonicalMediaName()
+    ' This example finds the name of the media for the active layout
+    
+    Dim MediaName As String
+    MediaName = ThisDrawing.ActiveLayout.CanonicalMediaName
+    
+    If MediaName = "" Then
+        MsgBox "There is no media set for the active layout."
+    Else
+        MsgBox "The media for the active layout is: " & MediaName
+    End If
+End Sub

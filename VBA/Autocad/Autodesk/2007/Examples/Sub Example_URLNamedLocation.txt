@@ -1,0 +1,40 @@
+Sub Example_URLNamedLocation()
+    ' This example creates a Circle object in model space and
+    ' adds a new Hyperlink to its Hyperlink collection
+    
+    Dim Hyperlinks As AcadHyperlinks
+    Dim Hyperlink As AcadHyperlink
+    Dim circleObj As AcadCircle
+    Dim centerPoint(0 To 2) As Double
+    Dim radius As Double
+    Dim HLList As String
+    
+    ' Define the Circle object
+    centerPoint(0) = 0: centerPoint(1) = 0: centerPoint(2) = 0
+    radius = 5#
+    
+    ' Create the Circle object in model space
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(centerPoint, radius)
+
+    ThisDrawing.Application.ZoomAll
+    
+    ' Get reference to the Circle's Hyperlinks collection
+    Set Hyperlinks = circleObj.Hyperlinks
+    
+    ' Add a new Hyperlink complete with all properties
+    Set Hyperlink = Hyperlinks.Add("AutoDesk")
+    Hyperlink.URL = "www.autodesk.com"
+    Hyperlink.URLDescription = "Autodesk Main Site"
+    Hyperlink.URLNamedLocation = "MY_LOCATION"
+    
+    ' Read and display a list of existing Hyperlinks and
+    ' their properties for this object
+    For Each Hyperlink In Hyperlinks
+        HLList = HLList & "____________________________________" & vbCrLf   ' Separator
+        HLList = HLList & "URL: " & Hyperlink.URL & vbCrLf
+        HLList = HLList & "URL Description: " & Hyperlink.URLDescription & vbCrLf
+        HLList = HLList & "URL Named Location: " & Hyperlink.URLNamedLocation & vbCrLf
+    Next
+    
+    MsgBox "The circle has " & Hyperlinks.count & " Hyperlink: " & vbCrLf & HLList
+End Sub

@@ -1,0 +1,1 @@
+    Application.speech.Speak " significa " & Respuesta, True, , True

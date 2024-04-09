@@ -1,0 +1,5 @@
+    Function Hipotenusa(cateto1, cateto2)
+    
+        Hipotenusa = (cateto1 * cateto1 + cateto2 * cateto2) ^ (1 / 2)
+        
+    End Function

@@ -1,0 +1,28 @@
+Sub Example_LayoutShowPlotSetup()
+    ' This example reads and modifies the preference value that controls
+    ' the display of the Plot Setup dialog when a new layout is created.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesDisplay
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the display preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.DISPLAY
+    
+    ' Read and display the original value
+    originalValue = ACADPref.LayoutShowPlotSetup
+    MsgBox "The LayoutShowPlotSetup preference is set to: " & originalValue
+
+    ' Modify the LayoutShowPlotSetup preference by toggling the value
+    ACADPref.LayoutShowPlotSetup = Not (originalValue)
+    newValue = ACADPref.LayoutShowPlotSetup
+    MsgBox "The LayoutShowPlotSetup preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.LayoutShowPlotSetup = originalValue
+    MsgBox "The LayoutShowPlotSetup preference was reset back to: " & originalValue
+End Sub

@@ -1,0 +1,7 @@
+Public Function BorrarTodo()    'Selecciona Todo y Borra
+    entidades = AutoCAD.Application.ActiveDocument.ModelSpace.Count
+    If entidades > 0 Then
+        AutoCAD.Application.ActiveDocument.SendCommand "_ai_selall" & vbCr & "_.erase" & vbCr
+    Else:
+    End If
+End Function

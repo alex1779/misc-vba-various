@@ -1,0 +1,45 @@
+
+
+Sub Example_AddRevolvedSolid()
+    ' This example creates a solid from a region
+    ' rotated around an axis.
+    ' The region is created from an arc and a line.
+    Dim curves(0 To 1) As AcadEntity
+
+    ' Define the arc
+    Dim centerPoint(0 To 2) As Double
+    Dim radius As Double
+    Dim startAngle As Double
+    Dim endAngle As Double
+    centerPoint(0) = 5#: centerPoint(1) = 3#: centerPoint(2) = 0#
+    radius = 2#
+    startAngle = 0
+    endAngle = 3.141592
+    Set curves(0) = AutoCAD.Application.ActiveDocument.ModelSpace.AddArc(centerPoint, radius, startAngle, endAngle)
+    
+    ' Define the line
+    Set curves(1) = AutoCAD.Application.ActiveDocument.ModelSpace.AddLine(curves(0).StartPoint, curves(0).EndPoint)
+        
+    ' Create the region
+    Dim regionObj As Variant
+    regionObj = AutoCAD.Application.ActiveDocument.ModelSpace.AddRegion(curves)
+    ZoomAll
+    MsgBox "Revolve the region to create the solid.", , "AddRevolvedSolid Example"
+    
+    ' Define the rotation axis
+    Dim axisPt(0 To 2) As Double
+    Dim axisDir(0 To 2) As Double
+    Dim angle As Double
+    axisPt(0) = 7: axisPt(1) = 2.5: axisPt(2) = 0
+    axisDir(0) = 11: axisDir(1) = 1: axisDir(2) = 3
+    angle = 6.28
+        
+    ' Create the solid
+    Dim solidObj As Acad3DSolid
+    Set solidObj = AutoCAD.Application.ActiveDocument.ModelSpace.AddRevolvedSolid(regionObj(0), axisPt, axisDir, angle)
+    ZoomAll
+    
+
+
+End Sub
+

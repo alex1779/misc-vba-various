@@ -1,0 +1,25 @@
+Sub Example_PaperUnits()
+    ' This example will access the Layouts collection for the current drawing
+    ' and list basic information about the paper units used for each Layout.
+
+    Dim Layouts As AcadLayouts, Layout As ACADLayout
+    Dim msg As String
+    Dim Measurement As String
+    
+    ' Get layouts collection from document object
+    Set Layouts = ThisDrawing.Layouts
+    
+    msg = vbCrLf & vbCrLf   ' Start with a space
+    
+    ' Get the paper units information of every layout in this drawing
+    For Each Layout In Layouts
+        ' Using inches or millimeters?
+        Measurement = IIf(Layout.PaperUnits = acInches, " inches", " millimeters")
+        
+        ' Format for display
+        msg = msg & Layout.name & " is using" & Measurement & vbCrLf
+    Next
+    
+    ' Display paper units information
+    MsgBox "The paper units used in the current drawing are: " & msg
+End Sub

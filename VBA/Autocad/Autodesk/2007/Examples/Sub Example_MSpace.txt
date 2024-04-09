@@ -1,0 +1,33 @@
+Sub Example_MSpace()
+    ' This example creates a new paper space viewport.
+    ' It then toggles the ability to edit in model space using
+    ' the MSpace property.
+    
+    Dim pviewportObj As AcadPViewport
+    Dim center(0 To 2) As Double
+    Dim width As Double
+    Dim height As Double
+    
+    ' Define the paper space viewport
+    center(0) = 3: center(1) = 3: center(2) = 0
+    width = 40
+    height = 40
+    
+    ' Change from model space to paperspace
+    ThisDrawing.ActiveSpace = acPaperSpace
+
+    ' Create the paper space viewport
+    Set pviewportObj = ThisDrawing.PaperSpace.AddPViewport(center, width, height)
+    pviewportObj.DISPLAY True
+    ThisDrawing.mspace = True
+    ThisDrawing.ActivePViewport = pviewportObj
+    ThisDrawing.Regen acAllViewports
+    
+    ' Find the current MSpace value
+    MsgBox "The ability to edit model space from this PViewport is " & IIf(ThisDrawing.mspace, "on.", "off."), , "MSpace Example"
+    
+    ' Toggle the setting of MSpace
+    ThisDrawing.mspace = False
+    MsgBox "The ability to edit model space from this PViewport is now " & IIf(ThisDrawing.mspace, "on.", "off."), , "MSpace Example"
+
+End Sub

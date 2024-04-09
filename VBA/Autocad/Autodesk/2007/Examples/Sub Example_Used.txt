@@ -1,0 +1,12 @@
+Sub Example_Used()
+    ' This example provides usage information for the layers
+    ' in a drawing
+    Dim MyLayers As IAcadLayers2
+    Set MyLayers = ThisDrawing.Layers
+    MyLayers.GenerateUsageData
+    Dim MyLayerObj As IAcadLayer2
+    For Each MyLayerObj In ThisDrawing.Layers
+      MyLayerObj.Description = "Test"
+      MsgBox (MyLayerObj.Used)
+    Next MyLayerObj
+End Sub

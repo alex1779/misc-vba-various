@@ -1,0 +1,13 @@
+Sub Example_AddPoint()
+    ' This example creates a point in model space.
+    Dim pointObj As AcadPoint
+    Dim location(0 To 2) As Double
+    
+    ' Define the location of the point
+    location(0) = 5#: location(1) = 5#: location(2) = 0#
+    
+    ' Create the point
+    Set pointObj = ThisDrawing.ModelSpace.AddPoint(location)
+    ZoomAll
+    
+End Sub

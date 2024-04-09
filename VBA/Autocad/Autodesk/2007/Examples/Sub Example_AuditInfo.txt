@@ -1,0 +1,9 @@
+Sub Example_AuditInfo()
+    ' This example has AutoCAD audit
+    ' and fix any problems found
+    
+    ThisDrawing.AuditInfo True
+    
+    MsgBox "Auditing has been requested." & vbCrLf & _
+           "The fix error flag is set to " & fixErrs, , "AuditInfo Example"
+End Sub

@@ -1,0 +1,5 @@
+Public Function ChangeTextStyle(StyleObj As Variant)
+Dim TextStyle1 As AcadTextStyle
+Set TextStyle1 = AutoCAD.Application.ActiveDocument.TextStyles.Item(StyleObj)
+AutoCAD.Application.ActiveDocument.ActiveTextStyle = TextStyle1
+End Function

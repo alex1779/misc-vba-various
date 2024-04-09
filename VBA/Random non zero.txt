@@ -1,0 +1,3 @@
+
+    Dim random As Integer
+    Max = 100: Random = 0: Do While Random = 0: Random = Max * Rnd: Loop 'Non Zero

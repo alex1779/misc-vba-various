@@ -1,0 +1,27 @@
+Sub Example_BackgroundFill()
+   ' This example creates a circle and an MText object, and masks part of the 
+   ' circle with the MText object
+
+    'Draw a circle
+    Dim circleObj As AcadCircle
+    Dim CircleReference(0 To 2) As Double
+    Dim radius As Double
+    CircleReference(0) = 0
+    CircleReference(1) = 0
+    CircleReference(2) = 0
+    radius = 5
+    Set circleObj = ThisDrawing.ModelSpace.AddCircle(CircleReference, radius)
+    ZoomAll
+    MsgBox ("A circle has been drawn.")
+    
+    'Create an MText object with the BackgroundFill property set to True
+    Dim MTextObj As AcadMText
+    Dim width As Double
+    Dim text As String
+    width = 10
+    text = "This is the text for the MText object"
+    Set MTextObj = ThisDrawing.ModelSpace.AddMText(CircleReference, width, text)
+    MTextObj.BackgroundFill = True
+    ZoomAll
+    
+End Sub

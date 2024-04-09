@@ -1,0 +1,6 @@
+Sub Example_PurgeAll()
+    ' This example removes all unused named references from the database
+    
+    ThisDrawing.PurgeAll
+    
+End Sub

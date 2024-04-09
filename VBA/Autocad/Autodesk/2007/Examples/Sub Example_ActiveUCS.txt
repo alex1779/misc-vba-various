@@ -1,0 +1,40 @@
+Sub Example_ActiveUCS()
+    ' This example returns the current saved UCS (or saves a new one dynamically)
+    ' and then sets a new UCS.
+    ' Finally, it returns the UCS to the previous setting.
+    
+    Dim newUCS As AcadUCS
+    Dim currUCS As AcadUCS
+    Dim origin(0 To 2) As Double
+    Dim xAxis(0 To 2) As Double
+    Dim yAxis(0 To 2) As Double
+    
+    ' Get the current saved UCS of the active document. If the current UCS is
+    ' not saved, then add a new UCS to the UserCoordinateSystems collection
+    If ThisDrawing.GetVariable("UCSNAME") = "" Then
+        ' Current UCS is not saved so get the data and save it
+        With ThisDrawing
+            Set currUCS = .UserCoordinateSystems.Add( _
+                            .GetVariable("UCSORG"), _
+                            .Utility.TranslateCoordinates(.GetVariable("UCSXDIR"), acUCS, acWorld, 0), _
+                            .Utility.TranslateCoordinates(.GetVariable("UCSYDIR"), acUCS, acWorld, 0), _
+                            "OriginalUCS")
+        End With
+    Else
+        Set currUCS = ThisDrawing.ActiveUCS  'current UCS is saved
+    End If
+    
+    MsgBox "The current UCS is " & currUCS.name, vbInformation, "ActiveUCS Example"
+    
+    ' Create a UCS and make it current
+    origin(0) = 0: origin(1) = 0: origin(2) = 0
+    xAxis(0) = 1: xAxis(1) = 1: xAxis(2) = 0
+    yAxis(0) = -1: yAxis(1) = 1: yAxis(2) = 0
+    Set newUCS = ThisDrawing.UserCoordinateSystems.Add(origin, xAxis, yAxis, "TestUCS")
+    ThisDrawing.ActiveUCS = newUCS
+    MsgBox "The new UCS is " & newUCS.name, vbInformation, "ActiveUCS Example"
+    
+    ' Reset the UCS to its previous setting
+    ThisDrawing.ActiveUCS = currUCS
+    MsgBox "The UCS is reset to " & currUCS.name, vbInformation, "ActiveUCS Example"
+End Sub

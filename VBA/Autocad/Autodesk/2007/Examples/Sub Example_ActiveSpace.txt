@@ -1,0 +1,14 @@
+Sub Example_ActiveSpace()
+    ' This example toggles the ActiveSpace property from
+    ' paper space to model space.
+    ' Display the current setting for TILEMODE
+    MsgBox "TILEMODE = " & ThisDrawing.ActiveSpace, vbInformation, "ActiveSpace Example"
+     
+    ' Changes active document to paper space
+    ThisDrawing.ActiveSpace = acPaperSpace
+    MsgBox "TILEMODE = " & ThisDrawing.ActiveSpace, vbInformation, "ActiveSpace Example"
+   
+    ' Changes active document to model space
+    ThisDrawing.ActiveSpace = acModelSpace
+    MsgBox "TILEMODE = " & ThisDrawing.ActiveSpace, vbInformation, "ActiveSpace Example"
+End Sub

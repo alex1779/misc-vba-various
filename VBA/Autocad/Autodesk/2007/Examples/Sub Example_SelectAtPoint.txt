@@ -1,0 +1,27 @@
+Sub Example_SelectAtPoint()
+    ' This example adds objects to a selection set by identifying a point.
+    ' At first all objects at the point are added to the selection set. Then
+    ' only circle objects at the point are added to the selection set.
+    
+    ' Create the selection set
+    Dim ssetObj As AcadSelectionSet
+    Set ssetObj = ThisDrawing.SelectionSets.Add("TEST_SSET1")
+   
+    ' Add to the selection set all the objects that lie at point(6.8,9.4,0) 
+    Dim point(0 To 2) As Double
+    point(0) = 6.8: point(1) = 9.4: point(2) = 0
+    ssetObj.SelectAtPoint point
+    
+    ' Add to the selection set all the Circles that lie at point (6.8,9.4,0) 
+    Dim gpCode(0) As Integer
+    Dim dataValue(0) As Variant
+    gpCode(0) = 0
+    dataValue(0) = "Circle"
+    
+    Dim groupCode As Variant, dataCode As Variant
+    groupCode = gpCode
+    dataCode = dataValue
+    
+    ssetObj.SelectAtPoint point, groupCode, dataCode
+    
+End Sub

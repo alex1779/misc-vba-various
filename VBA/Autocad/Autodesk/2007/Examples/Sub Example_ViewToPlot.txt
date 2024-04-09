@@ -1,0 +1,59 @@
+Sub Example_ViewToPlot()
+    ' This example reads a list of available Named Views and displays a plot preview
+    ' of the view selected by the user.  The current view to plot,
+    ' if set, if preceded by an '*'
+    '
+    ' * Note: After previewing the plot, you will have to exit the
+    ' plot preview before the VBA example will stop and control will be returned
+    
+    Dim ViewList As New Collection
+    Dim View As AcadView
+    Dim iCount As Long
+    Dim msg As String
+    Dim ViewName As String, ViewNum As String
+    
+    ' Get list of views available to plot
+    For Each View In ThisDrawing.Views
+        ViewList.Add View
+    Next
+    
+    ' Are there any named views to plot
+    If ViewList.count = 0 Then
+        MsgBox "There are no named views to plot.", vbInformation
+        Exit Sub
+    End If
+    
+    ' Read and display the current plot style table path
+    For iCount = 1 To ViewList.count
+        ViewName = ViewList(iCount).name
+        
+        If ViewName = ThisDrawing.ActiveLayout.ViewToPlot Then  ' Is this the current view to plot
+            ViewNum = iCount
+            ViewName = "*" & ViewName
+        End If
+        
+        msg = msg & "(" & iCount & ") " & vbTab & ViewName & vbCrLf
+    Next
+    
+    ' Prompt user for the view to plot
+RETRY:
+    ViewNum = InputBox("Which view would you like to plot?" & vbCrLf & vbCrLf & msg, "View To Plot", ViewNum)
+    
+    If Trim(ViewNum) = "" Then
+        Exit Sub
+    End If
+    
+    If Not (IsNumeric(ViewNum)) Then
+        MsgBox "You must supply a numeric value corresponding to one of the views listed above.", vbExclamation
+        GoTo RETRY
+    End If
+    
+    ' Tell the drawing which view to plot
+    ThisDrawing.ActiveLayout.ViewToPlot = ViewList(CLng(ViewNum)).name
+    
+    ' Make sure you tell the drawing to plot a view, not some other plot style
+    ThisDrawing.ActiveLayout.PlotType = acView
+    
+    ' Send Plot To Window
+    ThisDrawing.Plot.DisplayPlotPreview acFullPreview
+End Sub

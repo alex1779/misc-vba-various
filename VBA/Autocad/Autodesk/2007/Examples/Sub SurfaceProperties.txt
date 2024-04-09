@@ -1,0 +1,27 @@
+Sub SurfaceProperties()
+    Dim ssetObj As AcadSelectionSet
+    Set ssetObj = ThisDrawing.SelectionSets.Add("SURFACES2")
+    Dim mode As Integer
+
+    ssetObj.SelectOnScreen
+
+    Dim obj As AcadEntity
+    Dim extrude As AcadExtrudedSurface
+    Dim objName As String
+    Dim LayerName As String
+    For Each obj In ssetObj
+        objName = obj.ObjectName
+        If TypeOf obj Is AcadExtrudedSurface Then
+            ExtrudedSurfaceProperties obj
+        ElseIf TypeOf obj Is AcadRevolvedSurface Then
+            RevolvedSurfaceProperties obj
+        ElseIf TypeOf obj Is AcadLoftedSurface Then
+            LoftedSurfaceProperties obj
+        ElseIf TypeOf obj Is AcadSweptSurface Then
+            SweptSurfaceProperties obj
+        ElseIf TypeOf obj Is AcadPlaneSurface Then
+            PlaneSurfaceProperties obj
+        End If
+    Next
+    ssetObj.Delete
+End Sub

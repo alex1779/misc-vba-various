@@ -1,0 +1,5 @@
+'Pegar en ThisWorkbook
+Private Sub Workbook_Open()
+Application.Visible = False
+UserForm1.Show
+End Sub

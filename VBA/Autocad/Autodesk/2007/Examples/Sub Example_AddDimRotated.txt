@@ -1,0 +1,20 @@
+Sub Example_AddDimRotated()
+    ' This example creates a rotated dimension in model space.
+        
+    Dim dimObj As AcadDimRotated
+    Dim point1(0 To 2) As Double
+    Dim point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim rotAngle As Double
+    
+    ' Define the dimension
+    point1(0) = 0#: point1(1) = 5#: point1(2) = 0#
+    point2(0) = 5#: point2(1) = 5#: point2(2) = 0#
+    location(0) = 0#: location(1) = 0#: location(2) = 0#
+    rotAngle = 120
+    rotAngle = rotAngle * 3.141592 / 180#       ' covert to Radians
+    
+    ' Create the rotated dimension in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimRotated(point1, point2, location, rotAngle)
+    ZoomAll
+End Sub

@@ -1,0 +1,36 @@
+Sub Example_GetSubEntity()
+    ' This example prompts the user to select on object on the screen with a mouse click,
+    ' and returns some information about the selected object.
+    
+    Dim Object As Object
+    Dim PickedPoint As Variant, TransMatrix As Variant, ContextData As Variant
+    Dim HasContextData As String
+    
+    On Error GoTo NOT_ENTITY
+        
+TRYAGAIN:
+        
+    MsgBox "Use the mouse to click on an object in the current drawing after dismissing this dialog box."
+        
+    ' Get information about selected object
+    ThisDrawing.Utility.GetSubEntity Object, PickedPoint, TransMatrix, ContextData
+    
+    ' Process and display selected object properties
+    HasContextData = IIf(VarType(ContextData) = vbEmpty, " does not ", " does ")
+    
+    MsgBox "The object you chose was an: " & TypeName(Object) & vbCrLf & _
+            "Your point of selection was: " & PickedPoint(0) & ", " & _
+                                              PickedPoint(1) & ", " & _
+                                              PickedPoint(2) & vbCrLf & _
+            "This object" & HasContextData & "have nested objects."
+    
+    Exit Sub
+    
+NOT_ENTITY:
+    ' If you click on empty space or do not select an entity,
+    ' this error will be generated
+    If MsgBox("You have not selected an object.  Click OK to try again.", _
+               vbOKCancel & vbInformation) = vbOK Then
+        Resume TRYAGAIN
+    End If
+End Sub

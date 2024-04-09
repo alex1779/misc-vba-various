@@ -1,0 +1,34 @@
+Sub Example_ArrowHeadBlock()
+    ' This example creates a radial dimension object in model space
+    ' and then alters the visible appearance (shape) of the arrowhead
+    ' using the ArrowHeadBlock property.
+    ' Use the ArrowHeadBlock property to set the arrowhead to an existing
+    ' block object containing a custom Circle object
+
+    Dim dimObj As AcadDimRadial
+    Dim center(0 To 2) As Double
+    Dim chordPoint(0 To 2) As Double
+    Dim leaderLen As Integer
+    Dim BlockName As String
+    
+    ' Define the dimension
+    center(0) = 0#: center(1) = 0#: center(2) = 0#
+    chordPoint(0) = 5#: chordPoint(1) = 5#: chordPoint(2) = 0#
+    leaderLen = 5
+    
+    ' Create the radial dimension in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimRadial(center, chordPoint, leaderLen)
+    ZoomAll
+    
+    ' Set arrowhead type to user-defined to allow
+    ' the use of a block as the new arrowhead
+    'dimObj.ArrowheadType = acArrowUserDefined
+    dimObj.ArrowheadBlock = "CBlock"
+    ZoomAll
+    
+    ' Read and display current arrowhead block name
+    BlockName = dimObj.ArrowheadBlock
+    
+    MsgBox "The arrowhead block name for this object is: " & BlockName
+    
+End Sub

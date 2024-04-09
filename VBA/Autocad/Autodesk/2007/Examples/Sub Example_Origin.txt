@@ -1,0 +1,38 @@
+Sub Example_Origin()
+    ' This example creates a UCS and returns its origin.
+
+    Dim viewportObj As AcadViewport
+    
+    ' Set the viewportObj variable to the activeviewport
+    Set viewportObj = ThisDrawing.ActiveViewport
+    
+    ' Create a new UCS with origin 2, 2, 0
+    Dim ucsObj As AcadUCS
+    Dim origin(0 To 2) As Double
+    Dim xAxisPoint(0 To 2) As Double
+    Dim yAxisPoint(0 To 2) As Double
+    
+    origin(0) = 2: origin(1) = 2: origin(2) = 0
+    xAxisPoint(0) = 3: xAxisPoint(1) = 2: xAxisPoint(2) = 0
+    yAxisPoint(0) = 2: yAxisPoint(1) = 3: yAxisPoint(2) = 0
+    
+    Set ucsObj = ThisDrawing.UserCoordinateSystems.Add(origin, xAxisPoint, yAxisPoint, "UCS1")
+    ThisDrawing.ActiveUCS = ucsObj
+    viewportObj.UCSIconOn = True
+    viewportObj.UCSIconAtOrigin = True
+    ThisDrawing.ActiveViewport = viewportObj
+    
+    ' Display the current origin for the new UCS
+    MsgBox "The origin of the UCS is: " & ucsObj.origin(0) & ", " & ucsObj.origin(1) & ", " & ucsObj.origin(2), , "Origin Example"
+
+    ' Change the origin of the UCS
+    origin(0) = 4: origin(1) = 4: origin(2) = 0
+    ucsObj.origin = origin
+    
+    ' Reset the active UCS and viewport to see the change
+    ThisDrawing.ActiveUCS = ucsObj
+    ThisDrawing.ActiveViewport = viewportObj
+    
+    MsgBox "The origin of the UCS is now: " & ucsObj.origin(0) & ", " & ucsObj.origin(1) & ", " & ucsObj.origin(2), , "Origin Example"
+    
+End Sub

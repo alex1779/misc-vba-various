@@ -1,0 +1,25 @@
+Sub Example_ObliqueAngle()
+    ' This example creates a text object in model space.
+    ' It then changes the ObliqueAngle of the text object.
+
+    Dim textObj As AcadText
+    Dim textString As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim height As Double
+    
+    ' Define the text object
+    textString = "Hello, World."
+    insertionPoint(0) = 3: insertionPoint(1) = 3: insertionPoint(2) = 0
+    height = 0.5
+    
+    ' Create the text object in model space
+    Set textObj = ThisDrawing.ModelSpace.AddText(textString, insertionPoint, height)
+    ZoomAll
+    MsgBox "The ObliqueAngle is " & textObj.ObliqueAngle, vbInformation, "ObliqueAngle Example"
+    
+    ' Change the value of the ObliqueAngle to 45 degrees (.707 radians)
+    textObj.ObliqueAngle = 0.707
+    ZoomAll
+    MsgBox "The ObliqueAngle is set to " & textObj.ObliqueAngle, vbInformation, "ObliqueAngle Example"
+    
+End Sub

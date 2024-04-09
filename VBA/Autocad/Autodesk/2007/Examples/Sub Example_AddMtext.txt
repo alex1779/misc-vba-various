@@ -1,0 +1,16 @@
+Sub Example_AddMtext()
+    ' This example creates an MText object in model space.
+    
+    Dim MTextObj As AcadMText
+    Dim corner(0 To 2) As Double
+    Dim width As Double
+    Dim text As String
+    corner(0) = 0#: corner(1) = 10#: corner(2) = 0#
+    width = 10
+    text = "This is the text String for the mtext Object"
+
+    ' Creates the mtext Object
+    Set MTextObj = ThisDrawing.ModelSpace.AddMText(corner, width, text)
+    ZoomAll
+    
+End Sub

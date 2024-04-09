@@ -1,0 +1,14 @@
+Sub Example_MenuFile()
+    ' This example returns the current setting of
+    ' MenuFile.
+    
+    Dim preferences As AcadPreferences
+    Dim currMenuFile As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current MenuFile value
+    currMenuFile = preferences.Files.MenuFile
+    MsgBox "The current value for MenuFile is " & currMenuFile, vbInformation, "MenuFile Example"
+    
+End Sub

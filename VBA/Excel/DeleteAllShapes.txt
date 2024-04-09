@@ -1,0 +1,6 @@
+Sub DeleteShapes()
+Dim Shp As Shape
+For Each Shp In ActiveSheet.Shapes
+Shp.Delete
+Next Shp
+End Sub

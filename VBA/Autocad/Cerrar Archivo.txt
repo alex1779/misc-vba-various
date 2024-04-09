@@ -1,0 +1,2 @@
+    'Cerrar Archivo
+    AutoCAD.Application.ActiveDocument.Close

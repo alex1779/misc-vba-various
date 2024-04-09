@@ -1,0 +1,39 @@
+Sub Example_Brightness()
+    ' This example inserts a raster image and finds the current
+    ' brightness of the image. It then changes the brightness
+    ' of the image.
+    
+    ' This example uses the "downtown.jpg" found in the Sample
+    ' directory. If you do not have this image, or if it is located
+    ' in a different directory, insert a valid path and file name
+    ' for the imageName variable below.
+    Dim insertionPoint(0 To 2) As Double
+    Dim scalefactor As Double
+    Dim rotAngleInDegree As Double, rotAngle As Double
+    Dim imageName As String
+    Dim raster As AcadRasterImage
+    imageName = "C:/AutoCAD/sample/downtown.jpg"
+    
+    insertionPoint(0) = 2#: insertionPoint(1) = 2#: insertionPoint(2) = 0#
+    scalefactor = 1#
+    rotAngleInDegree = 0#
+    rotAngle = rotAngleInDegree * 3.141592 / 180#
+    
+    On Error Resume Next
+    
+    ' Creates a raster image in model space
+    Set raster = ThisDrawing.ModelSpace.AddRaster(imageName, insertionPoint, scalefactor, rotAngle)
+    If Err.Description = "File error" Then
+        MsgBox imageName & " could not be found."
+        Exit Sub
+    End If
+
+    ' Find the current brightness
+    ThisDrawing.Regen True
+    MsgBox "The brightness is currently set to: " & raster.Brightness, vbInformation
+    
+    ' Change the brightness to 5
+    raster.Brightness = 5
+    ThisDrawing.Regen True
+    MsgBox "The brightness is now set to: " & raster.Brightness, vbInformation
+End Sub

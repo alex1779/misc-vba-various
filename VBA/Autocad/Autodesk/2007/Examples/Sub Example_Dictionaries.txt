@@ -1,0 +1,8 @@
+Sub Example_Dictionaries()
+    ' This example finds the current dictionary collection and
+    ' adds a new dictionary to that collection.
+    
+    Dim dict As AcadDictionary
+    Set dict = ThisDrawing.Dictionaries.Add("TEST")
+    MsgBox "A new dictionary called " & dict.name & " has been added to the dictionaries collection.", vbInformation, "Dictionaries Example"
+End Sub

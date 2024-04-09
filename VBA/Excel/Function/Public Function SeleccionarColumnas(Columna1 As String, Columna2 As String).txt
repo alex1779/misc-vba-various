@@ -1,0 +1,3 @@
+Public Function SeleccionarColumnas(Columna1 As String, Columna2 As String)
+Columns(Columna1  & ":" & Columna2).Select
+End Function

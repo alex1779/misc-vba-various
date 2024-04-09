@@ -1,0 +1,22 @@
+Sub Example_TempFileExtension()
+    ' This example returns the current setting of
+    ' TempFileExtension. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currTempFileExtension As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current TempFileExtension value
+    currTempFileExtension = preferences.OpenSave.TempFileExtension
+    MsgBox "The current value for TempFileExtension is " & preferences.OpenSave.TempFileExtension, vbInformation, "TempFileExtension Example"
+    
+    ' Change the value for TempFileExtension
+    preferences.OpenSave.TempFileExtension = "@@@"
+    MsgBox "The new value for TempFileExtension is " & preferences.OpenSave.TempFileExtension, vbInformation, "TempFileExtension Example"
+    
+    ' Reset TempFileExtension to its original value
+    preferences.OpenSave.TempFileExtension = currTempFileExtension
+    MsgBox "The TempFileExtension value is reset to " & preferences.OpenSave.TempFileExtension, vbInformation, "TempFileExtension Example"
+End Sub

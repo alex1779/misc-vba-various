@@ -1,0 +1,61 @@
+Sub Example_Preset()
+    ' This example creates a block containing an attribute definition.
+    ' Initially, the attribute has the preset flag turned on and will display a preset
+    ' value for the attribute when the parent block is inserted as a reference.
+    '
+    ' Every time the example is run, attempt to find the attribute and
+    ' toggle the Preset value.
+    '
+    ' * Note: After running this example for the first time, select the menu "Insert/Block..."
+    ' and create a block reference from "Block-PRESET".  You will see
+    ' the preset value display for the attribute when the blockref is displayed.
+    '
+    ' Then run the example again and repeat the block insert.  Notice this time that the
+    ' preset has been turned off, and you are now prompted for the attribute value.
+    
+    Dim attributeObj As AcadAttribute
+    Dim height As Double, mode As Long, prompt As String, tag As String, value As String
+    Dim AttrInsertionPoint(0 To 2) As Double
+    Dim BlockInsertionPoint(0 To 2) As Double
+    Dim newBlock As AcadBlock
+    Dim IsPreset As String
+    
+    ' Determine if this block has already been created.  If so, get the block and
+    ' the attribute inside; otherwise, create a new block containing an
+    ' attribute.
+    On Error Resume Next
+    
+    Set newBlock = ThisDrawing.Blocks("Block-PRESET")
+    
+    
+    If Err = 0 Then         ' The example block has been created
+        Set attributeObj = newBlock.Item(0)                 ' Get only object in example block
+    
+        attributeObj.Preset = Not (attributeObj.Preset)     ' Toggle the attribute preset value
+    
+    ElseIf Err <> 0 Then    ' The example block has not been created
+    
+        ' Create a new block to hold the Attribute object
+        BlockInsertionPoint(0) = 0: BlockInsertionPoint(1) = 0: BlockInsertionPoint(2) = 0
+        Set newBlock = ThisDrawing.Blocks.Add(BlockInsertionPoint, "Block-PRESET")
+    
+        ' Define the attribute definition
+        AttrInsertionPoint(0) = 0: AttrInsertionPoint(1) = 0: AttrInsertionPoint(2) = 0
+        height = 1#:
+        mode = acAttributeModePreset
+        prompt = "New Prompt"
+        tag = "New Tag": value = "Preset"
+        
+        ' Add attribute definition object to new block
+        Set attributeObj = newBlock.AddAttribute(height, mode, prompt, AttrInsertionPoint, tag, value)
+    
+    End If
+    
+    On Error GoTo 0
+
+    ' Read the attribute back and display information
+    IsPreset = IIf(attributeObj.Preset, "has a preset value of: " & attributeObj.textString, _
+                   "does not have a preset value")
+                   
+    MsgBox "The block attribute " & IsPreset, vbInformation
+End Sub

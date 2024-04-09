@@ -1,0 +1,31 @@
+Sub Example_SetControlPoint()
+    ' This example creates a spline object in model space.
+    ' It then finds the coordinates of the first control point
+    ' and changes that value.
+
+    ' Create the spline
+    Dim splineObj As AcadSpline
+    Dim startTan(0 To 2) As Double
+    Dim endTan(0 To 2) As Double
+    Dim fitPoints(0 To 8) As Double
+    
+    startTan(0) = 0.5: startTan(1) = 0.5: startTan(2) = 0
+    endTan(0) = 0.5: endTan(1) = 0.5: endTan(2) = 0
+    fitPoints(0) = 1: fitPoints(1) = 1: fitPoints(2) = 0
+    fitPoints(3) = 5: fitPoints(4) = 5: fitPoints(5) = 0
+    fitPoints(6) = 10: fitPoints(7) = 0: fitPoints(8) = 0
+    Set splineObj = ThisDrawing.ModelSpace.AddSpline(fitPoints, startTan, endTan)
+    ZoomAll
+    
+    ' Display the coordinates of the first control point
+    Dim controlPoint As Variant
+    controlPoint = splineObj.GetControlPoint(0)
+    MsgBox "Control point 1 is at " & controlPoint(0) & ", " & controlPoint(1) & ", " & controlPoint(2), , "SetControlPoint Example"
+    
+    ' Change the coordinates of the first fit point
+    controlPoint(0) = 0: controlPoint(1) = 3: controlPoint(2) = 0
+    splineObj.SetControlPoint 0, controlPoint
+    splineObj.Update
+    MsgBox "Control point 1 is now at " & controlPoint(0) & ", " & controlPoint(1) & ", " & controlPoint(2), , "SetControlPoint Example"
+    
+End Sub

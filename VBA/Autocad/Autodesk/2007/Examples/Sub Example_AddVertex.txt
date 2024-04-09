@@ -1,0 +1,30 @@
+Sub Example_AddVertex()
+    ' This example creates a lightweight polyline in model space.
+    ' It then adds a vertex to the polyline.
+
+    Dim plineObj As AcadLWPolyline
+    Dim points(0 To 9) As Double
+    
+    
+    ' Define the 2D polyline points
+    points(0) = 1: points(1) = 1
+    points(2) = 1: points(3) = 2
+    points(4) = 2: points(5) = 2
+    points(6) = 3: points(7) = 2
+    points(8) = 4: points(9) = 4
+        
+    ' Create a lightweight Polyline object in model space
+    Set plineObj = ThisDrawing.ModelSpace.AddLightWeightPolyline(points)
+    ZoomAll
+    MsgBox "Add a vertex to the end of the polyline.", , "AddVertex Example"
+    
+    ' Define the new vertex
+    Dim newVertex(0 To 1) As Double
+    newVertex(0) = 4: newVertex(1) = 1
+    
+    ' Add the vertex to the polyline
+    plineObj.AddVertex 5, newVertex
+    plineObj.Update
+    MsgBox "Vertex added.", , "AddVertex Example"
+    
+End Sub

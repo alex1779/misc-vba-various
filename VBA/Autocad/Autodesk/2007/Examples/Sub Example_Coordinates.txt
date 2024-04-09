@@ -1,0 +1,33 @@
+Sub Example_Coordinates()
+    ' This example creates a polyline. It then uses the Coordinates
+    ' property to return all the coordinates  in the polyline. It then
+    ' resets one of the vertices using the Coordinates property.
+    
+    Dim plineObj As AcadPolyline
+
+    ' Create Polyline
+    Dim points(5) As Double
+    points(0) = 3: points(1) = 7: points(2) = 0
+    points(3) = 9: points(4) = 2: points(5) = 0
+    Set plineObj = ThisDrawing.ModelSpace.AddPolyline(points)
+    ThisDrawing.Regen True
+
+    ' Return all the coordinates of the polyline
+    Dim retCoord As Variant
+    retCoord = plineObj.Coordinates
+
+    ' Display current coordinates for the second vertex
+    MsgBox "The current coordinates of the second vertex are: " & points(3) & ", " & points(4) & ", " & points(5), vbInformation, "Coordinates Example"
+
+    ' Modify the coordinate of the second vertex to (5,5,0). Note that in
+    ' case of a lightweight Polyline, indices will be different because the points are 2D only.
+    points(3) = 5
+    points(4) = 5
+    points(5) = 0
+    plineObj.Coordinates = points
+
+    ' Update display
+    ThisDrawing.Regen True
+
+    MsgBox "The new coordinates have been set to " & points(3) & ", " & points(4) & ", " & points(5), vbInformation, "Coordinates Example"
+End Sub

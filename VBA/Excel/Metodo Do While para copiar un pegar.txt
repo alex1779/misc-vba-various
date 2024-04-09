@@ -1,0 +1,13 @@
+    i = 1
+    a = 3
+    Do While Cells(i, 2) = "x"
+
+        Cells(a, 1).Select
+        Selection.Cut
+
+        Cells(i, 1).Select
+        ActiveSheet.Paste
+
+    i = i + 1
+    a = a + 4
+    Loop

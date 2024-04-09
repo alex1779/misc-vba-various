@@ -1,0 +1,25 @@
+Sub Example_GraphicsWinModelBackgrndColor()
+    ' This example returns the current setting of
+    ' GraphicsWinModelBackgrndColor. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currGraphicsWinModelBackgrndColor As OLE_COLOR
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current GraphicsWinModelBackgrndColor value
+    currGraphicsWinModelBackgrndColor = preferences.DISPLAY.GraphicsWinModelBackgrndColor
+    MsgBox "The current value for GraphicsWinModelBackgrndColor is " _
+            & preferences.DISPLAY.GraphicsWinModelBackgrndColor, vbInformation, "GraphicsWinModelBackgrndColor Example"
+    
+    ' Change the value for GraphicsWinModelBackgrndColor
+    preferences.DISPLAY.GraphicsWinModelBackgrndColor = 16
+    MsgBox "The new value for GraphicsWinModelBackgrndColor is " _
+            & preferences.DISPLAY.GraphicsWinModelBackgrndColor, vbInformation, "GraphicsWinModelBackgrndColor Example"
+    
+    ' Reset GraphicsWinModelBackgrndColor to its original value
+    preferences.DISPLAY.GraphicsWinModelBackgrndColor = currGraphicsWinModelBackgrndColor
+    MsgBox "The GraphicsWinModelBackgrndColor value is reset to " _
+            & preferences.DISPLAY.GraphicsWinModelBackgrndColor, vbInformation, "GraphicsWinModelBackgrndColor Example"
+End Sub

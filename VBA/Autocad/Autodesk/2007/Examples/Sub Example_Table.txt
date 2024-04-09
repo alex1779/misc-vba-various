@@ -1,0 +1,87 @@
+Sub Example_Table()
+     ' This example adds a table in model space
+
+    Dim MyModelSpace As IAcadModelSpace
+    Set MyModelSpace = ThisDrawing.ModelSpace
+    Dim pt(2) As Double
+    Dim MyTable As AcadTable
+    Set MyTable = MyModelSpace.AddTable(pt, 5, 5, 10, 30)
+    ZoomExtents
+
+
+    Dim i As Double, j As Double
+    Dim col As New AcadAcCmColor
+    col.SetRGB 255, 0, 255
+
+    For i = 0 To 4
+        For j = 0 To 4
+            MyTable.SetCellTextHeight i, j, 2
+            MyTable.SetCellAlignment i, j, acMiddleCenter
+            MyTable.SetCellBackgroundColor i, j, col
+            col.SetRGB 0, 255, 0
+            MyTable.SetCellContentColor i, j, col
+            MyTable.SetCellType i, j, acTextCell
+        Next j
+    Next i
+
+    'To see line weights, do a plot or a plot preview
+    MyTable.SetGridLineWeight AcGridLineType.acHorzTop, AcRowType.acHeaderRow, AcLineWeight.acLnWt100
+    MyTable.SetGridLineWeight AcGridLineType.acHorzBottom, AcRowType.acDataRow, AcLineWeight.acLnWt040
+    MyTable.SetGridLineWeight AcGridLineType.acVertLeft, AcRowType.acTitleRow, AcLineWeight.acLnWt100
+    MyTable.SetGridLineWeight AcGridLineType.acVertRight, AcRowType.acTitleRow, AcLineWeight.acLnWt100
+    MyTable.SetGridLineWeight AcGridLineType.acHorzTop, AcRowType.acTitleRow, AcLineWeight.acLnWt200
+
+    MyTable.SetText 0, 0, "Table Title"
+    MyTable.SetText 1, 0, "Cell 1 Text"
+    MyTable.SetText 2, 0, "Cell 2 Text"
+    MyTable.SetText 3, 0, "Cell 3 Text"
+    MyTable.SetText 4, 0, "Cell 4 Text"
+    MyTable.SetText 1, 1, "Cell 5 Text"
+    MyTable.SetText 2, 1, "Cell 6 Text"
+    MyTable.SetText 3, 1, "Cell 7 Text"
+    MyTable.SetText 4, 1, "Cell 8 Text"
+
+    Dim pt2(0 To 2) As Double
+    Dim wvwVec(0 To 2) As Double
+    Dim wvwxVec(0 To 2) As Double
+
+    pt(0) = 1
+    pt(1) = -11
+    pt2(0) = 90
+    pt2(1) = -50
+    pt2(2) = 0
+    wvwVec(0) = 0
+    wvwVec(1) = 0
+    wvwVec(2) = 1
+    wvwxVec(0) = 0
+    wvwxVec(1) = 0
+    wvwxVec(2) = 1
+
+
+    Dim rowMin As Long, rowMax As Long, colMin As Long, colMax As Long
+    MyTable.SelectSubRegion pt, pt2, wvwVec, wvwxVec, acTableSelectWindow, _
+        False, rowMin, rowMax, colMin, colMax
+
+    MsgBox "Subregion selected: Row " & rowMin & ", Column " & colMin _
+        & vbCr & "Last cell selected: Row " & rowMax & ", Column " & colMax
+
+    Dim msgString As String
+    msgString = MyTable.GetText(0, 0)
+    For i = rowMin To rowMax
+        For j = colMin To colMax
+            msgString = msgString & "Row " & i & ", Column " & j & ": " + MyTable.GetText(i, j) & vbCr
+        Next j
+    Next i
+    MsgBox msgString
+
+    'select the first cell in the table
+    Dim pt3(0 To 2) As Double
+    Dim rowIndex As Long, colIndex As Long
+    pt3(0) = 13
+    pt3(1) = -15
+    pt3(2) = 0
+    MyTable.Select pt3, wvwVec, wvwxVec, 5, 5, False, rowIndex, colIndex
+    MsgBox "Row " & rowIndex & ", Column " & colIndex & vbCr & _
+        "Value: " & MyTable.GetText(rowIndex, colIndex)
+
+End Sub

@@ -1,0 +1,19 @@
+Sub Punto(nombre As Variant, CenterX As Variant, CenterY As Variant, CenterZ As Variant, Grados As Variant, Color As Variant, layer As String)
+    'Declaración de Variables
+    Dim BasePoint(0 To 2) As Double
+    Dim RotationPoint(0 To 2) As Double
+    BasePoint(0) = CenterX:     BasePoint(1) = CenterY:         BasePoint(2) = CenterZ
+    RotationPoint(0) = 0:     RotationPoint(1) = 0:         RotationPoint(2) = 0
+    
+    'Creando nuevo punto
+    Set nombre = AutoCAD.Application.ActiveDocument.ModelSpace.AddPoint(BasePoint)
+    nombre.Color = Color
+    nombre.layer = layer
+
+    'Número pi, que representa 180°
+    Pi = 3.14159265358979
+    Angulo = Pi / 180
+    RotationAngle = Angulo * Grados
+    nombre.Rotate RotationPoint, RotationAngle
+
+End Sub

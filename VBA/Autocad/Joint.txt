@@ -1,0 +1,1 @@
+    AutoCAD.Application.ActiveDocument.SendCommand "_ai_selall" & vbCr & "_j" & vbCr 'Ejecutando Comando Joint

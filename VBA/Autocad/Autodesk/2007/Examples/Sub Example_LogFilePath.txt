@@ -1,0 +1,24 @@
+Sub Example_LogFilePath()
+    ' This example returns the current setting of
+    ' LogFilePath. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currLogFilePath As String
+    Dim newLogFilePath As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current LogFilePath value
+    currLogFilePath = preferences.Files.LogFilePath
+    MsgBox "The current value for LogFilePath is " & currLogFilePath, vbInformation, "LogFilePath Example"
+    
+    ' Change the value for LogFilePath
+    newLogFilePath = "C:/AutoCAD/"
+    preferences.Files.LogFilePath = newLogFilePath
+    MsgBox "The new value for LogFilePath is " & newLogFilePath, vbInformation, "LogFilePath Example"
+    
+    ' Reset LogFilePath to its original value
+    preferences.Files.LogFilePath = currLogFilePath
+    MsgBox "The LogFilePath value is reset to " & currLogFilePath, vbInformation, "LogFilePath Example"
+End Sub

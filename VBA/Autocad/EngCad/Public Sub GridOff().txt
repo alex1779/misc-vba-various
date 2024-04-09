@@ -1,0 +1,3 @@
+Public Sub GridOff()
+AutoCAD.Application.ActiveDocument.SendCommand "grid" & vbCr & "of" & vbCr
+End Sub

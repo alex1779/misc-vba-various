@@ -1,0 +1,10 @@
+Sub Example_Caption()
+    ' This example returns the caption for the current
+    ' AutoCAD session.
+    
+    ' Get the Caption property
+    Dim strCaption As String
+    strCaption = ThisDrawing.Application.Caption
+    MsgBox "The caption for this session is " & ThisDrawing.Application.Caption, , "Caption Example"
+    
+End Sub

@@ -1,0 +1,10 @@
+Public Function Linea(Space As AcActiveSpace, StartX As Variant, StartY As Variant, StartZ As Variant, EndX As Variant, EndY As Variant, EndZ As Variant, Optional Color As AcColor, Optional layer As String)
+Dim LineObj As AcadLine: Dim StartPoint(0 To 2) As Double: Dim EndPoint(0 To 2) As Double
+StartPoint(0) = StartX: StartPoint(1) = StartY: StartPoint(2) = StartZ
+EndPoint(0) = EndX: EndPoint(1) = EndY: EndPoint(2) = EndZ
+If Space = 0 Then Set LineObj = Autocad.Application.ActiveDocument.PaperSpace.AddLine(StartPoint, EndPoint)
+If Space = 1 Then Set LineObj = Autocad.Application.ActiveDocument.modelspace.AddLine(StartPoint, EndPoint)
+On Error Resume Next
+LineObj.Color = Color
+LineObj.layer = layer
+End Function

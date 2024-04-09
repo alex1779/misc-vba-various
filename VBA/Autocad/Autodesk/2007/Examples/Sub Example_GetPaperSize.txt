@@ -1,0 +1,14 @@
+Sub Example_GetPaperSize()
+    ' This example gets the width and height of the default
+    ' paper size for your system.
+    
+    Dim PaperWidth As Double
+    Dim PaperHeight As Double
+    
+    ThisDrawing.ActiveLayout.GetPaperSize PaperWidth, PaperHeight
+    
+    MsgBox "The default paper size is " & vbCrLf & _
+            "Width: " & PaperWidth & vbCrLf & _
+            "Height: " & PaperHeight
+
+End Sub

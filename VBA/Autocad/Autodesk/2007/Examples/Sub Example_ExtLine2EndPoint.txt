@@ -1,0 +1,32 @@
+Sub Example_ExtLine2EndPoint()
+    ' This example creates an angular dimension. It then changes
+    ' the location of the ExtLine2EndPoint.
+    
+    Dim dimObj As AcadDimAngular
+    Dim angVert(0 To 2) As Double
+    Dim FirstPoint(0 To 2) As Double
+    Dim SecondPoint(0 To 2) As Double
+    Dim TextPoint(0 To 2) As Double
+    
+    ' Define the dimension
+    angVert(0) = 0#: angVert(1) = 5#: angVert(2) = 0#
+    FirstPoint(0) = 1#: FirstPoint(1) = 7#: FirstPoint(2) = 0#
+    SecondPoint(0) = 1#: SecondPoint(1) = 3#: SecondPoint(2) = 0#
+    TextPoint(0) = 3#: TextPoint(1) = 5#: TextPoint(2) = 0#
+    
+    ' Create the angular dimension in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAngular(angVert, FirstPoint, SecondPoint, TextPoint)
+    ZoomAll
+    MsgBox "The current value of ExtLine2EndPoint is " & dimObj.ExtLine2EndPoint(0) & ", " & dimObj.ExtLine2EndPoint(1) & ", " & dimObj.ExtLine2EndPoint(2), vbInformation, "ExtLine2EndPoint Example"
+    
+    ' Change the endpoint of the second extension line
+    SecondPoint(0) = 1: SecondPoint(1) = 4: SecondPoint(2) = 0
+    dimObj.ExtLine2EndPoint = SecondPoint
+    dimObj.Update
+    
+    ' Return the endpoint of the second extension line
+    ' Note that the return value is a Variant
+    Dim retPnt As Variant
+    retPnt = dimObj.ExtLine2EndPoint
+    MsgBox "The new value of ExtLine2EndPoint is " & dimObj.ExtLine2EndPoint(0) & ", " & dimObj.ExtLine2EndPoint(1) & ", " & dimObj.ExtLine2EndPoint(2), vbInformation, "ExtLine2EndPoint Example"
+End Sub

@@ -1,0 +1,5 @@
+Public Function LayersActivar(Name As Variant)
+Dim LayerName As AcadLayer
+Set LayerName = Autocad.Application.ActiveDocument.Layers.Item(Name)
+Autocad.Application.ActiveDocument.ActiveLayer = LayerName
+End Function

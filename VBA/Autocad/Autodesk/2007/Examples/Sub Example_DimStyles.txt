@@ -1,0 +1,6 @@
+Sub Example_DimStyles()
+    ' This example adds a new dimension style.
+    Dim dimStyle As AcadDimStyle
+    Set dimStyle = ThisDrawing.DimStyles.Add("TEST")
+    MsgBox "A new dimension style called " & dimStyle.name & " has been added to the Dimstyles collection.", vbInformation, "Dimstyles Example"
+End Sub

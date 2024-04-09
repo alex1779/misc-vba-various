@@ -1,0 +1,11 @@
+Sub Example_Preferences()
+    ' This example returns the current setting of
+    ' LogFilePath from the preferences object.
+    
+    Dim preferences As AcadPreferences
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current LogFilePath value
+    MsgBox "The current value for LogFilePath is " & preferences.Files.LogFilePath, , "Preferences Example"
+    
+End Sub

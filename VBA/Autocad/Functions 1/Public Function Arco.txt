@@ -1,0 +1,12 @@
+Public Function Arco(nombre As Variant, CentroX As Double, CentroY As Double, CentroZ As Double, Radious As Double, StartAngle As Double, EndAngle As Double, Color As Variant, layer As String)
+    'Declaración de Variables
+Dim Arco As AcadArc:    Dim CentroArcoA(0 To 2) As Double
+    Radious = Radious
+    StartAngle = StartAngle
+    EndAngle = EndAngle
+    CentroArcoA(0) = CentroX: CentroArcoA(1) = CentroY: CentroArcoA(2) = CentroZ
+    'Dibujando arco
+    Set nombre = AutoCAD.Application.ActiveDocument.ModelSpace.AddArc(CentroArcoA, Radious, StartAngle, EndAngle)
+    nombre.Color = Color
+    nombre.layer = layer
+End Sub

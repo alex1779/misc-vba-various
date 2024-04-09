@@ -1,0 +1,27 @@
+Sub Example_AutoSnapMarkerColor()
+    ' This example reads and modifies the preference value that controls
+    ' the color of the AutoSnap marker. When finished, this example resets
+    ' the preference value back to its original value.
+    
+    Dim ACADPref As AcadPreferencesDrafting
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the drafting preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Drafting
+    
+    ' Read and display the original value
+    originalValue = ACADPref.AutoSnapMarkerColor
+    MsgBox "The AutoSnapMarkerColor preference is: " & originalValue
+
+    ' Modify the AutoSnapMarkerColor preference by setting it to red
+    ACADPref.AutoSnapMarkerColor = acRed
+    newValue = ACADPref.AutoSnapMarkerColor
+    MsgBox "The AutoSnapMarkerColor preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.AutoSnapMarkerColor = originalValue
+    MsgBox "The AutoSnapMarkerColor preference was reset back to: " & originalValue
+End Sub

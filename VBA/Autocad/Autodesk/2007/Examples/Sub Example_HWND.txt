@@ -1,0 +1,13 @@
+Sub Example_HWND()
+    ' This example returns the handle (Hwnd) of a document window. The handle can be
+    ' used with WindowsAPI calls, or with ActiveX components that require a handle
+    ' to a window.
+   
+    ' If there are no open documents, then exit
+    If Documents.count = 0 Then
+        MsgBox "There are no open documents!"
+        Exit Sub
+    End If
+    
+    MsgBox "The HWND of the active document is: " & ActiveDocument.HWND
+End Sub

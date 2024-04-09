@@ -1,0 +1,7 @@
+Sub Example_PlotToDevice()
+    ' This example sends a plot of the current drawing
+    ' to the default device for your system.
+    
+    ThisDrawing.Plot.PlotToDevice
+    
+End Sub

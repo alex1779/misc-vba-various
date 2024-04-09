@@ -1,0 +1,21 @@
+Sub Example_SetColorBookColor()
+    ' This example draws a line and specifies a color name
+    ' from an existing color book.
+  
+    Dim FirstColor As AcadAcCmColor
+    Set FirstColor = AcadApplication.GetInterfaceObject("AutoCAD.AcCmColor.16")
+    Call color.SetRGB(80, 100, 244)
+  
+    Dim line As AcadLine
+    Dim startPoint(0 To 2) As Double
+    Dim endPoint(0 To 2) As Double
+
+    startPoint(0) = 1#: startPoint(1) = 1#: startPoint(2) = 0#
+    endPoint(0) = 5#: endPoint(1) = 5#: endPoint(2) = 0#
+
+    Set line = ThisDrawing.ModelSpace.AddLine(startPoint, endPoint)
+    ZoomAll
+
+    Call FirstColor.SetColorBookColor("PANTONE Yellow", "Pantone solid colors-uncoated.acb") 
+    line.TrueColor = FirstColor
+ End Sub

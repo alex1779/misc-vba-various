@@ -1,0 +1,21 @@
+Sub Example_SegmentPerPolyline()
+    ' This example returns the current setting of
+    ' SegmentPerPolyline. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim currSegmentPerPolyline As Integer
+    Dim newSegmentPerPolyline As Integer
+    
+    ' Retrieve the current SegmentPerPolyline value
+    currSegmentPerPolyline = ThisDrawing.preferences.SegmentPerPolyline
+    MsgBox "The current value for SegmentPerPolyline is " & currSegmentPerPolyline, vbInformation, "SegmentPerPolyline Example"
+    
+    ' Change the value for SegmentPerPolyline
+    newSegmentPerPolyline = 2001
+    ThisDrawing.preferences.SegmentPerPolyline = newSegmentPerPolyline
+    MsgBox "The new value for SegmentPerPolyline is " & newSegmentPerPolyline, vbInformation, "SegmentPerPolyline Example"
+    
+    ' Reset SegmentPerPolyline to its original value
+    ThisDrawing.preferences.SegmentPerPolyline = currSegmentPerPolyline
+    MsgBox "The SegmentPerPolyline value is reset to " & currSegmentPerPolyline, vbInformation, "SegmentPerPolyline Example"
+End Sub

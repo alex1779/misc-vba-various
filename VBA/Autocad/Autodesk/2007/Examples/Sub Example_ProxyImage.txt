@@ -1,0 +1,26 @@
+Sub Example_ProxyImage()
+    ' This example returns the current setting of
+    ' ProxyImage. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currProxyImage As Integer
+    Dim constant As String
+    Dim newConstant As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current ProxyImage value
+    currProxyImage = preferences.OpenSave.ProxyImage
+    constant = Choose(currProxyImage + 1, "acProxyNotShow", "acProxyShow", "acProxyBoundingBox")
+    MsgBox "The current value for ProxyImage is " & constant, vbInformation, "ProxyImage Example"
+    
+    ' Change the value for ProxyImage
+    newConstant = "acProxyBoundingBox"
+    preferences.OpenSave.ProxyImage = acProxyBoundingBox
+    MsgBox "The new value for ProxyImage is " & newConstant, vbInformation, "ProxyImage Example"
+    
+    ' Reset ProxyImage to its original value
+    preferences.OpenSave.ProxyImage = currProxyImage
+    MsgBox "The ProxyImage value is reset to " & constant, vbInformation, "ProxyImage Example"
+End Sub

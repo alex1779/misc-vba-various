@@ -1,0 +1,12 @@
+Sub Example_StyleSheet()
+    ' This example finds the name of the style sheet for the active layout
+    
+    Dim styleSheetName As String
+    styleSheetName = ThisDrawing.ActiveLayout.StyleSheet
+    
+    If styleSheetName = "" Then
+        MsgBox "There is no style sheet set for the active layout."
+    Else
+        MsgBox "The style sheet for the active layout is: " & styleSheetName
+    End If
+End Sub

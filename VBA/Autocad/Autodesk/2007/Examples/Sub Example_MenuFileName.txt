@@ -1,0 +1,12 @@
+Sub Example_MenuFileName()
+    ' This example finds the file name for all loaded menu groups.
+    
+    Dim fileNames As String
+    Dim menuGroup As acadMenuGroup
+    
+    fileNames = ""
+    For Each menuGroup In ThisDrawing.Application.MenuGroups
+        fileNames = fileNames & menuGroup.name & "  " & menuGroup.MenuFileName & vbCrLf
+    Next menuGroup
+    MsgBox fileNames
+End Sub

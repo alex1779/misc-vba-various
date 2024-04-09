@@ -1,0 +1,11 @@
+Private Sub AcadDocument_ObjectErased(ByVal ObjectID As Long)()
+    ' This example intercepts a drawing ObjectErased event.
+    '
+    ' This event is triggered when an object is removed from a drawing.
+    '
+    ' To trigger this example event: Delete (Cut) an existing object from an open drawing
+
+    ' Use the "Object" variable to determine the type of object removed
+    MsgBox "The ID of the object deleted is: " & ObjectID
+
+End Sub

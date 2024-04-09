@@ -1,0 +1,14 @@
+Sub Example_PlotToFile()
+    ' This example sends a plot of the current drawing
+    ' to a file.
+    
+    ' Define the output file name.
+    ' Use "" to use the drawing name as the file name.
+    Dim plotFileName As String
+    plotFileName = "MyPlot"
+    
+    Dim result As Boolean
+        
+    result = ThisDrawing.Plot.PlotToFile(plotFileName)
+    
+End Sub

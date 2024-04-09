@@ -1,0 +1,3 @@
+    Dim PuntoA(0 To 2), PuntoB(0 To 2) As Double: Dim Linea1 As AcadLine 'Declaración de Variables
+    PuntoA(0) = 0: PuntoA(1) = 0: PuntoA(2) = 0: PuntoB(0) = 0: PuntoB(1) = 0: PuntoB(2) = 0    'Iniciación de Variables
+    Set Linea1 = AutoCAD.Application.ActiveDocument.ModelSpace.AddLine(PuntoA, PuntoB)    'Set line in ACAD

@@ -1,0 +1,3 @@
+Public Function Overkill()   'Overkill
+    AutoCAD.Application.ActiveDocument.SendCommand "-overkill" & vbCr & "all" & vbCr & vbCr & vbCr  'Overkill from all entities
+End Function

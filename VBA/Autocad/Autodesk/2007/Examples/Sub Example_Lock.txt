@@ -1,0 +1,33 @@
+Sub Example_Lock()
+    ' This example creates a new layer called "Lock".
+    ' It then displays the status of the Lock property
+    ' for the new layer, toggles the status of the
+    ' Lock property, and again displays its status.
+    ' After running this example, you can check the layer
+    ' control on the Object Properties tool bar. It will
+    ' show the new layer and the latest Lock status.
+    
+    Dim layerObj As AcadLayer
+    
+    ' Create the new layer
+    Set layerObj = ThisDrawing.Layers.Add("Lock")
+    
+    ' Display the Lock status of the new layer
+    GoSub DISPLAYSTATUS
+    
+    ' Toggle the status of the Lock property for the layer
+    layerObj.Lock = Not (layerObj.Lock)
+    
+    ' Display the Lock status of the new layer
+    GoSub DISPLAYSTATUS
+    Exit Sub
+    
+DISPLAYSTATUS:
+    If layerObj.Lock Then
+        MsgBox "Layer " & layerObj.name & " is locked.", , "Lock Example"
+    Else
+        MsgBox "Layer " & layerObj.name & " is unlocked.", , "Lock Example"
+    End If
+    Return
+        
+End Sub

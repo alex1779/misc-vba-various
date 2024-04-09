@@ -1,0 +1,9 @@
+Sub Example_ContinuousPlotLog()
+' This example changes the AutoCAD Options dialog box
+' to specify one log per plot.
+
+    Dim MyPreference As IAcadPreferencesOutput2
+    Set MyPreference = AcadApplication.Preferences.Output
+    MyPreference.ContinuousPlotLog = False
+    
+End Sub

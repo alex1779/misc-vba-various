@@ -1,0 +1,51 @@
+Sub Example_SaveAsType()
+    ' This example reads and modifies the preference value that controls
+    ' the drawing type to save the drawing as.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesOpenSave
+    Dim originalValue As Variant, DisplayValue As String
+    
+    ' Get the OpenSave preferences object
+    Set ACADPref = ThisDrawing.Application.Preferences.OpenSave
+    
+    ' Store current setting
+    originalValue = ACADPref.SaveAsType
+    
+    ' Read and display the original value
+    GoSub GETVALUE
+    MsgBox "The SaveAsType preference is: " & DisplayValue
+
+    ' Modify the SaveAsType preference by changing it to AutoCAD 2000 DWG
+    ACADPref.SaveAsType = ac2000_dwg
+    GoSub GETVALUE
+    MsgBox "The SaveAsType preference has been set to: " & DisplayValue
+
+    ' Reset the preference back to its original value
+    '
+    ' Comment out this last section to leave the change to
+    '         the preference in effect
+    ACADPref.SaveAsType = originalValue
+    
+    GoSub GETVALUE
+    MsgBox "The SaveAsType preference was reset back to: " & DisplayValue
+    
+    Exit Sub
+    
+GETVALUE:
+    ' Convert the value of this setting to a meaningful text string
+    DisplayValue = ACADPref.SaveAsType
+    Select Case DisplayValue
+        Case ac2000_dwg:  DisplayValue = "AutoCAD 2000 DWG (*.dwg)"
+        Case ac2000_dxf:  DisplayValue = "AutoCAD 2000 DXF (*.dxf)"
+        Case ac2000_Template: DisplayValue = "AutoCAD 2000 Drawing Template File (*.dwt)"
+        Case ac2004_dwg:  DisplayValue = "AutoCAD 2004 DWG (*.dwg)"
+        Case ac2004_dxf:  DisplayValue = "AutoCAD 2004 DXF (*.dxf)"
+        Case ac2004_Template: DisplayValue = "AutoCAD 2004 Drawing Template File (*.dwt)"
+        Case acNative:   DisplayValue = "Latest drawing release"
+        Case acUnknown:  DisplayValue = "The drawing type is unknown"
+    End Select
+    
+    Return
+End Sub

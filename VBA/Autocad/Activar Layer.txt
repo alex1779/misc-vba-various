@@ -1,0 +1,3 @@
+    Dim LayerName As AcadLayer
+    Set LayerName = AutoCAD.Application.ActiveDocument.Layers.item(".3D MODEL")
+    AutoCAD.Application.ActiveDocument.ActiveLayer = LayerName

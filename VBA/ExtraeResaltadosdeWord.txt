@@ -1,0 +1,33 @@
+Public Sub ExtraeResaltados()
+        Dim WORD As Object
+        Set WORD = CreateObject("Word.Application")
+        Dim vaFiles As Variant
+        vaFiles = Application.GetOpenFilename()
+        Dim Doc As Object
+        Dim DocPath As String
+        DocPath = vaFiles
+        WORD.Visible = True
+        Set DocWORD = WORD.documents.Open(DocPath)
+        Dim micadena As String
+        WORD.Selection.Find.ClearFormatting
+        WORD.Selection.Find.Highlight = True
+        With WORD.Selection.Find
+            .Text = ""
+            .Replacement.Text = ""
+            .Forward = True
+            .wrap = wdFindContinue
+            .Format = True
+            .MatchCase = False
+            .MatchWholeWord = False
+            .MatchWildcards = False
+            .MatchSoundsLike = False
+            .MatchAllWordForms = False
+        Dim i As Integer
+        i = 1
+        Do While .Execute(findText:="", Forward:=True, Format:=True) = True
+        Hoja5.Cells(i, 1) = WORD.Selection.Text
+        i = i + 1
+        micadena = micadena & WORD.Selection.Text & Chr(13)
+        Loop
+    End With
+End Sub

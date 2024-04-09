@@ -1,0 +1,3 @@
+Public Sub Guardar()
+AutoCAD.Application.ActiveDocument.Save
+End Sub

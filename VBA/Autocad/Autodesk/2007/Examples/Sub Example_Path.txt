@@ -1,0 +1,14 @@
+Sub Example_Path()
+    ' This example returns the path of the drawing and application.
+    
+    ' If the drawing has not been saved, the path of the
+    ' document will be blank.
+    Dim docPath As String
+    docPath = ThisDrawing.Path
+    MsgBox "The Path of the current drawing is " & docPath, , "Path Example"
+    
+    Dim appPath As String
+    appPath = ThisDrawing.Application.Path
+    MsgBox "The Path of the current appication is " & appPath, , "Path Example"
+    
+End Sub

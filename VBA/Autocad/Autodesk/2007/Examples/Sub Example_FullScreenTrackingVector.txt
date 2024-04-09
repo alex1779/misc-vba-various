@@ -1,0 +1,28 @@
+Sub Example_FullScreenTrackingVector()
+    ' This example reads and modifies the preference value that controls
+    ' the display of full-screen tracking vectors.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesDrafting
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the drafting preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Drafting
+    
+    ' Read and display the original value
+    originalValue = ACADPref.FullScreenTrackingVector
+    MsgBox "The FullScreenTrackingVector preference is set to: " & originalValue
+
+    ' Modify the FullScreenTrackingVector preference by toggling the value
+    ACADPref.FullScreenTrackingVector = Not (originalValue)
+    newValue = ACADPref.FullScreenTrackingVector
+    MsgBox "The FullScreenTrackingVector preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.FullScreenTrackingVector = originalValue
+    MsgBox "The FullScreenTrackingVector preference was reset back to: " & originalValue
+End Sub

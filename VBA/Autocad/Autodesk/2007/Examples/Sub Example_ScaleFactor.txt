@@ -1,0 +1,28 @@
+Sub Example_ScaleFactor()
+    ' This example creates a text object in model space.
+    ' It then finds the current scale factor and changes it.
+    Dim textObj As AcadText
+    Dim textString As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim height As Double
+    
+    ' Define the text object
+    textString = "Hello, World."
+    insertionPoint(0) = 2: insertionPoint(1) = 2: insertionPoint(2) = 0
+    height = 0.5
+    
+    ' Create the text object in model space
+    Set textObj = ThisDrawing.ModelSpace.AddText(textString, insertionPoint, height)
+    ZoomAll
+    
+    ' Find the current scale factor for the text object
+    Dim currScaleFactor As Double
+    currScaleFactor = textObj.scalefactor
+    MsgBox "The scale factor of the text is " & textObj.scalefactor, , "ScaleFactor Example"
+    
+    ' Change the scale factor for the text object
+    textObj.scalefactor = currScaleFactor + 1
+    ThisDrawing.Regen True
+    MsgBox "The scale factor of the text is now " & textObj.scalefactor, , "ScaleFactor Example"
+    
+End Sub

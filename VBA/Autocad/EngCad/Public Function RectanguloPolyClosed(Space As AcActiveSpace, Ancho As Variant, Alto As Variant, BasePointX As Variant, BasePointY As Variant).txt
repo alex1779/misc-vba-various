@@ -1,0 +1,14 @@
+Public Function RectanguloPolyClosed(Space As AcActiveSpace, Ancho As Variant, Alto As Variant, BasePointX As Variant, BasePointY As Variant, Optional Color As AcColor, Optional layer As String)
+Dim Poly As AcadPolyline
+Dim PuntoA(0 To 11) As Double
+PuntoA(0) = BasePointX:             PuntoA(1) = BasePointY:             PuntoA(2) = 0
+PuntoA(3) = BasePointX:             PuntoA(4) = BasePointY + Alto:      PuntoA(5) = 0
+PuntoA(6) = BasePointX + Ancho:     PuntoA(7) = BasePointY + Alto:      PuntoA(8) = 0
+PuntoA(9) = BasePointX + Ancho:     PuntoA(10) = BasePointY:      PuntoA(11) = 0
+Set Poly = Autocad.Application.ActiveDocument.modelspace.AddPolyline(PuntoA)
+Poly.Closed = True
+On Error Resume Next
+Poly.Color = Color
+Poly.layer = layer
+Autocad.Application.ActiveDocument.SendCommand "regen" & vbCr
+End Function

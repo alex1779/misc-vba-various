@@ -1,0 +1,22 @@
+Sub Example_Measurement()
+    ' This example creates an aligned dimension in model space
+    ' and returns the measurement of the dimension; in the case
+    ' of a linear dimension, this measurement will be its length
+    
+    Dim dimObj As AcadDimAligned
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim CurrentValue As String
+    
+    ' Define the dimension
+    point1(0) = 5: point1(1) = 5: point1(2) = 0
+    point2(0) = 9: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    ThisDrawing.Application.ZoomAll
+
+    ' Read and display current measurement
+    MsgBox "The current measurement of the new dimension is: " & dimObj.Measurement
+End Sub

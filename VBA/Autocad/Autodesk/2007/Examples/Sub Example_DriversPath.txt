@@ -1,0 +1,24 @@
+Sub Example_DriversPath()
+    ' This example returns the current setting of
+    ' DriversPath. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currDriversPath As String
+    Dim newDriversPath As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current DriversPath value
+    currDriversPath = preferences.Files.DriversPath
+    MsgBox "The current value for DriversPath is " & currDriversPath, vbInformation, "DriversPath Example"
+    
+    ' Change the value for DriversPath
+    newDriversPath = "TestDriversPath"
+    preferences.Files.DriversPath = newDriversPath
+    MsgBox "The new value for DriversPath is " & newDriversPath, vbInformation, "DriversPath Example"
+    
+    ' Reset DriversPath to its original value
+    preferences.Files.DriversPath = currDriversPath
+    MsgBox "The DriversPath value is reset to " & currDriversPath, vbInformation, "DriversPath Example"
+End Sub

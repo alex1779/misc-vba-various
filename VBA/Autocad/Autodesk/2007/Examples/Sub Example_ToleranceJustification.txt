@@ -1,0 +1,47 @@
+Sub Example_ToleranceJustification()
+   ' This example creates an aligned dimension in model space and
+   ' sets the tolerance justification for the dimension to
+   ' a couple of common values
+   '
+   ' * Note the vertical position of the tolerance text
+
+    Dim dimObj As AcadDimAligned
+    Dim newText As AcadTextStyle
+    Dim point1(0 To 2) As Double, point2(0 To 2) As Double
+    Dim location(0 To 2) As Double
+    Dim CurrentDisplay As String
+    
+    ' Define the dimension
+    point1(0) = 5: point1(1) = 5: point1(2) = 0
+    point2(0) = 5.5: point2(1) = 5: point2(2) = 0
+    location(0) = 5: location(1) = 7: location(2) = 0
+    
+    ' Create an aligned dimension object in model space
+    Set dimObj = ThisDrawing.ModelSpace.AddDimAligned(point1, point2, location)
+    
+    ' Turn on tolerance display and increase the dimension text height,
+    ' so the alignment of the tolerance is visible
+    dimObj.ToleranceDisplay = acTolSymmetrical
+    dimObj.textHeight = 1
+    dimObj.ToleranceHeightScale = 0.25
+    
+    ThisDrawing.Application.ZoomAll
+    
+    ' Read and display the current tolerance justification for this dimension
+    Select Case dimObj.ToleranceJustification
+        Case acTolBottom: CurrentDisplay = "Bottom"
+        Case acTolTop: CurrentDisplay = "Top"
+        Case acTolMiddle: CurrentDisplay = "Middle"
+    End Select
+    
+    MsgBox "The tolerance justification is currently: " & CurrentDisplay
+    
+    ' Set the tolerance justification for this dimension
+    dimObj.ToleranceJustification = acTolBottom
+    
+    ThisDrawing.Regen acAllViewports
+    
+    ' Display the current tolerance justification for this dimension
+    MsgBox "The tolerance display is now set to: Bottom"
+
+End Sub

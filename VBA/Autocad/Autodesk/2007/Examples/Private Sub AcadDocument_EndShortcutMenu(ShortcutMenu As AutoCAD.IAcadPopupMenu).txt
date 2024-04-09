@@ -1,0 +1,10 @@
+Private Sub AcadDocument_EndShortcutMenu(ShortcutMenu As AutoCAD.IAcadPopupMenu)()
+    ' This example intercepts a drawing EndShortcutMenu event.
+    '
+    ' This event is triggered when the user closes a drawing shortcut menu.
+    '
+    ' To trigger this example event: Right click the mouse in the working area of a drawing,
+    ' wait for the shortcut menu to be displayed and then dismiss the shortcut menu
+
+    MsgBox "A shortcut menu was just closed!"
+End Sub

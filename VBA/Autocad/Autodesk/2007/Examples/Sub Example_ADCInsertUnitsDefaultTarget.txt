@@ -1,0 +1,26 @@
+Sub Example_ADCInsertUnitsDefaultTarget()
+    ' This example reads and modifies the ADCInsertUnitsDefaultTarget
+    ' preference value.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesUser
+    Dim originalValue As Integer, newValue As Integer
+    
+    ' Get the user preferences object
+
+    Set ACADPref = ThisDrawing.Application.preferences.User
+    
+    ' Read and display the original value
+    originalValue = ACADPref.ADCInsertUnitsDefaultTarget
+    MsgBox "The ADCInsertUnitsDefaultTarget preference is set to: " & originalValue
+
+    ' Modify the ADCInsertUnitsDefaultTarget preference by toggling the value
+    ACADPref.ADCInsertUnitsDefaultTarget = acInsertUnitsMillimeters
+
+    MsgBox "The ADCInsertUnitsDefaultTarget preference has been set to: " & ACADPref.ADCInsertUnitsDefaultTarget
+
+    ' Reset the preference back to its original value
+    ACADPref.ADCInsertUnitsDefaultTarget = originalValue
+    MsgBox "The ADCInsertUnitsDefaultTarget preference was reset back to: " & originalValue
+End Sub

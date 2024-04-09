@@ -1,0 +1,10 @@
+    Dim PuntoA(0 To 2) As Double: Dim mtextObj As AcadMText: Dim Width As Double: Dim CadenaTexto As String 'Declaración de Variables
+    PuntoA(0) = 0: PuntoA(1) = 0: PuntoA(2) = 0     'Iniciación de Variables
+    width = 4
+    CadenaTexto = "This is a text string for the mtext object."
+    Set mtextObj = AutoCAD.Application.ActiveDocument.ModelSpace.AddMText(PuntoA, width, CadenaTexto)    'Creando Nuevo Texto
+    With mtextObj
+        .AttachmentPoint = acAttachmentPointMiddleCenter
+        .Color = acRed
+        .InsertionPoint = PuntoA
+    End With

@@ -1,0 +1,21 @@
+Sub Example_ArcSmoothness()
+    ' This example returns the current setting of
+    ' ArcSmoothness. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim currArcSmoothness As Integer
+    Dim newArcSmoothness As Integer
+        
+    ' Retrieve the current ArcSmoothness value
+    currArcSmoothness = ThisDrawing.ActiveViewport.ArcSmoothness
+    MsgBox "The current value for ArcSmoothness is " & currArcSmoothness, vbInformation, "ArcSmoothness Example"
+    
+    ' Change the value for ArcSmoothness
+    newArcSmoothness = 2001
+    ThisDrawing.ActiveViewport.ArcSmoothness = newArcSmoothness
+    MsgBox "The new value for ArcSmoothness is " & newArcSmoothness, vbInformation, "ArcSmoothness Example"
+    
+    ' Reset ArcSmoothness to its original value
+    ThisDrawing.ActiveViewport.ArcSmoothness = currArcSmoothness
+    MsgBox "The ArcSmoothness value is reset to " & currArcSmoothness, vbInformation, "ArcSmoothness Example"
+End Sub

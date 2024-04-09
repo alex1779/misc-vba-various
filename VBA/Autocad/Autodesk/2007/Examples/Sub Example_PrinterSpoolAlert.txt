@@ -1,0 +1,25 @@
+Sub Example_PrinterSpoolAlert()
+    ' This example reads and modifies the PrinterSpoolAlert
+    ' preference value.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesOutput
+    Dim originalValue As Integer
+    
+    ' Get the user preferences object
+
+    Set ACADPref = ThisDrawing.Application.preferences.Output
+    
+    ' Read and display the original value
+    originalValue = ACADPref.PrinterSpoolAlert
+    MsgBox "The PrinterSpoolAlert preference is set to: " & originalValue
+
+    ' Modify the PrinterSpoolAlert preference by toggling the value
+    ACADPref.PrinterSpoolAlert = acPrinterNeverAlert
+    MsgBox "The PrinterSpoolAlert preference has been set to: " & ACADPref.PrinterSpoolAlert
+
+    ' Reset the preference back to its original value
+    ACADPref.PrinterSpoolAlert = originalValue
+    MsgBox "The PrinterSpoolAlert preference was reset back to: " & originalValue
+End Sub

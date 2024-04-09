@@ -1,0 +1,4 @@
+Application.DisplayAlerts = False
+ThisWorkbook.Save
+Application.DisplayAlerts = True
+Application.Quit

@@ -1,0 +1,3 @@
+Public Sub NuevoDibujo()
+Autocad.Application.Documents.Add (acad)
+End Sub

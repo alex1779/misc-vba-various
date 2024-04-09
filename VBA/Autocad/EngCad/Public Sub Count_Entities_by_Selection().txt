@@ -1,0 +1,5 @@
+Sub Count_Entities_by_Selection() '^C^C-vbarun Count_Entities_by_Selection
+Set ssetObj = AutoCAD.Application.ActiveDocument.SelectionSets.Add(Rnd)
+ssetObj.SelectOnScreen
+MsgBox ssetObj.Count & " Entities"
+End Sub

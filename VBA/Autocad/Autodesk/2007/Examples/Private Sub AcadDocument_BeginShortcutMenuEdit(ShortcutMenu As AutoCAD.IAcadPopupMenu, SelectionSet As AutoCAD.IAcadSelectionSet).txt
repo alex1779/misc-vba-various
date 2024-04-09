@@ -1,0 +1,5 @@
+Private Sub AcadDocument_BeginShortcutMenuEdit(ShortcutMenu As AutoCAD.IAcadPopupMenu, SelectionSet As AutoCAD.IAcadSelectionSet)()
+    ' This example intercepts a shortcut menu start while you are in the edit mode.
+    '
+    MsgBox "You have just initiated a shortcut menu in edit mode!"
+End Sub

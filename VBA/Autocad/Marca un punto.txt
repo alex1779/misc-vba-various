@@ -1,0 +1,2 @@
+	'Return a point using a prompt
+	puntoinsercion = AutoCAD.Application.ActiveDocument.Utility.GetPoint(, "Enter a point: ")

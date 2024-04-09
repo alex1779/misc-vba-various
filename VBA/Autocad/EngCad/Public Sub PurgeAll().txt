@@ -1,0 +1,3 @@
+Public Sub Purge()
+AutoCAD.Application.ActiveDocument.PurgeAll
+End Sub

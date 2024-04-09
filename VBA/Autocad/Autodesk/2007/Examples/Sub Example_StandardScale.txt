@@ -1,0 +1,25 @@
+Sub Example_StandardScale()
+    ' This example will access the active layout for the current drawing
+    ' and list the standard scale for that Layout.
+    ' It then changes the standard scale for the layout, and finally
+    ' resets the scale back to its original value.
+
+    Dim Layout As ACADLayout
+    Dim currScale As Integer
+    
+    ' Get the activeLayout
+    Set Layout = ThisDrawing.ActiveLayout
+    
+    ' Find the current standard scale
+    currScale = Layout.StandardScale
+    MsgBox "The current standard scale is : " & Layout.StandardScale
+    
+    ' Change the standard scale to 100:1
+    Layout.StandardScale = ac100_1
+    MsgBox "The new standard scale is : " & Layout.StandardScale
+    
+    ' Reset the original standard scale
+    Layout.StandardScale = currScale
+    MsgBox "The new standard scale is : " & Layout.StandardScale
+    
+End Sub

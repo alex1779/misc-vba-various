@@ -1,0 +1,14 @@
+Sub Example_Menus()
+    ' This example finds the names of all menus in the first menu group.
+    
+    Dim menuNames As String
+    Dim menuCollection As AcadPopupMenus
+    Dim menu As AcadPopupMenu
+    
+    Set menuCollection = ThisDrawing.Application.MenuGroups.Item(0).Menus
+    menuNames = ""
+    For Each menu In menuCollection
+        menuNames = menuNames & menu.name & vbCrLf
+    Next menu
+    MsgBox menuNames
+End Sub

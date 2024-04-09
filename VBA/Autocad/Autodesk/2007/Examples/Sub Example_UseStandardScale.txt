@@ -1,0 +1,24 @@
+Sub Example_UseStandardScale()
+    ' This example will access the Layouts collection for the current drawing
+    ' and list the status of UseStandardScale for each Layout.
+
+    Dim Layouts As AcadLayouts, Layout As ACADLayout
+    Dim msg As String
+    
+    ' Get layouts collection from document object
+    Set Layouts = ThisDrawing.Layouts
+    
+    msg = ""
+    
+    ' Get the UseStandardScale information of every layout in this drawing
+    For Each Layout In Layouts
+        If Layout.UseStandardScale Then
+            msg = msg & Layout.name & " uses the standard scale." & vbCrLf
+        Else
+            msg = msg & Layout.name & " uses a custom scale." & vbCrLf
+        End If
+    Next
+    
+    ' Display the information
+    MsgBox msg
+End Sub

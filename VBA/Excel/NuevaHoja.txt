@@ -1,0 +1,8 @@
+    For Each Worksheet In Worksheets
+    If Worksheet.Name = "ModelSpace" Then
+    Worksheet.Delete
+    Else:
+    End If
+    Next
+    Sheets.Add After:=ActiveSheet
+    ActiveSheet.Name = "ModelSpace"

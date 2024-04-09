@@ -1,0 +1,41 @@
+Sub Example_FieldLength()
+    ' This example creates an attribute definition in model space.
+    ' It then queries the initial value of the FieldLength property,
+    ' changes that value, and finally resets the value.
+    
+    Dim attributeObj As AcadAttribute
+    Dim height As Double
+    Dim mode As Long
+    Dim prompt As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim tag As String
+    Dim value As String
+    
+    ' Define the attribute definition
+    height = 1#
+    mode = acAttributeModeVerify
+    prompt = "New Prompt"
+    insertionPoint(0) = 5#: insertionPoint(1) = 5#: insertionPoint(2) = 0
+    tag = "New Tag"
+    value = "New Value"
+    
+    ' Create the attribute definition object in model space
+    Set attributeObj = ThisDrawing.ModelSpace.AddAttribute(height, mode, prompt, insertionPoint, tag, value)
+    ZoomAll
+    
+    ' Return the current field length of the attribute
+    Dim currFieldLength As Integer
+    currFieldLength = attributeObj.FieldLength
+    MsgBox "The FieldLength of the attribute is " & attributeObj.FieldLength, vbInformation, "FieldLength Example"
+    
+    ' Change the field length
+    attributeObj.FieldLength = currFieldLength + 2
+    attributeObj.Update
+    MsgBox "The new FieldLength of the attribute is " & attributeObj.FieldLength, vbInformation, "FieldLength Example"
+    
+    ' Reset the field length to the original value
+    attributeObj.FieldLength = currFieldLength
+    attributeObj.Update
+    MsgBox "The FieldLength of the attribute is reset to " & attributeObj.FieldLength, vbInformation, "FieldLength Example"
+    
+End Sub

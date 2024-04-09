@@ -1,0 +1,5 @@
+Public Function LayersApagar(Name As Variant)
+Dim layerObj As AcadLayer
+Set layerObj = AutoCAD.Application.ActiveDocument.Layers.Item(nombre)
+layerObj.Freeze = True
+End Function

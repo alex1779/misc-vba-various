@@ -1,0 +1,24 @@
+Sub Example_PrintSpoolerPath()
+    ' This example returns the current setting of
+    ' PrintSpoolerPath. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currPrintSpoolerPath As String
+    Dim newPrintSpoolerPath As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current PrintSpoolerPath value
+    currPrintSpoolerPath = preferences.Files.PrintSpoolerPath
+    MsgBox "The current value for PrintSpoolerPath is " & currPrintSpoolerPath, vbInformation, "PrintSpoolerPath Example"
+    
+    ' Change the value for PrintSpoolerPath
+    newPrintSpoolerPath = "TestPrintSpoolerPath"
+    preferences.Files.PrintSpoolerPath = newPrintSpoolerPath
+    MsgBox "The new value for PrintSpoolerPath is " & newPrintSpoolerPath, vbInformation, "PrintSpoolerPath Example"
+    
+    ' Reset PrintSpoolerPath to its original value
+    preferences.Files.PrintSpoolerPath = currPrintSpoolerPath
+    MsgBox "The PrintSpoolerPath value is reset to " & currPrintSpoolerPath, vbInformation, "PrintSpoolerPath Example"
+End Sub

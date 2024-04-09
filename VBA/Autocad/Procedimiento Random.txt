@@ -1,0 +1,7 @@
+Private Function random(menor As Integer, mayor As Integer)
+ 
+    random = ((mayor - menor + 1) * Rnd + menor)
+    Do While random = 0: random = ((mayor - menor + 1) * Rnd + menor): Loop 'Non Zero
+    Do While random > mayor: random = ((mayor - menor + 1) * Rnd + menor): Loop 'Non Zero
+
+End Function

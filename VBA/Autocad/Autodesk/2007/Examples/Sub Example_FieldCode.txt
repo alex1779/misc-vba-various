@@ -1,0 +1,23 @@
+Sub Example_FieldCode()
+    ' This example creates a text object in model space.
+    ' It then returns the field code string for the object.
+
+    Dim textObj As IAcadText2
+    Dim text As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim height As Double
+
+    ' Define the text object
+    text = "%<\AcVar Date \f ""M/d/yyyy""%>%"
+    insertionPoint(0) = 2: insertionPoint(1) = 2: insertionPoint(2) = 0
+    height = 0.5
+    
+    ' Create the text object in model space
+    Set textObj = ThisDrawing.ModelSpace.AddText(text, insertionPoint, height)
+    ZoomAll
+    
+    ' Return the current text string for the object
+    text = textObj.FieldCode
+    MsgBox "The FieldCode for the text object equals: " & text, vbInformation, "FieldCode Example"
+
+End Sub

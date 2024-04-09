@@ -1,0 +1,12 @@
+Sub Example_Layers()
+    ' This example finds the current Layers collection and
+    ' adds a new layer to that collection.
+    
+    Dim layerColl As AcadLayers
+    Set layerColl = ThisDrawing.Layers
+    
+    ' Create a dimension style named "TEST" in current drawing
+    Dim testlayer As AcadLayer
+    Set testlayer = layerColl.Add("TEST")
+    MsgBox "A new layer called " & testlayer.name & " has been added to the Layers collection.", vbInformation, "Layers Example"
+End Sub

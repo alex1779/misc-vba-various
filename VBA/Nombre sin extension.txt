@@ -1,0 +1,5 @@
+Dim fso As New Scripting.filesystemobject
+
+nombre = fso.GetBaseName(AutoCAD.Application.ActiveDocument.Name)
+
+"hay que activar referencia: Microsoft Scripting Runtime

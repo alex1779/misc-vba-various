@@ -1,0 +1,6 @@
+Sub Example_SaveAs()
+    ' The following example saves current drawing as "test.dwg"
+    
+    ThisDrawing.SaveAs ("test.dwg")
+    
+End Sub

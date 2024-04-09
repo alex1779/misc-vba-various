@@ -1,0 +1,3 @@
+Public Function NuevoDibujo()   'Nuevo dibujo en autocad
+        AutoCAD.Application.Documents.Add (acad)    'New Drawing
+End Function

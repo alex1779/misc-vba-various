@@ -1,0 +1,18 @@
+Sub Example_Export()
+    ' This example exports the current drawing to DXF format.
+    ' Note that a valid selection set must be provided, even
+    ' though the contents of the selection set are ignored.
+    
+    
+    ' Define the name for the exported file
+    Dim exportFile As String
+    exportFile = "C:\AutoCAD\DXFExprt"     ' Adjust path to match your system
+    
+    ' Create an empty selection set
+    Dim sset As AcadSelectionSet
+    Set sset = ThisDrawing.SelectionSets.Add("TEST")
+    
+    ' Export the current drawing to the file specified above.
+    ThisDrawing.Export exportFile, "DXF", sset
+    
+End Sub

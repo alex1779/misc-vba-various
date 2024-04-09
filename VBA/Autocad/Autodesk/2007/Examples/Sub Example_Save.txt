@@ -1,0 +1,6 @@
+Sub Example_Save()
+    ' The following example saves current drawing
+    
+    ThisDrawing.Save
+    
+End Sub

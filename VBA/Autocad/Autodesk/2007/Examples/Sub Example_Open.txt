@@ -1,0 +1,8 @@
+Sub Example_Open()
+    ' The following example opens "C:\AutoCAD\Sample\city map.dwg" file.
+    ' This drawing may not exist on your system. Change the drawing
+    ' path and name to reflect a valid AutoCAD drawing on your system.
+    
+    ThisDrawing.Application.Documents.Open ("C:\AutoCAD\Sample\city map.dwg")
+    
+End Sub

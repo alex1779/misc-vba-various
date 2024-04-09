@@ -1,0 +1,10 @@
+Public Function Point(Space As AcActiveSpace, CenterX As Variant, CenterY As Variant, CenterZ As Variant, Optional Color As AcColor, Optional layer As String)
+Dim PointObj As AcadPoint
+Dim Pnt(0 To 2) As Double
+Pnt(0) = CenterX: Pnt(1) = CenterY: Pnt(2) = CenterZ
+If Space = 0 Then Set PointObj = Autocad.Application.ActiveDocument.PaperSpace.AddPoint(Pnt)
+If Space = 1 Then Set PointObj = Autocad.Application.ActiveDocument.modelspace.AddPoint(Pnt)
+On Error Resume Next
+PointObj.Color = Color
+PointObj.layer = layer
+End Function

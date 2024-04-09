@@ -1,0 +1,28 @@
+;;;    ENGCAD.MNL
+; Place the Express Tools pulldown to the left of the last pulldown already loaded
+ 
+(defun acet-init-placemenu( / n )
+  (if (menugroup "ENGCAD")
+      (progn
+       (setq n 1)
+       (while (< n 24)
+        (if (menucmd (strcat "P" (itoa n) ".1=?"))
+            (setq n (+ n 1))
+            (progn
+             (if (> n 3)
+                 (setq n (- n 2))
+                 (setq n 3)
+             );if
+             (menucmd (strcat "p" (itoa n) "=+ENGCAD.pop1"))
+             (setq n 25)
+            );progn
+        );if
+       );while
+      );progn
+  );if
+);defun acet-init-placemenu
+ 
+(acet-init-placemenu)
+
+
+(princ)

@@ -1,0 +1,20 @@
+Sub Example_UCSIconOn()
+    ' This example toggles the setting of UCSIconOn.
+
+    Dim viewportObj As AcadViewport
+    
+    ' Set the viewportObj variable to the activeviewport
+    Set viewportObj = ThisDrawing.ActiveViewport
+    
+    ' Display the current setting of UCSIconOn
+    MsgBox "UCSIcon is: " & IIf(viewportObj.UCSIconOn, "On", "Off"), , "UCSIconOn Example"
+
+    ' Toggle the setting of UCSIconOn
+    viewportObj.UCSIconOn = Not (viewportObj.UCSIconOn)
+    
+    ' Reset the active viewport to see the change
+    ThisDrawing.ActiveViewport = viewportObj
+    
+    MsgBox "UCSIcon is now: " & IIf(viewportObj.UCSIconOn, "On", "Off"), , "UCSIconOn Example"
+    
+End Sub

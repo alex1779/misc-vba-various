@@ -1,0 +1,32 @@
+Sub Example_RenameProfile()
+    ' This example renames an existing profile.
+    ' You can see the renamed profile under Options/Profiles
+    '
+    ' *Note: This example relies on the default profile "<<Unnamed Profile>>".
+    ' If this profile has already been renamed or removed, be sure to change the
+    ' name of the SourceProfile to one that currently exists.
+    
+    Dim ACADPref As AcadPreferencesProfiles
+    Dim SourceProfile As String, DestinationProfile As String
+    
+    ' Get the profiles preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Profiles
+    
+    ' Rename the default profile
+    On Error GoTo ERRORTRAP
+    
+    SourceProfile = "<<Unnamed Profile>>"
+    DestinationProfile = "NEW_PROFILE_NAME"
+        
+    ACADPref.RenameProfile SourceProfile, DestinationProfile
+
+    MsgBox "We have just renamed the profile " & SourceProfile & " to " & DestinationProfile
+    
+    Exit Sub
+    
+ERRORTRAP:
+    If Err.Description <> "" Then
+        MsgBox "The default profile '" & SourceProfile & "' cannot be found, please use a different source profile."
+    End If
+
+End Sub

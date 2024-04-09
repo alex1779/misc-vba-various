@@ -1,0 +1,3 @@
+Public Sub Regen()
+AutoCAD.Application.ActiveDocument.SendCommand "regen" & vbCr
+End Sub

@@ -1,0 +1,28 @@
+Sub Example_PickBoxSize()
+    ' This example reads and modifies the preference value that controls
+    ' the size of the object selection target.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesSelection
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the selection preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Selection
+    
+    ' Read and display the original value
+    originalValue = ACADPref.PickBoxSize
+    MsgBox "The PickBoxSize preference is set to: " & originalValue
+
+    ' Modify the PickBoxSize preference by setting it to 5
+    ACADPref.PickBoxSize = 5
+    newValue = ACADPref.PickBoxSize
+    MsgBox "The PickBoxSize preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.PickBoxSize = originalValue
+    MsgBox "The PickBoxSize preference was reset back to: " & originalValue
+End Sub

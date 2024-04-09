@@ -1,0 +1,32 @@
+Sub AutocentrosCirculos()
+
+	'esta macro reemplaza las polilineas por circulos, ademas traza lineas de eje
+
+
+    Dim Obj As AcadEntity
+    Dim Object As Object
+    Dim Entidad As AcadEntity
+    Dim Perimeter As Double
+    Dim Length As Variant
+    For Each Object In Autocad.Application.ActiveDocument.ModelSpace
+    Set Entidad = Object
+        If Entidad.ObjectName = "AcDbPolyline" Then
+        Length = Round(Entidad.Length, 4)
+        End If
+        Entidad.GetBoundingBox MinPoint, MaxPoint
+        radio = ((MaxPoint(0) - MinPoint(0)) / 2)
+        Pi = 3.14159265358979                    'Número pi
+        PerimetroPosible = Round(radio * 2 * Pi, 4) 'formula de circumferencia
+        If PerimetroPosible = Length Then
+        d = radio
+        Linea EjeHorizontal, MinPoint(0) - d, MinPoint(1) + d, MinPoint(2), MaxPoint(0) + d, MaxPoint(1) - d, MaxPoint(2), acByLayer, ".CENTER LINE"
+        Linea EjeVertical, MinPoint(0) + d, MinPoint(1) - d, MinPoint(2), MaxPoint(0) - d, MaxPoint(1) + d, MaxPoint(2), acByLayer, ".CENTER LINE"
+        EjeHorizontal.LinetypeScale = d
+        EjeVertical.LinetypeScale = d
+        Circulo Circulo1, MinPoint(0) + d, MinPoint(1) + d, MinPoint(2), d, acByLayer, ".GENERAL ARRANGEMENT"
+        Entidad.Delete
+        End If
+    Next Object
+    ZoomExtents
+
+End Sub

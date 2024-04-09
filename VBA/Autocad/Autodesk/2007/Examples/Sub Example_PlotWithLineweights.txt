@@ -1,0 +1,24 @@
+Sub Example_PlotWithLineweights()
+    ' This example reads and modifies the PlotWithLineweights
+    ' Layout value.
+    ' When finished, this example resets the  value back to
+    ' its original value.
+    
+    Dim ACADLayout As ACADLayout
+    Dim originalValue As Boolean
+    
+    ' Get the layout object
+    Set ACADLayout = ThisDrawing.ActiveLayout
+    
+    ' Read and display the original value
+    originalValue = ACADLayout.PlotWithLineweights
+    MsgBox "The PlotWithLineweights value is set to: " & originalValue
+
+    ' Modify the PlotWithLineweights preference by toggling the value
+    ACADLayout.PlotWithLineweights = Not ACADLayout.PlotWithLineweights
+    MsgBox "The PlotWithLineweights preference has been set to: " & ACADLayout.PlotWithLineweights
+
+    ' Reset the preference back to its original value
+    ACADLayout.PlotWithLineweights = originalValue
+    MsgBox "The PlotWithLineweights preference was reset back to: " & originalValue
+End Sub

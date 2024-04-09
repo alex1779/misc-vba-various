@@ -1,0 +1,5 @@
+Public Enum DayOfWeek
+    Monday = 1
+    Tuesday = 2
+    Wednesday = 3
+End Enum

@@ -1,0 +1,24 @@
+Sub Example_PlotRotation()
+    ' This example reads and modifies the PlotRotation
+    ' Layout value.
+    ' When finished, this example resets the  value back to
+    ' its original value.
+    
+    Dim ACADLayout As ACADLayout
+    Dim originalValue As Integer
+    
+    ' Get the layout object
+    Set ACADLayout = ThisDrawing.ActiveLayout
+    
+    ' Read and display the original value
+    originalValue = ACADLayout.PlotRotation
+    MsgBox "The PlotRotation value is set to: " & originalValue
+
+    ' Modify the PlotRotation preference by toggling the value
+    ACADLayout.PlotRotation = ac180degrees
+    MsgBox "The PlotRotation preference has been set to: " & ACADLayout.PlotRotation
+
+    ' Reset the preference back to its original value
+    ACADLayout.PlotRotation = originalValue
+    MsgBox "The PlotRotation preference was reset back to: " & originalValue
+End Sub

@@ -1,0 +1,26 @@
+Sub Example_XRefDemandLoad()
+    ' This example returns the current setting of
+    ' XRefDemandLoad. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currXRefDemandLoad As Integer
+    Dim constant As String
+    Dim newConstant As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current XRefDemandLoad value
+    currXRefDemandLoad = preferences.OpenSave.XrefDemandLoad
+    constant = Choose(currXRefDemandLoad + 1, "acDemandLoadDisabled", "acDemandLoadEnabled", "acDemandLoadEnabledWithCopy")
+    MsgBox "The current value for XRefDemandLoad is " & constant, vbInformation, "XRefDemandLoad Example"
+    
+    ' Change the value for XRefDemandLoad
+    newConstant = "acDemandLoadEnabledWithCopy"
+    preferences.OpenSave.XrefDemandLoad = acDemandLoadEnabledWithCopy
+    MsgBox "The new value for XRefDemandLoad is " & newConstant, vbInformation, "XRefDemandLoad Example"
+    
+    ' Reset XRefDemandLoad to its original value
+    preferences.OpenSave.XrefDemandLoad = currXRefDemandLoad
+    MsgBox "The XRefDemandLoad value is reset to " & constant, vbInformation, "XRefDemandLoad Example"
+End Sub

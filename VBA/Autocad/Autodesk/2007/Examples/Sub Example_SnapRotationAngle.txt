@@ -1,0 +1,39 @@
+Sub Example_SnapRotationAngle()
+    ' This example changes the snap rotation angle for a
+    ' model space and paper space viewport.
+    
+    ' Create a new model space viewport
+    Dim viewportObj As AcadViewport
+    Set viewportObj = ThisDrawing.Viewports.Add("NewViewport")
+    
+    ' Find the current snap rotation angle
+    Dim currSnapAngle As Double
+    currSnapAngle = viewportObj.SnapRotationAngle
+    MsgBox "The current model space snap rotation angle is " & viewportObj.SnapRotationAngle, , "SnapRotationAngle Example"
+    
+    ' Change the snap rotation angle
+    viewportObj.SnapRotationAngle = 1.5
+    MsgBox "The new model space snap rotation angle is " & viewportObj.SnapRotationAngle, , "SnapRotationAngle Example"
+   
+    
+    ' Create a new paper space viewport
+    Dim pviewportObj As AcadPViewport
+    Dim center(0 To 2) As Double
+    Dim width As Double
+    Dim height As Double
+    
+    center(0) = 3: center(1) = 3: center(2) = 0
+    width = 40
+    height = 40
+    ThisDrawing.ActiveSpace = acPaperSpace
+    Set pviewportObj = ThisDrawing.PaperSpace.AddPViewport(center, width, height)
+    
+    ' Find the current snap rotation angle
+    currSnapAngle = pviewportObj.SnapRotationAngle
+    MsgBox "The current paper space snap rotation angle is " & pviewportObj.SnapRotationAngle, , "SnapRotationAngle Example"
+    
+    ' Change the snap rotation angle
+    pviewportObj.SnapRotationAngle = 1.5
+    MsgBox "The new paper space snap base point is " & pviewportObj.SnapRotationAngle, , "SnapRotationAngle Example"
+
+End Sub

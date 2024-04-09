@@ -1,0 +1,8 @@
+Function Open_WithChrome(rango As String)
+ChromeLocation = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" 'Location of Chrome.exe in your PC
+URL = rango
+MyURL = URL
+'MyURL = "https://www.google.com" 'URL that you would like to open; you may also use a variable for this, or a pointer to the location of the URL
+Shell (ChromeLocation & " -url " & MyURL)
+Sleep 4000
+End Function

@@ -1,0 +1,30 @@
+Sub Example_LowerLeftCorner()
+    ' This example creates a new viewport and makes it active.
+    ' Then it splits the viewport into four windows.
+    ' It then finds the lower-left corner of each of the
+    ' windows.
+    Dim newViewport As AcadViewport
+       
+    ' Create a new viewport and make it active
+    Set newViewport = ThisDrawing.Viewports.Add("TESTVIEWPORT")
+    ThisDrawing.ActiveViewport = newViewport
+    
+    ' Split the viewport in four windows
+    newViewport.Split acViewport4
+    
+    ' Make the newly split viewport active
+    ThisDrawing.ActiveViewport = newViewport
+    
+    ' Iterate through the viewports. For each viewport,
+    ' make that viewport active and display the coordinates
+    ' of the lower left corner.
+    Dim entry As AcadViewport
+    Dim lowerLeft As Variant
+    For Each entry In ThisDrawing.Viewports
+        entry.GridOn = True
+        ThisDrawing.ActiveViewport = entry
+        lowerLeft = entry.LowerLeftCorner
+        MsgBox "The lower left corner of this viewport is " & lowerLeft(0) & ", " & lowerLeft(1), , "LowerLeftCorner Example"
+        entry.GridOn = False
+    Next
+End Sub

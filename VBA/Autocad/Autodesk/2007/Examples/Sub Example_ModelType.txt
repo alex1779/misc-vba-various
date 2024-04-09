@@ -1,0 +1,15 @@
+Sub Example_ModelType()
+    ' This example creates a plot configuration object
+    ' and then finds the ModelType for the object.
+    
+    Dim PlotConfigObj As AcadPlotConfiguration
+
+    ' Creates the MText Object
+    Set PlotConfigObj = ThisDrawing.PlotConfigurations.Add("NewPlotConfiguration")
+    
+    ' Find the current ModelType
+    Dim currModelType As Boolean
+    currModelType = PlotConfigObj.ModelType
+    MsgBox "The ModelType for the object is: " & currModelType
+    
+End Sub

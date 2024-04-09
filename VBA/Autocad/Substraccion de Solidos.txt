@@ -1,0 +1,3 @@
+	Dim objetosolidoMuro1 As Acad3DSolid
+	Dim objetosolidoAM1 As Acad3DSolid
+	objetosolidoMuro1.Boolean acSubtraction, objetosolidoAM1

@@ -1,0 +1,28 @@
+Sub Example_PrinterConfigPath()
+    ' This example reads and modifies the preference value that controls
+    ' the location for printer configuration files.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesFiles
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the files preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Files
+    
+    ' Read and display the original value
+    originalValue = ACADPref.PrinterConfigPath
+    MsgBox "The PrinterConfigPath preference is set to: " & originalValue
+
+    ' Modify the PrinterConfigPath preference by changing the path to "C:\"
+    ACADPref.PrinterConfigPath = "C:\"
+    newValue = ACADPref.PrinterConfigPath
+    MsgBox "The PrinterConfigPath preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.PrinterConfigPath = originalValue
+    MsgBox "The PrinterConfigPath preference was reset back to: " & originalValue
+End Sub

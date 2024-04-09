@@ -1,0 +1,20 @@
+Sub Example_Utility()
+    ' This example creates a spline in model space using the
+    ' CreateTypedArray method off of the utility object.
+        
+    ' Create the spline
+    Dim splineObj As AcadSpline
+    Dim startTan As Variant
+    Dim endTan As Variant
+    Dim fitPoints As Variant
+    Dim utilObj As Object   ' CreateTypedArray needs to be a late bound object
+    Set utilObj = ThisDrawing.Utility
+    
+    utilObj.CreateTypedArray startTan, vbDouble, 0.5, 0.5, 0
+    utilObj.CreateTypedArray endTan, vbDouble, 0.5, 0.5, 0
+    utilObj.CreateTypedArray fitPoints, vbDouble, 1, 1, 0, 5, 5, 0, 10, 0, 0
+    Set splineObj = ThisDrawing.ModelSpace.AddSpline(fitPoints, startTan, endTan)
+    
+    ZoomAll
+    
+End Sub

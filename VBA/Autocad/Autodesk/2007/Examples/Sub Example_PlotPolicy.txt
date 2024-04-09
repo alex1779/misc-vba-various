@@ -1,0 +1,25 @@
+Sub Example_PlotPolicy()
+    ' This example reads and modifies the PlotPolicy
+    ' preference value.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesOutput
+    Dim originalValue As Integer
+    
+    ' Get the user preferences object
+
+    Set ACADPref = ThisDrawing.Application.preferences.Output
+    
+    ' Read and display the original value
+    originalValue = ACADPref.PlotPolicy
+    MsgBox "The PlotPolicy preference is set to: " & originalValue
+
+    ' Modify the PlotPolicy preference by toggling the value
+    ACADPref.PlotPolicy = acPolicyNamed
+    MsgBox "The PlotPolicy preference has been set to: " & ACADPref.PlotPolicy
+
+    ' Reset the preference back to its original value
+    ACADPref.PlotPolicy = originalValue
+    MsgBox "The PlotPolicy preference was reset back to: " & originalValue
+End Sub

@@ -1,0 +1,26 @@
+Sub Example_UseLastPlotSettings()
+    ' This example reads and modifies the UseLastPlotSettings
+    ' preference value.
+    ' When finished, this example resets the preference value back to
+    ' it's original value.
+    
+    Dim ACADPref As AcadPreferencesOutput
+    Dim originalValue As Boolean
+    
+    ' Get the user preferences object
+
+    Set ACADPref = ThisDrawing.Application.preferences.Output
+    
+    ' Read and display the original value
+    originalValue = ACADPref.UseLastPlotSettings
+    MsgBox "The UseLastPlotSettings preference is set to: " & originalValue
+
+    ' Modify the UseLastPlotSettings preference by toggling the value
+    ACADPref.UseLastPlotSettings = Not ACADPref.UseLastPlotSettings
+
+    MsgBox "The UseLastPlotSettings preference has been set to: " & ACADPref.UseLastPlotSettings
+
+    ' Reset the preference back to it's original value
+    ACADPref.UseLastPlotSettings = originalValue
+    MsgBox "The UseLastPlotSettings preference was reset back to: " & originalValue
+End Sub

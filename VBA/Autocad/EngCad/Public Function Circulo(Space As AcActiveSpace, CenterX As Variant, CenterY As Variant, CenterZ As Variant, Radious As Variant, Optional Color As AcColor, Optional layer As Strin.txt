@@ -1,0 +1,10 @@
+Public Function Circulo(Space As AcActiveSpace, CenterX As Variant, CenterY As Variant, CenterZ As Variant, Radious As Variant, Optional Color As AcColor, Optional layer As String)
+Dim CirculoObj As AcadCircle
+Dim Pnt(0 To 2) As Double
+Pnt(0) = CenterX: Pnt(1) = CenterY: Pnt(2) = CenterZ
+If Space = 0 Then Set CirculoObj = Autocad.Application.ActiveDocument.PaperSpace.AddCircle(Pnt, Radious)
+If Space = 1 Then Set CirculoObj = Autocad.Application.ActiveDocument.modelspace.AddCircle(Pnt, Radious)
+On Error Resume Next
+CirculoObj.Color = Color
+CirculoObj.layer = layer
+End Function

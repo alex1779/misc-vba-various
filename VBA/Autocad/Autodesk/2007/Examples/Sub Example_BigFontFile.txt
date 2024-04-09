@@ -1,0 +1,20 @@
+Sub Example_BigFontFile()
+    ' This example returns the current setting of
+    ' BigFontFile. It then changes the value.
+    
+    Dim textStyle1 As AcadTextStyle
+    Dim currBigFontFile As String
+    Dim newBigFontFile As String
+    
+    Set textStyle1 = ThisDrawing.ActiveTextStyle
+    
+    ' Retrieve the current BigFontFile value
+    currBigFontFile = textStyle1.BigFontFile
+    MsgBox "The current value for BigFontFile is " & currBigFontFile, vbInformation, "BigFontFile Example"
+    
+    ' Change the value for BigFontFile
+    newBigFontFile = "C:/AutoCAD/Fonts/bigfont.shx"
+    textStyle1.BigFontFile = newBigFontFile
+    MsgBox "The new value for BigFontFile is " & newBigFontFile, vbInformation, "BigFontFile Example"
+
+End Sub

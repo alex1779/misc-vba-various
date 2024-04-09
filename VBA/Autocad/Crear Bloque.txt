@@ -1,0 +1,10 @@
+Private Sub CreaBloque()
+Dim insertionPnt(0 To 2) As Double
+Dim blockObj As AcadBlock
+Dim circleObj As AcadCircle
+insertionPnt(0) = 0
+insertionPnt(1) = 0
+insertionPnt(2) = 0
+Set blockObj = AutoCAD.ActiveDocument.Blocks.Add(insertionPnt, "1")
+Set circleObj = blockObj.AddCircle(insertionPnt, 1)
+End Sub

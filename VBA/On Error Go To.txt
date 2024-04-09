@@ -1,0 +1,6 @@
+On Error GoTo Errores
+
+
+
+Errores:
+MsgBox "No se encuentra.", vbExclamation, ""

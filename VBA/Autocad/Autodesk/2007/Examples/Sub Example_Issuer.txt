@@ -1,0 +1,22 @@
+Sub Example_Issuer()
+    ' This example attaches a digital signature and accompanying data to a file,
+    ' and saves the file.
+
+    Dim acad As New AcadApplication
+    Dim sp As New AcadSecurityParams
+    
+    acad.Visible = True
+    
+    ' Attach a digital signature and timestamp it
+    sp.Action = AcadSecurityParamsType.ACADSECURITYPARAMS_SIGN_DATA _
+    
+    
+    ' Certificate details follow
+    sp.Subject = "Thawte Freemail Member"
+    sp.Issuer = "Personal Freemail RSA 2000.8.30"
+    sp.SerialNumber = "073848"
+    sp.Comment = "This is now signed"
+    sp.TimeServer = "NIST(time.nist.gov)"
+    
+    acad.ActiveDocument.SaveAs "C:\MyDrawing.dwg", , sp
+End Sub

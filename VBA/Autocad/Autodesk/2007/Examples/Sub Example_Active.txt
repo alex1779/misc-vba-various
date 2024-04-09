@@ -1,0 +1,21 @@
+Sub Example_Active()
+    ' This example creates two new drawings and determines
+    ' which of the drawings is the active drawing.
+    
+    Dim NewDrawing1 As AcadDocument
+    Dim Newdrawing2 As AcadDocument
+    Set NewDrawing1 = ThisDrawing.Application.Documents.Add("")
+    Set Newdrawing2 = ThisDrawing.Application.Documents.Add("")
+    
+    Dim activeStatus As String
+    Dim drawing As AcadDocument
+    activeStatus = ""
+    For Each drawing In ThisDrawing.Application.Documents
+    If drawing.Active Then
+            activeStatus = activeStatus & drawing.name & " is active." & vbCrLf
+    Else
+            activeStatus = activeStatus & drawing.name & " is not active." & vbCrLf
+    End If
+    Next drawing
+    MsgBox activeStatus
+End Sub

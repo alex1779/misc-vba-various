@@ -1,0 +1,28 @@
+Sub Example_HyperlinkDisplayCursor()
+    ' This example reads and modifies the preference value that controls
+    ' the display of the hyperlink cursor and shortcut menu.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesUser
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the user preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.User
+    
+    ' Read and display the original value
+    originalValue = ACADPref.HyperlinkDisplayCursor
+    MsgBox "The HyperlinkDisplayCursor preference is set to: " & originalValue
+
+    ' Modify the HyperlinkDisplayCursor preference by toggling the value
+    ACADPref.HyperlinkDisplayCursor = Not (ACADPref.HyperlinkDisplayCursor)
+    newValue = ACADPref.HyperlinkDisplayCursor
+    MsgBox "The HyperlinkDisplayCursor preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.HyperlinkDisplayCursor = originalValue
+    MsgBox "The HyperlinkDisplayCursor preference was reset back to: " & originalValue
+End Sub

@@ -1,0 +1,36 @@
+Sub Example_SelectByPolygon()
+    ' This example adds objects to a selection set by defining a polygon.
+    
+    Dim ssetObj As AcadSelectionSet
+    Set ssetObj = ThisDrawing.SelectionSets.Add("TEST_SSET2")
+     
+    ' Add to the selection set all the objects that lie within a fence 
+    Dim mode As Integer
+    Dim pointsArray(0 To 11) As Double
+    mode = acSelectionSetFence
+    pointsArray(0) = 28.2: pointsArray(1) = 17.2: pointsArray(2) = 0
+    pointsArray(3) = -5: pointsArray(4) = 13: pointsArray(5) = 0
+    pointsArray(6) = -3.3: pointsArray(7) = -3.6: pointsArray(8) = 0
+    pointsArray(9) = 28: pointsArray(10) = -3: pointsArray(11) = 0
+    
+    ssetObj.SelectByPolygon mode, pointsArray
+    
+    ' Add to the selection set all the Circles that lie within fence 
+    ReDim gpCode(0 To 1) As Integer
+    gpCode(0) = 0
+    gpCode(1) = 10
+    
+    Dim pnt(0 To 2) As Double
+    pnt(0) = 3: pnt(1) = 6: pnt(2) = 0
+    
+    ReDim dataValue(0 To 1) As Variant
+    dataValue(0) = "Circle"
+    dataValue(1) = pnt
+    
+    Dim groupCode As Variant, dataCode As Variant
+    groupCode = gpCode
+    dataCode = dataValue
+    
+    ssetObj.SelectByPolygon mode, pointsArray, groupCode, dataCode
+    
+End Sub

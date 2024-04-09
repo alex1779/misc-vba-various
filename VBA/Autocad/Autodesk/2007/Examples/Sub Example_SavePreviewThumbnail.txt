@@ -1,0 +1,22 @@
+Sub Example_SavePreviewThumbnail()
+    ' This example returns the current setting of
+    ' SavePreviewThumbnail. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currSavePreviewThumbnail As Boolean
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current SavePreviewThumbnail value
+    currSavePreviewThumbnail = preferences.OpenSave.SavePreviewThumbnail
+    MsgBox "The current value for SavePreviewThumbnail is " & preferences.OpenSave.SavePreviewThumbnail, vbInformation, "SavePreviewThumbnail Example"
+    
+    ' Change the value for SavePreviewThumbnail
+    preferences.OpenSave.SavePreviewThumbnail = Not (currSavePreviewThumbnail)
+    MsgBox "The new value for SavePreviewThumbnail is " & preferences.OpenSave.SavePreviewThumbnail, vbInformation, "SavePreviewThumbnail Example"
+    
+    ' Reset SavePreviewThumbnail to its original value
+    preferences.OpenSave.SavePreviewThumbnail = currSavePreviewThumbnail
+    MsgBox "The SavePreviewThumbnail value is reset to " & currSavePreviewThumbnail, vbInformation, "SavePreviewThumbnail Example"
+End Sub

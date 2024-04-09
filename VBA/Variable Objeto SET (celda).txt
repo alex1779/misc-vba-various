@@ -1,0 +1,3 @@
+
+    Dim Celda As Range
+    Set Celda = Worksheets("Hoja1").Range("A1")

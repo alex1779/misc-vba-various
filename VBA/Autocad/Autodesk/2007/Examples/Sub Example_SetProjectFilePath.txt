@@ -1,0 +1,33 @@
+Sub Example_SetProjectFilePath()
+    ' This example finds the current project file information, changes
+    ' that information, and finally resets the information back to the
+    ' original values.
+    
+    Dim preferences As AcadPreferences
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Get the current project file information
+    Dim currProjPath As String
+    Dim currProjName As Variant
+    currProjName = ThisDrawing.GetVariable("PROJECTNAME")
+    If currProjName <> "" Then
+        currProjPath = preferences.GetProjectFilePath(currProjName)
+    End If
+    If currProjPath = "" Then
+        MsgBox "There is no current project file or path. ", , "SetProjectFilePath Example"
+    Else
+        MsgBox "The current project file path is: " & currProjPath, , "SetProjectFilePath Example"
+        ' Set new project file information.
+        ' Change drive/path as necessary to match your system
+        Dim newProjPath As String
+        newProjPath = "C:/AutoCAD/"
+        
+        preferences.SetProjectFilePath currProjName, newProjPath
+        MsgBox "The new project file path is: " & newProjPath, , "GetProjectFilePath Example"
+        
+        ' Reset the project file information
+        preferences.SetProjectFilePath currProjName, currProjPath
+        MsgBox "The project file path has been reset to: " & currProjPath, , "GetProjectFilePath Example"
+    End If
+    
+End Sub

@@ -1,0 +1,4 @@
+Unload Me
+Application.Visible = True
+Application.WindowState = xlMaximized
+Application.SendKeys ("%") & ("g") & ("v")

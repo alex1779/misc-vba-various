@@ -1,0 +1,5 @@
+Public Function ReemplazarTexto(TextoEntrada As String, TextoSalida As String)
+Cells.Replace What:=TextoEntrada, Replacement:=TextoSalida, LookAt:=xlPart, _
+SearchOrder:=xlByRows, MatchCase:=False, SearchFormat:=False, _
+ReplaceFormat:=False
+End Function

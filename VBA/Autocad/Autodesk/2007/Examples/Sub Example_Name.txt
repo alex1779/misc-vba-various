@@ -1,0 +1,23 @@
+Sub Example_Name()
+    ' This example creates a new layer. It then
+    ' changes the name of that layer.
+    
+    ' Add the new layer
+    Dim layerObj As AcadLayer
+    Set layerObj = ThisDrawing.Layers.Add("NewLayer")
+    
+    ' Find the name of the new layer
+    Dim layerName As String
+    layerName = layerObj.name
+    MsgBox "A new layer was created with the name: " & layerObj.name, , "Name Example"
+    
+    ' Change the name of the layer to "TEST". Note that behavior of the
+    ' following code will be different for different objects. In some cases such as
+    ' Block reference, changing the name means referencing to a new Block and therefore
+    ' a Block with named "TEST" should already exist: otherwise an error will be
+    ' returned.
+    layerObj.name = "TEST"
+    layerName = layerObj.name
+    MsgBox "The new name of the layer is: " & layerObj.name, , "Name Example"
+    
+End Sub

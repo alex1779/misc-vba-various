@@ -1,0 +1,17 @@
+Sub Example_Drafting()
+    ' This example obtains a reference to the Drafting Preferences object
+    ' from the Application Preferences object, and reads one of the Drafting
+    ' preferences
+    
+    Dim ACADPref As AcadPreferencesDrafting
+    
+    ' Obtain a reference to the Drafting Preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Drafting
+    
+    MsgBox "We now have access to the properties and methods of the Drafting Preferences object!"
+    MsgBox "The Drafting preference AutoSnapTooltip is set to: " & ACADPref.AutoSnapTooltip
+    
+    ' Release Drafting Preferences object
+    Set ACADPref = Nothing
+    MsgBox "We have now released the Drafting Preferences object!"
+End Sub

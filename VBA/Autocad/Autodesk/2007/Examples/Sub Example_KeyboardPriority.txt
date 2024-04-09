@@ -1,0 +1,26 @@
+Sub Example_KeyboardPriority()
+    ' This example returns the current setting of
+    ' KeyboardPriority. It then changes the value, and finally
+    ' it resets the value back to the original setting.
+    
+    Dim preferences As AcadPreferences
+    Dim currKeyboardPriority As Integer
+    Dim constant As String
+    Dim newConstant As String
+    
+    Set preferences = ThisDrawing.Application.preferences
+    
+    ' Retrieve the current KeyboardPriority value
+    currKeyboardPriority = preferences.User.KeyboardPriority
+    constant = Choose(currKeyboardPriority + 1, "acKeyboardRunningObjSnap", "acKeyboardEntry", "acKeyboardEntryExceptScripts")
+    MsgBox "The current value for KeyboardPriority is " & constant, vbInformation, "KeyboardPriority Example"
+    
+    ' Change the value for KeyboardPriority
+    newConstant = "acKeyboardEntry"
+    preferences.User.KeyboardPriority = acKeyboardEntry
+    MsgBox "The new value for KeyboardPriority is " & newConstant, vbInformation, "KeyboardPriority Example"
+    
+    ' Reset KeyboardPriority to its original value
+    preferences.User.KeyboardPriority = currKeyboardPriority
+    MsgBox "The KeyboardPriority value is reset to " & constant, vbInformation, "KeyboardPriority Example"
+End Sub

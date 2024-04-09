@@ -1,0 +1,27 @@
+Sub Example_LastHeight()
+    ' This example finds the current value for LastHeight.
+    ' It then changes that value, and resets it again.
+
+    Dim txtStyleObj As AcadTextStyle
+    Set txtStyleObj = ThisDrawing.ActiveTextStyle
+    
+    ' Set and retrieve the LastHeight property
+    Dim currHeight As Double
+    Dim newHeight As Double
+    
+    ' Retrieve current LastHeight property
+    currHeight = txtStyleObj.lastHeight
+    MsgBox "The current value for LastHeight is " & txtStyleObj.lastHeight, , "LastHeight Example"
+    
+    ' Set LastHeight to a new value
+    txtStyleObj.lastHeight = 4#
+    
+    ' Retrieve the current LastHeight value
+    newHeight = txtStyleObj.lastHeight
+    MsgBox "The new value for LastHeight is " & txtStyleObj.lastHeight, , "LastHeight Example"
+    
+    ' Finally reset LastHeight to its default value
+    txtStyleObj.lastHeight = currHeight
+    MsgBox "The value for LastHeight has been reset to " & txtStyleObj.lastHeight, , "LastHeight Example"
+    
+End Sub

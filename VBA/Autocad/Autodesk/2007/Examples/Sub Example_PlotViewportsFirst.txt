@@ -1,0 +1,24 @@
+Sub Example_PlotViewportsFirst()
+    ' This example reads and modifies the PlotViewportsFirst
+    ' Layout value.
+    ' When finished, this example resets the  value back to
+    ' its original value.
+    
+    Dim ACADLayout As ACADLayout
+    Dim originalValue As Boolean
+    
+    ' Get the layout object
+    Set ACADLayout = ThisDrawing.ActiveLayout
+    
+    ' Read and display the original value
+    originalValue = ACADLayout.PlotViewportsFirst
+    MsgBox "The PlotViewportsFirst value is set to: " & originalValue
+
+    ' Modify the PlotViewportsFirst preference by toggling the value
+    ACADLayout.PlotViewportsFirst = Not ACADLayout.PlotViewportsFirst
+    MsgBox "The PlotViewportsFirst preference has been set to: " & ACADLayout.PlotViewportsFirst
+
+    ' Reset the preference back to its original value
+    ACADLayout.PlotViewportsFirst = originalValue
+    MsgBox "The PlotViewportsFirst preference was reset back to: " & originalValue
+End Sub

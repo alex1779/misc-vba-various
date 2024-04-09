@@ -1,0 +1,12 @@
+Private Sub AcadDocument_BeginCommand(ByVal CommandName As String)()
+    ' This example intercepts a drawing BeginCommand event.
+    '
+    ' This event is triggered when a drawing receives
+    ' any command compatible with this event.
+    '
+    ' To trigger this example event: Issue any command to an open drawing from
+    ' either the command line, VBA, the AutoCAD menus, the AutoCAD toolbars, or LISP.
+
+    ' Use the "CommandName" variable to determine which command was started
+    MsgBox "A drawing has just been issued a " & CommandName & " command."
+End Sub

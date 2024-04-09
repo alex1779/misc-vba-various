@@ -1,0 +1,5 @@
+Private Sub AcadDocument_BeginShortcutMenuDefault(ShortcutMenu As AutoCAD.IAcadPopupMenu)()
+    ' This example intercepts a shortcut menu start while you are in the default mode.
+    '
+    MsgBox "You have just initiated a shortcut menu in default mode!"
+End Sub

@@ -1,0 +1,32 @@
+Sub Example_ActiveLinetype()
+    ' This example finds the current linetype. It then sets
+    ' the new linetype to be the first entry in the linetype
+    ' collection that is not equal to the current linetype.
+    ' Finally, it resets the active linetype to the original
+    ' setting.
+    
+    Dim currLineType As AcadLineType
+    Dim newLineType As AcadLineType
+    
+    ' Find the current LineType of the active document
+    Set currLineType = ThisDrawing.ActiveLinetype
+    MsgBox "The current linetype is " & currLineType.name, vbInformation, "ActiveLinetype Example"
+    
+    ' Set the current Linetype to anything else in the collection
+    Dim entry
+    Dim found As Boolean
+    For Each entry In ThisDrawing.Linetypes
+        If StrComp(entry.name, currLineType.name, 1) <> 0 Then
+            Set newLineType = entry
+            found = True
+            Exit For
+        End If
+    Next
+    If found Then
+        ThisDrawing.ActiveLinetype = newLineType
+        MsgBox "The new linetype is " & newLineType.name, vbInformation, "ActiveLinetype Example"
+        ' Reset the linetype to the previous setting
+        ThisDrawing.ActiveLinetype = currLineType
+        MsgBox "The active linetype is reset to " & currLineType.name, vbInformation, "ActiveLinetype Example"
+    End If
+End Sub

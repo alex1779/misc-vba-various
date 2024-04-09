@@ -1,0 +1,26 @@
+Sub Example_ADCInsertUnitsDefaultSource()
+    ' This example reads and modifies the ADCInsertUnitsDefaultSource
+    ' preference value.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesUser
+    Dim originalValue As Integer, newValue As Integer
+    
+    ' Get the user preferences object
+
+    Set ACADPref = ThisDrawing.Application.preferences.User
+    
+    ' Read and display the original value
+    originalValue = ACADPref.ADCInsertUnitsDefaultSource
+    MsgBox "The ADCInsertUnitsDefaultSource preference is set to: " & originalValue
+
+    ' Modify the ADCInsertUnitsDefaultSource preference by toggling the value
+    ACADPref.ADCInsertUnitsDefaultSource = acInsertUnitsMillimeters
+
+    MsgBox "The ADCInsertUnitsDefaultSource preference has been set to: " & ACADPref.ADCInsertUnitsDefaultSource
+
+    ' Reset the preference back to its original value
+    ACADPref.ADCInsertUnitsDefaultSource = originalValue
+    MsgBox "The ADCInsertUnitsDefaultSource preference was reset back to: " & originalValue
+End Sub

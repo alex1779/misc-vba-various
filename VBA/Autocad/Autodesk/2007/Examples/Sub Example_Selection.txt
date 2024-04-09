@@ -1,0 +1,17 @@
+Sub Example_Selection()
+    ' This example obtains a reference to the Selection Preferences object
+    ' from the Application Preferences object, and reads one of the Selection
+    ' preferences
+    
+    Dim ACADPref As AcadPreferencesSelection
+    
+    ' Obtain a reference to the Selection Preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Selection
+    
+    MsgBox "We now have access to the properties and methods of the Selection Preferences object!"
+    MsgBox "The Selection preference GripSize is set to: " & ACADPref.GripSize
+    
+    ' Release Selection Preferences object
+    Set ACADPref = Nothing
+    MsgBox "We have now released the Selection Preferences object!"
+End Sub

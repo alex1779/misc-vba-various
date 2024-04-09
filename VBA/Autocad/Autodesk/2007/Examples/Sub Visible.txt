@@ -1,0 +1,27 @@
+Sub Visible()
+    ' This example creates a line in model space.
+    ' It then turns visibility of the line on or off, depending
+    ' on the user's choice.
+    
+    Dim lineObj As AcadLine
+    Dim startPoint(0 To 2) As Double
+    Dim endPoint(0 To 2) As Double
+    ' Create the line
+    startPoint(0) = 2#: startPoint(1) = 2#: startPoint(2) = 0#
+    endPoint(0) = 4#: endPoint(1) = 4#: endPoint(2) = 0#
+    Set lineObj = ThisDrawing.ModelSpace.AddLine(startPoint, endPoint)
+    ZoomAll
+    
+    Dim response As Integer
+    response = MsgBox("Do you want the new line to be visible?", vbYesNoCancel + vbQuestion)
+    Select Case response
+    Case vbYes
+        lineObj.Visible = True
+    Case vbNo
+        lineObj.Visible = False
+    Case vbCancel
+        Exit Sub
+    End Select
+    
+    ThisDrawing.Regen True
+End Sub

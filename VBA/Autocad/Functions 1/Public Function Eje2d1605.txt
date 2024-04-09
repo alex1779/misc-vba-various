@@ -1,0 +1,49 @@
+Public Function Eje2d1605(largo As Integer)
+Dim linea1 As AcadLine
+
+Linea lineao, 0, 0, 0, 0, 0, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea lineaA, -15, 0, 0, largo + 15, 0, 0, acByLayer, ".CENTER LINE"
+lineaA.LinetypeScale = 10
+
+Linea linea1, 0, 4.5, 0, 0, -4.5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 0, -4.5, 0, 0.5, -5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 0, 4.5, 0, 0.5, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 15, 5, 0, 0.5, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 15, -5, 0, 0.5, -5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 0.5, 5, 0, 0.5, -5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 15, 5.5, 0, 15, -5.5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 54, 6, 0, 29, 6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 54, -6, 0, 29, -6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 28.88, 6, 0, 15.5, 6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 28.88, -6, 0, 15.5, -6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 29, 3.3282, 0, 28.88, 3.3282, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 29, -3.3282, 0, 28.88, -3.3282, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 29, 6, 0, 29, -6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 28.88, 6, 0, 28.88, -6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 15, 5.5, 0, 15.5, 6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 15.5, 6, 0, 15.5, -6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 15, -5.5, 0, 15.5, -6, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 54, 7.5, 0, 54, -7.5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 54.5, 8, 0, 54.5, -8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 54, 7.5, 0, 54.5, 8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, 54, -7.5, 0, 54.5, -8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 11.5, 8, 0, 54.5, 8, 0, acByLayer, ".GENERAL ARRANGEMENT" 'ESTAS SON LAS ROSCADAS
+Linea linea1, largo - 11.5, -8, 0, 54.5, -8, 0, acByLayer, ".GENERAL ARRANGEMENT" 'ESTAS SON LAS ROSCADAS
+Linea linea1, largo, 4.5, 0, largo - 0.5, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo, -4.5, 0, largo - 0.5, -5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 0.5, -5, 0, largo - 1.85, -5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 0.5, 5, 0, largo - 1.85, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 1.85, 4.8, 0, largo - 3, 4.8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 1.85, -4.8, 0, largo - 3, -4.8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 3, 5, 0, largo - 11, 5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 3, -5, 0, largo - 11, -5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea1, largo - 11, 7.5, 0, largo - 11.5, 8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea34, largo - 11, -7.5, 0, largo - 11.5, -8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea35, largo - 11.5, 8, 0, largo - 11.5, -8, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea36, largo - 11, 7.5, 0, largo - 11, -7.5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea37, largo - 3, 5, 0, largo - 3, -5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea38, largo - 1.85, 5, 0, largo - 1.85, -5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea39, largo - 0.5, 5, 0, largo - 0.5, -5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+Linea linea40, largo, 4.5, 0, largo, -4.5, 0, acByLayer, ".GENERAL ARRANGEMENT"
+
+End Function

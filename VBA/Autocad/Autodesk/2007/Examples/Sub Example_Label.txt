@@ -1,0 +1,14 @@
+Sub Example_Label()
+    ' This example iterates through the first menu in the menu bar
+    ' and displays the label for each menu item.
+    
+    Dim menuItem As AcadPopupMenuItem
+    Dim menuLabel As String
+    menuLabel = ""
+    
+    For Each menuItem In ThisDrawing.Application.MenuBar.Item(0)
+        menuLabel = menuLabel & menuItem.Label & vbCrLf
+    Next menuItem
+    MsgBox menuLabel
+    
+End Sub

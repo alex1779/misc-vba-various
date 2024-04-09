@@ -1,0 +1,29 @@
+Sub Example_DisplayGrips()
+    ' This example reads and modifies the preference value that controls
+    ' the display of selection set grips for the Stretch, Move, Rotate,
+    ' Scale, and Mirror grip modes.
+    ' When finished, this example resets the preference value back to
+    ' its original value.
+    
+    Dim ACADPref As AcadPreferencesSelection
+    Dim originalValue As Variant, newValue As Variant
+    
+    ' Get the selection preferences object
+    Set ACADPref = ThisDrawing.Application.preferences.Selection
+    
+    ' Read and display the original value
+    originalValue = ACADPref.DisplayGrips
+    MsgBox "The DisplayGrips preference is set to: " & originalValue
+
+    ' Modify the DisplayGrips preference by toggling the value
+    ACADPref.DisplayGrips = Not (originalValue)
+    newValue = ACADPref.DisplayGrips
+    MsgBox "The DisplayGrips preference has been set to: " & newValue
+
+    ' Reset the preference back to its original value
+    '
+    ' * Note: Comment out this last section to leave the change to
+    '         this preference in effect
+    ACADPref.DisplayGrips = originalValue
+    MsgBox "The DisplayGrips preference was reset back to: " & originalValue
+End Sub

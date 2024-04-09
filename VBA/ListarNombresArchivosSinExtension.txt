@@ -1,0 +1,26 @@
+Sub ListarNombresArchivosSinExtension()
+Dim MyObj As Object, Convert As Object, file As Variant
+Dim fso As New FileSystemObject
+Dim Ruta As String
+
+'se Debe Activar Microsoft Scripting Runtime
+
+'seleccionar ruta donde se encuentran los archivos a listar, escriba un nombre para el archivo txt.
+'a continuación se creará un archivo txt con los nombres de los archivos.
+'Ruta_Archivos = CProgram FilesAutodeskAutoCAD 2017Fonts
+Ruta_Archivos = CWindowsFonts
+
+nombre = Application.InputBox(Escriba el nombre del nuevo archivo txt)
+NotepadFile = Ruta_Archivos & nombre & .txt
+fso.CreateTextFile NotepadFile, True
+Set Font = fso.GetFolder(Ruta_Archivos)
+Open NotepadFile For Output As #1
+For Each file In Font.Files
+i = i + 1
+Filename = fso.GetBaseName(file)
+Cells(i, 1) = Filename
+Print #1, Filename
+Next
+Close #1
+abrirtxt = Shell(notepad.exe  & NotepadFile, vbMaximizedFocus)
+End Sub

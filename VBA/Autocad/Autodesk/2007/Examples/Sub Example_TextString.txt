@@ -1,0 +1,23 @@
+Sub Example_TextString()
+    ' This example creates a text object in model space.
+    ' It then returns the text string for that object.
+    
+    Dim textObj As AcadText
+    Dim text As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim height As Double
+    
+    ' Define the text object
+    text = "Hello, World."
+    insertionPoint(0) = 2: insertionPoint(1) = 2: insertionPoint(2) = 0
+    height = 0.5
+    
+    ' Create the text object in model space
+    Set textObj = ThisDrawing.ModelSpace.AddText(text, insertionPoint, height)
+    ZoomAll
+    
+    ' Return the current text string for the object
+    text = textObj.textString
+    MsgBox "The TextString property equals: " & text, vbInformation, "TextString Example"
+        
+End Sub

@@ -1,0 +1,27 @@
+Sub Example_AngleToString()
+    ' This example converts a radian value to several different
+    ' strings representing the value in different units.
+    
+    Dim angAsRad As Double
+    Dim unit As Integer
+    Dim precision As Long
+    Dim angAsString As String
+    angAsRad = 0.785398163397448
+    unit = acDegrees
+    precision = 6
+    
+    ' Convert the radian value to degrees with a precision of 6
+    angAsString = ThisDrawing.Utility.AngleToString(angAsRad, unit, precision)
+    MsgBox "0.785398163397448 radians =  " & angAsString & " degrees", , "AngleAsString Example"
+    
+    ' Convert the radian value to degrees/Minutes/Seconds with a precision of 6
+    unit = acDegreeMinuteSeconds
+    angAsString = ThisDrawing.Utility.AngleToString(angAsRad, unit, precision)
+    MsgBox "0.785398163397448 radians =  " & angAsString, , "AngleAsString Example"
+    
+    ' Convert the radian value to grads with a precision of 6
+    unit = acGrads
+    angAsString = ThisDrawing.Utility.AngleToString(angAsRad, unit, precision)
+    MsgBox "0.785398163397448 radians =  " & angAsString, , "AngleAsString Example"
+    
+End Sub

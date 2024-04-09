@@ -1,0 +1,56 @@
+Sub Example_Sections()
+    Dim sec As AcadSection
+    Dim secMgr As AcadSectionManager
+    Dim sol As Acad3DSolid
+    Dim cen(0 To 2) As Double, ptFrom(0 To 2) As Double, ptTo(0 To 2) As Double, planeVector(0 To 2) As Double
+    Set ms = ThisDrawing.ModelSpace
+    cen(0) = 2#
+    cen(1) = 3#
+    cen(2) = 0#
+    
+    Set sol = ms.AddCylinder(cen, 5, 20)
+    
+    ptFrom(0) = cen(0) - 8
+    ptFrom(1) = cen(1)
+    ptFrom(2) = cen(2)
+    
+    ptTo(0) = cen(0) + 8
+    ptTo(1) = cen(1)
+    ptTo(2) = cen(2) + 10
+    
+    planeVector(0) = 0
+    planeVector(1) = 1#
+    planeVector(2) = 0#
+    
+    Set sec = ms.AddSection(ptFrom, ptTo, planeVector)
+    sec.LiveSectionEnabled = True
+    
+    Set secMgr = ThisDrawing.SectionManager
+    'now get the live section, which is the section we just created
+    Set sec = secMgr.GetLiveSection
+    
+    
+    Dim verts As Variant
+    verts = sec.Vertices
+    
+    Dim promptString As String
+    Dim coordId(1 To 3) As String
+    coordId(1) = "X="
+    coordId(2) = "Y="
+    coordId(3) = "Z="
+    
+    Dim i As Integer
+    i = 1
+    For Each n In verts
+        If i < 3 Then
+            promptString = promptString & coordId(i) & n & ", "
+            i = i + 1
+        Else
+            promptString = promptString & coordId(i) & n & vbCr
+            i = 1
+        End If
+    Next n
+    
+    MsgBox "Vertices:" & vbCr & promptString
+
+End Sub

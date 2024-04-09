@@ -1,0 +1,20 @@
+Sub Example_ActiveDimStyle()
+    ' This example returns the current dimension style
+    ' and then sets a new style.
+    ' Finally, it returns the style to the previous setting.
+    Dim newDimStyle As AcadDimStyle
+    Dim currDimStyle As AcadDimStyle
+    
+    ' Return current dimension style of active document
+    Set currDimStyle = ThisDrawing.ActiveDimStyle
+    MsgBox "The current dimension style is " & currDimStyle.name, vbInformation, "ActiveDimStyle Example"
+    
+    ' Create a dimension style and makes it current
+    Set newDimStyle = ThisDrawing.DimStyles.Add("TestDimStyle")
+    ThisDrawing.ActiveDimStyle = newDimStyle    ' set current dimension style to newDimStyle
+    MsgBox "The new dimension style is " & newDimStyle.name, vbInformation, "ActiveDimStyle Example"
+    
+    ' Reset the dimension style to its previous setting
+    ThisDrawing.ActiveDimStyle = currDimStyle
+    MsgBox "The dimension style is reset to " & currDimStyle.name, vbInformation, "ActiveDimStyle Example"
+End Sub

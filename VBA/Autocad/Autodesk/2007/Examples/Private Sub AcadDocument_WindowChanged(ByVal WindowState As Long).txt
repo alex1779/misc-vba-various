@@ -1,0 +1,21 @@
+Private Sub AcadDocument_WindowChanged(ByVal WindowState As Long)()
+    ' This example intercepts a drawing WindowChanged event.
+    '
+    ' This event is triggered when the window state of the
+    ' current drawing window is changed.
+    '
+    ' To trigger this example event: Change the window state of the drawing window
+    '
+    ' For example: Minimize or maximize the drawing window
+
+    Dim CurrentState As String
+
+    ' Use the "WindowState" variable to determine the new drawing window state
+    Select Case WindowState
+        Case acMin: CurrentState = "Minimized"
+        Case acMax: CurrentState = "Maximized"
+        Case acNorm: CurrentState = "Normal Size"
+    End Select
+
+    MsgBox "The drawing window is now: " & CurrentState
+End Sub

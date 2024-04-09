@@ -1,0 +1,23 @@
+Sub Example_Close()
+    ' This example cycles through the documents collection
+    ' and closes all open drawings using the Close method.
+
+    Dim DOC As AcadDocument
+    
+    ' If there are no open documents, then exit
+    If Documents.count = 0 Then
+        MsgBox "There are no open documents!"
+        Exit Sub
+    End If
+    
+    ' Close all open documents
+    For Each DOC In Documents
+        If MsgBox("Do you wish to close the document: " & DOC.WindowTitle, vbYesNo & vbQuestion) = vbYes Then
+            If DOC.FullName <> "" Then
+                DOC.Close
+            Else
+                MsgBox DOC.name & " has not been saved yet, so it will not be closed."
+            End If
+        End If
+    Next
+End Sub

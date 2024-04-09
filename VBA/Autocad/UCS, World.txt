@@ -1,0 +1,2 @@
+    'UCS World
+    AutoCAD.Application.ActiveDocument.SendCommand "_UCS" & vbCr & "_W" & vbCr

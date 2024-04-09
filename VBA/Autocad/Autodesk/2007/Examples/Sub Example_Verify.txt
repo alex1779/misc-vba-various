@@ -1,0 +1,31 @@
+Sub Example_Verify()
+    ' This example creates an attribute definition in model space.
+    ' It then sets the definition to be verify, and queries the mode.
+    
+    Dim attributeObj As AcadAttribute
+    Dim height As Double
+    Dim mode As Long
+    Dim prompt As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim tag As String
+    Dim value As String
+    
+    ' Define the attribute definition
+    height = 1#
+    mode = acAttributeModeVerify
+    prompt = "New Prompt"
+    insertionPoint(0) = 5#: insertionPoint(1) = 5#: insertionPoint(2) = 0
+    tag = "New Tag"
+    value = "New Value"
+    
+    ' Create the attribute definition object in model space
+    Set attributeObj = ThisDrawing.ModelSpace.AddAttribute(height, mode, prompt, insertionPoint, tag, value)
+    ZoomAll
+    
+    ' Change the mode to be verify
+    attributeObj.mode = acAttributeModeVerify
+    attributeObj.Update
+    
+    ' Check to see if the attribute is set to verify
+    MsgBox (IIf(attributeObj.Verify, "The attribute is set to verify", "The attribute is not set to verify"))
+End Sub

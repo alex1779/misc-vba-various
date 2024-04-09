@@ -1,0 +1,25 @@
+Sub Example_Height()
+    ' This example creates a text object in model space.
+    ' It then changes the height of the text object.
+
+    Dim textObj As AcadText
+    Dim textString As String
+    Dim insertionPoint(0 To 2) As Double
+    Dim height As Double
+    
+    ' Define the text object
+    textString = "Hello, World."
+    insertionPoint(0) = 3: insertionPoint(1) = 3: insertionPoint(2) = 0
+    height = 0.5
+    
+    ' Create the text object in model space
+    Set textObj = ThisDrawing.ModelSpace.AddText(textString, insertionPoint, height)
+    ZoomAll
+    MsgBox "The text height is " & textObj.height, vbInformation, "Height Example"
+    
+    ' Change the value of the Height to 1
+    textObj.height = 1
+    textObj.Update
+    MsgBox "The text height is set to " & textObj.height, vbInformation, "Height Example"
+    
+End Sub
